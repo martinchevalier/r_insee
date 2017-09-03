@@ -1,0 +1,94 @@
+---
+title: "Formation R Perfectionnement"
+fontsize: 12pt
+---
+
+```{r, include=FALSE}
+if(!exists(".initOK")) source("fonctions.R")
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+# \LARGE Objectifs et organisation
+
+\subsection*{\LARGE Objectifs et organisation}
+
+### \ 
+
+\large 
+Apprendre à perfectionner son utilisation de R : acquérir des points de repères, des réflexes, des méthodes de travail.
+
+\bigskip \pause 
+
+Effectuer un panorama structuré et hiérarchisé de méthodes et outils largement utilisés. 
+
+\bigskip \pause 
+
+Prendre du recul sur le logiciel, comprendre certains modes de fonctionnement complexes.  
+
+### \ 
+
+\large 
+
+1. Travailler sur des données dans R : 
+
+    - travailler efficacement (+++);
+    - optimiser les performances (++);
+    - programmer avec R (+);
+    - interroger des bases de données (++).
+    
+2. \pause Présenter des résultats avec R : 
+
+    - faire des graphiques avec base R et `ggplot2` (++);
+    - faire du reporting (+).
+
+\normalsize \pause
+
+**Pédagogie** : équilibre entre présentations et cas pratiques.
+
+**Horaires (proposition !)** : 9h30-12h20, 13h40-16h30
+
+### \ 
+
+\large
+
+Mercredi 21 juin
+
+- Introduction + Travailler sur des données 1 (2h)
+- Cas pratiques (2h)
+- Faire des graphiques avec `ggplot2` (2h)
+
+\pause Jeudi 22 juin
+
+- Travailler sur des données 2 + R Markdown (2h)
+- Cas pratiques (au choix, 4h)
+
+
+
+<!-- setwd("/home/mc/oc/cours/Insee R/perf/#output/") -->
+<!-- t <- read.csv("R_perf.csv") -->
+
+<!-- u <- t -->
+
+<!-- u[u == 0] <- NA -->
+<!-- classement <- (rowSums(u[, -(1:2)] > 1, na.rm = TRUE) > 0) -->
+
+<!-- u[!classement, -(1:2)] <- u[!classement, -(1:2)] / rowSums(u[!classement, -(1:2)], na.rm = TRUE) -->
+
+<!-- u[classement, -(1:2)] <- apply(apply(u[classement, -(1:2)], 1, max, na.rm = TRUE) + 1 - u[classement, -(1:2)], 2, `/`,  rowSums(u[classement, -(1:2)], na.rm = TRUE)) -->
+
+<!-- u <- colSums(u[,-(1:2)], na.rm = TRUE) -->
+<!-- u <- u / max(u) -->
+<!-- u <- cbind(data.frame(group = "Ensemble"), as.data.frame(t(u))) -->
+
+
+```{r child = 'intro.Rmd'}
+```
+
+```{r child = 'partie1.Rmd'}
+```
+
+```{r child = 'partie2.Rmd'}
+```
+
+```{r child = 'partie3.Rmd'}
+```

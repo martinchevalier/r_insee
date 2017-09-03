@@ -1,0 +1,36 @@
+\documentclass{book}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{} 
+
+\makeatletter
+\renewcommand{\sectionmark}[1]{\markright{\thesection~~#1}}
+\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\chaptername\ \thechapter~~\fi#1}{}}
+\makeatother
+
+\fancyhead[LE]{\thepage}
+\fancyhead[RE]{\itshape\nouppercase  \leftmark}
+\fancyhead[LO]{\itshape\nouppercase  \rightmark}
+\fancyhead[RO]{\thepage}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\chapter{My first chapter}
+
+\section{My first section}
+
+\chapter{My second chapter}
+
+\section{My first section}
+
+\backmatter
+
+\chapter{Appendix~A}
+
+\lipsum[1-12]
+
+\end{document}

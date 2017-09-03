@@ -1,0 +1,39 @@
+---
+title: "Formation R Initiation"
+output:
+  html_document:
+    toc: false
+---
+
+\ 
+
+Cette page rassemble les supports de la formation R initiation des 8 et 9 juin 2017 :
+
+- [Module 1 Prise en main du logiciel (.html)](module1.html)
+
+- [Module 2 Manipuler les outils fondamentaux du langage (.html)](module2.html)
+
+- [Module 3 Travailler avec des données statistiques (.html)](module3.html)
+
+- [Données utilisées pour les cas pratiques (.zip, 4,1 Mo)](donnees.zip)
+
+- [Support de formation en format imprimable (.pdf)](livret.pdf)
+
+- [Support de formation en format imprimable et avec solutions (.pdf)](livret_sol.pdf)
+
+- [Support de présentation utilisé lors de la formation (.pdf)](presentation.pdf)
+
+
+**Note** Les pages html peuvent être téléchargées sous forme de fichiers .html autonomes et consultées hors connexion.
+
+\ 
+
+Les supports de cette formation ont été conçus sous RStudio avec [R Markdown](http://rmarkdown.rstudio.com/) et compilés le `r format(Sys.Date(), format="%d/%m/%Y")`. Certains éléments de mise en forme du site compagnon sont repris de l'ouvrage [R packages](http://r-pkgs.had.co.nz/) de Hadley Wickham. 
+  
+Ces supports seront durablement disponibles à l'adresse [r.slmc.fr](http://r.slmc.fr) et sont sous &copy;\ 2017 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
+
+Un grand merci aux participants pour leurs nombreuses remarques et suggestions particulièrement constructives.
+
+\ 
+
+[Retour à la page d'accueil](..)

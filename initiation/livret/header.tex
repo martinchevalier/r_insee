@@ -1,0 +1,80 @@
+\usepackage[french]{babel}
+
+
+%----------------------------------------------
+% Table des matières, index, etc.
+%----------------------------------------------
+
+\addto\captionsfrench{\renewcommand{\contentsname}{}}
+\setcounter{tocdepth}{1}
+
+\makeatletter
+\newcommand*{\toccontents}{\@starttoc{toc}}
+\makeatother
+
+%\usepackage{titletoc}% http://ctan.org/pkg/titletoc
+%\titlecontents{chapter}% <section-type>
+%  [0pt]% <left>
+%  {\addvspace{1em}}% <above-code>
+%  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+%  {}% <numberless-entry-format>
+%  {\bfseries\hfill\contentspage}% <filler-page-format>
+
+
+\usepackage{tocloft}
+\newlistof{caspratique}{cp}{\Huge Liste des cas pratiques}
+
+\usepackage{minitoc}
+\dominitoc[n]
+
+\usepackage{imakeidx}
+\makeindex[title = Index des fonctions et opérateurs, columns = 3, intoc]
+
+
+%----------------------------------------------
+% En-tête et pied de pages
+%----------------------------------------------
+	
+\usepackage{fancyhdr}
+\pagestyle{fancy} % enable fancy page style
+\makeatletter
+\renewcommand{\sectionmark}[1]{\markright{\uppercase{#1}}}
+\renewcommand{\chaptermark}[1]{\markboth{\uppercase{#1}}{}}
+
+\makeatother
+\addto\captionsfrench{\renewcommand{\chaptername}{Module}}
+\renewcommand{\headrulewidth}{0pt} % comment if you want the rule
+\fancyhf{} % clear header and footer
+\fancyhead[RO]{\rightmark}
+\fancyfoot[RO]{\thepage}
+\fancyhead[LE]{\leftmark}
+\fancyfoot[LE]{\thepage}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyfoot[RO]{\thepage}
+	\fancyfoot[LE]{\thepage}
+}
+
+
+
+%----------------------------------------------
+% Divers
+%----------------------------------------------
+
+\newif \ifsol
+
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\renewenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+
+\usepackage{csquotes}
+
+\usepackage{xcolor}
+\hypersetup{%
+  colorlinks=false,% hyperlinks will be black
+  linkbordercolor=white,% hyperlink borders will be red
+  urlbordercolor=black,%
+  pdfborderstyle={/S/U/W 0.5}% border style will be underline of width 1pt
+}
+

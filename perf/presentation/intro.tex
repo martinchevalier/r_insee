@@ -1,0 +1,561 @@
+\documentclass[12pt,ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+\ifxetex
+\usepackage{mathspec}
+\else
+\usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
+\newcommand{\DataTypeTok}[1]{{#1}}
+\newcommand{\DecValTok}[1]{{#1}}
+\newcommand{\BaseNTok}[1]{{#1}}
+\newcommand{\FloatTok}[1]{{#1}}
+\newcommand{\ConstantTok}[1]{{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
+\newcommand{\FunctionTok}[1]{{#1}}
+\newcommand{\VariableTok}[1]{{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
+\newcommand{\OperatorTok}[1]{{#1}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{{#1}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+\let\insertpartnumber\relax
+\let\partname\relax
+\frame{\partpage}
+}
+\AtBeginSection{
+\ifbibliography
+\else
+\let\insertsectionnumber\relax
+\let\sectionname\relax
+\frame{\sectionpage}
+\fi
+}
+\AtBeginSubsection{
+\let\insertsubsectionnumber\relax
+\let\subsectionname\relax
+\frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{textcomp} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{booktabs,multirow}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{pgfpages}
+\usepackage{colortbl}
+\usepackage{epstopdf}
+\usepackage{framed}
+
+\definecolor{shadecolor}{RGB}{248,248,248}
+\definecolor{grayInsee}{HTML}{5a5758}
+\definecolor{redInsee}{HTML}{ed1443}
+
+%Everything about the notes and formatting of the notepage
+\setbeamertemplate{note page}{%
+	Notes personnelles
+	\insertnote%
+}
+
+
+\setbeamertemplate{navigation symbols}{}
+\usetheme{default} %Malmoe not bad
+\setbeamertemplate{footline}[frame number]
+
+
+%\setbeamerfont{frametitle}{size=\normalsize}
+%\setbeamerfont{framesubtitle}{size=\Large}
+%\setbeamercolor{frametitle}{fg=grayInsee}
+%\setbeamercolor{framesubtitle}{fg=redInsee}
+\setbeamercolor{title}{fg=grayInsee}
+\setbeamercolor{subsection in toc}{fg=grayInsee}
+\setbeamertemplate{frametitle}{%
+	\large \textcolor{grayInsee}{\subsecname}
+	\\ \vspace{0.1cm} \Large \textcolor{redInsee}{\insertframetitle}
+}
+%\setbeamertemplate{frametitle}{%
+%	\large \textcolor{grayInsee}{
+%		\ifx\intertsubsection\emptyset
+%			\secname \\ \vspace{0.1cm} 
+%		\else 
+%			\subsecname \\ \vspace{0.1cm}
+%		\fi
+%	}
+%	\Large \textcolor{redInsee}{\insertframetitle}
+%}
+\setbeamercolor{local structure}{fg=redInsee}
+
+\AtBeginSection[]
+{\ifnum \thesection>1
+  \begin{frame}
+  \vfill
+  \begin{center}
+  \LARGE
+  \textcolor{grayInsee}{\insertsectionhead}
+  \end{center}
+  \vfill
+  \end{frame}
+\else
+\fi
+}
+
+\AtBeginSubsection[]{}
+
+\title{\Large Formation \textbf{R} Perfectionnement}
+
+\institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
+
+\author{21-22 juin 2017}
+
+\date{}
+
+\renewenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+
+\newcommand{\aparte}[2]{
+	{\small\textsf{\textbf{#1} #2}}
+}
+
+%\usepackage{enumitem}
+%\setlist{nolistsep}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc, positioning}
+\tikzstyle{input} = [draw, rectangle,rounded corners, text width=2.5cm, fill=green!20, node distance=0.5cm, minimum height=2em, text centered]
+\tikzstyle{output} = [draw, ellipse,fill=red!20, node distance=0.5cm, minimum height=2em, text centered]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=1.5cm, text centered, minimum height=2em, node distance = 0.5cm]
+\tikzstyle{line} = [draw, -latex', shorten >=2pt, shorten <=2pt]
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+%\usepackage{pgfpages}
+%\mode<handout>{
+%	%\setbeamercolor{background canvas}{bg=black!20}
+%	\pgfpagesuselayout{2 on 1}[border shrink=2mm]
+%}
+
+\title{Formation R Perfectionnement}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Introduction :
+Se~perfectionner~avec~R}\label{introduction-seperfectionneravecr}
+
+\subsection*{Introduction : Se\ perfectionner\ avec\ R}
+
+\begin{frame}{Connaître plus ou connaître mieux ?}
+
+Comme tout langage statistique ou de programmation, R repose sur un
+ensemble d'instructions plus ou moins complexes.
+
+\pause \bigskip
+Se perfectionner dans la maîtrise de R peut donc signifier deux choses :
+
+\begin{itemize}
+\tightlist
+\item
+  étendre son \og vocabulaire \fg{} d'instructions connues ;
+\item
+  mieux comprendre les instructions déjà connues.
+\end{itemize}
+
+\pause \bigskip
+En pratique, les deux \textbf{vont de pair} : en découvrant de nouvelles
+fonctions, on est souvent amené à mieux comprendre le fonctionnement de
+celles que l'on croyait maîtriser.
+
+\end{frame}
+
+\begin{frame}{Plan de la partie}
+
+\Large 
+\tableofcontents[currentsection, sectionstyle = hide, subsectionstyle = show/show/hide]
+
+\end{frame}
+
+\subsection{Chercher (et trouver !) de
+l'aide}\label{chercher-et-trouver-de-laide}
+
+\begin{frame}[fragile]{Savoir utiliser l'aide du logiciel}
+
+À tout moment, taper \texttt{help(nomFonction)} ou
+\texttt{?\ nomFonction} affiche l'aide de la fonction
+\texttt{nomFonction}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Aide de la fonction read.csv}
+\NormalTok{? read.csv}
+\end{Highlighting}
+\end{Shaded}
+
+\pause 
+
+\textbf{Remarque} Pour afficher l'aide sur une fonction d'un
+\emph{package}, il faut que celui-ci soit au préalable chargé (avec
+\texttt{library()} ou \texttt{require()}).
+
+\pause La fonction \texttt{help.search()} ou la commande \texttt{??}
+permettent d'effectuer une recherche approximative:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Recherche à partir du mot-clé csv}
+\NormalTok{?? csv}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Chercher de l'aide en ligne}
+
+Bien souvent, le problème que l'on rencontre a \textbf{déjà été
+rencontré par d'autres}.
+
+\bigskip
+Pour progresser dans la maîtrise de R, il ne faut donc surtout pas
+hésiter à s'appuyer sur les forums de discussion, comme par exemple
+\href{http://stackoverflow.com/questions/tagged/r}{\underline{stackoverflow}}.
+
+\pause \bigskip
+On gagne ainsi souvent beaucoup de temps en formulant le problème que
+l'on rencontre dans un \textbf{moteur de recherche} pour consulter
+certaines réponses.
+
+\bigskip  Quand une question semble ne pas avoir été déjà posée, ne pas
+hésiter à la poser soi-même, en joignant alors un \textbf{exemple
+reproductible} (\emph{minimal working example} ou MWE).
+
+\end{frame}
+
+\begin{frame}[fragile]{Afficher le code d'une fonction}
+
+Quand l'utilisation d'une fonction pose problème (message d'erreur
+inattendu), il est souvent utile d'\textbf{afficher son code} pour
+comprendre d'où vient le problème.
+
+\pause Pour ce faire, il suffit de saisir son nom sans parenthèses.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Code de la fonction read.csv}
+\NormalTok{read.csv}
+  \NormalTok{## function (file, header = TRUE, sep = ",", quote = "\textbackslash{}"", dec = ".", }
+  \NormalTok{##     fill = TRUE, comment.char = "", ...) }
+  \NormalTok{## read.table(file = file, header = header, sep = sep, quote = quote, }
+  \NormalTok{##     dec = dec, fill = fill, comment.char = comment.char, ...)}
+  \NormalTok{## <bytecode: 0x37ccb28>}
+  \NormalTok{## <environment: namespace:utils>}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \normalsize
+Afficher le code d'une fonction est dans certains cas plus difficile,
+\emph{cf.}
+\href{http://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function}{\underline{stackoverflow}}.
+
+\end{frame}
+
+\subsection{Découvrir de nouvelles
+fonctionnalités}\label{decouvrir-de-nouvelles-fonctionnalites}
+
+\begin{frame}{Se repérer dans les CRAN \protect\textit{Task Views}}
+
+Les CRAN \emph{Task Views} recensent les fonctions et \emph{packages} de
+façon thématique. Elles sont mises à jour régulièrement et portent sur
+des thèmes variés:
+
+\pause
+
+\footnotesize \href{https://cran.r-project.org/web/views/Bayesian.html}{Bayesian},
+\href{https://cran.r-project.org/web/views/ChemPhys.html}{ChemPhys},
+\href{https://cran.r-project.org/web/views/ClinicalTrials.html}{ClinicalTrials},
+\href{https://cran.r-project.org/web/views/Cluster.html}{Cluster},
+\href{https://cran.r-project.org/web/views/DifferentialEquations.html}{DifferentialEquations},
+\href{https://cran.r-project.org/web/views/Distributions.html}{Distributions},
+\href{https://cran.r-project.org/web/views/Econometrics.html}{Econometrics},
+\href{https://cran.r-project.org/web/views/Environmetrics.html}{Environmetrics},
+\href{https://cran.r-project.org/web/views/ExperimentalDesign.html}{ExperimentalDesign},
+\href{https://cran.r-project.org/web/views/ExtremeValue.html}{ExtremeValue},
+\href{https://cran.r-project.org/web/views/Finance.html}{Finance},
+\href{https://cran.r-project.org/web/views/FunctionalData.html}{FunctionalData},
+\href{https://cran.r-project.org/web/views/Genetics.html}{Genetics},
+\href{https://cran.r-project.org/web/views/Graphics.html}{Graphics},
+\href{https://cran.r-project.org/web/views/HighPerformanceComputing.html}{HighPerformanceComputing},
+\href{https://cran.r-project.org/web/views/MachineLearning.html}{MachineLearning},
+\href{https://cran.r-project.org/web/views/MedicalImaging.html}{MedicalImaging},
+\href{https://cran.r-project.org/web/views/MetaAnalysis.html}{MetaAnalysis},
+\href{https://cran.r-project.org/web/views/Multivariate.html}{Multivariate},
+\href{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html}{NaturalLanguageProcessing},
+\href{https://cran.r-project.org/web/views/NumericalMathematics.html}{NumericalMathematics},
+\href{https://cran.r-project.org/web/views/OfficialStatistics.html}{OfficialStatistics},
+\href{https://cran.r-project.org/web/views/Optimization.html}{Optimization},
+\href{https://cran.r-project.org/web/views/Pharmacokinetics.html}{Pharmacokinetics},
+\href{https://cran.r-project.org/web/views/Phylogenetics.html}{Phylogenetics},
+\href{https://cran.r-project.org/web/views/Psychometrics.html}{Psychometrics},
+\href{https://cran.r-project.org/web/views/ReproducibleResearch.html}{ReproducibleResearch},
+\href{https://cran.r-project.org/web/views/Robust.html}{Robust},
+\href{https://cran.r-project.org/web/views/SocialSciences.html}{SocialSciences},
+\href{https://cran.r-project.org/web/views/Spatial.html}{Spatial},
+\href{https://cran.r-project.org/web/views/SpatioTemporal.html}{SpatioTemporal},
+\href{https://cran.r-project.org/web/views/Survival.html}{Survival},
+\href{https://cran.r-project.org/web/views/TimeSeries.html}{TimeSeries},
+\href{https://cran.r-project.org/web/views/WebTechnologies.html}{WebTechnologies},
+\href{https://cran.r-project.org/web/views/gR.html}{gR}
+
+\pause \bigskip \normalsize
+La liste de toutes les \emph{Task Views} est accessible à la page :
+\href{https://cran.r-project.org/web/views}{\underline{https://cran.r-project.org/web/views}}.
+
+\end{frame}
+
+\begin{frame}{Consulter des sites, tutoriels, livres}
+
+De plus en plus de supports sont consacrés à la présentation et à
+l'enseignement des fonctionnalités de R, comme par exemple :
+
+\begin{itemize}
+\item
+  \pause le site
+  \href{https://www.r-bloggers.com}{\underline{R-bloggers}}: articles en
+  général courts sur des exemples d'applications (de qualité inégale);
+\item
+  \pause le site \href{https://bookdown.org}{\underline{bookdown.org}}:
+  dépôt de livres numériques consacrés à R élaborés avec R Markdown
+  (très riches et très complets);
+\item
+  \pause le site de \href{https://www.rstudio.com}{\underline{RStudio}}:
+  nombreux
+  \href{https://www.rstudio.com/resources/cheatsheets/}{\underline{aides-mémoires}}
+  ou articles présentant les fonctionnalités de l'écosystème RStudio;
+\item
+  \pause les ouvrages de
+  \href{http://hadley.nz}{\underline{Hadley Wickham}}:
+  \href{https://github.com/hadley/ggplot2-book}{\underline{ggplot2: elegant graphics for data analysis}}
+  (à compiler soi-même),
+  \href{http:/:adv-r.had.co.nz}{\underline{Advanced R}}.
+\end{itemize}
+
+\end{frame}
+
+\subsection{\texorpdfstring{Utiliser de nouveaux
+\protect\textit{packages}}{Utiliser de nouveaux }}\label{utiliser-de-nouveaux}
+
+\begin{frame}{Accéder à la documentation d'un \emph{package}}
+
+Une des principales forces de R est d'être un langage hautement
+modulaire comptant \textbf{plusieurs milliers de \emph{packages}} (10
+865 au 21/06/2017).
+
+\pause Toutes les informations sur un \emph{package} sont accessibles
+sur sa page du \emph{Comprehensive R Archive Network} (CRAN).
+
+\textbf{Exemple} \url{https://CRAN.R-project.org/package=haven}
+
+\pause \bigskip On trouve en particulier sur cette page:
+
+\begin{itemize}
+\tightlist
+\item
+  les \textbf{dépendances} du \emph{package} (\emph{Depends} et
+  \emph{Imports});
+\item
+  un lien vers sa \textbf{page de développement} (\emph{URL});
+\item
+  une \textbf{version .pdf de son aide} (\emph{Reference manual})
+\item
+  éventuellement un ou plusieurs \textbf{documents de démonstration}
+  (\emph{Vignettes}).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Installer un \emph{package} automatiquement}
+
+La fonction \texttt{install.packages("nomPackage")} permet d'installer
+automatiquement le \emph{package} \texttt{nomPackage}.
+
+Les données nécessaires sont téléchargées depuis un des dépôts du CRAN
+(\emph{repositories} ou en abrégé \texttt{repos}).
+
+C'est la \textbf{méthode à privilégier}: les dépendances nécessaires au
+bon fonctionnement du \emph{package} sont détectées et automatiquement
+installées.
+
+\pause 
+
+\textbf{Remarque} Cette méthode fonctionne à l'Insee:
+
+\begin{itemize}
+\tightlist
+\item
+  pour les installations locales de R sur les postes de travail;
+\item
+  sur AUS, \emph{via} un dépôt local spécifique;
+\item
+  mais PAS sur les sessions des postes de formation.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Installer un \emph{package} manuellement}
+
+La page d'information d'un \emph{package} comporte également des liens
+vers les fichiers qui le composent.
+
+Quand l'installation directe depuis un dépôt du CRAN est indisponible,
+il suffit de \textbf{télécharger ces fichiers} et d'\textbf{installer
+manuellement le \emph{package}}.
+
+Pour une installation sous Windows, il faut privilégier les
+\textbf{fichiers compilés} (\emph{Windows binaries}).
+
+\pause \small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Note : Le fichier haven._1.0.0.zip est situé }
+\CommentTok{# dans le répertoire de travail}
+\KeywordTok{install.packages}\NormalTok{(}
+  \StringTok{"haven_1.0.0.zip"}\NormalTok{, }\DataTypeTok{repos =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{type =} \StringTok{"binaries"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Installer des \emph{packages} depuis github}
+
+En règle générale, le développement de \emph{packages} s'appuie sur des
+plate-formes de \textbf{développement collaboratif} comme
+\href{https://github.com}{\underline{Github}}.
+
+\pause La \textbf{page de développement} d'un \emph{package} comporte
+plusieurs informations préciseuses :
+
+\begin{itemize}
+\tightlist
+\item
+  la dernière version du \emph{package} et de sa documentation;
+\item
+  des informations sur son développement;
+\item
+  une zone pour rapporter d'éventuels \emph{bugs} (\emph{bug reports}).
+\end{itemize}
+
+\textbf{Exemple} \url{https://github.com/tidyverse/haven}
+
+\pause La fonction \texttt{install\_github()} du \emph{package}
+\texttt{devtools} permet d'installer un \emph{package} directement
+depuis GitHub.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(devtools)}
+\KeywordTok{install_github}\NormalTok{(}\StringTok{"tidyverse/haven"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Utiliser les données d'exemples d'un
+\emph{package}}
+
+La plupart des \textbf{packages} contiennent des \textbf{données
+d'exemples} utilisées notamment dans son aide ou ses vignettes.
+
+Une fois le \emph{package} installé, il suffit d'utiliser la fonction
+\texttt{data(package\ =\ "nomPackage")} pour afficher les données qu'il
+contient.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{data}\NormalTok{(}\DataTypeTok{package =} \StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause Pour \og rapatrier \fg{} dans l'environnement global les données
+d'un \emph{package}, c'est de nouveau la fonction \texttt{data()} qu'il
+faut utiliser.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\end{document}

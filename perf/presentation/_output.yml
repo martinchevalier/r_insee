@@ -1,0 +1,6 @@
+beamer_presentation:
+    highlight: haddock
+    includes:
+      in_header: header.tex
+    keep_tex: yes
+    slide_level: 3

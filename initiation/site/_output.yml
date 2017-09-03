@@ -1,0 +1,8 @@
+html_document:
+  includes:
+    in_header: header.html
+    before_body: before_body.html
+  highlight: haddock
+  toc: true
+  toc_depth: 2
+  toc_float: true

@@ -1,0 +1,3666 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdftitle={Formation R Perfectionnement},
+            pdfauthor={Martin Chevalier (Insee)},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
+\newcommand{\DataTypeTok}[1]{{#1}}
+\newcommand{\DecValTok}[1]{{#1}}
+\newcommand{\BaseNTok}[1]{{#1}}
+\newcommand{\FloatTok}[1]{{#1}}
+\newcommand{\ConstantTok}[1]{{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
+\newcommand{\FunctionTok}[1]{{#1}}
+\newcommand{\VariableTok}[1]{{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
+\newcommand{\OperatorTok}[1]{{#1}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{{#1}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Formation \textbf{R} Perfectionnement}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Martin Chevalier (Insee)}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage[french]{babel}
+\addto\captionsfrench{\renewcommand{\contentsname}{}}
+\setcounter{tocdepth}{1} \usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\begin{document}
+\maketitle
+
+Cette page comporte l'ensemble des cas pratiques de la formation
+\textbf{R} perfectionnement de décembre 2016 accompagnés de leur
+correction.
+
+Le support de présentation est téléchargable
+\href{presentation.pdf}{ici} et les données nécessaires aux cas
+pratiques \href{donnees.zip}{là}
+
+Cette page a été réalisée avec Rstudio sous Rmarkdown et compilée le
+2016-12-09.
+
+\subsection{\texorpdfstring{Quelques rappels : vecteurs, matrices,
+listes et
+\texttt{data.frame}}{Quelques rappels : vecteurs, matrices, listes et data.frame}}\label{quelques-rappels-vecteurs-matrices-listes-et-data.frame}
+
+Ces trois premiers cas pratiques reprennent certains éléments
+fondamentaux du langage de \textbf{R}. Pour une présentation plus
+progressive et approfondie, se référer au
+\href{http://r.slmc.fr/module2.html}{second module de la formation
+\textbf{R} initiation}.
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 1} Savoir manipuler des
+vecteurs}{Cas pratique 1 Savoir manipuler des vecteurs}}\label{cas-pratique-1-savoir-manipuler-des-vecteurs}
+
+Les vecteurs sont les éléments fondamentaux de \textbf{R} : ils sont
+utilisés dans la plupart des opérations sur les objets plus complexes
+(listes, \texttt{data.frame}).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Créez le vecteur \texttt{a1} en utilisant trois méthodes différentes :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a1}
+\NormalTok{##  [1]  6  7  8  9 10 11 12 13 14 15}
+\end{Highlighting}
+\end{Shaded}
+
+  Quelles sont ses caractéristiques (type, longueur, etc.) ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol1}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Méthode 1 : définition explicite avec c()}
+\NormalTok{a1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+
+\CommentTok{# Méthode 2 : définition de la séquence avec `:`}
+\NormalTok{a1 <-}\StringTok{ }\DecValTok{6}\NormalTok{:}\DecValTok{15}
+
+\CommentTok{# Méthode 3 : définition de la séquence avec seq()}
+\NormalTok{a1 <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{# Caractéristiques : fonctions str(), length(), class()}
+\CommentTok{# et typeof()}
+\KeywordTok{str}\NormalTok{(a1)}
+\NormalTok{##  num [1:10] 6 7 8 9 10 11 12 13 14 15}
+\KeywordTok{length}\NormalTok{(a1)}
+\NormalTok{## [1] 10}
+\KeywordTok{class}\NormalTok{(a1)}
+\NormalTok{## [1] "numeric"}
+\KeywordTok{typeof}\NormalTok{(a1)}
+\NormalTok{## [1] "double"}
+\CommentTok{# Note : la méthode 1 produit un vecteur de numériques}
+\CommentTok{# (typeof(a1) vaut "double") alors que les méthodes 2 et 3 }
+\CommentTok{# produisent un vecteur d'entiers (typeof(a1) vaut "integer")}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Sélectionnez l'élément en deuxième position par deux méthodes
+  différentes. Utilisez alors la méthode la plus appropriée pour
+  sélectionner : les éléments en position 8 et 5 (dans cet ordre) ; tous
+  les éléments sauf le neuvième ; tous les éléments dont la valeur est
+  strictement supérieure à 10 ; tous les éléments dont la valeur est
+  paire.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol2}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# L'opérateur `[` permet d'extraire les éléments d'un vecteur}
+\CommentTok{# selon trois méthodes}
+
+\CommentTok{# Méthode 1 : position de l'élément dans le vecteur }
+\NormalTok{a1[}\DecValTok{2}\NormalTok{]}
+\NormalTok{## [1] 7}
+
+\CommentTok{# Méthode 2 : vecteur logique de longueur length(a1)}
+\NormalTok{a1[}\KeywordTok{c}\NormalTok{(}\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)]}
+\NormalTok{## [1] 7}
+
+\CommentTok{# Méthode 3 : noms des éléments du vecteur}
+\CommentTok{# Aucun nom n'est associé ici au vecteur a1, cf. la question }
+\CommentTok{# suivante.}
+
+\CommentTok{# La méthode 1 est la plus adaptée aux deux premières sous-questions  }
+\NormalTok{a1[}\KeywordTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{5}\NormalTok{)]}
+\NormalTok{## [1] 13 10}
+\NormalTok{a1[-}\DecValTok{9}\NormalTok{]}
+\NormalTok{## [1]  6  7  8  9 10 11 12 13 15}
+
+\CommentTok{# La méthode 2 est la plus adaptée aux deux dernières sous-questions}
+\NormalTok{a1[a1 >}\StringTok{ }\DecValTok{10}\NormalTok{]}
+\NormalTok{## [1] 11 12 13 14 15}
+\NormalTok{a1[a1 %%}\StringTok{ }\DecValTok{2} \NormalTok{==}\StringTok{ }\DecValTok{0}\NormalTok{]}
+\NormalTok{## [1]  6  8 10 12 14}
+\CommentTok{# Note : x %% y renvoie le reste de la division euclidienne de}
+\CommentTok{# x par y. }
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Que renvoie \texttt{names(a1)} ? À quoi cela correspond-il ? Utilisez
+  le vecteur \texttt{letters} pour nommer les éléments de \texttt{a1} :
+  a, b, c, d, e, f, g, h, i, j. Quelle est la valeur de l'élément dont
+  le nom est \texttt{"b"} ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol3}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction names(x) renvoie la valeur du vecteur de noms}
+\CommentTok{# associé à l'objet x}
+\KeywordTok{names}\NormalTok{(a1)}
+\NormalTok{## NULL}
+\CommentTok{# Ici names(a1) vaut NULL car les éléments de a1 ne sont pas nommés : }
+\CommentTok{# aucun vecteur de nom ne correspond à a1.}
+
+\CommentTok{# letters est un vecteur de type caractère et de longueur 26}
+\CommentTok{# stockant les 26 lettres de l'alphabet (en minuscules)}
+\NormalTok{letters}
+\NormalTok{##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"}
+\NormalTok{## [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"}
+
+\CommentTok{# Utilisé avec <-, la fonction names() permet d'affecter }
+\CommentTok{# un vecteur de noms à un objet}
+\KeywordTok{names}\NormalTok{(a1) <-}\StringTok{ }\NormalTok{letters[}\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{]}
+\NormalTok{a1}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15}
+
+\CommentTok{# Dès lors qu'un objet dispose d'un vecteur de noms, }
+\CommentTok{# il est possible de les utiliser pour sélectionner ses éléments.}
+\NormalTok{a1[}\StringTok{"b"}\NormalTok{]}
+\NormalTok{## b }
+\NormalTok{## 7}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On définit le vecteur \texttt{a2\ \textless{}-\ 1:10}. Que renvoie
+  \texttt{c(a1,\ a2)}? Utilisez les fonctions \texttt{union()},
+  \texttt{intersect()} et \texttt{setdiff()} pour déterminer les valeurs
+  présentes dans \texttt{a1} ou \texttt{a2}, dans \texttt{a1} et
+  \texttt{a2}, dans \texttt{a1} mais pas dans \texttt{a2}, dans
+  \texttt{a2} mais pas dans \texttt{a1}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol4}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# On définit a2 avec `:`}
+\NormalTok{a2 <-}\StringTok{ }\DecValTok{1}\NormalTok{:}\DecValTok{10}
+
+\CommentTok{# Appliquée à deux vecteurs, la fonction c() en renvoie}
+\CommentTok{# la concaténation (dans l'ordre)}
+\KeywordTok{c}\NormalTok{(a1, a2)}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j                               }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15  1  2  3  4  5  6  7  8  9 10}
+
+\CommentTok{# Les fonctions union(), intersect() et setdiff()}
+\CommentTok{# permettent d'effectuer des opérations ensemblistes}
+\CommentTok{# sur les vecteurs }
+\KeywordTok{union}\NormalTok{(a1, a2) }\CommentTok{# Eléments dans a1 ou dans a2 }
+\NormalTok{##  [1]  6  7  8  9 10 11 12 13 14 15  1  2  3  4  5}
+\KeywordTok{intersect}\NormalTok{(a1, a2) }\CommentTok{# Eléments dans a1 et dans a2}
+\NormalTok{## [1]  6  7  8  9 10}
+\KeywordTok{setdiff}\NormalTok{(a1, a2) }\CommentTok{# Eléments dans a1 mais pas dans a2}
+\NormalTok{## [1] 11 12 13 14 15}
+\KeywordTok{setdiff}\NormalTok{(a2, a1) }\CommentTok{# Eléments dans a2 mais pas dans a1}
+\NormalTok{## [1] 1 2 3 4 5}
+
+\CommentTok{# Note : setdiff() est particulièrement utile pour comparer}
+\CommentTok{# les valeurs prises par un identifiant dans deux tables}
+\CommentTok{# différentes. }
+
+\CommentTok{# Par exemple,  dans une enquête présentant une table }
+\CommentTok{# de niveau ménage et une table de niveau individu, }
+\CommentTok{# setdiff(ind$idmen, men$idmen)}
+\CommentTok{# permet de vérifier que tous les individus appartiennent}
+\CommentTok{# bien dans un ménage référencé dans la table de niveau }
+\CommentTok{# ménage.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Générez un vecteur \texttt{a3} de longueur 100 et tiré dans une loi
+  uniforme avec la fonction \texttt{runif()} :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    quel est son maximum ?
+  \item
+    combien de valeur de \texttt{a3} sont strictement supérieures à 0,80
+    ?
+  \item
+    remplacer toutes les valeurs de \texttt{a3} inférieures à 0,50 par
+    leur opposé.
+  \end{itemize}
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol5}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction runif(n) permet de générer des vecteurs de longueur}
+\CommentTok{# n dont les observations sont tirées dans une loi uniforme sur [0;1]}
+\CommentTok{# (par défaut). }
+\NormalTok{a3 <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+
+\CommentTok{# Les trois sous-questions font appel à des fonctions ou }
+\CommentTok{# structures particulièrement utiles en pratique}
+\KeywordTok{max}\NormalTok{(a3)}
+\NormalTok{## [1] 0.9881736}
+\KeywordTok{sum}\NormalTok{(a3  >}\StringTok{ }\FloatTok{0.80}\NormalTok{)}
+\NormalTok{## [1] 31}
+\NormalTok{a3[a3 <}\StringTok{ }\FloatTok{0.50}\NormalTok{] <-}\StringTok{ }\NormalTok{-}\StringTok{ }\NormalTok{a3[a3 <}\StringTok{ }\FloatTok{0.50}\NormalTok{]}
+
+\CommentTok{# Note : la génération de a3 reposant sur des séquences}
+\CommentTok{# de nombres pseudo-aléatoires, les résultats}
+\CommentTok{# que vous obtenez de ceux de la correction.}
+\CommentTok{# La fonction set.seed() permet de spécifier}
+\CommentTok{# un point d'initialisation pour la séquence de nombres}
+\CommentTok{# pseudo-aléatoire et donc de reproduire parfaitement}
+\CommentTok{# une séquence générée aléatoirement. Son utilisation}
+\CommentTok{# est illustrée dans le cas pratique 5. }
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 2} Savoir manipuler des
+matrices}{Cas pratique 2 Savoir manipuler des matrices}}\label{cas-pratique-2-savoir-manipuler-des-matrices}
+
+Les matrices s'apparentent aux vecteurs en cela qu'elles ne peuvent
+contenir que des données d'un seul type (numérique, caractère, logique).
+Elles ont néanmoins deux dimensions, ce qui permet de leur appliquer des
+fonctions spécifiques.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utlisez les fonctions \texttt{matrix()} pour générer une matrice
+  \texttt{b1} de 4 lignes et de 5 colonnes dont les valeurs sont celles
+  du vecteur \texttt{1:20} (en colonnes). Quelles sont ses
+  caractéristiques (type, dimensions) ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol6}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La syntaxe de la fonction matrix() est la suivante : }
+\CommentTok{# matrix(data, nrow, ncol)}
+\NormalTok{b1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{4}\NormalTok{)}
+\NormalTok{b1}
+\NormalTok{##      [,1] [,2] [,3] [,4] [,5]}
+\NormalTok{## [1,]    1    5    9   13   17}
+\NormalTok{## [2,]    2    6   10   14   18}
+\NormalTok{## [3,]    3    7   11   15   19}
+\NormalTok{## [4,]    4    8   12   16   20}
+
+\CommentTok{# Caractéristiques}
+\KeywordTok{str}\NormalTok{(b1)}
+\NormalTok{##  int [1:4, 1:5] 1 2 3 4 5 6 7 8 9 10 ...}
+\KeywordTok{class}\NormalTok{(b1)}
+\NormalTok{## [1] "matrix"}
+\KeywordTok{typeof}\NormalTok{(b1)}
+\NormalTok{## [1] "integer"}
+\KeywordTok{dim}\NormalTok{(b1)}
+\NormalTok{## [1] 4 5}
+\KeywordTok{nrow}\NormalTok{(b1)}
+\NormalTok{## [1] 4}
+\KeywordTok{ncol}\NormalTok{(b1)}
+\NormalTok{## [1] 5}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Sélectionnez l'élément en deuxième ligne, quatrième colonne de
+  \texttt{b1} par deux méthodes différentes. Utilisez alors la méthode
+  la plus appropriée pour sélectionner : sa troisième ligne ; les
+  colonnes impaires.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol7}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Comme pour les vecteurs, l'opérateur `[` permet d'extraire}
+\CommentTok{# les éléments d'un vecteur selon trois méthodes. La matrice}
+\CommentTok{# étant à deux dimensions, `[` doit comporter deux positions}
+\CommentTok{# [ligne, colonne].}
+
+\CommentTok{# Méthode 1 : position de l'élément dans la matrice}
+\NormalTok{b1[}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+\NormalTok{## [1] 14}
+
+\CommentTok{# Méthode 2 : vecteurs logiques de longueur}
+\CommentTok{# nrow(b1) et ncol(b1)}
+\NormalTok{b1[}\KeywordTok{c}\NormalTok{(}\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)]}
+\NormalTok{## [1] 14}
+
+\CommentTok{# Méthode 3 : noms des lignes ou des colonnes }
+\CommentTok{# de la matrice}
+\CommentTok{# Aucun nom n'est associé ici à la matrice b1.}
+
+\CommentTok{# Pour extraire des lignes entières, la seconde }
+\CommentTok{# position de `[` doit rester vide}
+\NormalTok{b1[}\DecValTok{3}\NormalTok{, ]}
+\NormalTok{## [1]  3  7 11 15 19}
+
+\CommentTok{# Pour extraire des colonnes entières, la première}
+\CommentTok{# position de `[` doit rester vide}
+\NormalTok{b1[, }\DecValTok{1}\NormalTok{:}\KeywordTok{ncol}\NormalTok{(b1) %%}\StringTok{ }\DecValTok{2} \NormalTok{==}\StringTok{ }\DecValTok{1}\NormalTok{]}
+\NormalTok{##      [,1] [,2] [,3]}
+\NormalTok{## [1,]    1    9   17}
+\NormalTok{## [2,]    2   10   18}
+\NormalTok{## [3,]    3   11   19}
+\NormalTok{## [4,]    4   12   20}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez les fonctions \texttt{colSums()} et \texttt{rowSums()} pour
+  déterminer :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    la somme des éléments de chaque ligne de \texttt{b1};
+  \item
+    pour chaque colonne de \texttt{b1}, le nombre d'éléments pairs.
+  \end{itemize}
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol8}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Les fonctions colSums() et rowSums() calculent}
+\CommentTok{# des sommes respectivement selon les colonnes et}
+\CommentTok{# les lignes d'une matrice.}
+\KeywordTok{rowSums}\NormalTok{(b1)}
+\NormalTok{## [1] 45 50 55 60}
+
+\CommentTok{# Appliqué à une matrice, une expression logique}
+\CommentTok{# produit une matrice de mêmes dimensions composée}
+\CommentTok{# de valeur TRUE ou FALSE}
+\NormalTok{b1 %%}\StringTok{ }\DecValTok{2} \NormalTok{==}\StringTok{ }\DecValTok{0}
+\NormalTok{##       [,1]  [,2]  [,3]  [,4]  [,5]}
+\NormalTok{## [1,] FALSE FALSE FALSE FALSE FALSE}
+\NormalTok{## [2,]  TRUE  TRUE  TRUE  TRUE  TRUE}
+\NormalTok{## [3,] FALSE FALSE FALSE FALSE FALSE}
+\NormalTok{## [4,]  TRUE  TRUE  TRUE  TRUE  TRUE}
+\CommentTok{# Il n'y a alors plus qu'à utiliser la fonction}
+\CommentTok{# colSums() pour sommer ces valeurs en colonne}
+\CommentTok{# (TRUE est converti en 1 et FALSE en 0). }
+\KeywordTok{colSums}\NormalTok{(b1 %%}\StringTok{ }\DecValTok{2} \NormalTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)}
+\NormalTok{## [1] 2 2 2 2 2}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 3} Savoir manipuler des
+listes et des
+data.frame}{Cas pratique 3 Savoir manipuler des listes et des data.frame}}\label{cas-pratique-3-savoir-manipuler-des-listes-et-des-data.frame}
+
+Les listes constituent un type d'objet particulièrement souple dans
+\textbf{R} : contrairement aux vecteurs ou aux matrices, elles peuvent
+contenir des objets de types ou de dimensions différents. Les
+\texttt{data.frame} sont des cas particuliers de listes dans lesquels
+tous les éléments ont la même longueur (et sont en général de dimension
+1). La plupart des données statistiques sont stockées sous la forme de
+\texttt{data.frame}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez la fonction \texttt{list()} pour créer la liste \texttt{c1}
+  contenant le vecteur \texttt{a1} du cas pratique 1 et la matrice
+  \texttt{b1} du cas pratique 2. Assignez à chaque élément de la liste
+  le nom de son objet d'origine.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol9}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction list() permet de créer une liste }
+\CommentTok{# à partir d'autres objets. }
+\NormalTok{c1 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(a1, b1)}
+\NormalTok{c1}
+\NormalTok{## [[1]]}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15 }
+\NormalTok{## }
+\NormalTok{## [[2]]}
+\NormalTok{##      [,1] [,2] [,3] [,4] [,5]}
+\NormalTok{## [1,]    1    5    9   13   17}
+\NormalTok{## [2,]    2    6   10   14   18}
+\NormalTok{## [3,]    3    7   11   15   19}
+\NormalTok{## [4,]    4    8   12   16   20}
+\KeywordTok{names}\NormalTok{(c1)}
+\NormalTok{## NULL}
+
+\CommentTok{# Pour créer c1 en associant à chaque objet un nom,}
+\CommentTok{# il suffit de l'indiquer dans la fonction list()}
+\NormalTok{c1 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{a1 =} \NormalTok{a1, }\DataTypeTok{b1 =} \NormalTok{b1)}
+\NormalTok{c1}
+\NormalTok{## $a1}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15 }
+\NormalTok{## }
+\NormalTok{## $b1}
+\NormalTok{##      [,1] [,2] [,3] [,4] [,5]}
+\NormalTok{## [1,]    1    5    9   13   17}
+\NormalTok{## [2,]    2    6   10   14   18}
+\NormalTok{## [3,]    3    7   11   15   19}
+\NormalTok{## [4,]    4    8   12   16   20}
+\KeywordTok{names}\NormalTok{(c1)}
+\NormalTok{## [1] "a1" "b1"}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comparez les caractéristiques de \texttt{c1{[}1{]}} et
+  \texttt{c1{[}{[}1{]}{]}}. Quelle valeur renvoie
+  \texttt{c1{[}{[}1{]}{]}{[}2{]}} ? Quelle syntaxe alternative
+  pourriez-vous utilisez ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol10}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Appliqué à une liste, l'opérateur d'extraction `[` retourne}
+\CommentTok{# une sous-liste de la liste originale}
+\NormalTok{c1[}\DecValTok{1}\NormalTok{]}
+\NormalTok{## $a1}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15}
+\KeywordTok{is.list}\NormalTok{(c1[}\DecValTok{1}\NormalTok{])}
+\NormalTok{## [1] TRUE}
+\CommentTok{# On peut utiliser un vecteur logique ou un nom avec `[`}
+\NormalTok{c1[}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)]}
+\NormalTok{## $a1}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15}
+\NormalTok{c1[}\StringTok{"a1"}\NormalTok{]}
+\NormalTok{## $a1}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15}
+
+\CommentTok{# En revanche, `[[` renvoie non pas une sous-liste mais l'élément}
+\CommentTok{# de la liste lui-même }
+\NormalTok{c1[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15}
+\KeywordTok{is.list}\NormalTok{(c1[[}\DecValTok{1}\NormalTok{]])}
+\NormalTok{## [1] FALSE}
+\KeywordTok{str}\NormalTok{(c1[[}\DecValTok{1}\NormalTok{]])}
+\NormalTok{##  Named num [1:10] 6 7 8 9 10 11 12 13 14 15}
+\NormalTok{##  - attr(*, "names")= chr [1:10] "a" "b" "c" "d" ...}
+\CommentTok{# En l'occurrence ici, c1[[1]] renvoie la valeur du vecteur a1}
+\CommentTok{# du premier cas pratique (au moment où c1 a été créée).}
+\CommentTok{# On ne peut pas utiliser de vecteur logique avec `[[`}
+\NormalTok{c1[[}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)]]}
+\NormalTok{## Error in c1[[c(TRUE, FALSE)]]: tentative de sélectionner moins d'un élément}
+\NormalTok{c1[[}\StringTok{"a1"}\NormalTok{]]}
+\NormalTok{##  a  b  c  d  e  f  g  h  i  j }
+\NormalTok{##  6  7  8  9 10 11 12 13 14 15}
+
+
+\CommentTok{# De ce fait, c1[[1]][2] renvoie la valeur de l'élément en }
+\CommentTok{# deuxième position dans l'élément en première position de c1}
+\NormalTok{c1[[}\DecValTok{1}\NormalTok{]][}\DecValTok{2}\NormalTok{]}
+\NormalTok{## b }
+\NormalTok{## 7}
+
+\CommentTok{# On peut aussi utiliser les noms }
+\NormalTok{c1[[}\StringTok{"a1"}\NormalTok{]][}\StringTok{"b"}\NormalTok{]}
+\NormalTok{## b }
+\NormalTok{## 7}
+
+\CommentTok{# Et même le signe $ pour extraire des valeurs par noms de la liste}
+\NormalTok{c1$a1[}\StringTok{"b"}\NormalTok{]}
+\NormalTok{## b }
+\NormalTok{## 7}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On définit le \texttt{data.frame} \texttt{c2} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c2 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{var1 =} \DecValTok{1}\NormalTok{:}\DecValTok{20}
+  \NormalTok{, }\DataTypeTok{var2 =} \NormalTok{letters[}\DecValTok{20}\NormalTok{:}\DecValTok{1}\NormalTok{]}
+  \NormalTok{, }\DataTypeTok{var3 =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{), }\DataTypeTok{times =} \DecValTok{10}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  Quelles sont les caractéristiques de \texttt{c2} ? Vérifiez qu'il
+  s'agit bien d'une liste.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol11}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Caractéristiques}
+\KeywordTok{str}\NormalTok{(c2)}
+\NormalTok{## 'data.frame':    20 obs. of  3 variables:}
+\NormalTok{##  $ var1: int  1 2 3 4 5 6 7 8 9 10 ...}
+\NormalTok{##  $ var2: Factor w/ 20 levels "a","b","c","d",..: 20 19 18 17 16 15 14 13 12 11 ...}
+\NormalTok{##  $ var3: logi  TRUE FALSE TRUE FALSE TRUE FALSE ...}
+\KeywordTok{dim}\NormalTok{(c2)}
+\NormalTok{## [1] 20  3}
+\KeywordTok{length}\NormalTok{(c2)}
+\NormalTok{## [1] 3}
+\CommentTok{# Note : la fonction length() renvoie le nombre de colonnes}
+\CommentTok{# de c2. Cela traduit le fait que c2 est en fait une liste}
+\CommentTok{# dont chaque colonne est un élément.}
+\KeywordTok{is.list}\NormalTok{(c2)}
+\NormalTok{## [1] TRUE}
+\KeywordTok{as.list}\NormalTok{(c2)}
+\NormalTok{## $var1}
+\NormalTok{##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20}
+\NormalTok{## }
+\NormalTok{## $var2}
+\NormalTok{##  [1] t s r q p o n m l k j i h g f e d c b a}
+\NormalTok{## Levels: a b c d e f g h i j k l m n o p q r s t}
+\NormalTok{## }
+\NormalTok{## $var3}
+\NormalTok{##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
+\NormalTok{## [12] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Quel est le type de la variable \texttt{var2} ? Comment
+  l'expliquez-vous et comment feriez-vous pour qu'il n'en soit pas ainsi
+  ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol12}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La variable var2 est de type factor}
+\KeywordTok{class}\NormalTok{(c2$var2)}
+\NormalTok{## [1] "factor"}
+\CommentTok{# Par défaut, la fonction data.frame() convertit }
+\CommentTok{# les variables caractères en type factor. Pour }
+\CommentTok{# empêcher la conversion, utiliser l'option }
+\CommentTok{# stringsAsFactors = FALSE dans la fonction data.frame().}
+\NormalTok{c3 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{var1 =} \DecValTok{1}\NormalTok{:}\DecValTok{20}
+  \NormalTok{, }\DataTypeTok{var2 =} \NormalTok{letters[}\DecValTok{20}\NormalTok{:}\DecValTok{1}\NormalTok{]}
+  \NormalTok{, }\DataTypeTok{var3 =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{), }\DataTypeTok{times =} \DecValTok{10}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}
+\NormalTok{)}
+\KeywordTok{class}\NormalTok{(c3$var2)}
+\NormalTok{## [1] "character"}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Sélectionnez la variable \texttt{var3} en utilisant son nom de quatre
+  manières différentes. Sélectionner les variables \texttt{var2} et
+  \texttt{var1} (dans cet ordre). Sélectionnez toutes les variables sauf
+  la variable \texttt{var2}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol13}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Le data.frame est un liste susceptible d'être représentée}
+\CommentTok{# par un tableau à deux dimensions. De ce fait, le fonctionnement}
+\CommentTok{# des opérateurs d'extraction est proche de celui des listes}
+\CommentTok{# mais aussi de celui des matrices}
+
+\CommentTok{# Méthode 1 : `[` comme une liste}
+\NormalTok{c2[}\StringTok{"var3"}\NormalTok{]}
+\NormalTok{##     var3}
+\NormalTok{## 1   TRUE}
+\NormalTok{## 2  FALSE}
+\NormalTok{## 3   TRUE}
+\NormalTok{## 4  FALSE}
+\NormalTok{## 5   TRUE}
+\NormalTok{## 6  FALSE}
+\NormalTok{## 7   TRUE}
+\NormalTok{## 8  FALSE}
+\NormalTok{## 9   TRUE}
+\NormalTok{## 10 FALSE}
+\NormalTok{## 11  TRUE}
+\NormalTok{## 12 FALSE}
+\NormalTok{## 13  TRUE}
+\NormalTok{## 14 FALSE}
+\NormalTok{## 15  TRUE}
+\NormalTok{## 16 FALSE}
+\NormalTok{## 17  TRUE}
+\NormalTok{## 18 FALSE}
+\NormalTok{## 19  TRUE}
+\NormalTok{## 20 FALSE}
+
+\CommentTok{# Méthode 2 : `[` comme une matrice}
+\NormalTok{c2[, }\StringTok{"var3"}\NormalTok{]}
+\NormalTok{##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
+\NormalTok{## [12] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE}
+
+\CommentTok{# Méthode 3 : `[[`}
+\NormalTok{c2[[}\StringTok{"var3"}\NormalTok{]]}
+\NormalTok{##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
+\NormalTok{## [12] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE}
+
+\CommentTok{# Méthode 4 : `$`}
+\NormalTok{c2$var3}
+\NormalTok{##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
+\NormalTok{## [12] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE}
+
+\CommentTok{# Sélection des variables var2 et var1}
+\NormalTok{c2[, }\KeywordTok{c}\NormalTok{(}\StringTok{"var2"}\NormalTok{, }\StringTok{"var1"}\NormalTok{)]}
+\NormalTok{##    var2 var1}
+\NormalTok{## 1     t    1}
+\NormalTok{## 2     s    2}
+\NormalTok{## 3     r    3}
+\NormalTok{## 4     q    4}
+\NormalTok{## 5     p    5}
+\NormalTok{## 6     o    6}
+\NormalTok{## 7     n    7}
+\NormalTok{## 8     m    8}
+\NormalTok{## 9     l    9}
+\NormalTok{## 10    k   10}
+\NormalTok{## 11    j   11}
+\NormalTok{## 12    i   12}
+\NormalTok{## 13    h   13}
+\NormalTok{## 14    g   14}
+\NormalTok{## 15    f   15}
+\NormalTok{## 16    e   16}
+\NormalTok{## 17    d   17}
+\NormalTok{## 18    c   18}
+\NormalTok{## 19    b   19}
+\NormalTok{## 20    a   20}
+
+\CommentTok{# Sélection de toutes les variables sauf var2}
+
+\CommentTok{# Note : l'idée est de se ramener au cas précédent}
+\CommentTok{# en déterminant le vecteur des variables à conserver.}
+\CommentTok{# Cette liste n'est rien d'autre que le vecteur des }
+\CommentTok{# noms de variables de c2 sans la variable var2. }
+\CommentTok{# La fonction setdiff() permet d'effectuer cette opération :}
+\KeywordTok{setdiff}\NormalTok{(}\KeywordTok{names}\NormalTok{(c2), }\StringTok{"var2"}\NormalTok{)}
+\NormalTok{## [1] "var1" "var3"}
+
+\CommentTok{# Il ne reste plus qu'à utiliser cette structure dans `[`}
+\NormalTok{c2[, }\KeywordTok{setdiff}\NormalTok{(}\KeywordTok{names}\NormalTok{(c2), }\StringTok{"var2"}\NormalTok{)]}
+\NormalTok{##    var1  var3}
+\NormalTok{## 1     1  TRUE}
+\NormalTok{## 2     2 FALSE}
+\NormalTok{## 3     3  TRUE}
+\NormalTok{## 4     4 FALSE}
+\NormalTok{## 5     5  TRUE}
+\NormalTok{## 6     6 FALSE}
+\NormalTok{## 7     7  TRUE}
+\NormalTok{## 8     8 FALSE}
+\NormalTok{## 9     9  TRUE}
+\NormalTok{## 10   10 FALSE}
+\NormalTok{## 11   11  TRUE}
+\NormalTok{## 12   12 FALSE}
+\NormalTok{## 13   13  TRUE}
+\NormalTok{## 14   14 FALSE}
+\NormalTok{## 15   15  TRUE}
+\NormalTok{## 16   16 FALSE}
+\NormalTok{## 17   17  TRUE}
+\NormalTok{## 18   18 FALSE}
+\NormalTok{## 19   19  TRUE}
+\NormalTok{## 20   20 FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Sélectionnez les observations pour lesquelles \texttt{var3} est fausse
+  ; les observations pour lesquelles \texttt{var1} est impaire ; les
+  observations pour lesquelles \texttt{var2} vaut d, e ou f.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol14}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La sélection des observations dans un data.frame est analogue}
+\CommentTok{# à celle qui s'opère dans une matrice. En particulier, on peut}
+\CommentTok{# avoir recours à un vecteur logique. }
+
+\CommentTok{# Ainsi, la première condition demandée (var3 fausse) est évaluée}
+\CommentTok{# par}
+\NormalTok{c2$var3 ==}\StringTok{ }\OtherTok{FALSE}
+\NormalTok{##  [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE}
+\NormalTok{## [12]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE}
+\CommentTok{# Le vecteur logique correspondant peut donc être utilisé dans}
+\CommentTok{# l'opérateur `[`}
+\NormalTok{c2[c2$var3 ==}\StringTok{ }\OtherTok{FALSE}\NormalTok{, ]}
+\NormalTok{##    var1 var2  var3}
+\NormalTok{## 2     2    s FALSE}
+\NormalTok{## 4     4    q FALSE}
+\NormalTok{## 6     6    o FALSE}
+\NormalTok{## 8     8    m FALSE}
+\NormalTok{## 10   10    k FALSE}
+\NormalTok{## 12   12    i FALSE}
+\NormalTok{## 14   14    g FALSE}
+\NormalTok{## 16   16    e FALSE}
+\NormalTok{## 18   18    c FALSE}
+\NormalTok{## 20   20    a FALSE}
+
+\CommentTok{# Les autres cas ne sont que des variations sur cette structure}
+\NormalTok{c2[c2$var1 %%}\StringTok{ }\DecValTok{2} \NormalTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, ]}
+\NormalTok{##    var1 var2 var3}
+\NormalTok{## 1     1    t TRUE}
+\NormalTok{## 3     3    r TRUE}
+\NormalTok{## 5     5    p TRUE}
+\NormalTok{## 7     7    n TRUE}
+\NormalTok{## 9     9    l TRUE}
+\NormalTok{## 11   11    j TRUE}
+\NormalTok{## 13   13    h TRUE}
+\NormalTok{## 15   15    f TRUE}
+\NormalTok{## 17   17    d TRUE}
+\NormalTok{## 19   19    b TRUE}
+\NormalTok{c2[c2$var2 %in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"d"}\NormalTok{, }\StringTok{"e"}\NormalTok{, }\StringTok{"f"}\NormalTok{), ]}
+\NormalTok{##    var1 var2  var3}
+\NormalTok{## 15   15    f  TRUE}
+\NormalTok{## 16   16    e FALSE}
+\NormalTok{## 17   17    d  TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+\subsection{\texorpdfstring{Savoir utiliser les fonctions
+\texttt{*apply}, \texttt{do.call()} et
+\texttt{Reduce()}}{Savoir utiliser les fonctions *apply, do.call() et Reduce()}}\label{savoir-utiliser-les-fonctions-apply-do.call-et-reduce}
+
+Le \emph{package} \texttt{microbenchmark} est souvent utilisé dans cette
+partie et les suivantes pour mesurer la performance des des solutions
+testées :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"microbenchmark"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(microbenchmark)}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 4} Fonctions et
+environnements}{Cas pratique 4 Fonctions et environnements}}\label{cas-pratique-4-fonctions-et-environnements}
+
+Tout ce qui se passe dans \textbf{R} correspond à un appel de fonction.
+Comprendre le fonctionnement des fonctions et savoir en créer soi-même
+est donc crucial.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez les guillemets simples inversés (AltGr + 7 sur le clavier
+  azerty) pour afficher le code associé au signe \texttt{+}. Utilisez-le
+  comme une fonction classique avec la syntaxe
+  \texttt{nomFonction(parametre1,\ parametre2)}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol15}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Pour afficher le code d'une fonction, il suffit}
+\CommentTok{# de saisir son nom. Dans le cas des signes }
+\CommentTok{# arithmétiques, il convient d'entourer le nom}
+\CommentTok{# de guillemets inversés}
+\StringTok{`}\DataTypeTok{+}\StringTok{`}
+\NormalTok{## function (e1, e2)  .Primitive("+")}
+
+\CommentTok{# En utilisant les guillemets inversés, on peut}
+\CommentTok{# utiliser la fonction `+`() comme n'importe}
+\CommentTok{# quelle fonction (en appelant ses arguments dans}
+\CommentTok{# la parenthèse).}
+\StringTok{`}\DataTypeTok{+}\StringTok{`}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{## [1] 4}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Définissez la fonction \texttt{monCalcul(x,\ puissance)} qui pour un
+  vecteur numérique \texttt{x} quelconque :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    calcule sa somme ;
+  \item
+    met la somme à la puissance \texttt{puissance}.
+  \end{enumerate}
+
+  Dans un second temps, donnez à \texttt{puissance} la valeur \texttt{2}
+  par défaut et faites en sorte que la fonction prenne en charge les
+  vecteurs \texttt{x} présentant des valeurs manquantes \texttt{NA}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol16}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Associée à `<-`, la fonction function()}
+\CommentTok{# permet de définir une nouvelle fonction}
+\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(x, puissance)\{}
+  \NormalTok{resultat <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x)^puissance}
+  \KeywordTok{return}\NormalTok{(resultat)}
+\NormalTok{\}}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{puissance =} \DecValTok{2}\NormalTok{)}
+\NormalTok{## [1] 36}
+
+\CommentTok{# La syntaxe suivante est équivalente : }
+\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(x, puissance) }\KeywordTok{sum}\NormalTok{(x)^puissance}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{puissance =} \DecValTok{2}\NormalTok{)}
+\NormalTok{## [1] 36}
+
+\CommentTok{# Pour ajouter un argument par défaut, il suffit }
+\CommentTok{# de le spécifier dans la parenthèse de function()}
+\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(x, }\DataTypeTok{puissance =} \DecValTok{2}\NormalTok{) }\KeywordTok{sum}\NormalTok{(x)^puissance}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{)}
+\NormalTok{## [1] 36}
+
+\CommentTok{# L'argument na.rm = TRUE de la fonction sum()}
+\CommentTok{# permet d'exclure automatiquement les valeurs manquantes.}
+\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(x, }\DataTypeTok{puissance =} \DecValTok{2}\NormalTok{) }\KeywordTok{sum}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)^puissance}
+\KeywordTok{monCalcul}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\NormalTok{## [1] 36}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Modifier la fonction pour ajouter une étape de vérification du type de
+  de \texttt{x} : prévoyez un message d'erreur si \texttt{x} est de type
+  \texttt{character} ou \texttt{factor}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol17}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Les fonctions is.character() et is.factor() permettent}
+\CommentTok{# de tester le type de x. }
+\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(x, }\DataTypeTok{puissance =} \DecValTok{2}\NormalTok{)\{}
+  \NormalTok{if(}\KeywordTok{is.character}\NormalTok{(x) ||}\StringTok{ }\KeywordTok{is.factor}\NormalTok{(x)) }\KeywordTok{stop}\NormalTok{(}\StringTok{"x est de type caractère ou factor."}\NormalTok{)}
+  \KeywordTok{sum}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)^puissance}
+\NormalTok{\}}
+\KeywordTok{monCalcul}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"c"}\NormalTok{))}
+\NormalTok{## Error in monCalcul(c("a", "c")): x est de type caractère ou factor.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Quelle est la valeur de l'objet \texttt{T} ? Comment expliquez-vous
+  que cet objet soit défini alors que vous ne l'avez pas vous-même créé
+  (vous pouvez utilisez la fonction \texttt{getAnywhere()} pour
+  répondre) ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol18}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# L'objet T a par défaut la valeur TRUE}
+\NormalTok{T}
+\NormalTok{## [1] TRUE}
+
+\CommentTok{# T est défini dans le package base de R comme un alias de TRUE}
+\KeywordTok{getAnywhere}\NormalTok{(T)}
+\NormalTok{## A single object matching 'T' was found}
+\NormalTok{## It was found in the following places}
+\NormalTok{##   package:base}
+\NormalTok{##   namespace:base}
+\NormalTok{## with value}
+\NormalTok{## }
+\NormalTok{## [1] TRUE}
+\NormalTok{base::T}
+\NormalTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Soumettez le code \texttt{T\ \textless{}-\ 3}. Que vaut désormais
+  l'objet \texttt{T} ? Pourquoi \textbf{R} n'accède-t-il plus à la
+  valeur stockée par défaut (vous pouvez utiliser la fonction
+  \texttt{search()} pour répondre) ? Comment accéder désormais à la
+  valeur par défaut ? Que retenez-vous quant à l'utilisation de
+  \texttt{T} et de \texttt{F} en lieu et place de \texttt{TRUE} et
+  \texttt{FALSE} dans un code ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol19}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T <-}\StringTok{ }\DecValTok{3}
+\NormalTok{T }
+\NormalTok{## [1] 3}
+\CommentTok{# R accède en premier lieu à l'environnement global, puis}
+\CommentTok{# aux packages dans l'ordre de search()}
+\KeywordTok{search}\NormalTok{()}
+\NormalTok{##  [1] ".GlobalEnv"             "package:microbenchmark"}
+\NormalTok{##  [3] "package:stats"          "package:graphics"      }
+\NormalTok{##  [5] "package:grDevices"      "package:utils"         }
+\NormalTok{##  [7] "package:datasets"       "package:methods"       }
+\NormalTok{##  [9] "Autoloads"              "package:base"}
+\CommentTok{# Le package base est situé en dernière position.}
+
+\CommentTok{# Pour accéder explicitement à l'élément du package base,}
+\CommentTok{# on utilise ::}
+\NormalTok{base::T}
+\NormalTok{## [1] TRUE}
+
+\CommentTok{# Le fait que T et F ne soit que des alias pour TRUE et FALSE}
+\CommentTok{# et donc que leur valeur soit modifiable invite à la plus}
+\CommentTok{# grande prudence dans leur utilisation. Elle est en fait}
+\CommentTok{# à proscrire dans la réalisation de projets importants }
+\CommentTok{# (par exemple l'écriture d'un package).}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 5} \texttt{apply()} :
+Appliquer une fonction selon les dimensions d'une
+matrice}{Cas pratique 5 apply() : Appliquer une fonction selon les dimensions d'une matrice}}\label{cas-pratique-5-apply-appliquer-une-fonction-selon-les-dimensions-dune-matrice}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Créez une matrice \texttt{e1} de 3 lignes et de 5 colonnes en
+  utilisant la fonction \texttt{runif()}. Ses valeurs sont-elles
+  identiques si vous la générez une seconde fois ? Comment faire pour
+  que cela soit le cas ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol20}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Par défaut,  l'utilisation sucessive de la fonction}
+\CommentTok{# runif() ne conduit pas aux mêmes résultats}
+\NormalTok{e1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{)}
+\NormalTok{e1}
+\NormalTok{##           [,1]      [,2]       [,3]      [,4]      [,5]}
+\NormalTok{## [1,] 0.1178220 0.1817914 0.98906768 0.2446630 0.5374668}
+\NormalTok{## [2,] 0.7017961 0.5424616 0.05518202 0.5026829 0.6360702}
+\NormalTok{## [3,] 0.5554569 0.7330166 0.07799456 0.5497169 0.3654879}
+\NormalTok{e1b <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{)}
+\NormalTok{e1b}
+\NormalTok{##           [,1]       [,2]       [,3]      [,4]      [,5]}
+\NormalTok{## [1,] 0.4671328 0.37910439 0.02767167 0.7825179 0.6929564}
+\NormalTok{## [2,] 0.3456576 0.01836591 0.06224703 0.7743206 0.6739887}
+\NormalTok{## [3,] 0.8499960 0.42726688 0.59305615 0.4324565 0.7560812}
+\KeywordTok{identical}\NormalTok{(e1, e1b)}
+\NormalTok{## [1] FALSE}
+
+\CommentTok{# La fonction set.seed() permet en revanche d'initialiser}
+\CommentTok{# le générateur de nombres pseudo-aléatoires de R. }
+\CommentTok{# Utilisé après la fonction set.seed(), deux fonctions}
+\CommentTok{# runif() donneront toujours le même résultat.}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2016}\NormalTok{)}
+\NormalTok{e1 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{)}
+\NormalTok{e1}
+\NormalTok{##           [,1]      [,2]        [,3]       [,4]      [,5]}
+\NormalTok{## [1,] 0.1801636 0.1335746 0.616631283 0.05345881 0.2225800}
+\NormalTok{## [2,] 0.1429437 0.4775025 0.890547575 0.38868792 0.8765744}
+\NormalTok{## [3,] 0.8416465 0.1212584 0.002623455 0.27295359 0.2466688}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2016}\NormalTok{)}
+\NormalTok{e1b <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{15}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{)}
+\NormalTok{e1b}
+\NormalTok{##           [,1]      [,2]        [,3]       [,4]      [,5]}
+\NormalTok{## [1,] 0.1801636 0.1335746 0.616631283 0.05345881 0.2225800}
+\NormalTok{## [2,] 0.1429437 0.4775025 0.890547575 0.38868792 0.8765744}
+\NormalTok{## [3,] 0.8416465 0.1212584 0.002623455 0.27295359 0.2466688}
+\KeywordTok{identical}\NormalTok{(e1, e1b)}
+\NormalTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez la fonction \texttt{apply()} pour calculer la somme des
+  termes de chaque ligne de \texttt{e1}. Comment auriez-vous pu faire
+  autrement ? Utilisez la fonction \texttt{microbenchmark()} pour
+  comparer ces deux solutions.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol21}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction apply() permet d'appliquer}
+\CommentTok{# une même fonction aux lignes ou aux colonnes}
+\CommentTok{# d'une matrice. }
+\KeywordTok{apply}\NormalTok{(e1, }\DecValTok{1}\NormalTok{, sum)}
+\NormalTok{## [1] 1.206408 2.776256 1.485151}
+\CommentTok{# Le second argument indique la dimension selon}
+\CommentTok{# laquelle appliquer la fonction (1 pour les lignes, }
+\CommentTok{# 2 pour les colonnes). }
+
+\CommentTok{# Cette opération est en fait nativement implémentée}
+\CommentTok{# via la fonction rowSums()}
+\KeywordTok{rowSums}\NormalTok{(e1)}
+\NormalTok{## [1] 1.206408 2.776256 1.485151}
+
+\CommentTok{# La fonction microbenchmark() permet de comparer}
+\CommentTok{# systématiquement ces deux stratégies (apply() ou}
+\CommentTok{# rowSums())}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \FloatTok{1e4}
+  \NormalTok{, }\DataTypeTok{apply =} \KeywordTok{apply}\NormalTok{(e1, }\DecValTok{1}\NormalTok{, sum)}
+  \NormalTok{, }\DataTypeTok{rowSums =} \KeywordTok{rowSums}\NormalTok{(e1)}
+\NormalTok{)}
+\NormalTok{## Unit: microseconds}
+\NormalTok{##     expr    min     lq      mean median      uq      max neval}
+\NormalTok{##    apply 14.878 16.482 19.302062 17.125 18.4445 1169.158 10000}
+\NormalTok{##  rowSums  2.896  3.579  4.402847  3.976  4.3640 1820.644 10000}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez la fonction \texttt{apply()} pour centrer-réduire toutes les
+  colonnes de \texttt{e1} (\emph{i.e.} leur soustraire leur moyenne puis
+  les diviser par leur écart-type).
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol22}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Etape 1 : fonction pour centrer-réduire une variable}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(x) }\CommentTok{# Moyenne de x}
+\NormalTok{## [1] 0.3157225}
+\KeywordTok{sd}\NormalTok{(x) }\CommentTok{# Ecart-type de x}
+\NormalTok{## [1] 0.2328214}
+\NormalTok{centrer_reduire <-}\StringTok{ }\NormalTok{function(x) ( x -}\StringTok{ }\KeywordTok{mean}\NormalTok{(x) ) /}\StringTok{ }\KeywordTok{sd}\NormalTok{(x)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{centrer_reduire}\NormalTok{(x)}
+\KeywordTok{mean}\NormalTok{(z)}
+\NormalTok{## [1] 5.551115e-17}
+\KeywordTok{sd}\NormalTok{(z)}
+\NormalTok{## [1] 1}
+
+\CommentTok{# Etape 2 : utilisation dans un apply()}
+\NormalTok{e2 <-}\StringTok{ }\KeywordTok{apply}\NormalTok{(e1, }\DecValTok{2}\NormalTok{, centrer_reduire)}
+\KeywordTok{colMeans}\NormalTok{(e2)}
+\NormalTok{## [1]  0.000000e+00  3.700743e-17  1.110223e-16 -1.850372e-17  7.401487e-17}
+\KeywordTok{apply}\NormalTok{(e2, }\DecValTok{2}\NormalTok{, sd)}
+\NormalTok{## [1] 1 1 1 1 1}
+
+\CommentTok{# Tout en une seule étape :}
+\NormalTok{e3 <-}\StringTok{ }\KeywordTok{apply}\NormalTok{(e1, }\DecValTok{2}\NormalTok{, function(x) ( x -}\StringTok{ }\KeywordTok{mean}\NormalTok{(x) ) /}\StringTok{ }\KeywordTok{sd}\NormalTok{(x))}
+\KeywordTok{identical}\NormalTok{(e2, e3)}
+\NormalTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 6} \texttt{lapply()} et
+\texttt{sapply()} : Appliquer une fonction aux éléments d'un vecteur,
+d'une liste ou aux colonnes d'un
+data.frame}{Cas pratique 6 lapply() et sapply() : Appliquer une fonction aux éléments d'un vecteur, d'une liste ou aux colonnes d'un data.frame}}\label{cas-pratique-6-lapply-et-sapply-appliquer-une-fonction-aux-elements-dun-vecteur-dune-liste-ou-aux-colonnes-dun-data.frame}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  On définit le vecteur \texttt{f1} par \texttt{f1\ \textless{}-\ 5:15}.
+  Utilisez la fonction \texttt{sapply()} pour calculer la somme cumulée
+  des éléments de \texttt{f1}. Quelle(s) alternative(s)
+  envisageriez-vous ? Utilisez la fonction \texttt{microbenchmark()}
+  pour comparer ces solutions.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol23}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# INDICATION : commencer par définir la fonction }
+\CommentTok{# sumfirst(x, i) qui calcule la somme des i premiers }
+\CommentTok{# éléments de x, puis utilisez-la dans un sapply(). }
+
+\NormalTok{f1 <-}\StringTok{ }\DecValTok{5}\NormalTok{:}\DecValTok{15}
+
+\CommentTok{# Méthode 1 : sapply()}
+\CommentTok{# L'objectif est d'obtenir un vecteur de longueur length(f1)}
+\CommentTok{# qui pour chaque élément i renvoie la somme des éléments 1 à i}
+\CommentTok{# de f1}
+
+\CommentTok{# On commence par définir la fonction sumfirst(x, i) : }
+\NormalTok{sumfirst <-}\StringTok{ }\NormalTok{function(x, i) }\KeywordTok{sum}\NormalTok{(x[}\DecValTok{1}\NormalTok{:i])}
+\KeywordTok{sumfirst}\NormalTok{(f1, }\DecValTok{1}\NormalTok{)}
+\NormalTok{## [1] 5}
+\KeywordTok{sumfirst}\NormalTok{(f1, }\DecValTok{2}\NormalTok{)}
+\NormalTok{## [1] 11}
+
+\CommentTok{# Il ne reste plus qu'à appliquer sumfirst() pour chaque}
+\CommentTok{# indice de f1.}
+\KeywordTok{sapply}\NormalTok{(}\DecValTok{1}\NormalTok{:}\KeywordTok{length}\NormalTok{(f1), function(i) }\KeywordTok{sumfirst}\NormalTok{(i, }\DataTypeTok{x =} \NormalTok{f1))}
+\NormalTok{##  [1]   5  11  18  26  35  45  56  68  81  95 110}
+\CommentTok{# ou encore}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{seq_along}\NormalTok{(f1), sumfirst, }\DataTypeTok{x =} \NormalTok{f1)}
+\NormalTok{##  [1]   5  11  18  26  35  45  56  68  81  95 110}
+\CommentTok{# ou en une seule étape}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{seq_along}\NormalTok{(f1), function(i) }\KeywordTok{sum}\NormalTok{(f1[}\DecValTok{1}\NormalTok{:i]))}
+\NormalTok{##  [1]   5  11  18  26  35  45  56  68  81  95 110}
+
+\CommentTok{# Méthode 2 : cumsum()}
+\CommentTok{# La fonction cumsum() effectue nativement cette opération}
+\KeywordTok{cumsum}\NormalTok{(f1)}
+\NormalTok{##  [1]   5  11  18  26  35  45  56  68  81  95 110}
+
+\CommentTok{# Comparaison avec microbenchmark()}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \FloatTok{1e4}
+  \NormalTok{, }\DataTypeTok{sapply =} \KeywordTok{sapply}\NormalTok{(}\KeywordTok{seq_along}\NormalTok{(f1), function(i) }\KeywordTok{sum}\NormalTok{(f1[}\DecValTok{1}\NormalTok{:i]))}
+  \NormalTok{, }\DataTypeTok{cumsum =} \KeywordTok{cumsum}\NormalTok{(f1)}
+\NormalTok{)}
+\NormalTok{## Unit: nanoseconds}
+\NormalTok{##    expr   min      lq       mean median      uq     max neval}
+\NormalTok{##  sapply 21533 23425.5 26412.3013  24821 25995.5 1426711 10000}
+\NormalTok{##  cumsum   163   204.0   316.6458    290   371.0   21418 10000}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On définit la liste \texttt{f2} par
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f2 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \KeywordTok{sample.int}\NormalTok{(}\DecValTok{26}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{sample.int}\NormalTok{(}\DecValTok{26}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{sample.int}\NormalTok{(}\DecValTok{26}\NormalTok{, }\DecValTok{1000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+Utilisez les fonctions \texttt{lapply()} ou \texttt{sapply()} pour :
+
+\begin{itemize}
+\item
+  retrouver la longueur de chacun des éléments de \texttt{f2} ;
+\item
+  extraire les 5 premiers éléments de chacun des éléments de \texttt{f2}
+  ;
+\item
+  remplacer chaque élément de \texttt{f2} par le vecteur de lettres (en
+  minuscules) dont il représente les positions dans l'alphabet.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol24}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Les fonctions sapply() et lapply() permettent }
+\CommentTok{# d'appliquer systématiquement une fonction aux éléments}
+\CommentTok{# d'une liste. }
+
+\CommentTok{# Pour connaître la longueur de chaque élément de f2, }
+\CommentTok{# il suffit ainsi d'appliquer à chacun la fonction length()}
+\KeywordTok{lapply}\NormalTok{(f2, length)}
+\NormalTok{## [[1]]}
+\NormalTok{## [1] 10}
+\NormalTok{## }
+\NormalTok{## [[2]]}
+\NormalTok{## [1] 100}
+\NormalTok{## }
+\NormalTok{## [[3]]}
+\NormalTok{## [1] 1000}
+
+\CommentTok{# sapply() effectue exactement le même traitement que}
+\CommentTok{# lapply() mais essaie en plus de simplifier le résultat}
+\CommentTok{# si c'est possible}
+\KeywordTok{sapply}\NormalTok{(f2, length)}
+\NormalTok{## [1]   10  100 1000}
+\CommentTok{# Ici c'est le cas : on passe d'une liste avec lapply()}
+\CommentTok{# à un vecteur avec sapply()}
+
+\CommentTok{# Pour extraire les éléments 1 à 10 de chacun des éléments}
+\CommentTok{# de f2, on utilise l'opérateur [}
+\KeywordTok{lapply}\NormalTok{(f2, function(x) x[}\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{])}
+\NormalTok{## [[1]]}
+\NormalTok{##  [1]  2 17 13 12 25 25 17 16  4 20}
+\NormalTok{## }
+\NormalTok{## [[2]]}
+\NormalTok{##  [1]  4  3  4  9 11  8  7  9 10 17}
+\NormalTok{## }
+\NormalTok{## [[3]]}
+\NormalTok{##  [1] 18  5 15  8 14  6  7 13 26  2}
+\CommentTok{# On aurait aussi pu soumettre de façon équivalente }
+\KeywordTok{lapply}\NormalTok{(f2, }\StringTok{`}\DataTypeTok{[}\StringTok{`}\NormalTok{, }\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{)}
+\NormalTok{## [[1]]}
+\NormalTok{##  [1]  2 17 13 12 25 25 17 16  4 20}
+\NormalTok{## }
+\NormalTok{## [[2]]}
+\NormalTok{##  [1]  4  3  4  9 11  8  7  9 10 17}
+\NormalTok{## }
+\NormalTok{## [[3]]}
+\NormalTok{##  [1] 18  5 15  8 14  6  7 13 26  2}
+\CommentTok{# car x[1:10] est équivalent à `[`(x, 1:10)}
+
+\CommentTok{# Remplacer les éléments d'un des éléments de f2}
+\CommentTok{# par les lettres dont il représente la position}
+\CommentTok{# est relativement simple : }
+\NormalTok{letters[f2[[}\DecValTok{1}\NormalTok{]]]}
+\NormalTok{##  [1] "b" "q" "m" "l" "y" "y" "q" "p" "d" "t"}
+\CommentTok{# On reprend donc le principe de la sous-question}
+\CommentTok{# précédente dans un lapply()}
+\CommentTok{# lapply(f2, function(x) letters[x])}
+\CommentTok{# (commenté ici pour ne pas saturer la sortie).}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\item
+  On définit le \texttt{data.frame} \texttt{f3} par
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{f3 <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{id =} \NormalTok{letters[}\DecValTok{1}\NormalTok{:}\DecValTok{20}\NormalTok{]}
+  \NormalTok{, }\DataTypeTok{by =} \KeywordTok{rep}\NormalTok{(letters[}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{], }\DataTypeTok{times =} \DecValTok{4}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{), }\DataTypeTok{ncol =} \DecValTok{5}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  Utilisez les fonctions \texttt{lapply()} ou \texttt{sapply()} pour :
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  déterminer le type de chacune des variables de \texttt{f3};
+\item
+  calculer la moyenne de toutes les variables numériques de \texttt{f3};
+\item
+  convertir toutes les variables de type \texttt{character} en facteurs.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol25}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Un data.frame étant un cas particulier de liste, }
+\CommentTok{# on peut lui appliquer les fonctions lapply() et}
+\CommentTok{# sapply() exactement comme on le ferait pour une liste.}
+
+\CommentTok{# Pour connaître le type de chacun de ses éléments, }
+\CommentTok{# on leur applique donc systématiquement la fonction}
+\CommentTok{# typeof()}
+\KeywordTok{sapply}\NormalTok{(f3, typeof)}
+\NormalTok{##          id          by          X1          X2          X3          X4 }
+\NormalTok{## "character" "character"    "double"    "double"    "double"    "double" }
+\NormalTok{##          X5 }
+\NormalTok{##    "double"}
+
+\CommentTok{# Pour appliquer une même fonction à toutes ses variables }
+\CommentTok{# de type numériques, on commence par les identifier}
+\CommentTok{# avec un is.numeric() dans un sapply()}
+\NormalTok{num <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(f3, is.numeric)}
+\NormalTok{num}
+\NormalTok{##    id    by    X1    X2    X3    X4    X5 }
+\NormalTok{## FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE}
+\CommentTok{# Puis on leur applique la fonction désirée}
+\KeywordTok{sapply}\NormalTok{(f3[num], mean)}
+\NormalTok{##        X1        X2        X3        X4        X5 }
+\NormalTok{## 0.5551671 0.4738822 0.5072134 0.5665520 0.4864206}
+
+\CommentTok{# De même pour les variables de type caractère}
+\NormalTok{char <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(f3, is.character)}
+\NormalTok{char}
+\NormalTok{##    id    by    X1    X2    X3    X4    X5 }
+\NormalTok{##  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE}
+\NormalTok{f3[char] <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(f3[char], as.factor)}
+\KeywordTok{str}\NormalTok{(f3)}
+\NormalTok{## 'data.frame':    20 obs. of  7 variables:}
+\NormalTok{##  $ id: Factor w/ 20 levels "a","b","c","d",..: 1 2 3 4 5 6 7 8 9 10 ...}
+\NormalTok{##  $ by: Factor w/ 5 levels "a","b","c","d",..: 1 2 3 4 5 1 2 3 4 5 ...}
+\NormalTok{##  $ X1: num  0.266 0.372 0.573 0.908 0.202 ...}
+\NormalTok{##  $ X2: num  0.935 0.212 0.652 0.126 0.267 ...}
+\NormalTok{##  $ X3: num  0.821 0.647 0.783 0.553 0.53 ...}
+\NormalTok{##  $ X4: num  0.913 0.294 0.459 0.332 0.651 ...}
+\NormalTok{##  $ X5: num  0.435 0.713 0.4 0.325 0.757 ...}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{itemize}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 7} \texttt{tapply()} :
+Appliquer une fonction selon les modalités d'un
+vecteur}{Cas pratique 7 tapply() : Appliquer une fonction selon les modalités d'un vecteur}}\label{cas-pratique-7-tapply-appliquer-une-fonction-selon-les-modalites-dun-vecteur}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  On définit le vecteur \texttt{g1\ \textless{}-\ sample(20)} et le
+  vecteur \texttt{g2\ \textless{}-\ rep(c("H",\ "F"),\ times\ =\ 10)}.
+  Utilisez \texttt{tapply()} pour calculer la moyenne de \texttt{g1}
+  selon les groupes définis par \texttt{g2}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol26}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\NormalTok{g1 <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{20}\NormalTok{)}
+\NormalTok{g2 <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{, }\StringTok{"F"}\NormalTok{), }\DataTypeTok{times =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{# La fonction tapply() permet d'appliquer une fonction}
+\CommentTok{# à un vecteur selon les modalités d'un autre vecteur}
+\KeywordTok{tapply}\NormalTok{(g1, g2, mean)}
+\NormalTok{##    F    H }
+\NormalTok{## 10.7 10.3}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On repart du \texttt{data.frame} \texttt{f3} du cas pratique
+  précédent. Utilisez \texttt{tapply()} pour calculer le total de la
+  variable \texttt{X1} selon les modalités de la variable \texttt{by}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol27}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il suffit d'utiliser tapply() sur les variables de f3}
+\KeywordTok{tapply}\NormalTok{(f3$X1, f3$by, sum)}
+\NormalTok{##        a        b        c        d        e }
+\NormalTok{## 1.867572 2.210974 2.912580 2.301461 1.810755}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Combinez la fonction \texttt{split()} avec \texttt{sapply()} pour
+  obtenir le même résultat. Comment calculeriez-vous le total de toutes
+  les variables numériques de \texttt{f3} selon les modalités de la
+  variable \texttt{by} ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol28}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction split() éclate en une liste un vecteur }
+\CommentTok{# ou un data.frame selon les modalités d'une ou plusieurs}
+\CommentTok{# variables.}
+\NormalTok{f3[,}\KeywordTok{c}\NormalTok{(}\StringTok{"by"}\NormalTok{, }\StringTok{"X1"}\NormalTok{)]}
+\NormalTok{##    by         X1}
+\NormalTok{## 1   a 0.26550866}
+\NormalTok{## 2   b 0.37212390}
+\NormalTok{## 3   c 0.57285336}
+\NormalTok{## 4   d 0.90820779}
+\NormalTok{## 5   e 0.20168193}
+\NormalTok{## 6   a 0.89838968}
+\NormalTok{## 7   b 0.94467527}
+\NormalTok{## 8   c 0.66079779}
+\NormalTok{## 9   d 0.62911404}
+\NormalTok{## 10  e 0.06178627}
+\NormalTok{## 11  a 0.20597457}
+\NormalTok{## 12  b 0.17655675}
+\NormalTok{## 13  c 0.68702285}
+\NormalTok{## 14  d 0.38410372}
+\NormalTok{## 15  e 0.76984142}
+\NormalTok{## 16  a 0.49769924}
+\NormalTok{## 17  b 0.71761851}
+\NormalTok{## 18  c 0.99190609}
+\NormalTok{## 19  d 0.38003518}
+\NormalTok{## 20  e 0.77744522}
+\KeywordTok{split}\NormalTok{(f3$X1, f3$by)}
+\NormalTok{## $a}
+\NormalTok{## [1] 0.2655087 0.8983897 0.2059746 0.4976992}
+\NormalTok{## }
+\NormalTok{## $b}
+\NormalTok{## [1] 0.3721239 0.9446753 0.1765568 0.7176185}
+\NormalTok{## }
+\NormalTok{## $c}
+\NormalTok{## [1] 0.5728534 0.6607978 0.6870228 0.9919061}
+\NormalTok{## }
+\NormalTok{## $d}
+\NormalTok{## [1] 0.9082078 0.6291140 0.3841037 0.3800352}
+\NormalTok{## }
+\NormalTok{## $e}
+\NormalTok{## [1] 0.20168193 0.06178627 0.76984142 0.77744522}
+
+\CommentTok{# Ce faisant, on peut avec une fonction lapply()}
+\CommentTok{# ou sapply() reproduire le comportent de la fonction}
+\CommentTok{# tapply()}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(f3$X1, f3$by), sum)}
+\NormalTok{##        a        b        c        d        e }
+\NormalTok{## 1.867572 2.210974 2.912580 2.301461 1.810755}
+
+\CommentTok{# L'avantage de cette technique est qu'elle}
+\CommentTok{# permet d'appliquer le même type de traitement}
+\CommentTok{# non à une seule variable mais à plusieurs}
+\CommentTok{# d'un seul coup}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(f3[num], f3$by), function(x)\{}
+  \KeywordTok{sapply}\NormalTok{(x, sum)}
+\NormalTok{\})}
+\NormalTok{##           a        b        c        d        e}
+\NormalTok{## X1 1.867572 2.210974 2.912580 2.301461 1.810755}
+\NormalTok{## X2 2.471366 1.619339 1.635547 1.905174 1.846217}
+\NormalTok{## X3 2.187388 1.847873 2.216894 2.192152 1.699960}
+\NormalTok{## X4 2.402164 2.475928 1.962049 1.527737 2.963161}
+\NormalTok{## X5 1.674290 1.937845 1.574059 2.257980 2.284239}
+\CommentTok{# ... ou de façon équivalente (mais un peu difficile}
+\CommentTok{# à relire !)}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(f3[num], f3$by), sapply, sum)}
+\NormalTok{##           a        b        c        d        e}
+\NormalTok{## X1 1.867572 2.210974 2.912580 2.301461 1.810755}
+\NormalTok{## X2 2.471366 1.619339 1.635547 1.905174 1.846217}
+\NormalTok{## X3 2.187388 1.847873 2.216894 2.192152 1.699960}
+\NormalTok{## X4 2.402164 2.475928 1.962049 1.527737 2.963161}
+\NormalTok{## X5 1.674290 1.937845 1.574059 2.257980 2.284239}
+\CommentTok{# ... ou plus efficacement avec colSums()}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(f3[num], f3$by), colSums)}
+\NormalTok{##           a        b        c        d        e}
+\NormalTok{## X1 1.867572 2.210974 2.912580 2.301461 1.810755}
+\NormalTok{## X2 2.471366 1.619339 1.635547 1.905174 1.846217}
+\NormalTok{## X3 2.187388 1.847873 2.216894 2.192152 1.699960}
+\NormalTok{## X4 2.402164 2.475928 1.962049 1.527737 2.963161}
+\NormalTok{## X5 1.674290 1.937845 1.574059 2.257980 2.284239}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 8} \texttt{do.call()} :
+Appliquer une fonction simultanément à l'ensemble des éléments d'une
+liste}{Cas pratique 8 do.call() : Appliquer une fonction simultanément à l'ensemble des éléments d'une liste}}\label{cas-pratique-8-do.call-appliquer-une-fonction-simultanement-a-lensemble-des-elements-dune-liste}
+
+De nombreuses fonctions peuvent porter sur un nombre indéterminé
+d'éléments : \texttt{c()}, \texttt{sum()}, \texttt{rbind()}, etc. Pour
+les appliquer à l'ensemble des éléments d'une liste sans avoir à tous
+les écrire un à un, il suffit d'utiliser \texttt{do.call()}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  On définit la liste
+  \texttt{h1\ \textless{}-\ list(1:5,\ 6:10,\ 11:15)}. Que se passe-t-il
+  si vous soumettez \texttt{sum(h1)} ? Utilisez \texttt{do.call()} pour
+  sommer l'ensemble des éléments de \texttt{h1}. Comparez avec le
+  résultat de \texttt{sapply(h1,\ sum)}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol29}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h1 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{:}\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{:}\DecValTok{15}\NormalTok{)}
+
+\CommentTok{# La fonction sum() ne peut pas porter sur une liste}
+\KeywordTok{sum}\NormalTok{(h1)}
+\NormalTok{## Error in sum(h1): 'type' (list) de l'argument incorrect}
+
+\CommentTok{# En revanche, il est possible d'appliquer la fonction}
+\CommentTok{# sum() à l'ensemble des éléments de h1}
+\KeywordTok{sum}\NormalTok{(h1[[}\DecValTok{1}\NormalTok{]], h1[[}\DecValTok{2}\NormalTok{]], h1[[}\DecValTok{3}\NormalTok{]])}
+\NormalTok{## [1] 120}
+
+\CommentTok{# Pour automatiser cette expression, on peut utiliser}
+\CommentTok{# do.call()}
+\KeywordTok{do.call}\NormalTok{(sum, h1)}
+\NormalTok{## [1] 120}
+
+\CommentTok{# A l'inverse, sapply(h1, sum) applique la fonction}
+\CommentTok{# sum() à chaque élément de h1 : }
+\KeywordTok{sapply}\NormalTok{(h1, sum)}
+\NormalTok{## [1] 15 40 65}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Réunissez les éléments de \texttt{h1} en un seul vecteur avec la
+  fonction \texttt{base::c()}. Comparez avec le résultat de
+  \texttt{lapply(h1,\ base::c)}
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol30}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction base::c() permet de concaténer}
+\CommentTok{# les vecteurs qui constituent h1 }
+\KeywordTok{c}\NormalTok{(h1[[}\DecValTok{1}\NormalTok{]], h1[[}\DecValTok{2}\NormalTok{]], h1[[}\DecValTok{3}\NormalTok{]])}
+\NormalTok{##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15}
+
+\CommentTok{# Pour automatiser cette expression, on peut utiliser}
+\CommentTok{# do.call()}
+\KeywordTok{do.call}\NormalTok{(base::c, h1)}
+\NormalTok{##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15}
+\CommentTok{# Note : on utilise ici base::c pour bien indiquer que}
+\CommentTok{# c'est la fonction c() du package base que l'on }
+\CommentTok{# souhaite utiliser. En effet, si l'on avait défini}
+\CommentTok{# on objet c dans l'environnement global il y aurait}
+\CommentTok{# eu un conflit de noms.}
+
+\CommentTok{# lapply(h1, base::c) applique la fonction base::c()}
+\CommentTok{# à chaque élément de h1, ce qui ne change rien}
+\KeywordTok{lapply}\NormalTok{(h1, base::c)}
+\NormalTok{## [[1]]}
+\NormalTok{## [1] 1 2 3 4 5}
+\NormalTok{## }
+\NormalTok{## [[2]]}
+\NormalTok{## [1]  6  7  8  9 10}
+\NormalTok{## }
+\NormalTok{## [[3]]}
+\NormalTok{## [1] 11 12 13 14 15}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On définit la liste de matrices \texttt{h2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{h2 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{6}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{matrix}\NormalTok{(}\DecValTok{7}\NormalTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{matrix}\NormalTok{(}\DecValTok{13}\NormalTok{:}\DecValTok{18}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  Utilisez \texttt{do.call()} avec les fonctions \texttt{rbind()} et
+  \texttt{cbind()} pour concaténer l'ensemble des éléments de
+  \texttt{h2} en ligne ou en colonne respectivement.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol31}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Pour concaténer les éléments de h2 en ligne, }
+\CommentTok{# on utilise rbind()}
+\KeywordTok{rbind}\NormalTok{(h2[[}\DecValTok{1}\NormalTok{]], h2[[}\DecValTok{2}\NormalTok{]], h2[[}\DecValTok{3}\NormalTok{]])}
+\NormalTok{##      [,1] [,2] [,3]}
+\NormalTok{## [1,]    1    3    5}
+\NormalTok{## [2,]    2    4    6}
+\NormalTok{## [3,]    7    9   11}
+\NormalTok{## [4,]    8   10   12}
+\NormalTok{## [5,]   13   15   17}
+\NormalTok{## [6,]   14   16   18}
+
+\CommentTok{# Pour automatiser cette expression, on peut utiliser}
+\CommentTok{# do.call()}
+\KeywordTok{do.call}\NormalTok{(rbind, h2)}
+\NormalTok{##      [,1] [,2] [,3]}
+\NormalTok{## [1,]    1    3    5}
+\NormalTok{## [2,]    2    4    6}
+\NormalTok{## [3,]    7    9   11}
+\NormalTok{## [4,]    8   10   12}
+\NormalTok{## [5,]   13   15   17}
+\NormalTok{## [6,]   14   16   18}
+
+\CommentTok{# De même en colonne avec cbind()}
+\KeywordTok{do.call}\NormalTok{(cbind, h2)}
+\NormalTok{##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]}
+\NormalTok{## [1,]    1    3    5    7    9   11   13   15   17}
+\NormalTok{## [2,]    2    4    6    8   10   12   14   16   18}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 9} \texttt{Reduce()} :
+Appliquer une fonction successivement à l'ensemble des éléments d'une
+liste}{Cas pratique 9 Reduce() : Appliquer une fonction successivement à l'ensemble des éléments d'une liste}}\label{cas-pratique-9-reduce-appliquer-une-fonction-successivement-a-lensemble-des-elements-dune-liste}
+
+De nombreuses fonctions portent sur deux éléments précisément :
+opérations arithmétiques, \texttt{merge()}, etc. Pour les appliquer
+successivement à l'ensemble des éléments d'une liste, il suffit
+d'utiliser \texttt{Reduce()}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  On repart de la liste \texttt{h1} du cas pratique précédent. Observez
+  le résultat de \texttt{Reduce(`+`,\ h1)} : comment le comprenez-vous ?
+  Comparez avec \texttt{sapply(h1,\ sum)}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol32}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Reduce(f, x) applique la fonction f() aux éléments de x}
+\CommentTok{# 2 à 2 et successivement. }
+\KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{+}\StringTok{`}\NormalTok{, h1)}
+\NormalTok{## [1] 18 21 24 27 30}
+\CommentTok{# Ici, cette expression est équivalente à }
+\NormalTok{( h1[[}\DecValTok{1}\NormalTok{]] +}\StringTok{ }\NormalTok{h1[[}\DecValTok{2}\NormalTok{]] ) +}\StringTok{ }\NormalTok{h1[[}\DecValTok{3}\NormalTok{]]}
+\NormalTok{## [1] 18 21 24 27 30}
+\CommentTok{# Le vecteur obtenu est la somme terme à terme de }
+\CommentTok{# tous les éléments qui composent h1}
+
+\CommentTok{# A l'inverse, sapply(h1, sum) applique la fonction}
+\CommentTok{# sum() à chaque élément de h1 : }
+\KeywordTok{sapply}\NormalTok{(h1, sum)}
+\NormalTok{## [1] 15 40 65}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On définit la liste de \texttt{data.frame} \texttt{i1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i1 <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =} \NormalTok{letters[}\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{], }\DataTypeTok{var1 =} \DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =} \NormalTok{letters[}\DecValTok{2}\NormalTok{:}\DecValTok{5}\NormalTok{], }\DataTypeTok{var2 =} \DecValTok{5}\NormalTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+  \NormalTok{, }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =} \NormalTok{letters[}\DecValTok{3}\NormalTok{:}\DecValTok{6}\NormalTok{], }\DataTypeTok{var3 =} \DecValTok{9}\NormalTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  Utilisez \texttt{Reduce()} pour fusionner l'ensemble des éléments de
+  \texttt{i1} selon la variable \texttt{id}. Comment ajusteriez-vous ce
+  code pour pouvoir utiliser l'option \texttt{all\ =\ TRUE} de la
+  fonction \texttt{merge()} ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol33}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction Reduce() est particulièrement utile }
+\CommentTok{# pour fusionner de nombreux data.frame selon la}
+\CommentTok{# même variable. Par défaut, la fonction merge()}
+\CommentTok{# fusionne les data.frame sur les variables qu'ils}
+\CommentTok{# ont en commun.}
+\KeywordTok{Reduce}\NormalTok{(merge, i1)}
+\NormalTok{##   id var1 var2 var3}
+\NormalTok{## 1  c    3    6    9}
+\NormalTok{## 2  d    4    7   10}
+\CommentTok{# Ce code fournit le résultat désiré. }
+
+\CommentTok{# Pour spécifier explicitement la variable de fusion, }
+\CommentTok{# il faut redéfinir à la volée la fonction à appliquer }
+\CommentTok{# dans le Reduce() (comme dans un *apply) : }
+\KeywordTok{Reduce}\NormalTok{(function(x, y) }\KeywordTok{merge}\NormalTok{(x, y, }\DataTypeTok{by =} \StringTok{"id"}\NormalTok{), i1)}
+\NormalTok{##   id var1 var2 var3}
+\NormalTok{## 1  c    3    6    9}
+\NormalTok{## 2  d    4    7   10}
+
+\CommentTok{# De même pour ajouter d'autres options à la fonction }
+\CommentTok{# merge()}
+\KeywordTok{Reduce}\NormalTok{(function(x, y) }\KeywordTok{merge}\NormalTok{(x, y, }\DataTypeTok{by =} \StringTok{"id"}\NormalTok{, }\DataTypeTok{all =} \OtherTok{TRUE}\NormalTok{), i1)}
+\NormalTok{##   id var1 var2 var3}
+\NormalTok{## 1  a    1   NA   NA}
+\NormalTok{## 2  b    2    5   NA}
+\NormalTok{## 3  c    3    6    9}
+\NormalTok{## 4  d    4    7   10}
+\NormalTok{## 5  e   NA    8   11}
+\NormalTok{## 6  f   NA   NA   12}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+\subsection{\texorpdfstring{Travailler efficacement sur des données avec
+base
+\textbf{R}}{Travailler efficacement sur des données avec base R}}\label{travailler-efficacement-sur-des-donnees-avec-base-r}
+
+L'ensemble des cas pratiques qui suivent portent sur les données de
+l'enquête Emploi en continu stockées dans le fichier \texttt{eect4.rds}.
+La fonction \texttt{readRDS()} permet de le charger en mémoire :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"U:/R_perfectionnement"}\NormalTok{)}
+\NormalTok{eec <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"eect4.rds"}\NormalTok{)}
+\KeywordTok{str}\NormalTok{(eec)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    34913 obs. of  19 variables:
+##  $ IDENT    : chr  "G0A56JP6" "G0A56JP6" "G0A56JR6" "G0A56JS6" ...
+##  $ TRIM     : chr  "4" "4" "4" "4" ...
+##  $ NOI      : chr  "01" "02" "01" "01" ...
+##  $ REG      : chr  "11" "11" "11" "11" ...
+##  $ AGE      : chr  "66" "29" "27" "29" ...
+##  $ SEXE     : chr  "2" "1" "2" "2" ...
+##  $ CSE      : chr  "56" "81" "38" "37" ...
+##  $ DIP11    : chr  "71" "42" "10" "11" ...
+##  $ ACTEU    : chr  "1" "2" "1" "1" ...
+##  $ SALRED   : int  596 NA 2700 2666 11967 NA 2000 2800 2333 3500 ...
+##  $ STC      : chr  "2" NA "2" "2" ...
+##  $ TAM1D    : chr  NA NA NA NA ...
+##  $ AIDREF   : chr  NA "5" NA NA ...
+##  $ TPP      : chr  "1" NA "1" "1" ...
+##  $ NBAGENF  : chr  "0" "0" "0" "0" ...
+##  $ DUHAB    : chr  "7" NA "7" "7" ...
+##  $ PUB3FP   : chr  "4" NA "4" "4" ...
+##  $ NAIA     : chr  "1946" "1983" "1985" "1983" ...
+##  $ EXTRI1613: num  1777 1777 2045 1898 1754 ...
+\end{verbatim}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 10} Sélection
+d'observations}{Cas pratique 10 Sélection d'observations}}\label{cas-pratique-10-selection-dobservations}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez l'opérateur \texttt{{[}} pour sélectionner l'individu
+  appartenant au ménage dont l'\texttt{IDENT} est \texttt{"GFO5NVUE"} et
+  dont le numéro d'ordre \texttt{NOI} est \texttt{"02"}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol34}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il suffit de créer le vecteur logique correspondant}
+\CommentTok{# et de l'utiliser das `[`}
+\NormalTok{eec[eec$IDENT ==}\StringTok{ "GFO5NVUE"} \NormalTok{&}\StringTok{ }\NormalTok{eec$NOI ==}\StringTok{ "02"}\NormalTok{, ]  }
+\NormalTok{##           IDENT TRIM NOI REG AGE SEXE CSE DIP11 ACTEU SALRED STC TAM1D}
+\NormalTok{## 360720 GFO5NVUE    4  02  42  56    1  63    50     1   2004   2  <NA>}
+\NormalTok{##        AIDREF TPP NBAGENF DUHAB PUB3FP NAIA EXTRI1613}
+\NormalTok{## 360720   <NA>   1       0     6      4 1956  990.2715}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Cherchez de la documentation sur la fonction \texttt{subset()}.
+  Comparez ses performances avec celles de l'opérateur \texttt{{[}} à
+  l'aide de la fonction \texttt{microbenchmark()}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol35}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset() permet d'évaluer une clause logique}
+\CommentTok{# sans avoir à répéter le nom du data.frame}
+\CommentTok{# d'origine}
+\KeywordTok{subset}\NormalTok{(eec, IDENT ==}\StringTok{ "GFO5NVUE"} \NormalTok{&}\StringTok{ }\NormalTok{NOI ==}\StringTok{ "02"}\NormalTok{)}
+\NormalTok{##           IDENT TRIM NOI REG AGE SEXE CSE DIP11 ACTEU SALRED STC TAM1D}
+\NormalTok{## 360720 GFO5NVUE    4  02  42  56    1  63    50     1   2004   2  <NA>}
+\NormalTok{##        AIDREF TPP NBAGENF DUHAB PUB3FP NAIA EXTRI1613}
+\NormalTok{## 360720   <NA>   1       0     6      4 1956  990.2715}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \FloatTok{1e2}
+  \NormalTok{, }\StringTok{"["} \NormalTok{=}\StringTok{ }\NormalTok{eec[eec$IDENT ==}\StringTok{ "GFO5NVUE"} \NormalTok{&}\StringTok{ }\NormalTok{eec$NOI ==}\StringTok{ "02"}\NormalTok{, ]  }
+  \NormalTok{, }\DataTypeTok{subset =} \KeywordTok{subset}\NormalTok{(eec, IDENT ==}\StringTok{ "GFO5NVUE"} \NormalTok{&}\StringTok{ }\NormalTok{NOI ==}\StringTok{ "02"}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##    expr      min       lq     mean   median       uq      max neval}
+\NormalTok{##       [ 4.080503 4.172534 4.958683 4.249307 5.987093 6.476791   100}
+\NormalTok{##  subset 4.975475 5.047462 6.104903 6.789003 6.888070 8.092015   100}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Concaténez les valeurs des variables \texttt{IDENT} et \texttt{NOI} et
+  utilisez le résultat comme noms de ligne. Retrouvez alors l'individu
+  de la question a à l'aide de son nom de ligne. Comparez les
+  performances de cette méthode avec celles de l'opérateur \texttt{{[}}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol36}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La foncton paste0() permet de concaténer des chaînes}
+\CommentTok{# de caractères sans utiliser de délimiteur}
+\KeywordTok{row.names}\NormalTok{(eec) <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(eec$IDENT, eec$NOI)}
+
+\CommentTok{# Sélection de l'individu par son nom de ligne}
+\NormalTok{eec[}\StringTok{"GFO5NVUE02"}\NormalTok{, ]}
+\NormalTok{##               IDENT TRIM NOI REG AGE SEXE CSE DIP11 ACTEU SALRED STC TAM1D}
+\NormalTok{## GFO5NVUE02 GFO5NVUE    4  02  42  56    1  63    50     1   2004   2  <NA>}
+\NormalTok{##            AIDREF TPP NBAGENF DUHAB PUB3FP NAIA EXTRI1613}
+\NormalTok{## GFO5NVUE02   <NA>   1       0     6      4 1956  990.2715}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \FloatTok{1e2}
+  \NormalTok{, }\StringTok{"["} \NormalTok{=}\StringTok{ }\NormalTok{eec[eec$IDENT ==}\StringTok{ "GFO5NVUE"} \NormalTok{&}\StringTok{ }\NormalTok{eec$NOI ==}\StringTok{ "02"}\NormalTok{, ]  }
+  \NormalTok{, }\DataTypeTok{names =} \NormalTok{eec[}\StringTok{"GFO5NVUE02"}\NormalTok{, ]}
+\NormalTok{)}
+\NormalTok{## Unit: microseconds}
+\NormalTok{##   expr      min       lq      mean   median       uq       max neval}
+\NormalTok{##      [ 4090.764 4154.567 5887.5253 4303.185 6969.056 50965.131   100}
+\NormalTok{##  names  578.838  630.122  909.5403  853.793 1015.394  3351.487   100}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 11} Création de
+variables}{Cas pratique 11 Création de variables}}\label{cas-pratique-11-creation-de-variables}
+
+On souhaite recoder la variable \texttt{AGE} en trois modalités : 15-30
+ans, 31-60 ans et plus de 60 ans. On part du code suivant :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(eec)) eec$trage1[i] <-}\StringTok{ }\NormalTok{if(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE[i]) <}\StringTok{ }\DecValTok{31}\NormalTok{) }\StringTok{"15-30"} \NormalTok{else if(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE[i]) <}\StringTok{ }\DecValTok{61}\NormalTok{) }\StringTok{"31-60"} \NormalTok{else }\StringTok{"61 et +"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Mesurez le temps d'exécution du code proposé. Que pensez-vous de cette
+  syntaxe ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol37}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Mesure du temps d'exécution de cette première version}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{1}
+  \NormalTok{, }\DataTypeTok{v1 =} \NormalTok{\{}
+\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(eec)) eec$trage1[i] <-}\StringTok{ }\NormalTok{if(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE[i]) <}\StringTok{ }\DecValTok{31}\NormalTok{) }\StringTok{"15-30"} \NormalTok{else if(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE[i]) <}\StringTok{ }\DecValTok{61}\NormalTok{) }\StringTok{"31-60"} \NormalTok{else }\StringTok{"61 et +"}
+  \NormalTok{\}}
+\NormalTok{)}
+\NormalTok{## Unit: seconds}
+\NormalTok{##  expr      min       lq     mean   median       uq      max neval}
+\NormalTok{##    v1 9.370603 9.370603 9.370603 9.370603 9.370603 9.370603     1}
+\CommentTok{# Note : on ne fait qu'une seule itération car le}
+\CommentTok{# temps d'exécution est très long (plusieurs secondes !).}
+
+\CommentTok{# Cette syntaxe présente un énorme problème : elle utilise}
+\CommentTok{# une boucle là où des opérations vectorisées beaucoup }
+\CommentTok{# plus rapides sont disponibles.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  On propose une seconde version du code :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eec$trage2 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(}
+  \KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}
+\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+  Vérifiez que le résultat est identique à la proposition initiale (par
+  exemple avec \texttt{identical()}ou \texttt{all.equal()}) et mesurez
+  le temps temps d'exécution de cette deuxième version. Êtes-vous
+  surpris du gain de performances ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol38}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eec$trage2 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(}
+  \KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}
+\NormalTok{))}
+
+\CommentTok{# Vérification de la correspondance }
+\CommentTok{# avec la première version}
+\KeywordTok{all.equal}\NormalTok{(eec$trage1, eec$trage2)}
+\NormalTok{## [1] TRUE}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \FloatTok{1e1}
+  \NormalTok{, }\DataTypeTok{v2 =} \NormalTok{\{}
+\NormalTok{eec$trage2 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(}
+  \KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}
+\NormalTok{))}
+  \NormalTok{\}}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##  expr      min       lq     mean  median       uq      max neval}
+\NormalTok{##    v2 31.74871 32.25048 38.20883 32.5345 34.82258 81.17398    10}
+
+\CommentTok{# On n'est pas surpris du gain de performance : en R, }
+\CommentTok{# les boucles sont beaucoup moins efficaces que les }
+\CommentTok{# opérations vectorisées (qui reposent sur des }
+\CommentTok{# boucles dans des langages de plus bas niveau).}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comment recoderiez-vous la proposition précédente pour ne plus faire
+  appel à la fonction \texttt{ifelse()} ? Cela est-il susceptible
+  d'améliorer les performances ? Mettez en oeuvre cette solution et
+  mesurez-en les performances.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol39}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il est possible de se passer de ifelse() en utilisant}
+\CommentTok{# l'opérateur [ pour effectuer des remplacements successifs. }
+\NormalTok{eec$trage3 <-}\StringTok{ "15-30"}
+\NormalTok{eec$trage3[}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) >}\StringTok{ }\DecValTok{30} \NormalTok{&}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{] <-}\StringTok{ "31-60"}
+\NormalTok{eec$trage3[}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) >}\StringTok{ }\DecValTok{60}\NormalTok{] <-}\StringTok{ "61 et +"}
+
+\CommentTok{# Vérification de la correspondance }
+\CommentTok{# avec la première version}
+\KeywordTok{all.equal}\NormalTok{(eec$trage1, eec$trage3)}
+\NormalTok{## [1] TRUE}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \FloatTok{1e1}
+  \NormalTok{, }\DataTypeTok{v2 =} \NormalTok{\{}
+\NormalTok{eec$trage2 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(}
+  \KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}
+\NormalTok{))}
+  \NormalTok{\}}
+  \NormalTok{, }\DataTypeTok{v3 =} \NormalTok{\{}
+\NormalTok{eec$trage3 <-}\StringTok{ "15-30"}
+\NormalTok{eec$trage3[}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) >}\StringTok{ }\DecValTok{30} \NormalTok{&}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{] <-}\StringTok{ "31-60"}
+\NormalTok{eec$trage3[}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) >}\StringTok{ }\DecValTok{60}\NormalTok{] <-}\StringTok{ "61 et +"}
+  \NormalTok{\}}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##  expr      min       lq     mean   median       uq      max neval}
+\NormalTok{##    v2 29.46915 32.35999 32.30286 32.56482 32.73211 33.04035    10}
+\NormalTok{##    v3 11.56582 11.60436 13.14490 11.89369 15.25443 15.46838    10}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Combien de fois appelez-vous la fonction \texttt{as.numeric()} dans le
+  code qui précède ? Proposez une dernière version qui minimise les
+  opérations effectuées par \textbf{R} et synthétisez le gain en termes
+  de performances.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol40}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction as.numeric() est appelée trois fois dans}
+\CommentTok{# le code qui précède. Pour gagner du temps, on}
+\CommentTok{# crée la variable t temporaire que l'on utilise}
+\CommentTok{# en lieu et place de as.numeric(eec$AGE)}
+\NormalTok{t <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(eec$AGE)}
+\NormalTok{eec$trage4 <-}\StringTok{ "15-30"}
+\NormalTok{eec$trage4[t >}\StringTok{ }\DecValTok{30} \NormalTok{&}\StringTok{ }\NormalTok{t <}\StringTok{ }\DecValTok{61}\NormalTok{] <-}\StringTok{ "31-60"}
+\NormalTok{eec$trage4[t >}\StringTok{ }\DecValTok{60}\NormalTok{] <-}\StringTok{ "61 et +"}
+
+\CommentTok{# Vérification de la correspondance }
+\CommentTok{# avec la première version}
+\KeywordTok{all.equal}\NormalTok{(eec$trage1, eec$trage4)}
+\NormalTok{## [1] TRUE}
+
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+  \NormalTok{, }\DataTypeTok{v2 =} \NormalTok{\{}
+\NormalTok{eec$trage2 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(}
+  \KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}
+\NormalTok{))}
+  \NormalTok{\}}
+  \NormalTok{, }\DataTypeTok{v3 =} \NormalTok{\{}
+\NormalTok{eec$trage3 <-}\StringTok{ "15-30"}
+\NormalTok{eec$trage3[}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) >}\StringTok{ }\DecValTok{30} \NormalTok{&}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(eec$AGE) <}\StringTok{ }\DecValTok{61}\NormalTok{] <-}\StringTok{ "31-60"}
+\NormalTok{eec$trage3[}\KeywordTok{as.numeric}\NormalTok{(eec$AGE) >}\StringTok{ }\DecValTok{60}\NormalTok{] <-}\StringTok{ "61 et +"}
+  \NormalTok{\}}
+  \NormalTok{, }\DataTypeTok{v4 =} \NormalTok{\{}
+\NormalTok{t <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(eec$AGE)}
+\NormalTok{eec$trage4 <-}\StringTok{ "15-30"}
+\NormalTok{eec$trage4[t >}\StringTok{ }\DecValTok{30} \NormalTok{&}\StringTok{ }\NormalTok{t <}\StringTok{ }\DecValTok{61}\NormalTok{] <-}\StringTok{ "31-60"}
+\NormalTok{eec$trage4[t >}\StringTok{ }\DecValTok{60}\NormalTok{] <-}\StringTok{ "61 et +"}
+  \NormalTok{\}}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##  expr       min        lq      mean    median       uq       max neval}
+\NormalTok{##    v2 32.329528 32.507772 38.123102 32.791472 35.89258 78.551367    10}
+\NormalTok{##    v3 11.599261 11.731208 12.850544 11.855953 15.26732 15.536842    10}
+\NormalTok{##    v4  5.736214  5.790105  6.564499  5.842058  6.00878  9.551809    10}
+
+\CommentTok{# Le passage de la version 1 à la version 4 du code s'est}
+\CommentTok{# donc traduit par un gain en termes de performances}
+\CommentTok{# de l'ordre d'un facteur 1 000.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 12} Agrégation par
+groupes : salaire moyen par
+région}{Cas pratique 12 Agrégation par groupes : salaire moyen par région}}\label{cas-pratique-12-agregation-par-groupes-salaire-moyen-par-region}
+
+On cherche à calculer le plus efficacement possible le salaire moyen
+(variable \texttt{SALRED}) par région (variable \texttt{REG}), d'abord
+sans pondérer puis en pondérant par le poids de sondage
+\texttt{EXTRI1613}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Comparez les performances des fonctions \texttt{aggregate()},
+  \texttt{by()}, \texttt{sapply()} (avec \texttt{split()}) et
+  \texttt{tapply()} pour le calcul du salaire moyen \textbf{non-pondéré}
+  par région.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol41}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# INDICATION : consultez l'aide de chacune de ces fonctions}
+\CommentTok{# pour vous approprier leur syntaxe.}
+
+\CommentTok{# On adapte à chaque fonction la syntaxe à mettre en oeuvre}
+\CommentTok{# et on compare leurs performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+  \NormalTok{, }\DataTypeTok{aggregate =} \KeywordTok{aggregate}\NormalTok{(eec$SALRED, }\KeywordTok{list}\NormalTok{(eec$REG), mean, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{by =} \KeywordTok{by}\NormalTok{(eec$SALRED, eec$REG, mean, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{sapply =} \KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(eec$SALRED, eec$REG), mean, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{tapply =} \KeywordTok{tapply}\NormalTok{(eec$SALRED, eec$REG, mean, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##       expr       min        lq      mean    median        uq       max}
+\NormalTok{##  aggregate 39.292281 39.364568 40.153831 39.517682 39.930893 43.819960}
+\NormalTok{##         by  4.592239  4.625098  5.829585  5.014660  8.133503  8.227018}
+\NormalTok{##     sapply  2.639614  2.683146  3.789832  2.829214  6.117389  6.339385}
+\NormalTok{##     tapply  3.820977  3.857704  5.656975  5.746443  7.380845  7.472033}
+\NormalTok{##  neval}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\CommentTok{# En règle générale sapply() et tapply() conduisent aux meilleures}
+\CommentTok{# performances et sont proches l'une de l'autre. }
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Quelles pistes envisageriez-vous pour améliorer encore les
+  performances dans ce type de situation ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol42}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plusieurs pistes sont envisageables : }
+\CommentTok{# - utiliser des manipulations purement vectorielles ;}
+\CommentTok{# - utiliser des manipulations matricielles sur des matrices lacunaires avec le package `Matrix`;}
+\CommentTok{# - paralléliser l'exécution avec le package `parallel`; }
+\CommentTok{# - coder la fonction en C++.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez la fonction \texttt{sapply()} pour calculer le salaire moyen
+  \textbf{pondéré} (par le poids de sondage \texttt{EXTRI1613}) par
+  région. Y parvenez-vous également avec \texttt{tapply()} ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol43}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# INDICATION 1 : appliquez la fonction split() à un objet}
+\CommentTok{# contenant le salaire et le poids de sondage pour }
+\CommentTok{# pouvoir utiliser les deux variables dans le *apply(). }
+\CommentTok{# INDICATION 2 : vous pouvez calculer la moyenne pondérée}
+\CommentTok{# "à la main" ou utiliser la fonction weighted.mean()}
+
+\CommentTok{# Par rapport à la question a., la principale différence}
+\CommentTok{# vient du fait que l'on a besoin de plusieurs éléments}
+\CommentTok{# dans chaque bloc éclaté par la fonction split() : }
+\CommentTok{# le salaire d'une part, le poids de sondage d'autre part.}
+
+\CommentTok{# Avec la fonction weighted.mean()}
+\KeywordTok{sapply}\NormalTok{(}
+  \KeywordTok{split}\NormalTok{(eec[}\KeywordTok{c}\NormalTok{(}\StringTok{"SALRED"}\NormalTok{, }\StringTok{"EXTRI1613"}\NormalTok{)], eec$REG)}
+  \NormalTok{, function(x) }\KeywordTok{weighted.mean}\NormalTok{(x$SALRED, x$EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{# Manuellement en pensant bien à exclure les poids de sondage}
+\CommentTok{# des individus pour lesquels SALRED est NA}
+\KeywordTok{sapply}\NormalTok{(}
+  \KeywordTok{split}\NormalTok{(eec[}\KeywordTok{c}\NormalTok{(}\StringTok{"SALRED"}\NormalTok{, }\StringTok{"EXTRI1613"}\NormalTok{)], eec$REG)}
+  \NormalTok{, function(x) }\KeywordTok{sum}\NormalTok{(x$SALRED *}\StringTok{ }\NormalTok{x$EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{) /}\StringTok{ }\KeywordTok{sum}\NormalTok{((!}\KeywordTok{is.na}\NormalTok{(x$SALRED)) *}\StringTok{ }\NormalTok{x$EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 13} Fusion de tables :
+nombre d'individus au chômage par
+ménage}{Cas pratique 13 Fusion de tables : nombre d'individus au chômage par ménage}}\label{cas-pratique-13-fusion-de-tables-nombre-dindividus-au-chomage-par-menage}
+
+L'objectif de ce cas pratique est de créer, dans la table \texttt{eec},
+une variable indiquant pour chaque individu le nombre d'individus au
+chômage dans son ménage. La position sur le marché du travail est codée
+par la variable \texttt{ACTEU} (\texttt{ACTEU\ ==\ "2"} correspond au
+chômage) et l'identifiant du ménage est la variable \texttt{IDENT} (les
+individus d'un même ménage ont la même valeur pour la variable
+\texttt{IDENT}).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez la fonction \texttt{tapply()} pour déterminer le nombre de
+  personnes au chômage dans chaque ménage et stockez cette information
+  dans un objet appelé \texttt{nbcho}. Quelles sont ses caractéristiques
+  ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol44}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il suffit d'appliquer la fonction sum() par ménage }
+\CommentTok{# à l'indicatrice de chômage eec$ACTEU == 2}
+\NormalTok{nbcho <-}\StringTok{ }\KeywordTok{tapply}\NormalTok{(eec$ACTEU ==}\StringTok{ "2"}\NormalTok{, eec$IDENT, sum, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# Caractéristiques de nbcho}
+\KeywordTok{str}\NormalTok{(nbcho)}
+\NormalTok{##  int [1:18903(1d)] 1 0 0 0 0 0 0 0 0 0 ...}
+\NormalTok{##  - attr(*, "dimnames")=List of 1}
+\NormalTok{##   ..$ : chr [1:18903] "G0A56JP6" "G0A56JR6" "G0A56JS6" "G0A56JT6" ...}
+\CommentTok{# nbcho est un vecteur nommé dont les noms sont }
+\CommentTok{# les identifiants de ménage.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez la fonction \texttt{merge()} pour refusionner le résultat de
+  la question précédente avec la table \texttt{eec} et créer la variable
+  \texttt{nbcho}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol45}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Etape 1 : constituer un data.frame à partir de nbcho }
+\CommentTok{# avec IDENT comme identifiant}
+\NormalTok{nbcho_df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{IDENT =} \KeywordTok{names}\NormalTok{(nbcho), }\DataTypeTok{nbcho1 =} \NormalTok{nbcho)}
+
+\CommentTok{# Etape 2 : fusionner eec et nbcho_df par IDENT}
+\NormalTok{eec <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(eec, nbcho_df, }\DataTypeTok{by =} \StringTok{"IDENT"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez habilement les noms de vecteur et l'opérateur \texttt{{[}}
+  pour reproduire plus efficacement le résultat de la question b
+  (toujours en repartant de \texttt{nbcho}). Vérifiez que la variable
+  créée est bien identique.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol46}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# INDICATION : essayer de sélectionner par leur nom}
+\CommentTok{# les valeurs de nbcho correspondant aux 10 premières observations}
+\CommentTok{# de eec}
+
+\CommentTok{# Le point essentiel est de remarquer que l'on peut}
+\CommentTok{# utiliser les noms pour réarranger les valeurs}
+\CommentTok{# de nbcho de sorte à ce qu'elles correspondent}
+\CommentTok{# à l'ordre de eec}
+
+\CommentTok{# Identifiant des 10 premières observations de eec}
+\NormalTok{eec$IDENT[}\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{]}
+\NormalTok{##  [1] "G0A56JP6" "G0A56JP6" "G0A56JR6" "G0A56JS6" "G0A56JT6" "G0A56JU6"}
+\NormalTok{##  [7] "G0A56JV6" "G0A56JV6" "G0A56JW6" "G0A56JX6"}
+
+\CommentTok{# Pour extraire les valeurs de nbcho correspondantes,}
+\CommentTok{# il suffit d'exploiter le fait que nbcho soit }
+\CommentTok{# nommé à l'aide des identifiants de ménage.}
+
+\CommentTok{# Par exemple : }
+\CommentTok{# - Valeur de nbcho pour le premier ménage de eec}
+\NormalTok{nbcho[}\StringTok{"G0A56JP6"}\NormalTok{] }
+\NormalTok{## G0A56JP6 }
+\NormalTok{##        1}
+\CommentTok{# - Valeur de nbcho pour les quatre premiers ménages}
+\CommentTok{# de eec}
+\NormalTok{nbcho[}\KeywordTok{c}\NormalTok{(}\StringTok{"G0A56JP6"}\NormalTok{, }\StringTok{"G0A56JP6"}\NormalTok{, }\StringTok{"G0A56JR6"}\NormalTok{, }\StringTok{"G0A56JS6"}\NormalTok{)]}
+\NormalTok{## G0A56JP6 G0A56JP6 G0A56JR6 G0A56JS6 }
+\NormalTok{##        1        1        0        0}
+\CommentTok{# - Valeur de nbcho pour les 10 premiers ménages}
+\CommentTok{# de eec}
+\NormalTok{nbcho[eec$IDENT[}\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{]]}
+\NormalTok{## G0A56JP6 G0A56JP6 G0A56JR6 G0A56JS6 G0A56JT6 G0A56JU6 G0A56JV6 G0A56JV6 }
+\NormalTok{##        1        1        0        0        0        0        0        0 }
+\NormalTok{## G0A56JW6 G0A56JX6 }
+\NormalTok{##        0        0}
+
+\CommentTok{# On peut donc par ce biais reconstituer l'intégralité }
+\CommentTok{# du vecteur correspondant aux observations de eec.}
+\NormalTok{eec$nbcho2 <-}\StringTok{ }\NormalTok{nbcho[eec$IDENT]}
+
+\CommentTok{# Ce vecteur est bien identique à celui obtenu par fusion}
+\CommentTok{# à la question précédente.}
+\KeywordTok{all.equal}\NormalTok{(eec$nbcho1, eec$nbcho2)}
+\NormalTok{## [1] TRUE}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comparez la syntaxe et les performances des méthodes mises en oeuvre
+  aux question b. et c.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol47}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La syntaxe de la deuxième option est plus concise}
+\CommentTok{# mais aussi plus complexe pour un relecteur moins}
+\CommentTok{# averti des fonctionnalités de R en matière d'utilisation}
+\CommentTok{# des noms de vecteur. }
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+  \NormalTok{, }\DataTypeTok{merge1 =} \KeywordTok{merge}\NormalTok{(eec, }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{IDENT =} \KeywordTok{names}\NormalTok{(nbcho), }\DataTypeTok{nbcho1 =} \NormalTok{nbcho), }\DataTypeTok{by =} \StringTok{"IDENT"}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{merge2 =} \KeywordTok{merge}\NormalTok{(eec, nbcho_df, }\DataTypeTok{by =} \StringTok{"IDENT"}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{names =} \NormalTok{nbcho[eec$IDENT]}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##    expr        min         lq       mean     median         uq        max}
+\NormalTok{##  merge1 139.076006 187.509802 180.748140 189.500565 192.781051 194.312278}
+\NormalTok{##  merge2 119.919936 165.570853 162.560386 173.070987 174.026367 180.678040}
+\NormalTok{##   names   2.162281   2.278111   3.882023   2.333215   6.105578   6.656698}
+\NormalTok{##  neval}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\CommentTok{# C'est sans commune mesure : que l'on tienne }
+\CommentTok{# compte (merge1) ou pas (merge2) de l'étape}
+\CommentTok{# de constitution du data.frame, la méthode}
+\CommentTok{# reposant sur les noms de vecteur est beaucoup}
+\CommentTok{# plus rapide.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+\subsection{\texorpdfstring{Travailler efficacement sur des données avec
+\texttt{dplyr}}{Travailler efficacement sur des données avec dplyr}}\label{travailler-efficacement-sur-des-donnees-avec-dplyr}
+
+Les cas pratiques de cette partie reposent sur le \emph{package}
+\texttt{dplyr} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+Plusieurs vignettes sont disponibles sur la
+\href{https://CRAN.R-project.org/package=dplyr}{page de documentation du
+\emph{package}}. Rstudio a également conçu un
+\href{https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf}{aide-mémoire}
+(\emph{cheatsheet}) traduit en français. \textbf{N'hésitez pas à vous
+référer à ces documents pour répondre aux cas pratiques de cette
+partie}.
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 14} Sélection
+d'observations, de variables et
+tris}{Cas pratique 14 Sélection d'observations, de variables et tris}}\label{cas-pratique-14-selection-dobservations-de-variables-et-tris}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez le verbe \texttt{filter()} pour afficher les observations des
+  femmes (\texttt{SEXE\ ==\ "2"}) actives occupées
+  (\texttt{ACTEU\ ==\ "1"}) en Île-de-France (\texttt{REG\ ==\ "11"}).
+  Utilisez la syntaxe classique puis celle faisant appel à l'opérateur
+  \emph{pipe} \texttt{\%\textgreater{}\%}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol48}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction filter() permet de ne pas avoir à répéter}
+\CommentTok{# le nom de la table et de pouvoir séparer les }
+\CommentTok{# différentes clauses par des ,}
+\KeywordTok{filter}\NormalTok{(eec, SEXE ==}\StringTok{ "2"}\NormalTok{, ACTEU ==}\StringTok{ "1"}\NormalTok{, REG ==}\StringTok{ "11"}\NormalTok{)}
+\NormalTok{eec %>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(SEXE ==}\StringTok{ "2"}\NormalTok{, ACTEU ==}\StringTok{ "1"}\NormalTok{, REG ==}\StringTok{ "11"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez le verbe \texttt{select()} pour supprimer toutes les
+  variables créées à la sous-partie précédente (\texttt{trage1},
+  \texttt{trage2}, \texttt{trage3}, \texttt{trage4}, \texttt{nbcho1},
+  \texttt{nbcho2}). Pensez à consulter les exemples de l'aide de
+  \texttt{select()} pour l'utiliser au mieux.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol49}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# select() dispose de nombreuses fonctions outils}
+\CommentTok{# pour simplement sélectionner (ou exclure avec -)}
+\CommentTok{# des variables selon les caractères qu'elles contiennent.}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(-}\KeywordTok{starts_with}\NormalTok{(}\StringTok{"trage"}\NormalTok{), -}\KeywordTok{contains}\NormalTok{(}\StringTok{"nbcho"}\NormalTok{)) ->}\StringTok{ }
+\StringTok{  }\NormalTok{eec}
+\CommentTok{# Note : utilisé à l'issue de plusieurs instruction, }
+\CommentTok{# l'opérateur `->` permet d'assigner des valeurs }
+\CommentTok{# à un objet situé à sa droite (et non à sa gauche comme `<-`)}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez le verbe \texttt{arrange()} pour trier la table par région et
+  identifiant de ménage croissants puis par numéro d'ordre dans le
+  ménage décroissants.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol50}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il suffit d'indiquer la liste des variables sur}
+\CommentTok{# lesquelles trier, éventuellement avec la fonction}
+\CommentTok{# desc() quand l'ordre est décroissant.}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(REG, IDENT, }\KeywordTok{desc}\NormalTok{(NOI)) ->}\StringTok{ }
+\StringTok{  }\NormalTok{eec}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 15} Création de
+variables}{Cas pratique 15 Création de variables}}\label{cas-pratique-15-creation-de-variables}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez le verbe \texttt{mutate()} pour effectuer le recodage en
+  classes d'âge présenté lors de la partie précédente.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol51}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# mutate() est analogue à la fonction de base R}
+\CommentTok{# transform() mais permet l'utilisation directe}
+\CommentTok{# des variables créées dans le même appel de fonction.}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}
+\DataTypeTok{age_num =} \KeywordTok{as.numeric}\NormalTok{(AGE)}
+\NormalTok{, }\DataTypeTok{trage_dplyr =} \KeywordTok{ifelse}\NormalTok{(age_num <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(age_num <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}\NormalTok{))}
+  \NormalTok{) ->}
+\StringTok{  }\NormalTok{eec}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comparez l'ergonomie et les performances de \texttt{mutate()} avec la
+  méthode la plus efficace de base \textbf{R}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol52}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# mutate() est relativement ergonomique dans la mesure}
+\CommentTok{# où elle permet de ne pas répéter le nom de la table,}
+\CommentTok{# de créer simultanément plusieurs variables et de }
+\CommentTok{# réutiliser immédiatement les variables créées.}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{100}
+  \NormalTok{, }\DataTypeTok{base =} \NormalTok{\{}
+\NormalTok{t <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(eec$AGE)}
+\NormalTok{eec$trage4 <-}\StringTok{ "15-30"}
+\NormalTok{eec$trage4[t >}\StringTok{ }\DecValTok{30} \NormalTok{&}\StringTok{ }\NormalTok{t <}\StringTok{ }\DecValTok{61}\NormalTok{] <-}\StringTok{ "31-60"}
+\NormalTok{eec$trage4[t >}\StringTok{ }\DecValTok{60}\NormalTok{] <-}\StringTok{ "61 et +"}
+  \NormalTok{\}}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{\{}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}
+    \DataTypeTok{age_num =} \KeywordTok{as.numeric}\NormalTok{(AGE)}
+    \NormalTok{, }\DataTypeTok{trage_dplyr =} \KeywordTok{ifelse}\NormalTok{(age_num <}\StringTok{ }\DecValTok{31}\NormalTok{, }\StringTok{"15-30"}\NormalTok{, }\KeywordTok{ifelse}\NormalTok{(age_num <}\StringTok{ }\DecValTok{61}\NormalTok{, }\StringTok{"31-60"}\NormalTok{, }\StringTok{"61 et +"}\NormalTok{))}
+  \NormalTok{) ->}
+\StringTok{  }\NormalTok{eec}
+  \NormalTok{\}}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##   expr       min        lq      mean    median        uq      max neval}
+\NormalTok{##   base  5.765481  5.817881  6.832731  5.875419  6.160417 55.60787   100}
+\NormalTok{##  dplyr 27.304466 27.691600 30.033281 29.944651 30.307037 77.46204   100}
+
+\CommentTok{# Le gain en termes d'ergonomie de mutate() a donc }
+\CommentTok{# un coût non-négligeable en termes de performances.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 16} Agrégation par
+groupes : salaire moyen par
+région}{Cas pratique 16 Agrégation par groupes : salaire moyen par région}}\label{cas-pratique-16-agregation-par-groupes-salaire-moyen-par-region}
+
+Comme dans le cas pratique correspondant de la partie précédente,
+l'objectif est d'estimer le salaire moyen par région, d'abord sans
+pondération puis pondéré par le poids de sondage \texttt{EXTRI1613}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez la fonction \texttt{summarise()} pour calculer le salaire
+  moyen non-pondéré et pondéré pour l'ensemble de la France
+  métropolitaine. Intercalez ensuite la fonction \texttt{group\_by()}
+  pour ventiler ces calculs par région.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol53}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# On commence par calculer les moyennes}
+\CommentTok{# sur l'ensemble de la France métropolitaine}
+\CommentTok{# grâce à la fonction summarise().}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}
+\DataTypeTok{nonpond =} \KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{, }\DataTypeTok{pond =} \KeywordTok{weighted.mean}\NormalTok{(SALRED, EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{)}
+
+\CommentTok{# Pour ventiler les calculs par région, il suffit}
+\CommentTok{# d'intercaler la fonction group_by()}
+\NormalTok{eec %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(REG) %>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}
+\DataTypeTok{nonpond =} \KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{, }\DataTypeTok{pond =} \KeywordTok{weighted.mean}\NormalTok{(SALRED, EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comparez l'ergonomie et les performances des fonctions de
+  \texttt{dplyr} avec la méthode la plus efficace de base \textbf{R}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol54}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La syntaxe est beaucoup plus ergonomique avec}
+\CommentTok{# les fonctions de dplyr, notamment du fait que}
+\CommentTok{# la ventilation par une ou plusieurs variables}
+\CommentTok{# ne nécessite qu'une adaptation minimale du code.}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{100}
+  \NormalTok{, }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(eec$SALRED, eec$REG, mean, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{eec %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(REG) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{SALRED =} \KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{))}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##   expr      min       lq     mean   median       uq      max neval}
+\NormalTok{##   base 3.808255 3.885876 4.581301 3.935264 4.560939 7.389360   100}
+\NormalTok{##  dplyr 3.071125 3.206148 3.635747 3.320200 3.464294 6.989891   100}
+\CommentTok{# Ici dplyr est aussi rapide sinon plus que base R.}
+\CommentTok{# On gagne donc sur tous les tableaux.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 17} Fusion de tables :
+recodage de la
+PCS}{Cas pratique 17 Fusion de tables : recodage de la PCS}}\label{cas-pratique-17-fusion-de-tables-recodage-de-la-pcs}
+
+La variable \texttt{CSE} de la table \texttt{eec} code la Profession et
+catégorie socio-professionnelle (PCS) au niveau 3 de la nomenclature
+Insee (\emph{cf.} le
+\href{https://www.insee.fr/fr/information/2497952}{site de l'Insee}). On
+souhaite passer du niveau 3 au niveau 2. Le fichier
+\texttt{pcs2003\_c\_n4\_n1.dbf} est la table de passage entre l'ensemble
+des niveaux de la nomenclature (de 1 à 4).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez le \emph{package} \texttt{foreign} et la fonction
+  \texttt{read.dbf()} pour lire le fichier
+  \texttt{pcs2003\_c\_n4\_n1.dbf}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol55}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction read.dbf() du package foreign}
+\CommentTok{# permet de lire les fichier .dbf}
+\KeywordTok{library}\NormalTok{(foreign)}
+\NormalTok{pcs <-}\StringTok{ }\KeywordTok{read.dbf}\NormalTok{(}\StringTok{"pcs2003_c_n4_n1.dbf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez le verbe \texttt{distinct()} pour restreindre la table aux
+  observations distinctes pour les niveaux \texttt{N2} et \texttt{N3}.
+  Créez également la variable \texttt{CSE}, version caractère de
+  \texttt{N3}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol56}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ces deux opérations peuvent être effectuées}
+\CommentTok{# en une seule instruction avec des %>%}
+\NormalTok{pcs %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{distinct}\NormalTok{(N2, N3) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{CSE =} \KeywordTok{as.character}\NormalTok{(N3)) ->}
+\StringTok{  }\NormalTok{pcs}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez le verbe \texttt{left\_join()} pour fusionner la table
+  \texttt{eec} avec la table de passage des PCS de niveau 3 à niveau 2.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol57}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La syntaxe est rendue particulièrement claire }
+\CommentTok{# (et proche de SQL) par l'utilisation des %>%}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(pcs, }\DataTypeTok{by =} \StringTok{"CSE"}\NormalTok{) ->}
+\StringTok{  }\NormalTok{eec}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Une solution purement vectorielle en base \textbf{R} n'aurait-elle pas
+  également été possible ? Comparez les performances de \texttt{dplyr}
+  avec cette solution alternative.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol58}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# On aurait aussi pu réutiliser le mécanisme}
+\CommentTok{# vu au cas pratique 13 en passant par un vecteur nommé}
+\NormalTok{pcs2 <-}\StringTok{ }\KeywordTok{setNames}\NormalTok{(pcs$N2, pcs$N3)}
+\NormalTok{eec$N2_base <-}\StringTok{ }\NormalTok{pcs2[eec$CSE]}
+\KeywordTok{all.equal}\NormalTok{(eec$N2, eec$N2_base)}
+\NormalTok{## [1] TRUE}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+  \NormalTok{, }\DataTypeTok{base =} \NormalTok{pcs2[eec$CSE]}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{eec %>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(pcs, }\DataTypeTok{by =} \StringTok{"CSE"}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##   expr      min        lq      mean    median        uq       max neval}
+\NormalTok{##   base 721.4964 721.72964 722.63653 722.10409 723.54421 724.83541    10}
+\NormalTok{##  dplyr  11.2205  11.30665  12.58783  11.68048  14.11914  15.01254    10}
+\CommentTok{# Il est possible que les perforamnces de la version }
+\CommentTok{# en base R soit affectées par le grand nombre de NA.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+\subsection{\texorpdfstring{Travailler efficacement sur des données avec
+\texttt{data.table}}{Travailler efficacement sur des données avec data.table}}\label{travailler-efficacement-sur-des-donnees-avec-data.table}
+
+Les cas pratiques de cette partie reposent sur le \emph{package}
+\texttt{data.table} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"data.table"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(data.table)}
+\end{Highlighting}
+\end{Shaded}
+
+On crée le \texttt{data.table} correspondant au \texttt{data.frame}
+\texttt{eec} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eec_dt <-}\StringTok{ }\KeywordTok{data.table}\NormalTok{(eec)}
+\end{Highlighting}
+\end{Shaded}
+
+Plusieurs vignettes sont disponibles sur la
+\href{https://CRAN.R-project.org/package=data.table}{page de
+documentation du \emph{package}}. \textbf{N'hésitez pas à vous référer à
+ces documents pour répondre aux cas pratiques de cette partie}.
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 18} Sélection
+d'observations et
+tris}{Cas pratique 18 Sélection d'observations et tris}}\label{cas-pratique-18-selection-dobservations-et-tris}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez l'argument \texttt{i} de \texttt{{[}} pour afficher les
+  observations des femmes (\texttt{SEXE\ ==\ "2"}) actives occupées
+  (\texttt{ACTEU\ ==\ "1"}) en Île-de-France (\texttt{REG\ ==\ "11"}).
+  Quelle différence constatez-vous avec une sélection dans un
+  \texttt{data.frame} ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol59}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Dans un data.frame et avec le [ de base R, }
+\CommentTok{# il est nécessaire de répéter le nom de la table}
+\NormalTok{eec[eec$SEXE ==}\StringTok{ "2"} \NormalTok{&}\StringTok{ }\NormalTok{eec$ACTEU ==}\StringTok{ "1"} \NormalTok{&}\StringTok{ }\NormalTok{eec$REG ==}\StringTok{ "11"}\NormalTok{, ]}
+
+\CommentTok{# Ce n'est pas le cas dans un data.table}
+\NormalTok{eec_dt[SEXE ==}\StringTok{ "2"} \NormalTok{&}\StringTok{ }\NormalTok{ACTEU ==}\StringTok{ "1"} \NormalTok{&}\StringTok{ }\NormalTok{REG ==}\StringTok{ "11"}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez la fonction \texttt{setkey()} pour faire de \texttt{SEXE},
+  \texttt{ACTEU} et \texttt{REG} des clés pour \texttt{eec\_dt} et
+  utilisez-les pour reproduire la sélection de la question précédente.
+  Comparez alors l'ergonomie et les performances d'une sélection
+  d'observations :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    avec une clause logique dans un \texttt{data.frame} ;
+  \item
+    avec une clause logique en utilisant le verbe \texttt{filter()} de
+    \texttt{dplyr} ;
+  \item
+    avec une clause logique dans un \texttt{data.table} ;
+  \item
+    avec un jeu de clés dans un \texttt{data.table}.
+  \end{enumerate}
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol60}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La fonction setkey() permet de facilement créer}
+\CommentTok{# des clés pour un data.table donné.}
+\KeywordTok{setkey}\NormalTok{(eec_dt, SEXE, ACTEU, REG)}
+
+\CommentTok{# La sélection sur la base de clés s'effetue}
+\CommentTok{# avec un argument sous la forme d'une liste}
+\CommentTok{# DANS L'ORDRE DES CLES}
+\NormalTok{eec_dt[}\KeywordTok{list}\NormalTok{(}\StringTok{"2"}\NormalTok{, }\StringTok{"1"}\NormalTok{, }\StringTok{"11"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{100}
+  \NormalTok{, }\DataTypeTok{base =} \NormalTok{eec[eec$SEXE ==}\StringTok{ "2"} \NormalTok{&}\StringTok{ }\NormalTok{eec$ACTEU ==}\StringTok{ "1"} \NormalTok{&}\StringTok{ }\NormalTok{eec$REG ==}\StringTok{ "11"}\NormalTok{, ]}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{eec %>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(SEXE ==}\StringTok{ "2"}\NormalTok{, ACTEU ==}\StringTok{ "1"}\NormalTok{, REG ==}\StringTok{ "11"}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{data.table1 =} \NormalTok{eec_dt[SEXE ==}\StringTok{ "2"} \NormalTok{&}\StringTok{ }\NormalTok{ACTEU ==}\StringTok{ "1"} \NormalTok{&}\StringTok{ }\NormalTok{REG ==}\StringTok{ "11"}\NormalTok{]}
+  \NormalTok{, }\DataTypeTok{data.table2 =} \NormalTok{eec_dt[}\KeywordTok{list}\NormalTok{(}\StringTok{"2"}\NormalTok{, }\StringTok{"1"}\NormalTok{, }\StringTok{"11"}\NormalTok{)]}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##         expr      min       lq     mean   median        uq       max neval}
+\NormalTok{##         base 7.904094 8.013236 9.599683 8.210234 10.498250 62.221990   100}
+\NormalTok{##        dplyr 6.506363 6.626642 6.880191 6.711130  6.824236  9.341599   100}
+\NormalTok{##  data.table1 5.141950 5.273032 5.690626 5.396326  5.550179  9.782614   100}
+\NormalTok{##  data.table2 1.612380 1.686116 1.936770 1.821257  1.872345  5.227913   100}
+
+\CommentTok{# Les différentes version de data.table sont plus efficaces}
+\CommentTok{# que base R et dplyr, en particulier quand il est fait}
+\CommentTok{# usage des clés. }
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Utilisez la fonction \texttt{order()} (comme dans un
+  \texttt{data.frame}) pour trier la table \texttt{eec\_dt} par région
+  et identifiant de ménage croissants puis par numéro d'ordre dans le
+  ménage décroissants. Comparez les performances de base \textbf{R},
+  \texttt{arrange()} de \texttt{dplyr} et \texttt{data.table}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol61}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La principale différence avec la fonction order()}
+\CommentTok{# appliquée à un data.frame est qu'il n'est pas }
+\CommentTok{# nécessaire de répéter le nom de la table et}
+\CommentTok{# qu'il est possible d'utiliser le signe - devant }
+\CommentTok{# des variables caractère}
+\NormalTok{eec_dt <-}\StringTok{ }\NormalTok{eec_dt[}\KeywordTok{order}\NormalTok{(REG, IDENT, -NOI)]}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+  \NormalTok{, }\DataTypeTok{base =} \NormalTok{eec[}\KeywordTok{order}\NormalTok{(eec$REG, eec$IDENT, -}\KeywordTok{as.numeric}\NormalTok{(eec$NOI)), ]}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{eec %>%}\StringTok{ }\KeywordTok{arrange}\NormalTok{(REG, IDENT, }\KeywordTok{desc}\NormalTok{(NOI))}
+  \NormalTok{, }\DataTypeTok{data.table =} \NormalTok{eec_dt[}\KeywordTok{order}\NormalTok{(REG, IDENT, -NOI)]}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##        expr      min       lq      mean   median        uq       max neval}
+\NormalTok{##        base 91.43793 92.89436 106.16409 94.79749 110.56226 152.40287    10}
+\NormalTok{##       dplyr 61.96490 64.88916  71.79786 65.80203  67.83572 118.08390    10}
+\NormalTok{##  data.table 13.25075 13.72903  20.75144 16.17314  16.66785  68.46394    10}
+\CommentTok{# Le gain en termes de performances est sensible à nouveau.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 19} Agrégation par
+groupes : salaire moyen par
+région}{Cas pratique 19 Agrégation par groupes : salaire moyen par région}}\label{cas-pratique-19-agregation-par-groupes-salaire-moyen-par-region}
+
+Comme dans le cas pratiques correspondants des parties précédentes, on
+cherche à calculer le salaire moyen par région non-pondéré puis pondéré
+par le poids de sondage \texttt{EXTRI1613}.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez les arguments \texttt{j} et \texttt{by} de \texttt{{[}} pour
+  calculer le salaire non-pondéré et pondéré d'abord sur l'ensemble de
+  la France métropolitaine, puis par région. Comparez l'utilisation de
+  \texttt{by} et \texttt{keyby} : pourquoi les résultats sont-ils ici
+  identiques à votre avis ?
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol62}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# L'argument `j` de [ permet de créer de nouvelles }
+\CommentTok{# variables dans un data.table}
+\NormalTok{eec_dt[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{nonpond =} \KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{pond =} \KeywordTok{weighted.mean}\NormalTok{(SALRED, EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)]}
+\NormalTok{##     nonpond     pond}
+\NormalTok{## 1: 1819.209 1833.879}
+\CommentTok{# Pour ventiler par région, il suffit d'ajouter un argument by}
+\NormalTok{eec_dt[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{nonpond =} \KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{pond =} \KeywordTok{weighted.mean}\NormalTok{(SALRED, EXTRI1613, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{), by =}\StringTok{ }\NormalTok{REG]  }
+\NormalTok{##     REG  nonpond     pond}
+\NormalTok{##  1:  11 2153.045 2172.578}
+\NormalTok{##  2:  21 1692.069 1686.691}
+\NormalTok{##  3:  22 1585.062 1594.508}
+\NormalTok{##  4:  23 1722.671 1727.632}
+\NormalTok{##  5:  24 1702.413 1725.168}
+\NormalTok{##  6:  25 1633.108 1625.475}
+\NormalTok{##  7:  26 1640.106 1617.565}
+\NormalTok{##  8:  31 1730.126 1714.465}
+\NormalTok{##  9:  41 1729.073 1693.117}
+\NormalTok{## 10:  42 1974.987 2012.017}
+\NormalTok{## 11:  43 1747.486 1750.870}
+\NormalTok{## 12:  52 1609.202 1616.999}
+\NormalTok{## 13:  53 1784.060 1814.576}
+\NormalTok{## 14:  54 1587.502 1547.045}
+\NormalTok{## 15:  72 1703.824 1667.706}
+\NormalTok{## 16:  73 1756.656 1829.931}
+\NormalTok{## 17:  74 1633.896 1657.696}
+\NormalTok{## 18:  82 1948.086 1954.849}
+\NormalTok{## 19:  83 1633.669 1621.692}
+\NormalTok{## 20:  91 1557.426 1538.386}
+\NormalTok{## 21:  93 1804.827 1806.120}
+\NormalTok{## 22:  94 1828.872 1796.574}
+\NormalTok{##     REG  nonpond     pond}
+\CommentTok{# Les résultats sont identiques ici selon que l'on utilise}
+\CommentTok{# by ou keyby car les données sont triées par région.}
+\CommentTok{# Si cela n'était pas le cas, by conserverait l'ordre du}
+\CommentTok{# fichier (en affichant les groupes par ordre de rencontre)}
+\CommentTok{# alors que keyby trierait les résultats par ordre}
+\CommentTok{# alphabétique de région.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comparez l'ergonomie et les performances de la solution en base
+  \textbf{R}, avec \texttt{dplyr} et \texttt{data.table}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol63}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# La solution en data.table est plus ergonomique que}
+\CommentTok{# celle en base R, en particulier en raison de la}
+\CommentTok{# facilité à ventiler les traitements par région. }
+\CommentTok{# Néanmoins, elle ne dispose pas de la capacité }
+\CommentTok{# à séquencer les traitements en petites opérations}
+\CommentTok{# simples, ce que permet l'opérateur %>% qu'utilise}
+\CommentTok{# intensément dplyr.}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{100}
+  \NormalTok{, }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(eec$SALRED, eec$REG, mean, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{eec %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(REG) %>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{SALRED =} \KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{))}
+  \NormalTok{, }\DataTypeTok{data.table =} \NormalTok{eec_dt[, }\DataTypeTok{j =} \KeywordTok{list}\NormalTok{(}\KeywordTok{mean}\NormalTok{(SALRED, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)), }\DataTypeTok{by =} \NormalTok{REG]}
+\NormalTok{)}
+\NormalTok{## Unit: microseconds}
+\NormalTok{##        expr      min       lq     mean   median       uq       max neval}
+\NormalTok{##        base 3725.662 3866.179 5094.095 3923.690 6258.657 56279.629   100}
+\NormalTok{##       dplyr 3249.171 3407.872 3678.204 3493.867 3561.886  6170.888   100}
+\NormalTok{##  data.table  959.950 1058.709 1240.075 1184.424 1230.423  3667.298   100}
+\CommentTok{# Là encore data.table est beaucoup plus rapide.}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 20} Fusion de tables :
+nombre d'individus au chômage par
+ménage}{Cas pratique 20 Fusion de tables : nombre d'individus au chômage par ménage}}\label{cas-pratique-20-fusion-de-tables-nombre-dindividus-au-chomage-par-menage}
+
+Comme dans le cas pratique 13, on cherche ici à associer à chaque
+individu le nombre d'individus au chômage (\texttt{ACTEU\ ==\ "2"}) dans
+son ménage (individus avec la même valeur pour la variable
+\texttt{IDENT}).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Utilisez les arguments \texttt{j} et \texttt{by} de \texttt{{[}} pour
+  calculer le nombre d'individus au chômage par ménage. Utilisez la
+  structure \texttt{j\ :=} pour automatiquement refusionner ce résultat
+  avec la table de départ.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol64}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# On reprend la syntaxe de la question précédente}
+\CommentTok{# pour calculer le nombre d'individu au chômage par ménage}
+\NormalTok{eec_dt[, }\KeywordTok{sum}\NormalTok{(ACTEU ==}\StringTok{ "2"}\NormalTok{, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{), by =}\StringTok{ "IDENT"}\NormalTok{]}
+\NormalTok{##           IDENT V1}
+\NormalTok{##     1: G0A56JP6  1}
+\NormalTok{##     2: G0A56JR6  0}
+\NormalTok{##     3: G0A56JS6  0}
+\NormalTok{##     4: G0A56JT6  0}
+\NormalTok{##     5: G0A56JU6  0}
+\NormalTok{##    ---            }
+\NormalTok{## 18899: GXZ5OX1F  0}
+\NormalTok{## 18900: GY05O5DF  0}
+\NormalTok{## 18901: GY05O85F  0}
+\NormalTok{## 18902: GY05OAXF  1}
+\NormalTok{## 18903: GY05ODPF  0}
+
+\CommentTok{# Pour refusionner ces résultats avec la table d'origine,}
+\CommentTok{# il suffit d'utiliser l'opérateur := au niveau de l'argument j}
+\NormalTok{eec_dt <-}\StringTok{ }\NormalTok{eec_dt[, nbcho :}\ErrorTok{=}\StringTok{ }\KeywordTok{sum}\NormalTok{(ACTEU ==}\StringTok{ "2"}\NormalTok{, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{), by =}\StringTok{ "IDENT"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Comment mèneriez vous ce traitement dans la logique de \texttt{dplyr}
+  ? Comparez l'ergonomie et les performances de la solution en base
+  \textbf{R}, \texttt{dplyr} et \texttt{data.table}.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol65}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Avec dplyr, on serait tenté de fusionner la table eec}
+\CommentTok{# avec une table de statistique (comme en base R)}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(}
+\NormalTok{eec %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(IDENT) %>%}\StringTok{ }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{nbcho =} \KeywordTok{n}\NormalTok{())}
+\NormalTok{, }\DataTypeTok{by =} \StringTok{"IDENT"}
+  \NormalTok{) ->}\StringTok{ }
+\StringTok{  }\NormalTok{eec}
+
+\CommentTok{# Comparaison des performances}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+  \NormalTok{, }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(eec$ACTEU ==}\StringTok{ "2"}\NormalTok{, eec$IDENT, sum, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)[eec$IDENT]}
+  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{\{}
+\NormalTok{eec %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(}
+    \NormalTok{eec %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(IDENT) %>%}\StringTok{ }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{nbcho =} \KeywordTok{n}\NormalTok{())}
+    \NormalTok{, }\DataTypeTok{by =} \StringTok{"IDENT"}
+  \NormalTok{)}
+  \NormalTok{\}}
+  \NormalTok{, }\DataTypeTok{data.table =} \NormalTok{eec_dt[, nbcho :}\ErrorTok{=}\StringTok{ }\KeywordTok{sum}\NormalTok{(ACTEU ==}\StringTok{ "2"}\NormalTok{, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{), }\DataTypeTok{by =} \StringTok{"IDENT"}\NormalTok{]}
+\NormalTok{)}
+\NormalTok{## Unit: milliseconds}
+\NormalTok{##        expr       min        lq      mean    median        uq       max}
+\NormalTok{##        base  51.17290  54.50705  60.82165  55.62895  56.72165 108.09253}
+\NormalTok{##       dplyr 122.45642 126.21747 137.41056 128.25152 131.41873 180.62253}
+\NormalTok{##  data.table  15.75786  15.84539  17.48081  16.35169  19.74838  21.08564}
+\NormalTok{##  neval}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\NormalTok{##     10}
+\CommentTok{# Comme toujours data.table est le plus rapide. }
+\CommentTok{# Néanmoins ici, il n'est pas à exclure qu'il existe}
+\CommentTok{# dans dplyr une méthode plus efficace (une possibilité}
+\CommentTok{# d'autofusion après agrégation par exemple). }
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+\subsection{\texorpdfstring{Réaliser des graphiques avec
+\textbf{R}}{Réaliser des graphiques avec R}}\label{realiser-des-graphiques-avec-r}
+
+Les cas pratiques de cette partie reposent sur l'utilisation du
+\emph{package} \texttt{ggplot2} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 21} Graphiques à partir
+de la table
+\texttt{mpg}}{Cas pratique 21 Graphiques à partir de la table mpg}}\label{cas-pratique-21-graphiques-a-partir-de-la-table-mpg}
+
+L'objectif de ce cas pratique est de reproduire les graphiques du
+support ainsi que ceux présentés par H. Wickham dans le chapitre 2 de
+son ouvrage \textbf{ggplot2 : Elegant Graphics for Data Analysis} (dont
+le \texttt{.pdf} recompilé est dans le dossier de la formation).
+
+Dans les deux cas, la table utilisée est \texttt{mpg} (table d'exemple
+du \emph{package} \texttt{ggplot2}) : après avoir chargé
+\texttt{ggplot2}, utilisez la fonction \texttt{data()} pour
+``rapatrier'' la table \texttt{mpg} dans l'environnement global et tapez
+\texttt{?\ mpg} pour obtenir une description détaillée de ses variables.
+
+Cherchez à reproduire les graphiques du support ou de ceux du chapitre 2
+de \textbf{ggplot2 : Elegant Graphics for Data Analysis} en
+expérimentant avec les fonctionnalités de \texttt{ggplot2}. En
+particulier :
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Utilisez les mots-clés \texttt{colour}, \texttt{shape} et
+  \texttt{size} pour faire varier la représentation des points avec
+  \texttt{geom\_point()}. Pour chacun des mots-clés, comparez ce qu'il
+  se passe quand vous utilisez une variable de type numérique ou une
+  variable de type caractère ou facteur.
+\item
+  Comparez l'utilisation du mot-clé \texttt{colour} dans la fonction
+  \texttt{aes()} et en dehors de la fonction \texttt{aes()}.
+\item
+  Testez les différents types de représentation possibles en les
+  adaptant à la nature des données à représenter. Pour chaque fonction
+  \texttt{geom\_*()}, recherchez dans l'aide les paramètres qui lui sont
+  spécifiques et testez des valeurs différentes de leurs valeurs par
+  défaut.
+\item
+  Expérimentez les différentes possibilités de \emph{facetting}.
+\item
+  Sauvegarder un graphique dans un objet \textbf{R}. Utilisez
+  \texttt{ggsave()} pour exporter un graphique en \texttt{.png} et
+  \texttt{.pdf}.
+\item
+  Affichez le code d'une fonction \texttt{geom\_*()} et utilisez ces
+  informations pour reconstituer manuellement l'instruction
+  \texttt{layer()} correspondante.
+\item
+  Tentez de reproduire un graphique standard de \texttt{ggplot2} avec
+  les fonctions du \emph{package} \texttt{graphics}.
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 22} Graphiques à partir
+de la table
+\texttt{diamonds}}{Cas pratique 22 Graphiques à partir de la table diamonds}}\label{cas-pratique-22-graphiques-a-partir-de-la-table-diamonds}
+
+La table \texttt{diamonds} est le second fichier de démonstration
+classique de \texttt{ggplot2} : utilisez \texttt{data()} pour le
+``rapatrier'' dans l'environnement global et tapez \texttt{?\ diamonds}
+pour obtenir une description détaillée de ses variables.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Représentez la relation entre poids du diamant (\texttt{carat}) et
+  prix (\texttt{price}). Utilisez le paramètre \texttt{alpha} pour
+  limiter la saturation du graphique par le très grand nombre de points.
+  Ajoutez une droite de régression linéaire au graphique.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol66}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Par défaut, les points sont totalement opaques : }
+\CommentTok{# on ne peut pas visualiser les points qui se superposent}
+\CommentTok{# les uns aux autres (on parle d'over-plotting)}
+\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(carat, price)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-242-1.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Le paramètres alpha indique de rendre les points}
+\CommentTok{# en partie transparent. Avec alpha = 0.05, il faut}
+\CommentTok{# 20 points pour obtenir une zone totalement opaque}
+\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(carat, price)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.05}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-242-2.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Pour ajouter une droite de régression, il suffit }
+\CommentTok{# d'utiliser la fonction geom_smooth() avec l'option}
+\CommentTok{# method = "lm"}
+\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(carat, price)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.05}\NormalTok{) +}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-242-3.png}
+
+  ~
+\item
+  Représentez l'influence de la couleur (\texttt{color}) sur le prix de
+  plusieurs manières.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol67}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Idée 1 : faire varier la couleur des points }
+\CommentTok{# sur le graph précédent}
+\NormalTok{g1 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(carat, price, }\DataTypeTok{colour =} \NormalTok{color)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.05}\NormalTok{)}
+\NormalTok{g1}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-245-1.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Il est possible d'améliorer le graphique précédent}
+\CommentTok{# 1) en ajustant la manière dont les couleurs sont représentées }
+\CommentTok{# dans la légende}
+\NormalTok{g1 <-}\StringTok{ }\NormalTok{g1 +}\StringTok{ }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{colour =} \KeywordTok{guide_legend}\NormalTok{(}\DataTypeTok{override.aes =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{alpha =} \DecValTok{1}\NormalTok{)))}
+\NormalTok{g1}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-245-2.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# 2) en adoptant une palette de couleurs formant un gradient}
+\CommentTok{# (car la variable color est ordonnée de la pire (D) à la }
+\CommentTok{# meilleure (J))}
+\NormalTok{g1 <-}\StringTok{ }\NormalTok{g1 +}\StringTok{ }\KeywordTok{scale_colour_brewer}\NormalTok{(}\DataTypeTok{palette =} \DecValTok{1}\NormalTok{)}
+\NormalTok{g1}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-245-3.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Idée 2 : dessiner des boîtes à moustaches}
+\NormalTok{g2 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(color, price)) +}\StringTok{ }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{varwidth =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{g2}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-245-4.png}
+
+  ~
+\item
+  Représentez la ventilation des diamants selon la qualité de leur
+  taille (\texttt{cut}) et leur clarté (\texttt{clarity}).
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol68}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Le plus simple est de représenter l'histogramme bivarié}
+\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(clarity, }\DataTypeTok{fill =} \NormalTok{cut)) +}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-248-1.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Quelques variations sur le positionnement des blocs}
+\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(clarity, }\DataTypeTok{fill =} \NormalTok{cut)) +}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"dodge"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-248-2.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(clarity, }\DataTypeTok{fill =} \NormalTok{cut)) +}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-248-3.png}
+
+  ~
+\item
+  Vérifiez graphiquement si la relation entre poids et prix ne varie pas
+  en fonction de la qualité de la taille (\texttt{cut}) et la clarté du
+  diamant (\texttt{clarity}).
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol69}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# L'idée ici est d'utiliser le facetting pour ventiler}
+\CommentTok{# le premier graphique par qualité de la taille }
+\NormalTok{g3 <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(diamonds, }\KeywordTok{aes}\NormalTok{(carat, price)) +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{() +}
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(cut ~}\StringTok{ }\NormalTok{clarity)}
+\NormalTok{g3}
+\NormalTok{## `geom_smooth()` using method = 'gam'}
+\NormalTok{## Warning: Computation failed in `stat_smooth()`:}
+\NormalTok{## x has insufficient unique values to support 10 knots: reduce k.}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-251-1.png}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 23} Graphiques à partir
+de la table
+\texttt{raisin}}{Cas pratique 23 Graphiques à partir de la table raisin}}\label{cas-pratique-23-graphiques-a-partir-de-la-table-raisin}
+
+Le fichier \texttt{raisin.rds} comporte des informations sur la
+maturation du raisin dans des exploitations viticoles de Saône-et-Loire
+sur la période sur la période 2000-2012.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Chargez ce fichier en mémoire avec la fonction \texttt{readRDS()} et
+  analysez les caractéristiques des variables de ce fichier (modalités,
+  distributions, etc.).
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol70}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Chargement en mémoire du fichier raisin.rds}
+\CommentTok{# situé dans le répertoire de travail}
+\NormalTok{raisin <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"raisin.rds"}\NormalTok{)}
+
+\CommentTok{# Caractéristiques des variables de raisin}
+\KeywordTok{table}\NormalTok{(raisin$annee)}
+\NormalTok{## }
+\NormalTok{## 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 }
+\NormalTok{##   54   48   56   39   76   72   79  124  116  111  124  117  111}
+\KeywordTok{table}\NormalTok{(raisin$secteur)}
+\NormalTok{## }
+\NormalTok{##  Couchois Maconnais  Maranges }
+\NormalTok{##       110       907       110}
+\KeywordTok{table}\NormalTok{(raisin$cepage)}
+\NormalTok{## }
+\NormalTok{## Chardonnay      Gamay      Pinot }
+\NormalTok{##        479        428        220}
+\KeywordTok{table}\NormalTok{(raisin$commune)}
+\NormalTok{## }
+\NormalTok{##   Cheilly-les-Maranges                 Fuissé               St.Amour }
+\NormalTok{##                    110                    479                    428 }
+\NormalTok{## St.Maurice-les-Couches     St.Sernin-du-Plain }
+\NormalTok{##                     55                     55}
+\KeywordTok{summary}\NormalTok{(raisin)}
+\NormalTok{##    secteur             cepage            commune              sucres      }
+\NormalTok{##  Length:1127        Length:1127        Length:1127        Min.   :  48.0  }
+\NormalTok{##  Class :character   Class :character   Class :character   1st Qu.: 136.0  }
+\NormalTok{##  Mode  :character   Mode  :character   Mode  :character   Median : 167.0  }
+\NormalTok{##                                                           Mean   : 348.4  }
+\NormalTok{##                                                           3rd Qu.: 197.0  }
+\NormalTok{##                                                           Max.   :2057.0  }
+\NormalTok{##                                                                           }
+\NormalTok{##  acidite_totale         ph        acide_tartrique    potasse     }
+\NormalTok{##  Min.   : 3.000   Min.   : 1.00   Min.   : 1.00   Min.   : 1.00  }
+\NormalTok{##  1st Qu.: 7.000   1st Qu.: 4.00   1st Qu.: 9.00   1st Qu.:12.00  }
+\NormalTok{##  Median : 8.000   Median : 7.00   Median :74.00   Median :19.00  }
+\NormalTok{##  Mean   : 8.987   Mean   :21.56   Mean   :55.91   Mean   :21.22  }
+\NormalTok{##  3rd Qu.:11.000   3rd Qu.:32.00   3rd Qu.:87.00   3rd Qu.:26.00  }
+\NormalTok{##  Max.   :21.000   Max.   :99.00   Max.   :99.00   Max.   :99.00  }
+\NormalTok{##                                                   NA's   :1      }
+\NormalTok{##    azote_amm         annee     }
+\NormalTok{##  Min.   : 1.00   Min.   :2000  }
+\NormalTok{##  1st Qu.:12.00   1st Qu.:2005  }
+\NormalTok{##  Median :43.00   Median :2008  }
+\NormalTok{##  Mean   :43.76   Mean   :2007  }
+\NormalTok{##  3rd Qu.:71.00   3rd Qu.:2010  }
+\NormalTok{##  Max.   :99.00   Max.   :2012  }
+\NormalTok{##  NA's   :28}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\item
+  Analysez la fréquence des différents cépages en fonction du temps.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol71}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Le plus simple est ici de faire un diagramme en bâton}
+\CommentTok{# en fonction du temps}
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(annee, }\DataTypeTok{fill =} \NormalTok{cepage)) +}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-258-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# On peut utiliser explicitement la statistique "count"}
+\CommentTok{# associée par défaut à geom_bar() (taper geom_bar) pour}
+\CommentTok{# le vérifier à d'autres fonctions pour modifier cette}
+\CommentTok{# représentation}
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(annee, }\DataTypeTok{colour =} \NormalTok{cepage)) +}\StringTok{ }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-258-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(annee, }\DataTypeTok{fill =} \NormalTok{cepage)) +}\StringTok{ }\KeywordTok{geom_area}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-258-3.pdf}
+
+  ~
+\item
+  Analysez graphiquement la relation entre \texttt{sucres} et
+  \texttt{acidite\_totale}. Utilisez d'autres variables pour tenter de
+  rendre compte de cette distribution.
+
+  Afficher/masquer la solution
+
+  \hypertarget{sol72}{}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# On utilise tout simplement un nuage de points pour représenter}
+\CommentTok{# ces deux variables quantitatives}
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# On perçoit très nettement deux groupes : sont-ils expliqués}
+\CommentTok{# par le secteur ou le cépage ? }
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale, }\DataTypeTok{colour =} \NormalTok{cepage)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale, }\DataTypeTok{colour =} \NormalTok{secteur)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Pour confirmer et ne pas se laisser abuser}
+\CommentTok{# par la superposition de certains points, on }
+\CommentTok{# utilise le facetting}
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(~cepage)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(~secteur)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(raisin, }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(cepage~secteur)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Il apparaît clairement que c'est la localisation dans le}
+\CommentTok{# maconnais ou les cépages chardonnay et gamay qui lui}
+\CommentTok{# sont spécifiques (au sein de la Saône-et-Loire) qui }
+\CommentTok{# semble expliquer l'oscillation entre deux types de relations}
+\CommentTok{# entre sucres et acidité totale. }
+
+\CommentTok{# Peut-être cette oscillation dépend-elle des années ? }
+\KeywordTok{ggplot}\NormalTok{(raisin[raisin$secteur ==}\StringTok{ "Maconnais"}\NormalTok{, ], }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale, }\DataTypeTok{colour =} \KeywordTok{as.factor}\NormalTok{(annee))) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Ce n'est pas évident, à nouveau on utilise le facetting}
+\KeywordTok{ggplot}\NormalTok{(raisin[raisin$secteur ==}\StringTok{ "Maconnais"}\NormalTok{, ], }\KeywordTok{aes}\NormalTok{(sucres, acidite_totale, }\DataTypeTok{colour =} \NormalTok{commune)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{facet_wrap}\NormalTok{(~annee)}
+\end{Highlighting}
+\end{Shaded}
+
+  \includegraphics{index_files/figure-latex/unnamed-chunk-261-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Le raisin du secteur du maconnais, quel que soit sa commune, }
+\CommentTok{# semble présenter un profil sucres-acidite_totale particulier}
+\CommentTok{# de 2000 à 2003 (plus sucré).}
+\end{Highlighting}
+\end{Shaded}
+
+  ~
+\end{enumerate}
+
+~
+
+\paragraph{\texorpdfstring{\textbf{Cas pratique 24} Représentations à
+partir du fichier de
+l'EEC}{Cas pratique 24 Représentations à partir du fichier de l'EEC}}\label{cas-pratique-24-representations-a-partir-du-fichier-de-leec}
+
+On cherche à représenter les liens entre : position sur le marché du
+travail (variable \texttt{ACTEU}) et caractéristiques
+socio-démographiques d'une part ; salaire redressé (varible
+\texttt{SALRED}) et caractéristiques socio-démographiques d'autre part.
+Proposez des représentations graphiques pertinentes à l'aide de
+\texttt{ggplot2}.
+
+\end{document}

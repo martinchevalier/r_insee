@@ -1,0 +1,277 @@
+---
+title: "Formation R Perfectionnement"
+fontsize: 12pt
+---
+
+```{r, include=FALSE}
+if(!exists(".initOK")) source("fonctions.R")
+```
+
+# Générer automatiquement des documents depuis R
+
+\subsection*{Générer automatiquement des documents depuis R}
+
+### \large Pourquoi générer automatiquement des documents ?
+
+- Exporter et documenter des **traitements** en vue d'une réutilisation future : statistiques pour une étude, traitements réalisés lors d'une réunion de travail, etc.
+
+    \vspace{0.2cm} \small 
+    **Remarque** Utilisation analogue à celle permise par les instructions \textcolor{blue}{\texttt{ODS RTF}} ou \textcolor{blue}{\texttt{ODS PDF}} de SAS.
+
+\pause \normalsize 
+
+- Construire des **rapports complets et automatisés** pour des tâches répétitives : rapports d'utilisation, tests de la cohérence ou de la qualité de nouvelles données, etc.
+
+\pause \vspace{0.2cm}
+
+- Produire des publications **reproductibles** sur différents supports : notes, documentation, articles de revues, etc.
+
+
+### \large Principe de la génération automatique de documents
+
+La génération automatique de documents complets repose sur deux éléments : 
+
+1. Articuler le code, les résultats et le commentaire dans un **même document** : garantir la cohérence et faciliter les mises à jour;
+
+2. Formater de façon standardisée le document vers **plusieurs sorties** : `.html`, `.pdf`, `.docx`, `.odt`. 
+
+\pause \small \centering
+\begin{tikzpicture}[auto]
+    \node [input] (code) {Code R};
+    \node [input, right= of code] (tableaux) {Tableaux, graphiques};
+    \node [input, right= of tableaux] (commentaire) {Commentaire};
+    \node [output, below of=tableaux, node distance = 2cm] (output) {\texttt{.pdf} \texttt{.html} \texttt{.docx} \texttt{.odt}};
+    \path [line] (code) -- (output);
+    \path [line] (tableaux) -- (output);
+    \path [line] (commentaire) -- (output);
+\end{tikzpicture}
+
+### \large Etapes de la génération automatique de documents
+
+\small
+\centering
+\begin{tikzpicture}[auto]
+    \draw[draw, red, very thick, dotted, visible on =<8->] ($(code.north west)+(-0.2,0.9)$)  rectangle ($(commentaire.south east) +(0.2,-3.3)$) node[] at (3.3, 0.9) {\href{https://blog.rstudio.org/2014/06/18/r-markdown-v2/}{\underline{R Markdown v2}} (\texttt{.Rmd})}; 
+    \node [input] (code) {Code R};
+    \node [input, right= of code] (tableaux) {Tableaux, graphiques};
+    \node [input, right= of tableaux] (commentaire) {Commentaire};
+    \node [block, below of=tableaux, node distance = 1.5cm, visible on =<2->] (knitr) {\href{http://yihui.name/knitr/}{\underline{knitr}}};
+    \node [block, below of=knitr, node distance = 1.5cm, visible on =<3->] (pandoc) {\href{http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html}{\underline{pandoc}}};
+    \node [output, below of=pandoc, node distance = 1.5cm, visible on =<5->] (docx) {\texttt{.docx} \texttt{.odt}};
+    \node [output, left of=docx, node distance = 3cm, visible on =<4->] (html) {\texttt{.html}};
+    \node [output, right of=docx, node distance = 3cm, visible on =<6->] (pdf) {\texttt{.pdf}};
+    \node [block, right of=pandoc, node distance = 3cm, visible on =<7->] (latex) {\href{https://www.latex-project.org/}{\underline{LaTeX}}};
+    \path [line, visible on =<2->] (code) -- (knitr);
+    \path [line, visible on =<2->] (tableaux) -- (knitr);
+    \path [line, visible on =<2->] (commentaire) -- (knitr);
+    \path [line, visible on =<3->] (knitr) -- (pandoc) node[pos=0.50] {\texttt{.md}};
+    \path [line, visible on =<4->] (pandoc) -- (html);
+    \path [line, visible on =<5->] (pandoc) -- (docx);
+    \path [line, visible on =<7->] (pandoc) -- (latex) node[pos=0.50] {\texttt{.tex}};
+    \path [line, visible on =<7->] (latex) -- (pdf);
+    \mode<beamer>{\path [visible on =<6>] (pandoc) -- (pdf)  node[pos=0.50] {?};}
+\end{tikzpicture}
+
+\raggedright
+\pause[9] **Note** `rmarkdown` et `knitr` sont des *packages* R (avec plusieurs dépendances); pandoc et LaTeX sont des programmes autonomes.
+
+### Préparer et tester l'environnement de travail
+
+1. Travailler sous RStudio
+    - RStudio facilite l'édition et la compilation de fichier `.Rmd`;
+    - pandoc est embarqué par défaut dans RStudio.
+
+\pause \bigskip 
+
+2. Installer les *packages* nécessaires
+    - installer le *package* `rmarkdown` et ses dépendances;
+    - installer le *package* `knitr` et ses dépendances.
+
+\pause \bigskip 
+
+3. Pour produire des fichiers `.pdf`, installer LaTeX ([\underline{MiKTeX}](https://miktex.org/) sous Windows) et [\underline{s'assurer}](http://superuser.com/questions/341192/how-can-i-display-the-contents-of-an-environment-variable-from-the-command-promp) que ses programmes figurent dans le *path* de Windows.
+
+\pause \bigskip 
+
+4. Créer un nouveau fichier R Markdown (`.Rmd`), installer les *packages* complémentaires demandés, choisir le type de document et compiler le fichier d'exemple (`Ctrl + K`).
+
+### Ecrire du texte dans R Markdown
+
+Pour écrire du texte dans un document R Markdown, il suffit de le **taper dans le fichier `.Rmd`** (sans le commenter ni l'échapper d'aucune manière). 
+
+\pause Des **balises** spéciales permettent de mettre en forme le document : 
+
+- les signes `*` et `_` permettent de mettre des mots en `*italique*` ou en `**gras**`;
+- les six niveaux de titres sont préfixés par les signes `#` (premier niveau), `##` (deuxième niveau), etc.
+- des listes sont automatiquement créées à partir de successions de `-` ou de séquences de nombres ou de lettres séparées par un retour à la ligne.
+
+\pause 
+
+**Note** Pour une présentation synthétique de R Markdown, se référer à l'[\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) (*cheat sheet*) sur le site de RStudio.
+
+
+### Ecrire du code dans R Markdown
+
+Les blocs de code R sont intégrés dans R Markdown de la façon suivante : 
+```{r comment=NA, echo = FALSE}
+cat("```{r}\n2 + 2\n```")
+```
+
+\pause Par défaut **le code est évalué**, et **lui-même ainsi que ses résultats sont affichés** dans le document en sortie : 
+```{r, collapse = FALSE}
+2 + 2
+```
+
+### Ecrire du code dans R Markdown
+
+Les **options** saisies en début de bloc permettent de préciser à `knitr` la manière de le prendre en compte, par exemple:
+
+- `eval=FALSE` : le bloc n'est pas évalué;
+- `echo=FALSE` : le bloc n'est pas affiché;
+- `collapse=TRUE` : code et résultats sont affichés à la suite.
+
+\pause 
+```{r comment=NA, echo = FALSE}
+cat("```{r, echo=FALSE}\n2 + 2\n```")
+```
+```{r, echo = FALSE, collapse = FALSE}
+2 + 2
+```
+
+\pause 
+
+**Note** Toutes les options de `knitr` relatives aux blocs de code (*chunk options*) sont présentées sur la [\underline{page}](http://yihui.name/knitr/options/) du créateur du *package*, Yihui Xie.
+
+### Ecrire du code dans R Markdown
+
+Il est également possible d'intégrer le résultat d'un traitement R dans le corps d'un paragraphe avec la syntaxe : 
+
+```{r comment=NA, echo = FALSE}
+cat("\`r   \`")
+```
+
+\pause 
+
+**Exemple** Pour intégrer dans le texte la date de compilation du document, utiliser 
+
+```{r comment=NA, echo = FALSE}
+cat("Document compilé le `r Sys.Date()`.")
+```
+
+\pause Document compilé le `r Sys.Date()`.
+
+### Intégrer des graphiques dans R Markdown
+
+Tous les graphiques produits par les blocs de code sont **automatiquement intégrés au fichier final**. 
+
+\pause Un **grand nombre d'options** sont consacrées au paramétrage des graphiques, notamment : 
+
+- `fig.width`, `fig.height` : largeur et hauteur utilisées pour produire le graphique, en pouces;
+- `fig.asp` : rapport hauteur/largeur (`fig.height` est neutralisé quand `fig.asp` est renseigné);
+- `out.width`, `out.height` : largeur et hauteur du graphique dans la sortie finale;
+- `fig.align` : alignement du grahique (`"left"`, `"right"` ou `"center"`);
+- `dpi` (72 par défaut) : résolution (utile uniquement pour HTML).
+
+
+
+### Intégrer des graphiques dans R Markdown
+
+\footnotesize \center
+
+```{r comment = NA, echo = FALSE}
+cat("```{r, fig.asp = 3/4, fig.width = 4}\nplot(mpg$displ, mpg$hwy)\n```")
+```
+
+```{r, echo = FALSE, fig.asp = 3/4, fig.width = 4}
+plot(mpg$displ, mpg$hwy)
+```
+
+### Intégrer des graphiques dans R Markdown
+
+\footnotesize \center
+
+```{r comment = NA, echo = FALSE}
+cat("```{r, fig.asp = 3/4, fig.width = 6, out.width = \"4in\"}\nplot(mpg$displ, mpg$hwy)\n```")
+```
+
+```{r, echo = FALSE, fig.asp = 3/4, fig.width = 5, out.width = "4in"}
+plot(mpg$displ, mpg$hwy)
+```
+
+### Intégrer des tableaux dans R Markdown
+
+Pour construire un tableau dans R Markdown, il suffit de le \og dessiner \fg{} avec les signes `-` et `|` : 
+
+```{r comment = NA, echo = FALSE}
+cat("Colonne 1 | Colonne 2 | Colonne 3\n--------: | :-------- | :-------:\n1         | a         | `TRUE`\n2         | b         | `FALSE`")
+```
+
+\pause 
+
+Colonne 1 | Colonne 2 | Colonne 3
+--------: | :-------- | :-------:
+1         | a         | `TRUE`
+2         | b         | `FALSE`
+
+Les `:` permettent de spécifier l'alignement des colonnes. 
+
+### Intégrer des tableaux dans R Markdown
+
+En règle générale cependant, les tableaux à intégrer sont générés automatiquement à partir des données.
+
+\footnotesize
+
+```{r comment = NA, echo = FALSE}
+cat("```{r}\nresultat <- data.table(mpg)[\n    , list(hwy=mean(hwy), cty=mean(cty)), by = drv\n]\nresultat\n```")
+```
+
+\vspace{-5mm}
+
+```{r echo = FALSE}
+resultat <- data.table(mpg)[, list(hwy=mean(hwy), cty=mean(cty)), by = drv]
+resultat
+```
+
+\pause \normalsize
+
+La fonction `knitr::kable()` permet de **transformer un objet R en tableau formaté pour R Markdown**.
+
+### Intégrer des tableaux dans R Markdown
+
+\footnotesize 
+
+\vspace{-2mm}
+
+```{r comment = NA, echo = FALSE}
+cat("```{r, results = \"asis\"}\nknitr::kable(resultat)\n```")
+```
+
+\pause \vspace{-10mm}
+
+```{r comment = NA, echo = FALSE}
+cat("|drv |      hwy|     cty|\n|:---|--------:|-------:|\n|f   | 28.16038| 19.9717|\n|4   | 19.17476| 14.3301|\n|r   | 21.00000| 14.0800|")
+```
+
+\pause \vspace{-1mm}
+
+Ce qui donne une fois formaté par R Markdown:
+
+
+```{r echo = FALSE, results = "asis"}
+knitr::kable(resultat)
+```
+
+### Paramétrer un document R Markdown
+
+La plupart des paramètres généraux du documents sont à indiquer dans son en-tête (désigné par l'acronyme YAML) : 
+
+\footnotesize
+
+```{r comment = NA, echo = FALSE}
+cat("---\ntitle: \"Formation R Perfectionnement\"\nauthor: \"Martin Chevalier (Insee)\"\noutput:\n  html_document:\n    highlight: haddock\n    toc: yes\n    toc_depth: 2\n    toc_float: yes\n---")
+```
+
+\pause \normalsize
+
+**Pour en savoir plus** Le site de RStudio documente le paramétrage de l'en-tête YAML selon les formats de sortie souhaités ([\underline{\texttt{html}}](http://rmarkdown.rstudio.com/html_document_format.html), [\underline{\texttt{pdf}}](http://rmarkdown.rstudio.com/pdf_document_format.html)).
+

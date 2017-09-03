@@ -1,0 +1,161 @@
+\begin{theindex}
+
+  \item \texttt{!=}, \textbf{52}, 55
+  \item \texttt{!}, \textbf{52}, 55
+  \item \texttt{*}, \textbf{10}, 58
+  \item \texttt{+}, \textbf{10}, 58, 85
+  \item \texttt{-}, \textbf{10}, 47, 58
+  \item \texttt{/}, \textbf{10}, 11, 58
+  \item \texttt{:}, \textbf{57}, 59
+  \item \texttt{<-}, \textbf{5}, 10, 40
+  \item \texttt{<=}, \textbf{52}, 85
+  \item \texttt{<}, \textbf{52}, 55
+  \item \texttt{==}, \textbf{52}, 55, 72
+  \item \texttt{>=}, \textbf{52}
+  \item \texttt{>}, \textbf{52}
+  \item \texttt{?}, \textbf{10}, 12
+  \item \texttt{[[}, \textbf{96}, 98, 101, 115
+  \item \texttt{[}, \textbf{47}, 49--51, 53, 54, 56, \textbf{77}, 79, 
+		82, 83, \textbf{95}, 98, 115, 119, 123, 125
+  \item \texttt{\$}, 22, 25, \textbf{96}, 98, 115, 122
+  \item \texttt{\%*\%}, \textbf{86}
+  \item \texttt{\%/\%}, \textbf{10}, 11
+  \item \texttt{\%\%}, \textbf{10}, 11
+  \item \texttt{\%in\%}, \textbf{52}, 55, 72, 121, 125
+  \item \texttt{\&}, \textbf{52}, 55
+  \item \texttt{\textasciicircum}, \textbf{10}
+  \item \texttt{abline}, \textbf{166}
+  \item \texttt{addmargins}, \textbf{155}
+  \item \texttt{aggregate}, \textbf{144}, 147
+  \item \texttt{apply}, \textbf{87}, 90, 91, 143
+  \item \texttt{as.character}, \textbf{74}
+  \item \texttt{as.data.frame}, \textbf{116}
+  \item \texttt{as.factor}, \textbf{75}
+  \item \texttt{as.integer}, \textbf{152}
+  \item \texttt{as.list}, \textbf{116}
+  \item \texttt{as.logical}, \textbf{74}
+  \item \texttt{as.matrix}, \textbf{116}
+  \item \texttt{as.numeric}, \textbf{74}
+  \item \texttt{as.vector}, 77
+  \item \texttt{barplot}, 23, \textbf{169}, 178
+  \item \texttt{boxplot}, 180
+  \item \texttt{by}, 22, 26, 27, \textbf{146}
+  \item \texttt{cbind}, \textbf{86}, 89, 104, 132
+  \item \texttt{chisq.test}, 156
+  \item \texttt{colMeans}, \textbf{87}
+  \item \texttt{colSums}, \textbf{87}, 88, 143
+  \item \texttt{colnames}, \textbf{78}, 114
+  \item \texttt{cor.test}, \textbf{160}, 177
+  \item \texttt{crosstab}, 157, 176
+  \item \texttt{cumsum}, \textbf{59}
+  \item \texttt{curve}, \textbf{166}
+  \item \texttt{cut}, \textbf{175}
+  \item \texttt{c}, \textbf{40}, 43, 77, 102, 106
+  \item \texttt{data.frame}, \textbf{112}
+  \item \texttt{density}, \textbf{168}
+  \item \texttt{det}, \textbf{86}
+  \item \texttt{dim}, \textbf{76}, 100, 114
+  \item \texttt{do.call}, \textbf{104}, 109
+  \item \texttt{duplicated}, \textbf{67}, 69, 136
+  \item \texttt{ecdf}, \textbf{168}
+  \item \texttt{factor}, 175
+  \item \texttt{formatC}, \textbf{64}, 65
+  \item \texttt{freq}, 157
+  \item \texttt{function}, \textbf{7}, 19, 45, 61, 66, 152
+  \item \texttt{head}, 21, 25
+  \item \texttt{help}, \textbf{10}, 12
+  \item \texttt{hist}, \textbf{169}
+  \item \texttt{identical}, 38, 42, 152
+  \item \texttt{ifelse}, \textbf{124}
+  \item \texttt{intersect}, \textbf{66}, 68, 102, 173
+  \item \texttt{is.character}, \textbf{41}, 108, 150
+  \item \texttt{is.infinite}, \textbf{71}, 73
+  \item \texttt{is.list}, \textbf{114}
+  \item \texttt{is.logical}, \textbf{41}
+  \item \texttt{is.nan}, \textbf{71}
+  \item \texttt{is.na}, \textbf{71}, 73
+  \item \texttt{is.numeric}, \textbf{41}, 152
+  \item \texttt{lapply}, \textbf{103}, 107, 114, 144, 145, 150
+  \item \texttt{legend}, \textbf{165}
+  \item \texttt{length}, \textbf{40}, 44, 61, 76, 114
+  \item \texttt{levels}, \textbf{75}
+  \item \texttt{list}, \textbf{93}, 97
+  \item \texttt{load}, \textbf{20}, 24, 28, 35, 37
+  \item \texttt{ls}, 6, \textbf{8}, 13, 14
+  \item \texttt{matrix}, \textbf{76}, 81
+  \item \texttt{max}, \textbf{59}, 62, 91, \textbf{160}
+  \item \texttt{mean}, \textbf{59}, \textbf{160}
+  \item \texttt{merge}, \textbf{133}, 140, 174
+  \item \texttt{microbenchmark}, 146, 152
+  \item \texttt{min}, \textbf{59}, \textbf{160}
+  \item \texttt{na.omit}, \textbf{141}
+  \item \texttt{names}, \textbf{48}, 51, 94, 114, 118, 173
+  \item \texttt{nchar}, \textbf{63}, 91
+  \item \texttt{ncol}, \textbf{76}, 114
+  \item \texttt{nrow}, \textbf{76}, 114
+  \item \texttt{object\_size}, 152
+  \item \texttt{order}, \textbf{67}, 69, 83, \textbf{130}, 137
+  \item \texttt{paste0}, \textbf{63}, 65, 124
+  \item \texttt{paste}, 12, \textbf{63}, 65
+  \item \texttt{pie}, 23, 27, \textbf{169}
+  \item \texttt{plot}, 23, \textbf{162}, 168, 179
+  \item \texttt{prop.table}, \textbf{155}
+  \item \texttt{quantile}, \textbf{59}, 129, \textbf{160}, 175
+  \item \texttt{range}, \textbf{160}
+  \item \texttt{rbind}, \textbf{86}, 89, 104, 132
+  \item \texttt{read.csv}, \textbf{28}
+  \item \texttt{read.dbf}, \textbf{29}, 33, 75, 140
+  \item \texttt{read.delim}, 5, 7, \textbf{28}, 32
+  \item \texttt{read.table}, \textbf{28}, 75
+  \item \texttt{readRDS}, \textbf{36}, 38, 117
+  \item \texttt{read\_sas}, \textbf{31}, 34, 173
+  \item \texttt{rep}, \textbf{43}, 45, 56, 60, 98
+  \item \texttt{rev}, \textbf{67}
+  \item \texttt{rm}, \textbf{10}, 14
+  \item \texttt{rnorm}, \textbf{57}, 62, 138
+  \item \texttt{round}, \textbf{59}
+  \item \texttt{rowMeans}, \textbf{87}
+  \item \texttt{rowSums}, \textbf{87}, 88, 100, 143
+  \item \texttt{rownames}, \textbf{78}, 114
+  \item \texttt{runif}, \textbf{57}, 60
+  \item \texttt{sapply}, \textbf{104}, 107, 108, 144, 145, 147, 
+		149, 150
+  \item \texttt{saveRDS}, \textbf{36}, 38
+  \item \texttt{save}, \textbf{35}, 37
+  \item \texttt{sd}, \textbf{90}, \textbf{160}
+  \item \texttt{seq}, \textbf{57}, 59, 60
+  \item \texttt{setdiff}, \textbf{66}, 68, 102, 120, 173
+  \item \texttt{setwd}, 28
+  \item \texttt{solve}, \textbf{86}
+  \item \texttt{sort}, \textbf{67}, 69
+  \item \texttt{split}, \textbf{145}, 147, 149
+  \item \texttt{sqrt}, \textbf{10}
+  \item \texttt{str}, \textbf{10}, 13, \textbf{40}, 44
+  \item \texttt{substr}, \textbf{126}
+  \item \texttt{summary}, 22, \textbf{59}, \textbf{160}
+  \item \texttt{sum}, 22, 25, 26, 53, 56, \textbf{59}, 71, 88, 100, 147, 
+		\textbf{160}
+  \item \texttt{sys.time}, 10
+  \item \texttt{table}, 22, 26, 71, 127, \textbf{154}
+  \item \texttt{tail}, 21
+  \item \texttt{tapply}, \textbf{145}, 147, 178
+  \item \texttt{tolower}, \textbf{63}, 118
+  \item \texttt{toupper}, \textbf{63}
+  \item \texttt{typeof}, \textbf{40}, 44, 76, 107
+  \item \texttt{t}, \textbf{86}, 89
+  \item \texttt{unique}, 22, 26, \textbf{67}, 69, \textbf{132}, 135, 
+		140, 173
+  \item \texttt{unlist}, \textbf{109}
+  \item \texttt{var}, \textbf{160}
+  \item \texttt{which.max}, \textbf{59}, 62
+  \item \texttt{which.min}, \textbf{59}
+  \item \texttt{which}, \textbf{53}, 56
+  \item \texttt{within}, \textbf{124}, 125
+  \item \texttt{write.dbf}, \textbf{31}
+  \item \texttt{write.dta}, \textbf{31}
+  \item \texttt{wtd.mean}, \textbf{162}
+  \item \texttt{wtd.quantile}, \textbf{162}
+  \item \texttt{wtd.var}, \textbf{162}
+  \item \texttt{|}, \textbf{52}, 55, 121
+
+\end{theindex}

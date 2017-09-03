@@ -1,0 +1,197 @@
+---
+title: "Formation R Perfectionnement"
+fontsize: 12pt
+---
+
+```{r, include=FALSE}
+if(!exists(".initOK")) source("fonctions.R")
+```
+
+# Introduction : Se\ perfectionner\ avec\ R
+
+\subsection*{Introduction : Se\ perfectionner\ avec\ R}
+
+### Connaître plus ou connaître mieux ? 
+
+Comme tout langage statistique ou de programmation, R repose sur un ensemble d'instructions plus ou moins complexes. 
+
+\pause \bigskip
+Se perfectionner dans la maîtrise de R peut donc signifier deux choses : 
+
+- étendre son \og vocabulaire \fg{} d'instructions connues ;
+- mieux comprendre les instructions déjà connues.
+
+\pause \bigskip
+En pratique, les deux **vont de pair** : en découvrant de nouvelles fonctions, on est souvent amené à mieux comprendre le fonctionnement de celles que l'on croyait maîtriser. 
+
+### Plan de la partie
+
+\Large 
+<!-- \setlength{\parskip}{0pt plus 1fil} -->
+\tableofcontents[currentsection, sectionstyle = hide, subsectionstyle = show/show/hide]
+
+
+## Chercher (et trouver !) de l'aide
+
+### Savoir utiliser l'aide du logiciel
+
+À tout moment, taper `help(nomFonction)` ou `? nomFonction` affiche l'aide de la fonction `nomFonction`.
+
+```{r, eval =  FALSE, tidy = FALSE}
+# Aide de la fonction read.csv
+? read.csv
+```
+
+\pause 
+
+**Remarque** Pour afficher l'aide sur une fonction d'un *package*, il faut que celui-ci soit au préalable chargé (avec `library()` ou `require()`).
+
+\pause La fonction `help.search()` ou la commande `??` permettent d'effectuer une recherche approximative:
+
+```{r, eval =  FALSE, tidy = FALSE}
+# Recherche à partir du mot-clé csv
+?? csv
+```
+
+### Chercher de l'aide en ligne
+
+Bien souvent, le problème que l'on rencontre a **déjà été rencontré par d'autres**. 
+
+\bigskip
+Pour progresser dans la maîtrise de R, il ne faut donc surtout pas hésiter à s'appuyer sur les forums de discussion, comme par exemple [\underline{stackoverflow}](http://stackoverflow.com/questions/tagged/r).
+
+\pause \bigskip
+On gagne ainsi souvent beaucoup de temps en formulant le problème que l'on rencontre dans un **moteur de recherche** pour consulter certaines réponses.
+
+\bigskip 
+Quand une question semble ne pas avoir été déjà posée, ne pas hésiter à la poser soi-même, en joignant alors un **exemple reproductible** (*minimal working example* ou MWE).
+
+### Afficher le code d'une fonction
+
+Quand l'utilisation d'une fonction pose problème (message d'erreur inattendu), il est souvent utile d'**afficher son code** pour comprendre d'où vient le problème.
+
+\pause Pour ce faire, il suffit de saisir son nom sans parenthèses.
+
+\footnotesize
+```{r}
+# Code de la fonction read.csv
+read.csv
+```
+
+\pause \normalsize
+Afficher le code d'une fonction est dans certains cas plus difficile, *cf.* [\underline{stackoverflow}](http://stackoverflow.com/questions/19226816/how-can-i-view-the-source-code-for-a-function).
+
+## Découvrir de nouvelles fonctionnalités
+
+### Se repérer dans les CRAN \protect\textit{Task Views}
+
+Les CRAN *Task Views* recensent les fonctions et *packages* de façon thématique. Elles sont mises à jour régulièrement et portent sur des thèmes variés:  
+
+\pause
+```{r, echo = FALSE}
+.ctv <- sapply(ctv::available.views("https://cran.rstudio.com/"), function(x) x[[1]])
+```
+\footnotesize `r paste0("\\href{https://cran.r-project.org/web/views/",.ctv,".html}{",.ctv,"}")`
+
+\pause \bigskip \normalsize
+La liste de toutes les *Task Views* est accessible à la page : [\underline{https://cran.r-project.org/web/views}](https://cran.r-project.org/web/views).
+
+### Consulter des sites, tutoriels, livres
+
+De plus en plus de supports sont consacrés à la présentation et à l'enseignement des fonctionnalités de R, comme par exemple : 
+
+- \pause le site [\underline{R-bloggers}](https://www.r-bloggers.com): articles en général courts sur des exemples d'applications (de qualité inégale);
+
+- \pause le site [\underline{bookdown.org}](https://bookdown.org): dépôt de livres numériques consacrés à R élaborés avec R Markdown (très riches et très complets);
+
+- \pause le site de [\underline{RStudio}](https://www.rstudio.com): nombreux [\underline{aides-mémoires}](https://www.rstudio.com/resources/cheatsheets/) ou articles présentant les fonctionnalités de l'écosystème RStudio;
+
+- \pause les ouvrages de [\underline{Hadley Wickham}](http://hadley.nz): [\underline{ggplot2: elegant graphics for data analysis}](https://github.com/hadley/ggplot2-book) (à compiler soi-même), [\underline{Advanced R}](http:/:adv-r.had.co.nz).
+
+## Utiliser de nouveaux \protect\textit{packages}
+
+### Accéder à la documentation d'un *package*
+
+Une des principales forces de R est d'être un langage hautement modulaire comptant **plusieurs milliers de *packages*** (`r formatC(dim(available.packages())[1],big.mark = "\\ ")` au `r format(Sys.Date(), "%d/%m/%Y")`).
+
+\pause Toutes les informations sur un *package* sont accessibles sur sa page du *Comprehensive R Archive Network* (CRAN). 
+
+**Exemple** https://CRAN.R-project.org/package=haven
+
+\pause \bigskip On trouve en particulier sur cette page:
+
+- les **dépendances** du *package* (*Depends* et *Imports*);
+- un lien vers sa **page de développement** (*URL*);
+- une **version .pdf de son aide** (*Reference manual*)
+- éventuellement un ou plusieurs **documents de démonstration** (*Vignettes*).
+
+### Installer un *package* automatiquement
+
+La fonction `install.packages("nomPackage")` permet d'installer automatiquement le *package* `nomPackage`. 
+
+Les données nécessaires sont téléchargées depuis un des dépôts du CRAN (*repositories* ou en abrégé `repos`).
+
+C'est la **méthode à privilégier**:  les dépendances nécessaires au bon fonctionnement du *package* sont détectées et automatiquement installées.
+
+\pause 
+
+**Remarque** Cette méthode fonctionne à l'Insee:
+
+- pour les installations locales de R sur les postes de travail;
+- sur AUS, *via* un dépôt local spécifique;
+- mais PAS sur les sessions des postes de formation.
+
+### Installer un *package* manuellement
+
+La page d'information d'un *package* comporte également des liens vers les fichiers qui le composent. 
+
+Quand l'installation directe depuis un dépôt du CRAN est indisponible, il suffit de **télécharger ces fichiers** et d'**installer manuellement le *package***.
+
+Pour une installation sous Windows, il faut privilégier les **fichiers compilés** (*Windows binaries*). 
+
+\pause \small
+
+```{r, eval = FALSE}
+# Note : Le fichier haven._1.0.0.zip est situé 
+# dans le répertoire de travail
+install.packages(
+  "haven_1.0.0.zip", repos = NULL, type = "binaries"
+)
+```
+
+### Installer des *packages* depuis github
+
+En règle générale, le développement de *packages* s'appuie sur des plate-formes de **développement collaboratif** comme [\underline{Github}](https://github.com).
+
+\pause La **page de développement** d'un *package* comporte plusieurs informations préciseuses : 
+
+- la dernière version du *package* et de sa documentation;
+- des informations sur son développement; 
+- une zone pour rapporter d'éventuels *bugs* (*bug reports*).
+
+**Exemple** https://github.com/tidyverse/haven 
+
+\pause La fonction `install_github()` du *package* `devtools` permet d'installer un *package* directement depuis GitHub.
+
+```{r, eval = FALSE}
+library(devtools)
+install_github("tidyverse/haven")
+```
+
+
+### Utiliser les données d'exemples d'un *package*
+
+La plupart des **packages** contiennent des **données d'exemples** utilisées notamment dans son aide ou ses vignettes.
+
+Une fois le *package* installé, il suffit d'utiliser la fonction `data(package = "nomPackage")` pour afficher les données qu'il contient.
+
+```{r, eval = FALSE}
+library(ggplot2)
+data(package = "ggplot2")
+```
+
+\pause Pour \og rapatrier \fg{} dans l'environnement global les données d'un *package*, c'est de nouveau la fonction `data()` qu'il faut utiliser. 
+
+```{r, eval = FALSE}
+data(mpg)
+```

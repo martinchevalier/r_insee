@@ -1,0 +1,2011 @@
+---
+title: "Module 3 Travailler avec des données statistiques"
+---
+
+```{r, include = FALSE}
+rm(list = ls())
+if(!exists(".initOK")) source("init.R", encoding = "latin1")
+```
+
+```{r, results = "asis", echo = FALSE}
+.module(numModule = 3, "Travailler avec des données statistiques")
+```
+
+\ 
+
+L'objectif de ce troisième et dernier module est de **réutiliser dans un cadre \og métier \fg{} les briques élémentaires du langage** introduites dans le module précédent: 
+
+- présentation du **type `data.frame`** et de ses relations avec les vecteurs, les matrices et les listes;
+- **opérations courantes sur les tables de données statistiques**: sélection d'observations et de variables, création et modification de variable, tris, fusions, etc.;
+- utilisation de R pour la **statistique descriptive et la production de graphiques**
+
+En dernière partie, des **liens complémentaires** sont fournis vers le support de la formation R perfectionnement que j'ai conçue ainsi que vers des **exemples d'utilisation plus spécifiques** du logiciel (analyse de données multidimensionnelle, régression).
+
+```{r, results = "asis", echo = FALSE}
+.partie("Manipuler les `data.frame`")
+```
+
+Dans R, la majeure partie des données statistiques se présente sous la forme de **`data.frame`** : ces objets permettent en effet de **représenter sous la forme d'une table** (*i.e.* d'un objet à deux dimensions) **des données de nature tant quantitative** (variables numériques) **que qualitative** (variables de type caractère ou facteur). 
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Créer des data.frame et y sélectionner des éléments")
+```
+
+Pour créer un objet de type `data.frame`, il suffit d'**utiliser la fonction `data.frame()`**`r .fun("data.frame", bold = TRUE)`. 
+
+```{r}
+# Création du data.frame df1
+df1 <- data.frame(
+  var1 = 1:10
+  , var2 = letters[1:10]
+  , var3 = rep(c(TRUE, FALSE), times = 5)
+)
+
+# Caractéristiques de df1
+str(df1)
+
+# Premières lignes de df1
+head(df1)
+```
+
+**Il est impératif que tous les éléments qui composent un `data.frame` soient de même longueur**. 
+```{r, error = TRUE}
+# Création du data.frame df3
+df3 <- data.frame(
+  var1 = 1:10
+  , var2 = 1:15
+)
+```
+
+\ 
+
+------------------
+
+**Remarque**  Par défaut, **la fonction `data.frame()` convertit les variables caractères en facteurs** (*cf.* `r .ref("module 2", "module2.html")`). Pour éviter ce comportement (pas toujours souhaitable), il suffit d'utiliser l'**argument `stringsAsFactors = FALSE`**.
+```{r}
+# Création du data.frame df2
+df2 <- data.frame(
+  var1 = 1:10
+  , var2 = letters[1:10]
+  , var3 = rep(c(TRUE, FALSE), times = 5)
+  , stringsAsFactors = FALSE
+)
+
+# Caractéristiques de df2
+str(df2)
+# Note : dans df2 var2 est de type caractère alors que dans 
+# df1 elle a été automatiquement convertie en factor. 
+```
+
+Pour empêcher la conversion de caractères en facteurs **pour toute une session**, il suffit de modifier l'option globale `stringsAsFactors`. 
+```{r}
+# Modification de l'option globale stringsAsFactors 
+options(stringsAsFactors = FALSE)
+
+# Désormais l'option stringsAsFactors n'est plus nécessaire 
+# dans chaque appel de fonction
+df3 <- data.frame(
+  var1 = 1:10
+  , var2 = letters[1:10]
+  , var3 = rep(c(TRUE, FALSE), times = 5)
+)
+str(df3)
+```
+
+----
+
+\ 
+
+Du point de vue de sa structure, un `data.frame` est en réalité une **liste dont tous les éléments ont la même longueur** : c'est ce qui permet de le représenter sous la forme d'un **tableau à deux dimensions**`r .fun("is.list", bold = TRUE)``r .fun("lapply")`.
+```{r}
+# Un data.frame est une liste...
+is.list(df1)
+
+# ... dont tous les éléments sont de même longueur
+lapply(df1, length)
+```
+
+De ce fait, **les `data.frame` empruntent leurs caractéristiques tantôt aux listes, tantôt aux matrices** : 
+
+- Comme une matrice, un `data.frame` a **deux dimensions** (fonction `dim()``r .fun("dim")``r .fun("ncol")``r .fun("nrow")`) ; mais comme une liste, sa **longueur** (fonction `length()``r .fun("length")`) correspond à son nombre d'éléments (son nombre de variables). 
+    ```{r}
+# Dimensions de df1 : comme une matrice
+dim(df1)
+nrow(df1)
+ncol(df1)
+
+# Longueur de df1 : comme une liste
+length(df1)
+    ```
+
+\ 
+
+- Comme avec une matrice, on accède aux noms de lignes et de colonne d'un `data.frame` avec les fonctions **`rownames()` et `colnames()`**`r .fun("rownames")``r .fun("colnames")` ; mais comme avec une liste, les noms de colonnes sont aussi directement accessibles avec **`names()`**`r .fun("names")`. 
+    ```{r}
+# rownames() et colnames() : comme avec une matrice
+rownames(df1)
+colnames(df1)
+
+# names() : comme avec une liste
+names(df1)
+    ```
+
+\ 
+
+- Comme avec une matrice, il est possible d'accéder aux éléments d'un `data.frame` en **indiquant leurs deux positions dans un opérateur `[`**`r .fun("[")` ; mais comme avec une liste, **il est également possible d'utiliser les opérateurs ` [[` et `$`**`r .fun("[[")``r .fun("\\$")`. 
+    ```{r}
+df1
+# On cherche à accéder à l'élément en ligne 8, colonne 2 de df1
+
+# - comme une matrice : avec `[` et deux positions 
+df1[8, 2]
+df1[8, "var2"]
+
+# - comme une liste : avec `[[` pour sélectionner la colonne,
+# puis [ pour sélectionner la ligne
+df1[[2]][8]
+df1[["var2"]][8]
+
+# - comme une liste : avec `$` pour sélectionner la colonne,
+# puis [ pour sélectionner la ligne
+df1$var2[8]
+    ```
+
+\ 
+
+Les **fonctions `as.matrix()`, `as.list()` et `as.data.frame()`**`r .fun("as.matrix", bold = TRUE)``r .fun("as.list", bold = TRUE)``r .fun("as.data.frame", bold = TRUE)` permettent de convertir un `data.frame` en liste ou en matrice, et inversement. 
+```{r}
+# Conversion de df1 en matrice
+as.matrix(df1)
+# Note : au passage les variables ont toutes été converties
+# en caractères, car une matrice ne peut avoir qu'un seul
+# et unique type
+
+# Conversion de df1 en liste
+as.list(df1)
+# Note : on n'a pas à proprement parler affaire ici à une
+# "conversion" (un data.frame est une liste) mais plutôt
+# à la suppression de certains attributs spécifiques aux
+# data.frame (noms de ligne notamment)
+rownames(df1)
+rownames(as.list(df1))
+
+# Conversion d'une matrice en data.frame
+as.data.frame(matrix(1:10, ncol = 5))
+
+# Conversion d'une liste en data.frame
+as.data.frame(list(a = 1:5, b = letters[5:1]))
+# Note : dans ce cas il est également impératif
+# que tous les éléments de la liste aient bien la même
+# longueur. 
+```
+
+
+```{r,results = "asis",echo = FALSE}
+.question("Sélectionner des variables et des observations dans une table")
+```
+
+Ce cas pratique aborde plusieurs **manipulations courantes de sélection de variables et d'observations dans une table**. Comme la plupart des cas pratiques de ce module, il repose sur l'utilisation des données de l'[enquête Emploi en continu 2012](https://www.insee.fr/fr/metadonnees/source/s1223) restreinte au quatrième trimestre et aux individus en première ou sixième interrogation. Ces données correspondent au fichier `eect4.rds` contenu dans le fichier `r .ref("donnees.zip", "donnees.zip", "http://r.slmc.fr/donnees.zip")`. 
+
+a. Après avoir modifié le répertoire de travail avec `setwd()`, utilisez la fonction `readRDS()``r .fun("readRDS")` pour charger le fichier `eect4.rds` dans l'objet `eec` (*cf.* le `r .ref("module 1", "module1.html")` pour l'utilisation de la fonction `readRDS()`).
+
+    ```{r,results = "asis",echo = FALSE}
+    .beginsol()
+    ```
+    
+    ```{r, eval = FALSE}
+    # Définition du répertoire de travail (répertoire personnel sous AUS)
+    setwd("U:/R_initiation/donnees")
+    ```
+    ```{r}
+    # Chargement des données de l'EEC du 2015T4 depuis le fichier eect4.rds
+    eec <- readRDS("eect4.rds")
+    
+    # Caractéristiques de l'objet eec
+    str(eec)
+    ```
+    ```{r,results = "asis",echo = FALSE}
+    .endsol()
+    ```
+
+b. Pour simplifier le travail sur cette table, on souhaite normaliser la casse des noms de variable. Proposez une méthode pour passer l'ensemble des noms de variable en minuscules et appliquez-la.`r .fun("tolower")``r .fun("names")`
+
+    ```{r, results = "asis", echo = FALSE}
+    .indic("**Indication** Pensez à utiliser les fonctions `names()` et `tolower()`.")
+    ```
+
+    ```{r,results = "asis",echo = FALSE}
+    .beginsol()
+    ```
+    
+    ```{r}
+    # Pour accéder aux noms de variable de eec, on peut
+    # utiliser au choix les fonctions names() ou colnames()
+    names(eec)
+    
+    # Pour changer la casse des noms de variables, il suffit
+    # de remplacer ce vecteur de noms par sa version 
+    # en minuscules. Pour ce faire, on utilise la fonction tolower()
+    tolower(names(eec))
+    
+    # Il ne reste plus qu'à remplacer les noms originaux par
+    # les noms passés en minuscules
+    names(eec) <- tolower(names(eec))
+    str(eec)
+    ```
+    ```{r,results = "asis",echo = FALSE}
+    .endsol()
+    ```
+
+c. On souhaite créer deux nouvelles tables ne contenant que les variables sur lesquelles portent différents aspects de l'étude :
+
+    i. `eec2` qui ne contienne que les variables `ident`, `noi`, `acteu` et `extri1613`.`r .fun("[")`
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # On utilise l'opérateur `[` avec le vecteur caractère des
+        # noms des variables à conserver
+        eec2 <- eec[, c("ident", "noi", "acteu", "extri1613")]
+        head(eec2)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    ii. `eec3` qui contienne toutes les variables de `eec` à l'exception  de `cse`.`r .fun("setdiff")`
+
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Comment créeriez-vous le vecteur des noms des variables de la table `eec` à l'exception de `cse` ? Utilisez-le comme au i. pour sélectionner toutes les variables sauf `cse`.")
+        ```
+
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # La méthode la plus générale pour répondre à la question
+        # consiste à construire le vecteur des noms des variables
+        # de eec à l'exception de cse puis de l'utiliser comme au i. 
+        
+        # Le vecteur des noms de variables de eec est obtenu avec la
+        # fonction names()
+        names(eec)
+        
+        # Pour supprimer un ou plusieurs éléments de ce vecteur, il 
+        # suffit d'utiliser la fonction setdiff() (cf. module 2) : 
+        setdiff(names(eec), c("cse"))
+        
+        # Il n'y a plus qu'à utiliser ce vecteur caractère pour 
+        # sélectionner les variables correspondantes de eec
+        eec3 <- eec[, setdiff(names(eec), c("cse"))]
+        head(eec3)
+        
+        # Remarque : une méthode un peu moins directe repose sur 
+        # l'utilisation de vecteurs logiques 
+        # L'idée est de renvoyer le vecteur logique des variables
+        # à conserver, de la façon suivante : 
+        names(eec) != "cse"
+        eec3b <- eec[, names(eec) != "cse"]
+        identical(eec3, eec3b)
+        
+        # Cette méthode ne peut facilement fonctionner en tant que
+        # telle que quand on ne souhaite supprimer qu'une seule
+        # variable. Pour supprimer plusieurs variables en restant
+        # dans la même logique, on peut utiliser l'opérateur %in%
+        # et la négation !. 
+        
+        # Ainsi pour supprimer conjointement cse et extri1613 : 
+        !(names(eec) %in% c("cse", "extri1613"))
+        eec3c <- eec[, !(names(eec) %in% c("cse", "extri1613"))]
+        
+        # Avec setdiff(), on aurait fait : 
+        eec3d <- eec[, setdiff(names(eec), c("cse", "extri1613"))]
+        identical(eec3c, eec3d)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+d. On souhaite désormais créer une nouvelle table `eec4` contenant toutes les variables mais uniquement pour les individus appartenant à la population active (`acteu` vaut `"1"` ou `"2"`). Comment procéderiez-vous ?`r .fun("\"|")``r .fun("\\%in\\%")` 
+
+    ```{r,results = "asis",echo = FALSE}
+    .beginsol()
+    ```
+    ```{r}
+    # On commence par évaluer l'expression logique correspondant 
+    # à la sélection que l'on souhaite effectuer
+    str(eec$acteu == "1" | eec$acteu == "2")
+    # Note : On utilise ici str() afin que le vecteur logique
+    # ne s'affiche pas en entier (il compte plus de 30 000 éléments !)
+    
+    # On peut aussi utiliser l'opérateur `%in%`
+    str(eec$acteu %in% c("1","2"))
+    
+    # Nombre d'individus concernés
+    sum(eec$acteu %in% c("1","2"))
+
+    # Dès lors que les observations à sélectionner sont identifiées 
+    # par un vecteur logique, on peut le réutiliser dans
+    # l'opérateur `[` pour restreindre la table aux observations souhaitées. 
+    eec4 <- eec[eec$acteu %in% c("1","2"), ]
+    nrow(eec4)
+
+    # On vérifie qu'il n'y a bien plus aucun inactif (acteu == "3") dans eec4
+    sum(eec4$acteu == "3")
+    ```
+    ```{r,results = "asis",echo = FALSE}
+    .endsol()
+    ```
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Créer ou modifier des variables dans un `data.frame`")
+```
+
+Pour créer une nouvelle variable dans un `data.frame`, **le plus simple est d'utiliser l'opérateur `$`**. `r .fun("\\$")`
+```{r}
+# Création du data.frame df5
+df5 <- data.frame(
+  var1 = letters[1:4]
+  , var2 = rep(c(FALSE, TRUE), times = 2)
+  , stringsAsFactors = FALSE
+)
+df5
+
+# Ajout de la variable var3 avec $
+df5$var3 <- (1:4)^2
+df5
+```
+
+Pour créer une variable **à partir d'une ou plusieurs autres de la table**, il suffit d'**utiliser l'opérateur `$` plusieurs fois**. 
+```{r}
+# Création de la variable var4 à partir de var3
+df5$var4 <- df5$var3 * 2
+df5
+
+# Conversion de var2 de logique vers numérique
+df5$var2 <- as.numeric(df5$var2)
+df5
+# Note : modifier à la volée une variable existante ne pose 
+# aucun problème
+```
+
+Pour effectuer un **recodage manuel selon une ou plusieurs conditions** (comme un IF THEN ELSE dans SAS), trois méthodes sont disponibles : 
+
+1. Pour les variables dichotomiques uniquement, **utiliser des opérateurs logiques** pour créer un nouveau vecteur.
+
+    ```{r}
+    # Création de la variable var5 valant TRUE si var4 > 10 et var2 = 1
+    df5$var5 <- df5$var4 > 10 & df5$var2 == 1
+    df5
+    ```
+
+2. Créer la variable recodée progressivement en **utilisant l'opérateur `[`**`r .fun("[")`.
+
+    ```{r}
+    # Création de la variable var6 identique à var5
+    df5$var6 <- "Non"
+    df5$var6[df5$var4 > 10 & df5$var2 == 1] <- "Oui"
+    df5
+    ```
+
+3. **Utiliser la fonction `ifelse()`**.`r .fun("ifelse", bold = TRUE)`
+
+    ```{r}
+    # Création de la variable var7 identique à var5 et var6
+    df5$var7 <- ifelse(df5$var4 > 10 & df5$var2 == 1, "Oui", "Non")
+    df5
+    ```
+
+    La fonction `ifelse()` prend trois arguments : l'expression logique à évaluer, la valeur à renvoyer si l'expression est vraie, la valeur à renvoyer si l'expression est fausse. Il est possible **d'imbriquer des fonctions `ifelse()`** pour effectuer des recodages complexes.
+    
+\ 
+    
+-----
+
+**Remarque** Savoir tirer parti de la fonction `within()``r .fun("within", bold = TRUE)`
+
+Quand on met en oeuvre un recodage, on est fréquemment amené à **répéter le nom du `data.frame` sur lequel on travaille**. **La fonction `within()` permet d'alléger l'écriture d'un recodage** et de faciliter la compréhension d'un code en évitant cette répétition.`r .fun("paste0")`
+
+```{r}
+# Concaténation manuelle des variables var1 à var4
+df5$var7 <- paste0(df5$var1, df5$var2, df5$var3, df5$var4)
+
+# Syntaxe allégée avec la fonction within()
+# Création de la variable var5, concaténation de 
+# toutes les autres variables de la table df5
+df5 <- within(df5, {
+  var8 <- paste0(var1, var2, var3, var4)
+})
+df5[, c("var7", "var8")]
+```
+
+Le premier argument de `within()` est le nom du `data.frame` sur lequel porte le recodage, le second est la série d'instructions à appliquer (les accolades sont obligatoires s'il y a plus d'une instruction). 
+
+------
+
+\ 
+
+```{r,results = "asis",echo = FALSE}
+.question("Recoder des variables dans des données statistiques")
+```
+
+Ce cas pratique vise à appliquer les opérations de création et de modification de variables présentées dans cette partie à des données statistiques classiques. Comme le précédent, il porte sur les données de l'enquête Emploi en continu au 2015T4. 
+
+a. La variable `cse` code la Profession et catégorie socioprofessionnelle (PCS) des individus en 42 postes (*cf.* [cette page](https://www.insee.fr/fr/information/2400059) pour plus de détails). Pour des raisons de lisibilité, on souhaite créer la variable agrégée `cs` qui ne conserve que la première position de la nomenclature. 
+
+    i. Proposez une première méthode (un peu fastidieuse) s'appuyant sur des recodages manuels (avec l'opérateur `[`)`r .fun("[")``r .fun("within")``r .fun("\\%in\\%")`.
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # On commence par regarder les valeurs prises par eec$cse
+        table(eec$cse)
+        
+        # On recode les différents cas un à un avec `[`
+        eec$cs <- eec$cse
+        eec$cs[eec$cs %in% c("11", "12", "13")] <- "1"
+        eec$cs[eec$cs %in% c("21", "22", "23")] <- "2"
+        eec$cs[eec$cs %in% c("31", "33", "34", "35", "37", "38")] <- "3"
+        eec$cs[eec$cs %in% c("42", "43", "44", "45", "46", "47", "48")] <- "4"
+        eec$cs[eec$cs %in% c("52", "53", "54", "55", "56")] <- "5"
+        eec$cs[eec$cs %in% c("62", "63", "64", "65", "67", "68", "69")] <- "6"
+        eec$cs[eec$cs  == "81"] <- "8"
+        
+        # On vérifie ce qu'il reste dans eec$cs
+        table(eec$cs)
+        eec$cs[eec$cs  == "00"] <- "0"
+        table(eec$cs)
+        
+        # Amélioration : la même chose mais dans un within()
+        eec <- within(eec, {
+          cs <- cse
+          cs[cs %in% c("11", "12", "13")] <- "1"
+          cs[cs %in% c("21", "22", "23")] <- "2"
+          cs[cs %in% c("31", "33", "34", "35", "37", "38")] <- "3"
+          cs[cs %in% c("42", "43", "44", "45", "46", "47", "48")] <- "4"
+          cs[cs %in% c("52", "53", "54", "55", "56")] <- "5"
+          cs[cs %in% c("62", "63", "64", "65", "67", "68", "69")] <- "6"
+          cs[cs  == "81"] <- "8"
+          cs[cs  == "00"] <- "0"
+        })
+        table(eec$cs)
+        ```    
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+    ```
+
+    ii. Effectuez le même recodage en utilisant la fonction `substr()`.`r .fun("substr", bold = TRUE)`
+
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        
+        # La fonction substr() permet de sélectionner
+        # des caractères dans une chaîne
+        substr(c("abcd", "efgh", "ijkl"), start = 2, stop = 3)
+        
+        # Application à l'EEC
+        eec$cs2 <- substr(eec$cse, start = 1, stop = 1)
+        
+        # On vérifie qu'on obtient bien la même chose par les deux méthodes
+        identical(eec$cs, eec$cs2)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+b. La variable de position sur le marché du travail (`acteu`) comporte des valeurs manquantes dans le fichier `eec` à votre disposition. On souhaite imputer cette variable de façon déterministe : 
+
+    - si la personne est âgée de moins de 67 ans, on considère qu'elle est active occupée (`acteu` vaut `"1"`) ;
+    - si la personne est âgée de 67 ans ou plus, on considère qu'elle est inactive (`acteu` vaut `"3"`). 
+
+    -------------
+    
+    **Remarque** Le fichier original de l'enquête Emploi en continu ne comporte aucune valeur manquante pour la variable `acteu`, celles-ci ont été ajoutées pour l'exercice. 
+    
+    -------------
+    
+    i. Utilisez la fonction `table()``r .fun("table")` pour affichez le nombre de valeurs `NA` dans la variable `acteu`. Créez la table `eec_pb` ne comportant que les individus pour lesquels la variable `acteu` vaut `NA`. 
+ 
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Pour créer la table `eec_pb`, pensez à utiliser la fonction `is.na()`.")
+        ```   
+  
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # La fonction table() produit un tri à plat d'une variable
+        table(eec$acteu)
+        
+        # Pour afficher les valeurs NA, il convient d'utiliser
+        # l'argument useNA = "always"
+        table(eec$acteu, useNA = "always")
+        
+        # Création de la table eec_pb
+        eec_pb <- eec[is.na(eec$acteu), ]
+        head(eec_pb)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+        
+    ii. Dans la table `acteu`, créez la variable redressée `acteu_red` en mettant en oeuvre la procédure d'imputation (très frustre) décrite ci-dessus. 
+
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # On effectue l'imputation décrite ci-dessus
+        eec <- within(eec, {
+          acteu_red <- acteu
+          acteu_red[is.na(acteu) & age < "67"] <- "1"
+          acteu_red[is.na(acteu) & age >= "67"] <- "3"
+        })
+        table(eec$acteu_red, useNA = "always")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+        
+    iii. Recréez la table `eec_pb` et contrôlez que l'imputation s'est déroulée correctement (en vérifiant que les valeurs imputées sont cohérentes avec l'âge des individus).
+
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # Re-création de la table eec_pb et contrôle
+        # des valeurs de acteu_red
+        eec_pb <- eec[is.na(eec$acteu), ]
+        head(eec_pb[, c("age", "acteu", "acteu_red")])
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+c. Le vecteur de poids de l'enquête (variable `extri1613`) présente des valeurs extrêmes relativement élevées. Afin d'éviter que les estimations ne soient trop affectées par quelques individus atypiques, on souhaite limiter le poids des individus en les "rabotant" à la valeur du 99ème percentile. 
+
+    i. Utilisez la fonction `quantile()` pour calculer le 99ème percentile de la distribution des poids`r .fun("quantile")`. 
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # La fonction quantile() calcule les quantiles d'une distribution
+        quantile(eec$extri1613)
+        
+        # Pour récupérer un quantile en particulier, on utilise l'argument
+        # probs 
+        seuil <- quantile(eec$extri1613, probs = 0.99)
+        seuil
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    
+    ii. Récupérer la valeur du 99ème percentile et utilisez-la pour créer une nouvelle pondération (`newpond`) dans laquelle les poids ont été "rabotés" à son niveau.
+
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # On utilise la valeur de seuil pour créer une version
+        # modifiée de la pondération (par exemple avec ifelse())
+        eec$newpond <- ifelse(
+          eec$extri1613 > seuil
+          , seuil
+          , eec$extri1613
+        )
+        
+        # Caractéristiques générales de newpond
+        summary(eec$newpond)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Modifier la structure d'un `data.frame`")
+```
+
+Comme pour les vecteurs ou les matrices, plusieurs opérations permettent de **modifier la structure d'un `data.frame`** : 
+
+- **trier un `data.frame` avec `order()`**`r .fun("order", bold = TRUE)` : contrairement aux vecteurs, il n'est pas possible d'utiliser la fonction `sort()` pour trier un `data.frame`. En revanche, **la fonction `order()` renvoie la permutation permettant de trier une table selon une ou plusieurs variables**. 
+```{r}
+# Création de la table df6
+df6 <- data.frame(
+  var1 = letters[c(3, 4, 2, 5, 1, 5, 2, 4, 3, 1)]
+  , var2 = rnorm(10))
+df6
+
+# Tri selon la variable var1
+# - Etape 1 : obtention de la permutation correspondante
+order(df6$var1)
+# Utilisée sur le vecteur df6$var1, cette permutation
+# renvoie un vecteur trié
+df6$var1
+order(df6$var1)
+df6$var1[order(df6$var1)]
+
+# - Etape 2 : utilisation de la permutation pour trier df6
+df6[order(df6$var1), ]
+
+# Tri selon la variable var1 puis la variable var2
+# - Etape 1 : obtention de la permutation correspondante
+order(df6$var1, df6$var2)
+# - Etape 2 : utilisation de la permutation pour trier
+df6[order(df6$var1, df6$var2), ]
+
+# Tri selon la variable var1 puis les valeurs décroissantes
+# de var2
+df6 <- df6[order(df6$var1, - df6$var2), ]
+df6
+```
+
+\ 
+
+- ne sélectionner **que les valeurs distinctes pour certaines variables avec `unique()`**`r .fun("unique", bold = TRUE)` : la fonction `unique()` utilisée sur les vecteurs est également applicable aux `data.frame`. 
+```{r}
+# Ajout de la variable var3
+df6$var3 <- rep(1:2, each = 5)
+df6
+
+# Sélection de toutes les valeurs distinctes de var1 et var3
+unique(df6[,c("var1", "var3")])
+```
+
+\ 
+
+- **ajouter des lignes ou des colonnes à un `data.frame`** : les fonctions `cbind()``r .fun("cbind")` et `rbind()``r .fun("rbind")` utilisées avec les matrices sont également applicables aux `data.frame`.
+```{r, error = TRUE}
+# Création du data.frame df7
+df7 <- data.frame(
+  var1 = c("f","f")
+  , var2 = rnorm(2)
+  , var3 = 3
+)
+df7
+
+# Création du data.frame df8 par concaténation des lignes 
+# de df6 et de df7
+df8 <- rbind(df6, df7)
+df8
+
+# Note : il faut que les deux data.frame aient exactement
+# les mêmes variables avec le même nom pour que cela fonctionne
+rbind(df6, df7[, c("var1", "var3")])
+```
+
+\ 
+
+- **fusionner des données sur la base d'un identifiant** : la fonction `merge()``r .fun("merge", bold = TRUE)` permet de fusionner deux `data.frame` (pas plus) sur la base d'un identifiant. À noter que **les tables n'ont pas besoin d'être triées au préalable**. 
+
+```{r}
+# Création du data.frame df9
+df9 <- data.frame(
+  var3 = 2:4
+  , var4 = c(TRUE, FALSE, TRUE)
+)
+df9
+
+# Fusion de df8 et de df9 selon la variable var3
+merge(df8, df9, by = "var3")
+# Par défaut, merge() se restreint aux valeurs communes aux deux tables.
+
+# Conservation de toutes les observations de df8
+merge(df8, df9, by = "var3", all.x = TRUE)
+
+# Conservation de toutes les observations de df9
+merge(df8, df9, by = "var3", all.y = TRUE)
+```
+    
+À noter qu'il peut y avoir **plusieurs variables de fusion** et qu'**il n'est pas indispensable qu'elles aient le même nom**.
+
+```{r}
+# Création du data.frame df10
+df10 <- data.frame(
+  v1 = c("c","f")
+  , v3 = c(2, 3)
+  , v5 = c("Rouge", "Bleu")
+)
+df10
+
+# Fusion de df8 et de df10
+merge(df8, df10, by.x = c("var3", "var1"), by.y = c("v3", "v1"), all = TRUE)
+```
+
+
+```{r,results = "asis",echo = FALSE}
+.question("Modifier la structure de données statistiques")
+```
+
+
+a. À partir de la table `eec`, on souhaite produire une nouvelle table (`eec5`) qui ne comporte qu'un individu par ménage, le plus âgé. Les ménages sont identifiés par la variable `ident` et la variable `age` code l'âge des individus. 
+
+    i. Comment détermineriez-vous le nombre de ménages dans la table `eec` ?`r .fun("unique")`
+
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Pensez à utiliser la fonction `unique()`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # La fonction unique(), appliquée à un vecteur ou à une table,
+        # permet de déterminer des valeurs distinctes. 
+        # Déterminer le nombre de valeurs distinctes revient ainsi 
+        # à déterminer la longueur du vecteur ou le nombre de lignes
+        # de la table renvoyé par la fonction unique()
+        length(unique(eec$ident))
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+    ii. On cherche d'abord à constituer une table ne comportant qu'un seul individu par ménage, quel que soit son âge. Comment procéderiez-vous ?`r .fun("duplicated")`
+    
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Pensez à utiliser la fonction `duplicated()`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # Pour un vecteur donné, la fonction duplicated() renvoie
+        # TRUE si l'élément figure déjà parmi les éléments du vecteur
+        # d'indice inférieur. 
+        # Par exemple : 
+        duplicated(c(1, 2, 3, 1, 1, 4, 3))
+        # Indique que les éléments en position 4, 5 et 8 sont en double
+        # (ils apparaissent déjà dans le vecteur).
+        
+        # Cette fonction peut être utilisée pour ne sélectionner
+        # qu'un seul individu par ménage
+        str(!duplicated(eec$ident))
+        # Note : On utilise ici str() afin que le vecteur logique
+        # ne s'affiche pas en entier (il compte plus de 30 000 éléments !)
+        
+        # Il ne reste donc plus qu'à utiliser ce vecteur logique
+        # pour sélectionner les observations de eec. 
+        eec5 <- eec[!duplicated(eec$ident), ]
+        head(eec5)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    iii. Comment adapteriez-vous la réponse à la question précédente pour sélectionner l'individu le plus âgé du ménage (sans chercher à maîtriser celui qui est sélectionné quand plusieurs membres d'un même ménage ont le même âge) ?`r .fun("order")`
+    
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Pensez à trier judicieusement la table avec `order()`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # duplicated() procède sur le vecteur des identifiant
+        # tel qu'il est trié dans la base eec
+        
+        # En triant la base eec judicieusement, il est possible
+        # de déterminer quel individu du ménage est conservé dans
+        # la table eec5.
+        
+        # En l'occurrence, il suffit de trier la table eec :
+        # - par ménage
+        # - PUIS par âge décroissant
+        
+        # Pour mener à bien le tri, on utilise la fonction order() : 
+        # - permutation pour trier par identifiant
+        str(order(eec$ident))
+        # - permutation pour trier par identifiant puis par âge
+        str(order(eec$ident, eec$age))
+        # - permutation pour trier par identifiant puis par âge décroissant
+        str(order(eec$ident, - eec$age))
+        
+        # Note : On utilise ici str() afin que le vecteur logique
+        # ne s'affiche pas en entier (il compte plus de 30 000 éléments !)
+
+        # Le dernier appel de la fonction order() produit une erreur : 
+        # la variable age étant de type caractère, l'opérateur -
+        # ne peut lui être appliqué. 
+        # Pour ce faire, il suffit de convertir la variable 
+        # age au préalable en vecteur de type numérique
+        str(order(eec$ident, - as.numeric(eec$age)))
+        
+        # On peut donc procéder au tri en tant que tel :
+        eec <- eec[order(eec$ident, - as.numeric(eec$age)), ]
+        eec[1:10, c("ident", "age")]
+        # Il semble bien que la table soit triée par ident puis par âge décroissant.
+        
+        # Il ne reste plus qu'à utiliser la même méthode 
+        # qu'à la question précédente :
+        eec5 <- eec[!duplicated(eec$ident), ]
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    iv. (Optionnel) Comment adapteriez-vous la réponse à la question précédente pour effectuer un tirage au sort à probabilités égales quand plusieurs membres d'un même ménage ont le même âge ?`r .fun("rnorm")`
+    
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Pensez à utiliser une variable aléatoire (générée par exemple avec `rnorm()` ou `runif()`) dans la fonction `order()`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # En l'état et quand plusieurs individus ont l'âge le plus élevé
+        # dans un ménage, l'individu sélectionné dans eec5 est celui
+        # qui était situé en premier dans la base eec. 
+        
+        # Néanmoins l'ordre de la base eec n'est pas aléatoire, 
+        # et on peut souhaiter qu'en cas d'égalité l'individu
+        # sélectionné le soit aléatoirement.
+        
+        # Une méthode très simple pour atteindre cet objectif consiste
+        # à ajouter une variable aléatoire comme ultime variable de tri. 
+        
+        # Pour ce faire, on utilise la fonction de génération 
+        # de variables aléatoires rnorm(). Par exemple 
+        rnorm(5)
+        # génère un vecteur de longueur 5 tiré dans une loi 
+        # normale centrée réduite. 
+        
+        # Ici on va avoir besoin d'un vecteur de longueur
+        # le nombre de ligne de eec, aussi on va utiliser : 
+        alea <- rnorm(nrow(eec))
+        str(alea)
+        
+        # On peut alors complèter la fonction order() de la sous-question
+        # précédente en ajoutant le vecteur alea comme troisième variable
+        # de tri :  
+        eec <- eec[order(eec$ident, - as.numeric(eec$age), alea), ]
+        eec[1:10, c("ident", "age")]
+        eec6 <- eec[!duplicated(eec$ident), ]
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+b. Retour sur les PCS. Entre le niveau de la variable `cse` (niveau 3) et le niveau le plus agrégé de la variable `cs` créée dans le cas pratique 3.1 (niveau 1), il existe un niveau intermédiaire (niveau 2). La correspondance entre le niveau 3 et le niveau 2 n'est pas directe, et en règle générale on utilise la table de passage `pcs2003_c_n4_n1.dbf` (téléchargée depuis le [site de l'Insee](https://www.insee.fr/fr/information/2400059)) pour la réaliser. 
+
+    i. Utilisez le *package* `foreign` pour importer cette table dans R (*cf.* `r .ref("module 1", "module1.html")`)`r .fun("read.dbf")`. La nomenclature comporte quatre niveaux, mais le quatrième (variable `N4`) ne nous intéresse pas : agrégez la table de façon à ne conserver que les valeurs distinctes pour les niveaux 2 et 3 de la nomenclature`r .fun("unique")`. 
+    
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Pensez à utiliser la fonction `unique()`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # La fonction read.dbf() du package foreign permet de 
+        # facilement importer des fichiers .dbf sous forme de data.frame
+        library(foreign)
+        passage <- read.dbf("pcs2003_c_n4_n1.dbf")
+        str(passage)
+        
+        # Pour ne conserver que les valeurs distinctes pour
+        # les variables N2 et N3, il suffit d'utiliser
+        # la fonction unique sur le data.frame restreint
+        # aux variables N2 et N3 :
+        passage <- unique(passage[, c("N2", "N3")])
+        str(passage)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+    
+    ii. Utilisez la fonction `merge()``r .fun("merge")` pour fusionner cette table de passage avec le fichier `eec` et créer une nouvelle table (`eec6`) contenant une variable supplémentaire correspondant au niveau 2 de la PCS.
+    
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Prenez garde au type des variables de fusion (qui doit être identique), ainsi qu'au nombre d'observations dans la table de départ et la table d'arrivée.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # La variable cse de la table eec est de type caractère, alors que
+        # N2 dans la table passage est de type numérique. On commence
+        # donc par convertir N2 en variable caractère
+        passage$N2 <- as.character(passage$N2)
+        
+        # On utilise alors la fonction merge() pour fusionner les tables
+        # eec et passage. 
+        # Note : on utilise l'option all.x = TRUE pour conserver 
+        # toutes les observations de eec, mais pas les observations
+        # de passage sans correspondance dans eec
+        eec6 <- merge(eec, passage, by.x = "cse", by.y = "N3", all.x = TRUE)
+        
+        # Quand on compare les tris à plat de cse et N2, on constate
+        # que des valeurs manquantes sont apparues
+        table(eec6$cse, useNA = "always")
+        table(eec6$N2, useNA = "always")
+        # En fait ce sont les 4 cas de 00 (absent de la table passage)
+        # qui sont conservés grâce à all.x = TRUE mais avec une valeur
+        # manquante à N2. 
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+    
+    iii. (Difficile) À partir de la table de passage agrégée à la sous-question i., créez le vecteur `n2` dont les éléments sont les valeurs de la variable N2 et dont les noms sont les valeurs de la variable N3. Comment pourriez-vous utiliser ce vecteur pour obtenir le même résultat qu'à la question ii. ?`r .fun("na.omit", bold = TRUE)`
+    
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Comparez `eec$cse[1:10]` et `n2[eec$cse[1:10]]`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # Construction du vecteur n2
+        n2 <- passage$N2
+        names(n2) <- passage$N3
+        str(n2)
+        n2[1:10]
+        
+        # Remarque : on peut faire les deux opérations d'un seul 
+        # coup avec la fonction setNames()
+        n2 <- setNames(passage$N2, passage$N3)
+        
+        # Comme proposé, on compare eec$cse[1:10] et n2[eec$cse[1:10]]
+        eec$cse[1:10]
+        n2[eec$cse[1:10]]
+        # Les deux vecteurs se ressemblent avec quelques différences : 
+        # - le premier est un vecteur dont les éléments sont les valeurs
+        # de la PCS au niveau 3 pour les 10 premiers individus de la base
+        # - le second est un vecteur dont les éléments sont les noms sont
+        # les valeurs de la PCS au niveau 3 et dont les éléments sont les 
+        # valeurs de la PCS au niveau 2 pour les 10 premiers individus
+        # de la base.
+        
+        # Un exemple plus simple : 
+        aConvertir <- c("b", "d", "a", "e", "a", "f")
+        aConvertir
+        corresp <- setNames(rep(1:3, each = 2), letters[1:6])
+        corresp
+        corresp[aConvertir]
+        
+        # Pour revenir à la question : il suffit alors d'utiliser
+        # le vecteur n2[eec6$cse] pour créer directement la variable
+        # convertie dans la table eec6
+        eec6$N2_bis <- n2[eec6$cse]
+        identical(eec6$N2, eec6$N2_bis)
+        
+        # La méthode proposée au iii. est beaucoup plus rapide
+        # que celle proposée au ii.
+        system.time({
+          merge(eec, passage, by.x = "cse", by.y = "N3", all.x = TRUE)
+        })
+        system.time({
+          n2[na.omit(eec$cse)]
+        })
+        
+        # Remarque : la fonction na.omit() supprime automatiquement les NA
+        # dans eec$cse, ce qui accélère considérablement la seconde
+        # méthode. D'un point de vue opérationnel, on l'utiliserait 
+        # de la façon suivante :
+        eec6$N2_ter[!is.na(eec6$cse)] <- n2[na.omit(eec6$cse)]
+        identical(eec6$N2, eec6$N2_ter)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Effectuer des calculs sur un `data.frame`")
+```
+
+La proximité des `data.frame` à la fois avec les matrices et les listes se retrouve dans le **type d'opérations qu'il est possible de leur appliquer** : 
+
+- comme avec les matrices, il est possible d'utiliser les **fonctions `colSums()` ou `rowSums()`**`r .fun("colSums")``r .fun("rowSums")` ainsi que la **fonction `apply()`**`r .fun("apply")` ;
+
+    ```{r}
+    df11 <- data.frame(
+      var1 = 1:5
+      , var2 = 11:15
+      , var3 = 21:25
+    )
+    df11
+    
+    # rowSums(), colSums(), apply() : comme une matrice
+    rowSums(df11)
+    colSums(df11)
+    apply(df11, 1, max)
+    apply(df11, 2, min)
+    ```
+
+
+- comme avec les listes, il est possible d'utiliser les **fonctions `lapply()` et `sapply()`**`r .fun("lapply")``r .fun("sapply")`, qui s'appliquent **colonne par colonne**.
+
+    ```{r}
+    # lapply(), sapply() : comme une liste
+    lapply(df11, sum)
+    sapply(df11, mean)
+    ```
+
+Une des opérations les plus utiles consiste à **appliquer une même fonction à des groupes d'observations définis par les modalités d'une autre variables** (comme avec une **instruction BY dans SAS**).
+
+**Exemple** Âge moyen par région, salaire moyen par sexe, etc. 
+
+\ 
+
+Plusieurs fonctions de R permettent de mener à bien ce type d'opération : 
+
+- la **fonction `aggregate()`**`r .fun("aggregate", bold =  TRUE)` ;
+
+    ```{r}
+    df6
+    # On souhaite calculer la moyenne de var2
+    # selon les modalités de var3
+    
+    aggregate(df6$var2, list(df6$var1), mean)
+    ```
+
+- la **fonction `tapply()`**`r .fun("tapply", bold = TRUE)` ;
+
+    ```{r}
+    tapply(df6$var2, df6$var1, mean)
+    ```
+
+- la **fonction `split()` combinée à un `lapply()` ou un `sapply()`**`r .fun("split", bold = TRUE)``r .fun("lapply")``r .fun("sapply")`.
+
+    ```{r}
+    # La fonction split(x, f) "éclate" le data.frame x en une 
+    # liste de data.frame selon les modalités du factor f
+    split(df6, df6$var1)
+    
+    # Il ne reste alors plus qu'à appliquer
+    # à chaque élément de la liste ainsi produite 
+    # la fonction souhaitée par le biais d'un sapply()
+    sapply(split(df6, df6$var1), function(x) mean(x$var2))
+    ```
+
+
+--------------
+
+**Remarques** 
+
+1. La fonction `by()``r .fun("by", bold = TRUE)` utilisée lors du `r .ref("module 1", "module1.html")` fait en fait appel à la fonction `tapply()`.
+
+2. Les performances de ces méthodes diffèrent sensiblement`r .fun("microbenchmark")` : 
+
+```{r benchmark, eval=FALSE}
+# Installation et chargement de la bibliothèque de test 
+# de performance microbenchmark
+# install.packages("microbenchmark")
+library(microbenchmark)
+
+# Compararison des trois méthodes + variante optimisée de sapply()
+microbenchmark(times = 1000
+  , aggregate = aggregate(df6$var2, list(df6$var1), mean)
+  , sapply = sapply(split(df6, df6$var1), function(x) mean(x$var2))
+  , tapply = tapply(df6$var2, df6$var1, mean)
+  , sapply2 = sapply(split(df6$var2, df6$var1), mean)
+)
+```
+
+```{r, echo=FALSE}
+if(!(".bench1.RData" %in% list.files(all.files = TRUE))){
+  .bench1 <- microbenchmark(times = 1000
+    , aggregate = aggregate(df6$var2, list(df6$var1), mean)
+    , sapply = sapply(split(df6, df6$var1), function(x) mean(x$var2))
+    , tapply = tapply(df6$var2, df6$var1, mean)
+    , sapply2 = sapply(split(df6$var2, df6$var1), mean)
+  )
+  save(.bench1, file = ".bench1.RData")
+}
+load(".bench1.RData")
+.bench1
+```
+
+
+3. Le [*package* `sqldf`](http://www.gettinggeneticsdone.com/2010/05/use-sql-queries-to-manipulate-data.html) permet d'utiliser le langage SQL dans R (à l'image de la PROC SQL dans SAS), aussi bien pour des agrégations (par groupe notamment) que pour des fusions. 
+
+--------------
+
+
+```{r,results = "asis",echo = FALSE}
+.question("Effectuer des manipulations complexes sur des données statistiques")
+```
+
+
+a. On souhaite calculer le taux de chômage au niveau national et régional. Le taux de chômage est défini par le ratio du nombre total d'individus au chômage (`acteu == "2"`) sur la taille de la population active (`acteu == %in% c("1", "2")`).
+
+    ----------
+
+    **Remarque** Le fichier utilisé ici ne comporte que les logements en première ou sixième interrogation : les estimations effectuées dans ce cas pratique n'ont donc aucune raison de coïncider avec les estimations officielles (qui par ailleurs sont CVS-CJO). 
+
+    ----------
+
+    i. Calculez le taux de chômage national, d'abord non-pondéré puis pondéré par la variable `extri1613``r .fun("sum")`. 
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # Taux de chômage non-pondéré
+        sum(eec$acteu %in% "2", na.rm = TRUE) / 
+          sum(eec$acteu %in% c("1", "2"), na.rm = TRUE)
+        # Note : On utilise eec$acteu %in% "2" plutôt que 
+        # eec$acteu == "2" car les deux opérateurs ne traitent
+        # pas de façon identique les valeurs manquantes quand
+        # il y en a.
+
+        # Taux de chômage pondéré
+        with(eec, {
+          sum((acteu %in% "2") * extri1613, na.rm = TRUE) / 
+            sum((acteu %in% c("1", "2")) * extri1613, na.rm = TRUE)
+        })
+        # Note : la fonction with() permet d'alléger l'écriture 
+        # en ne répétant pas le nom de la table (sur la différence
+        # avec within(), cf. l'aide)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    ii. Utilisez les fonctions `aggregate()``r .fun("aggregate")`, `tapply()``r .fun("tapply")` et `sapply()``r .fun("sapply")` (avec `split()``r .fun("split")` dans le dernier cas) pour calculer un taux de chômage non-pondéré et par région (variable `reg`). 
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # Les trois fonctions mentionnées en consigne permettent
+        # d'appliquer le même traitement à différents groupes
+        # d'observations définis selon les modalités d'une variable
+        # qualitative (ici la variable de région reg)
+        
+        # Avec aggregate()
+        aggregate(eec$acteu, list(eec$reg), function(x){
+          sum(x %in% "2", na.rm = TRUE) /
+            sum(x %in% c("1", "2"), na.rm = TRUE)
+        })
+
+        # Avec tapply()
+        tapply(eec$acteu, eec$reg, function(x){
+          sum(x %in% "2", na.rm = TRUE) /
+            sum(x %in% c("1", "2"), na.rm = TRUE)
+        })
+        
+        # Avec sapply() et split()
+        sapply(split(eec, eec$reg), function(x){
+          sum(x$acteu %in% "2", na.rm = TRUE) /
+            sum(x$acteu %in% c("1", "2"), na.rm = TRUE)
+        })
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+    
+    iii. Utilisez la fonction `sapply()``r .fun("sapply")` avec `split()``r .fun("split")` pour calculer un taux de chômage pondéré et par région.
+
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # Pour pondérer le calcul du taux de chômage, il faut
+        # pouvoir appliquer la fonction de calcul à deux éléments : 
+        # la valeur de la variable acteu et la pondération extri1613.
+        
+        # Or les fonctions aggregate() et tapply() ne portent 
+        # que sur des vecteurs et ne conviennent donc pas.
+        # On se limite donc à la méthode avec sapply() et split(). 
+        sapply(split(eec, eec$reg), function(x){
+          sum((x$acteu %in% "2") * x$extri1613, na.rm = TRUE) / 
+            sum((x$acteu %in% c("1", "2")) * x$extri1613, na.rm = TRUE)
+        })
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+
+b. Pour des raisons de stockage et de performances, on souhaite optimiser le type des variables de l'objet `eec`. En effet, R manipule beaucoup plus efficacement les variables de type numérique que les variables de type caractère. 
+
+    i. Déterminer sous la forme d'un vecteur logique quelles variables de l'objet `eec` sont de type caractère.`r .fun("is.character")``r .fun("sapply")`
+
+        ```{r, results = "asis", echo = FALSE}
+        .indic("**Indication** Utilisez la fonction `is.character()` dans une structure `*apply()`.")
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # Pour tester le fait qu'une variable est de type caractère, 
+        # il suffit d'utiliser la fonction is.character()
+        is.character(eec$trim)
+        
+        # Pour appliquer cette fonction à l'ensemble des colonnes
+        # de l'objet eec et récupérer un vecteur en sortie, 
+        # il suffit d'utiliser la fonction sapply()
+        sapply(eec, is.character)
+        
+        # On stocke ce résultat pour le réutiliser par la suite :
+        varChar <- sapply(eec, is.character)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    ii. Créez la table `eec7` dans lequel toutes les variables de type caractère de `eec` à l'exception de ident et noi sont converties en variables de type numérique.`r .fun("lapply")`
+    
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r, error = TRUE}
+        # Construction du vecteur logique des variables 
+        # à convertir en numérique (varChar privé de ident et noi)
+        toNum <- varChar
+        toNum[c("ident", "noi")] <- FALSE
+        toNum
+        
+        # Création de l'objet eec7
+        eec7 <- eec
+        eec7[toNum] <- lapply(eec7[toNum], as.numeric)
+        str(eec7)
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+    iii. Pour chaque variable numérique de `eec7`, testez si la conversion en nombre entier (grâce à la fonction `as.integer()`) est sans perte. Quand c'est le cas, convertissez la variable en nombre entier.`r .fun("as.integer", bold = TRUE)``r .fun("is.numeric")``r .fun("identical")``r .fun("function")``r .fun("object\\_size")``r .fun("microbenchmark")`
+
+        ```{r,results = "asis",echo = FALSE}
+        .beginsol()
+        ```
+        ```{r benchmark2, error = TRUE}
+        # On procède de façon analogue à précédemment : 
+        
+        # 1) Identification des variables numériques avec un sapply()
+        varNum <- sapply(eec7, is.numeric)
+        
+        # 2) Pour déterminer si la conversion en entier est sans perte, 
+        # on teste l'identité par double-conversion. Par exemple : 
+        identical(eec7$acteu, as.numeric(as.integer(eec7$acteu)))
+        
+        # 3) On définit alors la fonction convertirSiSansPerte() : 
+        convertirSiSansPerte <- function(x){
+          if(identical(x, as.numeric(as.integer(x)))){
+            as.integer(x)
+          }else{
+            x
+          }
+        }
+        
+        # 4) Il ne reste plus qu'à appliquer cette fonction
+        # à toutes les variables numériques de eec7 via un lapply()
+        eec7[varNum] <- lapply(eec7[varNum], convertirSiSansPerte)
+        str(eec7)
+        
+        # Quelques comparaisons
+        
+        # - taille des objets avec le package pryr
+        # install.packages("pryr")
+        library(pryr)
+        object_size(eec)
+        object_size(eec7)
+        
+        ```
+        ```{r, eval=FALSE}
+        # - vitesse d'exécution avec microbenchmark()
+        # install.packages("microbenchmark")
+        library(microbenchmark)
+        microbenchmark(times = 1000
+          , eec = sum(eec$acteu == "2", na.rm = TRUE)
+          , eec7 = sum(eec7$acteu == 2, na.rm = TRUE)
+        )
+        ```
+        ```{r, echo=FALSE}
+        if(!(".bench2.RData" %in% list.files(all.files = TRUE))){
+          .bench2 <- microbenchmark(times = 1000
+            , eec = sum(eec$acteu == "2", na.rm = TRUE)
+            , eec7 = sum(eec7$acteu == 2, na.rm = TRUE)
+          )
+          save(.bench2, file = ".bench2.RData")
+        }
+        load(".bench2.RData")
+        .bench2
+        ```
+        ```{r,results = "asis",echo = FALSE}
+        .endsol()
+        ```
+
+
+```{r, results = "asis", echo = FALSE}
+.partie("Calculer des statistiques descriptives")
+```
+
+La plupart des fonctions permettant de calculer des statistiques descriptives ont été présentées tout au long de la formation : `table()`, `summary()`, etc. **Cette partie revient sur l'utilisation de ces fonctions dans une perspective proprement statistique, en élargissant leur utilisation au cas des données pondérées**. 
+
+**L'ensemble des éléments introduits dans cette partie sont mis en pratique sur les données de l'enquête Pisa 2012** (*cf.* dernière sous-partie). 
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Variables qualitatives")
+```
+
+La fonction `table()``r .fun("table", bold = TRUE)` calcule les **fréquences** (non-pondérées) des modalités ou des croisements de modalités d'une ou plusieurs variables qualitatives. 
+
+```{r}
+# Fréquences des modalités de la variable pub3fp
+# Signification des modalités : 
+# 1 : Fonction publique d'Etat
+# 2 : Fonction publique territoriale
+# 3 : Fonction publique hospitalitère
+# 4 : Secteur privé
+table(eec$pub3fp)
+
+# Utilisation de l'argument useNA pour afficher les valeurs manquantes
+table(eec$pub3fp, useNA = "always")
+
+# Croisement avec le sexe
+table(eec$pub3fp, eec$sexe, useNA = "always")
+```
+
+Pour améliorer l'affichage des résultats de la fonction `table()`, le plus simple est de **transformer les variables caractères utilisées en facteurs**, au préalable ou directement dans la fonction `table()`. 
+
+```{r}
+# Transformation de pub3fp en factor
+eec$pub3fp <- factor(eec$pub3fp, labels = c(
+  "Fonction publique d'Etat"
+  , "Fonction publique territoriale"
+  , "Fonction publique hospitalière"
+  , "Secteur privé"
+))
+
+# Impact sur l'affichage de table()
+table(eec$pub3fp, eec$sexe, useNA = "always")
+
+# Tranformation à la volée de eec$sexe en factor
+table(eec$pub3fp, factor(eec$sexe, labels = c("Homme","Femme")), useNA = "always")
+```
+
+\ 
+
+**Les fonctions `addmargins()` et `prop.table()` permettent d'ajouter les marges et de calculer des pourcentages respectivement**`r .fun("addmargins", bold = TRUE)``r .fun("prop.table", bold = TRUE)`. 
+
+```{r}
+t <- table(eec$pub3fp, eec$sexe, useNA = "always")
+
+# Ajout de marges avec la fonction addmargins()
+addmargins(t)
+
+# Calcul de pourcentages
+prop.table(t) # Pourcentages de cellule
+prop.table(t, 1) # Pourcentages en ligne
+prop.table(t, 2) # Pourcentages en colonne
+```
+
+\ 
+
+**La fonction `chisq.test()` mène le test d'indépendance du $\chi^2$**`r .fun("chisq.test")`. 
+```{r}
+# Test du chi2 sur le lien entre eec$pub3fp et eec$sexe
+chisq.test(eec$pub3fp, eec$sexe)
+```
+
+\ 
+
+----------------
+
+\ 
+
+Au-delà de ces fonctions natives, **le *package* `descr` facilite considérablement l'analyse uni- et bivariée de variables qualitatives**, en particulier quand les données ont à être pondérées (données d'enquête).
+
+```{r}
+# Installation du package descr
+# install.packages("desc")
+
+# Chargement du package descr
+library(descr)
+```
+
+La **fonction `freq()`**`r .fun("freq")` présente les résultats d'un tri à plat de façon plus complète et plus naturelle et son argument `w` permet de pondérer les calculs. 
+
+```{r, fig.show = "hide"}
+# Tri à plat non-pondéré sur la variable eec$pub3fp
+freq(eec$pub3fp)
+```
+
+```{r, fig.show = "hide"}
+# Tri à plat pondéré sur la variable eec$pub3fp
+freq(eec$pub3fp, w = eec$extri1613)
+```
+
+De même, la **fonction `crosstab()`**`r .fun("crosstab")` simplifie l'interprétation d'un tri croisé et l'utilisation de pondérations. 
+
+```{r, fig.show = "hide"}
+# Tri croisé non-pondéré des variables eec$pub3fp et eec$sexe
+crosstab(eec$pub3fp, eec$sexe)
+
+# Tri croisé pondéré des variables eec$pub3fp et eec$sexe
+crosstab(eec$pub3fp, eec$sexe, w = eec$extri1613)
+
+# Ajout des pourcentages en ligne et en colonne
+crosstab(eec$pub3fp, eec$sexe, w = eec$extri1613, prop.r = TRUE, prop.c = TRUE)
+
+# Test du chi2
+crosstab(
+  eec$pub3fp, eec$sexe, w = eec$extri1613 / mean(eec$extri1613)
+  , prop.chisq = TRUE,  chisq = TRUE
+)
+```
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Variables quantitatives")
+```
+
+Contrairement à d'autres logiciels statistiques (SAS tout particulièrement), **R ne possède pas une procédure permettant de calculer automatiquement l'ensemble des statistiques descriptives standards** dans le cas d'une variable de nature quantitative, mais un **ensemble de fonctions élémentaires** (*cf.* tableau).
+
+**Code R** | **Résultat**
+----------|---------
+`sum(x)``r .fun("sum", bold = TRUE)` | Somme de `x`
+`mean(x)``r .fun("mean", bold = TRUE)`  | Moyenne de `x`
+`var(x)``r .fun("var", bold = TRUE)`  | Variance empirique de `x`
+`sd(x)``r .fun("sd", bold = TRUE)`  | Écart-type empirique de `x`
+`quantile(x)``r .fun("quantile", bold = TRUE)` | Quantiles de `x`
+`summary(x)``r .fun("summary", bold = TRUE)` | Moyenne et quantiles de `x`
+`max(x)``r .fun("max", bold = TRUE)`  | Valeur maximum de `x`
+`min(x)``r .fun("min", bold = TRUE)`  | Valeur minimum de `x`
+`range(x)``r .fun("range", bold = TRUE)`  | Valeur minimale et valeur maximale de `x`
+`cor.test(x, y)``r .fun("cor.test", bold = TRUE)` | Corrélation entre `x` et `y`
+
+**En présence de valeurs manquantes (`NA`), la plupart de ces fonctions renvoient la valeur `NA` : l'argument `na.rm = TRUE` permet de modifier ce comportement.**
+
+```{r}
+# Statistiques descriptives standards sur le salaire dans l'EEC
+
+mean(eec$salred) 
+# Il y a manifestement des valeurs manquantes
+sum(is.na(eec$salred))
+# Les valeurs manquantes correspondent à 19 794 observations 
+# sur 34 913, ce qui est logique : ni les inactifs ni les non-
+# salariés ne touchent de salaire. 
+
+mean(eec$salred, na.rm = TRUE)
+sd(eec$salred, na.rm = TRUE)
+quantile(eec$salred, na.rm = TRUE)
+quantile(eec$salred, na.rm = TRUE, probs = c(0.01, 0.05, 0.95, 0.99))
+range(eec$salred, na.rm = TRUE)
+
+# Coefficients de corrélation
+cor.test(eec$salred, as.numeric(eec$age), method = "pearson")
+cor.test(eec$salred, as.numeric(eec$age), method = "spearman")
+cor.test(eec$salred, as.numeric(eec$age), method = "kendall")
+```
+
+Comme dans le cas des variables qualitatives, **par défaut R ne prend pas en charge le calcul de statistiques descriptives pondérées**. C'est ce que fait en revanche le ***package* `Hmisc`**, avec la série des fonctions `wtd.` : `wtd.mean()``r .fun("wtd.mean", bold = TRUE)`, `wtd.var()``r .fun("wtd.var", bold = TRUE)`, `wtd.quantile()``r .fun("wtd.quantile", bold = TRUE)` notamment, qui comportent un argument `weights`. 
+
+```{r}
+# Installation du package Hmisc
+# install.packages("Hmisc")
+
+# Chargement du package Hmisc
+library(Hmisc)
+
+# Statistiques pondérées avec Hmisc
+wtd.mean(eec$salred, weights = eec$extri1613)
+sqrt(wtd.var(eec$salred, weights = eec$extri1613))
+wtd.quantile(eec$salred, weights = eec$extri1613, probs = seq(0, 1, 0.05))
+# Note : les fonctions wtd. du package Hmisc disposent 
+# également d'un paramètres na.rm, mais sa valeur est TRUE
+# par défaut.
+```
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Graphiques")
+```
+
+La production de graphiques est relativement simple dans R : dans la plupart des cas, **c'est la fonction `plot()` qu'il convient d'utiliser, qui adapte automatiquement le graphique aux caractéristiques de l'objet représenté**. De nombreuses **options graphiques**`r .fun("plot", bold = TRUE)` (taper `? plot` pour en afficher quelques unes) permettent de personnaliser assez finement l'affichage. 
+
+\ 
+
+Pour représenter un **nuage de points**, il suffit par exemple d'appliquer `plot()` aux deux variables à représenter.
+
+```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+# On se restreint à une sous-base pour ne pas avoir un
+# nuage de points trop dense
+eec8 <- eec[which(!is.na(eec$salred))[1:100], ]
+eec8$age <- as.numeric(eec8$age)
+
+# Représentation du salaire en fonction de l'âge
+plot(eec8$age, eec8$salred)
+```
+
+Plusieurs options de base contrôlent l'**affichage des titres et des axes** :
+
+- `main` : titre principal du graphique ;
+- `xlab`, `ylab` : titres des axes ;
+- `xlim`, `ylim` : vecteurs de longueur 2 indiquant les limites des axes des abscisses et des ordonnées respectivement. 
+
+```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+# Personnalisation du graphique précédent (1)
+plot(
+  eec8$age, eec8$salred
+  , main = "Âge et salaire dans l'EEC 2012 T4"
+  , xlab = "Âge", ylab = "Salaire en euros"
+  , xlim= c(15, 75)
+)
+```
+
+Les options `pch` et `col` permettent de **modifier la forme et la couleur des points représentés**. 
+
+```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+# Personnalisation du graphique précédent (2)
+plot(
+  eec8$age, eec8$salred
+  , main = "Âge et salaire dans l'EEC 2012 T4"
+  , xlab = "Âge", ylab = "Salaire en euros"
+  , xlim= c(15, 75)
+  , pch = 0, col = 2
+)
+```
+
+Utilisées avec des vecteurs et la fonction `legend()``r .fun("legend", bold = TRUE)`, `pch` et `col` permettent de **représenter le croisement de plusieurs variables**. 
+
+```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+# Utilisation de pch pour distinguer hommes et femmes 
+# sur le graphique
+plot(
+  eec8$age, eec8$salred
+  , main = "Âge et salaire dans l'EEC 2012 T4"
+  , xlab = "Âge", ylab = "Salaire en euros"
+  , xlim= c(15, 75)
+  , pch = as.numeric(eec8$sexe == "2") 
+)
+
+# Ajout d'une légende
+legend("topright", legend=c("Hommes","Femmes"), pch=c(0, 1))
+
+# Sauvegarde du graphique pour la suite
+g1 <- recordPlot()
+```
+
+Les fonctions `abline()``r .fun("abline", bold = TRUE)` et `curve()``r .fun("curve", bold = TRUE)` **ajoutent respectivement des lignes et des courbes à un graphique existant**. 
+
+```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+# Modèle de régression linéaire : salaire = age + sexe
+# (cf. dernière partie)
+eec8$femme <- eec8$sexe == "2"
+m1 <- lm(salred ~ age + femme, data = eec8)
+
+# Représentation des droites de régression correspondant
+# aux hommes et aux femmes respectivement
+g1
+abline(a = coef(m1)[1], b = coef(m1)[2])
+abline(a = coef(m1)[1] + coef(m1)[3], b = coef(m1)[2], lty = 2)
+```
+
+```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+# Modèle de régression linéaire : salaire = age + age^2 + sexe
+# (cf. sous-partie suivante)
+eec8$age2 <- eec8$age^2
+m2 <- lm(salred ~ age + age2 + femme, data = eec8)
+
+# Représentation des courbes de régression correspondant
+# aux hommes et aux femmes respectivement
+g1
+curve(coef(m2)[1] + coef(m2)[2]*x + coef(m2)[3]*x^2, add = TRUE)
+curve(coef(m2)[1] + coef(m2)[4] + coef(m2)[2]*x + coef(m2)[3]*x^2, lty=2, add = TRUE)
+```
+
+
+\ 
+
+La fonction `plot()``r .fun("plot")` permet également de représenter la **fonction de répartition et la densité empirique d'une distribution**, par le biais des fonctions `ecdf()``r .fun("ecdf", bold = TRUE)` et `density()``r .fun("density", bold = TRUE)`. 
+
+```{r, fig.asp=3/4, out.width="12cm", fig.align="center"}
+# Fonction de répartition empirique du salaire
+plot(
+  ecdf(eec$salred)
+  , main = "Fonction de répartition empirique du salaire"
+)
+
+# Densité empirique du salaire
+plot(
+  density(eec$salred, na.rm = TRUE)
+  , main = "Densité empirique du salaire"
+)
+```
+
+\ 
+
+Au-delà de la fonction `plot()`, de nombreuses fonctions permettent d'effectuer des représentations spécifiques dans R : 
+
+- `hist()``r .fun("hist", bold = TRUE)` produit l'histogramme d'une distribution ;
+
+    ```{r, fig.show = "hold", fig.asp=3/4, out.width="12cm", fig.align="center"}
+    # Histogramme du salaire dans l'EEC
+    hist(eec$salred, xlim = c(0, 4000), breaks = seq(0, 100000, 250))
+    ```
+
+- `barplot()``r .fun("barplot", bold = TRUE)` et `pie()``r .fun("pie", bold = TRUE)` produisent respectivement le diagramme en bâtons et le diagramme circulaire représentant la fréquence d'une variable qualitative. 
+
+    ```{r, fig.asp=3/4, out.width="12cm", fig.align="center"}
+    # Distribution de la position du marché du travail
+    # en milliers
+    pos <- by(eec$extri1613, eec$acteu, sum) / 1000
+    
+    # Diagramme en bâtons de la position sur le marché du travail
+    barplot(
+      pos
+      , names.arg = c("Actifs occupés", "Chômeurs", "Inactifs")
+      , main = "Position sur le marché du travail au 2012 T4 \n (en milliers)"
+    )
+
+    # Diagramme circulaire de la position sur le marché du travail
+    pie(
+      pos
+      , labels = paste0(c("Actifs occupés", "Chômeurs", "Inactifs"), " (", round(pos),")")
+      , main = "Position sur le marché du travail au 2012 T4 \n (en milliers)"
+    )
+    ```
+
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("Application à l'enquête Pisa 2012")
+```
+
+L'enquête Pisa (\textit{Program for International Student Assessment}) est une enquête réalisée **tous les trois ans** par l'Organisation de coopération et de développement économique (OCDE) dans une soixantaine de pays auprès des **élèves de 15 ans** (quelle que soit leur classe au moment de l'enquête). 
+
+Elle vise à mesurer les **acquis des élèves de 15 ans dans trois disciplines** : mathématiques, compréhension de l'écrit (ou [*littératie*](https://fr.wikipedia.org/wiki/Litt%C3%A9ratie)) et sciences. En plus des scores aux **tests standardisés** de mathématiques, compréhension de l'écrit et sciences, cette enquête comporte de très nombreuses informations sur l'origine sociale des élèves, leurs conditions d'enseignement ainsi que leur rapport aux enseignants et à l'école. 
+
+**Organisation des fichiers** Les fichiers de l'enquête Pisa 2012 et leur documentation sont librement téléchargeables sur le [site de l'OCDE](http://www.oecd.org/pisa/pisaproducts/pisa2012database-downloadabledata.htm). Seuls **deux des nombreux fichiers de données** qui constituent l'enquête seront utilisés : 
+
+- le **fichier élève** `pisa_stu.sas7bdat`;
+- le **fichier établissement** `pisa_sch.sas7bdat`. 
+
+Ces deux fichiers ont été **restreints à la France** et à un **ensemble réduit de variables**: 
+
+**Fichier élève (`pisa_stu.sas7bdat`)**
+
+| **Variable**               | **Description**                             |
+|:---------------------------|:----------------------------------------|
+|cnt| Pays|
+|stidstd| Identifiant de l'élève|
+|schoolid| Identifiant de l'établissement|
+|w_fstuwt| Poids de sondage final de l'élève|
+|st01q01| Classe en nombre d'années depuis l'entrée en primaire: la 10$^{ème}$ classe correspond à la seconde en France.|
+|st04q01 | Sexe : (1) Femme (2) Homme |
+|st05q01| A suivi une scolarité pré-primaire (1) Non (2) Oui, un an ou moins (3) Oui, plus d'un an|
+|st07q01\ st07q02\ st07q03| A redoublé à un moment de sa scolarité : (1) Non (2-3) Oui, une ou plusieurs fois|
+|st08q01| Est arrivé en retard au cours des deux semaines précédant l'enquête  | (1) Non (2) Une ou deux fois (3) Trois ou quatre fois (4) Cinq fois ou plus |
+|st09q01| A séché les cours au cours des deux semaines précédant l'enquête | (1) Non (2) Une ou deux fois (3) Trois ou quatre fois (4) Cinq fois ou plus |
+|anxmat| Score synthétique d'anxiété en mathématiques|
+|disclima| Score synthétique de climat de discipline dans la classe|
+|escs| Indicateur synthétique de statut économique, social et culturel |
+|immig | Immigration : (1) Né en France (2) Immigré de deuxième génération (3) Immigré de première génération|
+|hisced | Niveau d'étude le plus élevé des parents ([nomenclature CITE](http://www.uis.unesco.org/Education/Documents/isced-2011-fr.pdf)) |
+|pv1math | Score synthétique à l'évaluation de mathématiques|
+|pv1read | Score synthétique à l'évaluation de compréhension de l'écrit|
+|pv1scie | Score synthétique à l'évaluation de sciences|
+
+**Fichier établissement (`pisa_sch.sas7bdat`)**
+
+| **Variable**               | **Description**                             |
+|:---------------------------|:----------------------------------------|
+|cnt| Pays|
+|schoolid| Identifiant de l'établissement|
+|senwgt_scq| Poids de sondage (la somme vaut 1\ 000 dans chaque pays)|
+|sc01q01|Statut public ou privé (1) public (2) privé|
+|sc03q01|Taille de la commune de l'établissement : (1) *Village* (2) *Small town* (3) *Town* (4) *City* (5) *Large city*|
+|sc05q01| Taille de la classe en cours de français : (01) 15 ou moins (02) 16-20 (03) 21-25 ... (08) 46-50 (09) Plus de 50 élèves|
+
+```{r, results = "asis", echo = FALSE}
+.question("Application à l'enquête Pisa 2012 : Importation et mise en forme des données")
+```
+
+a. Utilisez la fonction `read_sas()``r .fun("read\\_sas")` du *package* `haven` (*cf.* `r .ref("module 1", "module1.html")`) pour importer les deux fichiers dans les objets `stu` et `sch` respectivement. Afin de faciliter les exploitations futures, passez leurs noms de variables en minuscules`r .fun("names")`. 
+
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+    ```{r}
+    # Import des fichiers avec la fonction read_sas()
+    # install.packages("haven")
+    library(haven)
+    stu <- read_sas("pisa_stu.sas7bdat")
+    sch <- read_sas("pisa_sch.sas7bdat")
+    
+    # Passage des noms en minuscules
+    names(stu) <- tolower(names(stu))
+    names(sch) <- tolower(names(sch))
+    
+    ```
+    ```{r, results = "asis", echo = FALSE}
+    .endsol()
+    ```
+
+b. On souhaite pouvoir utiliser les informations au niveau de l'établissement dans des exploitations au niveau des élèves. Pour ce faire, il convient de fusionner les tables `stu` et `sch` sur la base de la variable `schoolid`.
+
+    i. Utilisez les fonctions `unique()``r .fun("unique")`, `intersect()``r .fun("intersect")` et `setdiff()``r .fun("setdiff")` pour vérifier que l'identifiant `schoolid` prend bien les mêmes valeurs dans les deux tables.
+
+        ```{r, results = "asis", echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        length(intersect(stu$schoolid, sch$schoolid))
+        length(unique(stu$schoolid))
+        length(unique(sch$schoolid))
+        
+        # Cela fonctionne aussi plus finement avec setdiff()
+        setdiff(stu$schoolid, sch$schoolid)
+        # Aucune valeur de stu$schoolid n'est pas dans sch$schoolid
+        setdiff(sch$schoolid, stu$schoolid)
+        # Aucune valeur de sch$schoolid n'est pas dans stu$schoolid
+        ```
+        ```{r, results = "asis", echo = FALSE}
+        .endsol()
+        ```
+
+    ii. Vérifiez que la variable `schoolid` est un identifiant pour la table `sch`, à savoir : (1) qu'elle est renseignée pour chaque ligne (2) qu'elle prend une valeur distincte pour chaque ligne. 
+
+        ```{r, results = "asis", echo = FALSE}
+       .beginsol()
+        ```
+        ```{r}
+        # Pour vérifier que schoolid identifie sch il suffit
+        # de comparer le nombre de valeurs distinctes au
+        # nombre de lignes
+        length(unique(sch$schoolid))
+        nrow(sch)
+        # Tout va bien !    
+        ```
+        ```{r, results = "asis", echo = FALSE}
+        .endsol()
+        ```
+ 
+    iii. Utilisez la fonction `merge()``r .fun("merge")` pour fusionner `stu` et `sch` par `schoolid` et créez la table `stu2`. Vérifiez que ses propriétés sont cohérentes avec le résultat des questions précédentes : même nombre de lignes que `stu`, nombre de colonnes égal à celui de `stu` et de `sch` moins 1.
+
+        ```{r, results = "asis", echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # Fusion des deux tables
+        stu2 <- merge(stu, sch, by = "schoolid")
+    
+        # Vérifications 
+        nrow(stu2) == nrow(stu)
+        ncol(stu2) == ncol(stu) + ncol(sch) - 1
+        ```
+        ```{r, results = "asis", echo = FALSE}
+        .endsol()
+        ```
+        
+c. Recodage de variables
+
+    i. Recodez la variable de sexe en facteur `r .fun("factor")` dont les libellés sont `"Femme"` et `"Homme"` pour faciliter la lecture des tableaux et graphiques.
+
+
+        ```{r, results = "asis", echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # Création de la variable sexe recodée
+        stu2$sexe <- factor(stu2$st04q01, labels = c("Femme", "Homme"))
+        ```
+        ```{r, results = "asis", echo = FALSE}
+        .endsol()
+        ```
+    
+    ii. Un élève a redoublé à un moment dans sa scolarité dès lors qu'une des variables `st07q01`, `st07q02` ou `st07q03` vaut 2 ou 3. Créez la variable indicatrice `redoublant` valant `TRUE` si un élève a redoublé au cours de sa scolarité.
+
+        ```{r, results = "asis", echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # Création de la variable redoublant
+        stu2$redoublant <- ( 
+          stu2$st07q01 %in% c(2, 3) | 
+            stu2$st07q02 %in% c(2, 3) | 
+            stu2$st07q03 %in% c(2, 3)
+        )
+        table(stu2$redoublant)
+        ```
+        ```{r, results = "asis", echo = FALSE}
+        .endsol()
+        ```
+
+    iii. Quelle est la nature de l'indicateur synthétique de statut économique, social et culturel ? Recodez-le sous la forme d'une variable qualitative à 5 modalités (en utilisant les fonctions `cut()``r .fun("cut", bold = TRUE)` et `quantile()``r .fun("quantile")`). 
+
+        ```{r, results = "asis", echo = FALSE}
+        .beginsol()
+        ```
+        ```{r}
+        # La variable escs est de nature quantitative, ce qui n'est pas très naturel
+        summary(stu2$escs)
+        
+        # On la recode en une variable qualitative selon ses quintiles
+        # pour facilier les interprétations
+        stu2$escsq <-  cut(
+          stu2$escs
+          , quantile(stu2$escs, probs = c(0, 0.20, 0.40, 0.60, 0.80, 1), na.rm = TRUE)
+        )
+        table(stu2$escsq)
+        ```
+        ```{r, results = "asis", echo = FALSE}
+        .endsol()
+        ```
+
+
+```{r, results = "asis", echo = FALSE}
+.question("Application à l'enquête Pisa 2012 : Statistiques descriptives")
+```
+
+a. En utilisant le *package* `descr`, effectuez le tri croisé entre sexe des élèves et redoublement et interprétez-le.`r .fun("crosstab")` 
+
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+
+    ```{r, fig.keep = "none"}
+    # Installation du package descr
+    # install.packages("descr")
+    
+    # Chargement du package descr
+    library(descr)
+    
+    # Tri croisé pondéré
+    crosstab(
+      stu2$sexe, stu2$redoublant, weight = stu2$poids
+      , prop.r = TRUE, chisq = TRUE, prop.c = TRUE
+    )
+    ```
+    
+    Dans l'ensemble de la population, 27,9\ % des élèves de 15 ans ont redoublé à un moment ou à un autre de leur scolarité. Ils sont 30,8\ % parmi les hommes et 25,1\ % parmi les femmes : autrement dit, les élèves ayant deroublé à un moment ou à un autre de leur scolarité sont surreprésentés parmi les hommes. 
+    
+    Le test d'indépendance du $\chi^2$ permet de confirmer cette analyse : sa p-valeur est inférieure à 0,01 aussi il est possible de rejeter l'hypothèse nulle d'indépendance entre les variables de sexe et de reoublement au seuil de 1\ %. 
+    
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+    
+
+b. Calculez le coefficient de corrélation linéaire de Pearson entre notes en mathématiques et en sciences et menez le test de nullité de ce coefficient (avec la fonction `cor.test()`)`r .fun("cor.test")`.
+
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+
+    ```{r, fig.keep = "none"}
+    cor.test(stu2$pv1math, stu2$pv1scie)
+    ```
+    
+    Le coefficient de corrélation entre note en mathématiques et note en sciences est positif et extrêmement élevé (`r .f(cor(stu2$pv1math, stu2$pv1scie), 4)`). La p-valeur du test de nullité de ce coefficient est inférieure à 0,01 aussi il est possible de rejeter au seuil de 1\ % l'hypothèse que ces deux scores ne soient pas corrélés.
+    
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+c. Calculez le score moyen en mathématique selon les quintiles de statut économique, social et culturel (*cf.* le recodage du cas pratique précédent).`r .fun("tapply")`
+    
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+
+    ```{r, fig.keep = "none"}
+    tapply(stu2$pv1math, stu2$escsq, mean)
+    ```
+    La moyenne du score en mathématiques est d'autant plus élevée que le statut économique, social et culturel est favorisé.
+    
+    ```{r, results = "asis", echo = FALSE}
+    .endsol()
+    ```
+
+
+```{r, results = "asis", echo = FALSE}
+.question("Application à l'enquête Pisa 2012 : Graphiques")
+```
+
+a. Construisez un diagramme en bâton pour illustrer la relation entre statut économique, social et culturel (en quintiles) et redoublement. Utilisez les options de mise en forme pour améliorer sa présentation (ajouter un titre avec `main()`, modifiez les titres des axes avec `xlab()` et `ylab()`, etc.)`r .fun("barplot")`.
+
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+    ```{r, fig.asp=3/4, out.width="12cm", fig.align="center"}
+    barplot(
+      table(stu2$redoublant, stu2$escsq)
+      , main = "Statut économique, social et culturel\net redoublement"
+      , xlab = "Statut économique, social et cuturel"
+      , ylab = "Répartition des redoublants"
+      , legend.text = c("Non-redoublant", "Redoublant")
+      , args.legend = list(x = "topleft", bg = "white")
+    )
+    ```
+    ```{r, results = "asis", echo = FALSE}
+    .endsol()
+    ```
+
+b. Utilisez la fonction `plot()` pour représenter le nuage de points de la relation entre le score en mathématiques et le score en sciences.`r .fun("plot")`
+
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+    ```{r, fig.asp=3/4, out.width="12cm", fig.align="center"}
+    # Score en mathématiques et en sciences
+    par(pty="s")
+    plot(
+      stu2$pv1math, stu2$pv1scie
+      , xlab = "Score en mathématiques"
+      , ylab = "Score en sciences"
+    )
+    ```
+    ```{r, results = "asis", echo = FALSE}
+    .endsol()
+    ```
+
+c. Construisez la "boîte à moustaches" représentant la relation entre stat au moinst économique, social et culturel (en quintiles) et score en mathématiques à l'aide de la fonction `boxplot()`.`r .fun("boxplot")`
+
+    ```{r, results = "asis", echo = FALSE}
+    .beginsol()
+    ```
+    ```{r, fig.asp=3/4, out.width="12cm", fig.align="center"}
+    boxplot(
+      stu2$pv1math ~ stu2$escsq
+      , main = "Statut économique, social et culturel\net score en sciences"
+      , xlab = "Statut économique, social et cuturel"
+      , ylab = "Score en mathématiques"
+    )
+    ```
+    ```{r, results = "asis", echo = FALSE}
+    .endsol()
+    ```
+
+d. Utilisez les fonctionnalités de RStudio (menus déroulants de la fenêtre de graphiques) pour sauvegarder ces graphiques dans la qualité et le format souhaités.
+
+
+
+
+
+```{r, results = "asis", echo = FALSE}
+.partie("Quelques liens pour aller plus loin")
+```
+
+```{r,results = "asis",echo = FALSE}
+.souspartie("Formation R perfectionnement")
+```
+
+Le support de la formation R perfectionnement que j'ai conçue est en ligne à l'adresse : [teaching.slmc.fr/perf](http://teaching.slmc.fr/perf). Elle aborde trois sujets : 
+
+1. Outils et méthodes pour se perfectionner avec R ;
+
+2. Traitements avancés sur des données dans R : retour sur les fonctions `*apply()` et assimilées, optimisation en base R, *packages* `dplyr` et `data.table`, parallélisation et utilisation de langages de bas niveau dans R.
+
+3. Graphiques et *reporting* avec R : *package* `ggplot2`, production automatique de documents avec Rmarkdown. 
+
+Un cycle de formation perfectionnement est également proposé par la division  Formation : certaines portent sensiblement sur les mêmes sujets, mais pas toutes (notamment une consacrée à [R Shiny](https://shiny.rstudio.com/)). 
+
+```{r,results = "asis",echo = FALSE}
+.souspartie("Utiliser des techniques d'analyse de données multidimensionnelles")
+```
+
+Le package `FactoMineR` (attention à la casse !) rend extrêmement simple la mise en oeuvre sous R de **techniques d'analyse de données multidimensionnelles** : analyse en composante principale (ACP), analyse des correspondances multiples (ACM) ou encore classification ascendante hiérarchique (CAH). 
+
+Ce [document d'introduction](https://cran.r-project.org/web/packages/FactoMineR/vignettes/FactoMineR.pdf) ("vignette" dans la terminologie de R) présente ces méthodes et leur mise en oeuvre avec `FactoMineR`. 
+
+```{r,results = "asis",echo = FALSE}
+.souspartie("Estimer des modèles de régression")
+```
+
+Les fonctions natives de R `lm()` et `glm()` permettent respectivement d'estimer des **modèles linéaires et linéaires généralisés** (dont les modèles logistiques). 
+
+[Cette page](http://teaching.slmc.fr/mqs2) (destinée à un public de non-statisticiens) introduit les méthodes de régression et propose de nombreux exemples d'estimation de modèles dans R. 

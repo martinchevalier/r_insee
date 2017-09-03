@@ -1,0 +1,23 @@
+# Ignore everything in repository root 
+/*
+\#old/
+\#previous/
+*_cache/
+*_files/
+unnamed-chunk*
+ggplot2-book.pdf
+
+# Files to not ignore
+!/.gitignore
+!/donnees
+!/initiation
+!/perf
+!/LICENSE
+!/README
+
+
+
+
+# Folder to not ignore
+!/puppet/
+.Rproj.user

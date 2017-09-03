@@ -1,0 +1,447 @@
+## Quelques rappels : vecteurs, matrices, listes et `data.frame`
+
+Ces trois premiers cas pratiques reprennent certains éléments fondamentaux du langage de R. Pour une présentation plus progressive et approfondie, se référer au [second module de la formation R initiation](http://r.slmc.fr/module2.html).
+
+```{r, results = "asis", echo = FALSE}
+.question("Savoir manipuler des vecteurs")
+```
+Les vecteurs sont les éléments fondamentaux de R : ils sont utilisés dans la plupart des opérations sur les objets plus complexes (listes, `data.frame`). 
+
+a. Créez le vecteur `a1` en utilisant trois méthodes différentes : 
+    ```{r, echo = FALSE, }
+a1 <- 6:15
+    ```
+    ```{r}
+a1
+    ```
+Quelles sont ses caractéristiques (type, longueur, etc.) ? 
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# Méthode 1 : définition explicite avec c()
+a1 <- c(6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+
+# Méthode 2 : définition de la séquence avec `:`
+a1 <- 6:15
+
+# Méthode 3 : définition de la séquence avec seq()
+a1 <- seq(6, 15, by = 1)
+
+# Caractéristiques : fonctions str(), length(), class()
+# et typeof()
+str(a1)
+length(a1)
+class(a1)
+typeof(a1)
+# Note : la méthode 1 produit un vecteur de numériques
+# (typeof(a1) vaut "double") alors que les méthodes 2 et 3 
+# produisent un vecteur d'entiers (typeof(a1) vaut "integer")
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+
+b. Sélectionnez l'élément en deuxième position par deux méthodes différentes. Utilisez alors la méthode la plus appropriée pour sélectionner : les éléments en position 8 et 5 (dans cet ordre) ; tous les éléments sauf le neuvième ; tous les éléments dont la valeur est strictement supérieure à 10 ; tous les éléments dont la valeur est paire.
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# L'opérateur `[` permet d'extraire les éléments d'un vecteur
+# selon trois méthodes
+    
+# Méthode 1 : position de l'élément dans le vecteur 
+a1[2]
+    
+# Méthode 2 : vecteur logique de longueur length(a1)
+a1[c(FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE)]
+
+# Méthode 3 : noms des éléments du vecteur
+# Aucun nom n'est associé ici au vecteur a1, cf. la question 
+# suivante.
+  
+# La méthode 1 est la plus adaptée aux deux premières sous-questions  
+a1[c(8, 5)]
+a1[-9]
+
+# La méthode 2 est la plus adaptée aux deux dernières sous-questions
+a1[a1 > 10]
+a1[a1 %% 2 == 0]
+# Note : x %% y renvoie le reste de la division euclidienne de
+# x par y. 
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+c. Que renvoie `names(a1)` ? À quoi cela correspond-il ? Utilisez le vecteur `letters` pour nommer les éléments de `a1` :  `r letters[1:10]`. Quelle est la valeur de l'élément dont le nom est `"b"` ? 
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# La fonction names(x) renvoie la valeur du vecteur de noms
+# associé à l'objet x
+names(a1)
+# Ici names(a1) vaut NULL car les éléments de a1 ne sont pas nommés : 
+# aucun vecteur de nom ne correspond à a1.
+    
+# letters est un vecteur de type caractère et de longueur 26
+# stockant les 26 lettres de l'alphabet (en minuscules)
+letters
+
+# Utilisé avec <-, la fonction names() permet d'affecter 
+# un vecteur de noms à un objet
+names(a1) <- letters[1:10]
+a1
+
+# Dès lors qu'un objet dispose d'un vecteur de noms, 
+# il est possible de les utiliser pour sélectionner ses éléments.
+a1["b"]
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+d. On définit le vecteur `a2 <- 1:10`. Que renvoie `c(a1, a2)`? Utilisez les fonctions `union()`, `intersect()` et `setdiff()` pour déterminer les valeurs présentes dans `a1` ou `a2`, dans `a1` et `a2`, dans `a1` mais pas dans `a2`, dans `a2` mais pas dans `a1`. 
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# On définit a2 avec `:`
+a2 <- 1:10
+    
+# Appliquée à deux vecteurs, la fonction c() en renvoie
+# la concaténation (dans l'ordre)
+c(a1, a2)
+
+# Les fonctions union(), intersect() et setdiff()
+# permettent d'effectuer des opérations ensemblistes
+# sur les vecteurs 
+union(a1, a2) # Eléments dans a1 ou dans a2 
+intersect(a1, a2) # Eléments dans a1 et dans a2
+setdiff(a1, a2) # Eléments dans a1 mais pas dans a2
+setdiff(a2, a1) # Eléments dans a2 mais pas dans a1
+
+# Note : setdiff() est particulièrement utile pour comparer
+# les valeurs prises par un identifiant dans deux tables
+# différentes. 
+
+# Par exemple,  dans une enquête présentant une table 
+# de niveau ménage et une table de niveau individu, 
+# setdiff(ind$idmen, men$idmen)
+# permet de vérifier que tous les individus appartiennent
+# bien dans un ménage référencé dans la table de niveau 
+# ménage.
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+e. Générez un vecteur `a3` de longueur 100 et tiré dans une loi uniforme avec la fonction `runif()` : 
+
+    - quel est son maximum ? 
+    - combien de valeur de `a3` sont strictement supérieures à 0,80 ?
+    - remplacer toutes les valeurs de `a3` inférieures à 0,50 par leur opposé. 
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# La fonction runif(n) permet de générer des vecteurs de longueur
+# n dont les observations sont tirées dans une loi uniforme sur [0;1]
+# (par défaut). 
+a3 <- runif(100)
+    
+# Les trois sous-questions font appel à des fonctions ou 
+# structures particulièrement utiles en pratique
+max(a3)
+sum(a3  > 0.80)
+a3[a3 < 0.50] <- - a3[a3 < 0.50]
+
+# Note : la génération de a3 reposant sur des séquences
+# de nombres pseudo-aléatoires, les résultats
+# que vous obtenez de ceux de la correction.
+# La fonction set.seed() permet de spécifier
+# un point d'initialisation pour la séquence de nombres
+# pseudo-aléatoire et donc de reproduire parfaitement
+# une séquence générée aléatoirement. Son utilisation
+# est illustrée dans le cas pratique 5. 
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+```{r, results = "asis", echo = FALSE}
+.question("Savoir manipuler des matrices")
+```
+Les matrices s'apparentent aux vecteurs en cela qu'elles ne peuvent contenir que des données d'un seul type (numérique, caractère, logique). Elles ont néanmoins deux dimensions, ce qui permet de leur appliquer des fonctions spécifiques. 
+
+a. Utlisez les fonctions `matrix()` pour générer une matrice `b1` de 4 lignes et de 5 colonnes dont les valeurs sont celles du vecteur `1:20` (en colonnes). Quelles sont ses caractéristiques (type, dimensions) ? 
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# La syntaxe de la fonction matrix() est la suivante : 
+# matrix(data, nrow, ncol)
+b1 <- matrix(1:20, nrow = 4)
+b1
+
+# Caractéristiques
+str(b1)
+class(b1)
+typeof(b1)
+dim(b1)
+nrow(b1)
+ncol(b1)
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+b. Sélectionnez l'élément en deuxième ligne, quatrième colonne de `b1` par deux méthodes différentes. Utilisez alors la méthode la plus appropriée pour sélectionner : sa troisième ligne ; les colonnes impaires. 
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# Comme pour les vecteurs, l'opérateur `[` permet d'extraire
+# les éléments d'un vecteur selon trois méthodes. La matrice
+# étant à deux dimensions, `[` doit comporter deux positions
+# [ligne, colonne].
+    
+# Méthode 1 : position de l'élément dans la matrice
+b1[2, 4]
+    
+# Méthode 2 : vecteurs logiques de longueur
+# nrow(b1) et ncol(b1)
+b1[c(FALSE, TRUE, FALSE, FALSE), c(FALSE, FALSE, FALSE, TRUE, FALSE)]
+
+# Méthode 3 : noms des lignes ou des colonnes 
+# de la matrice
+# Aucun nom n'est associé ici à la matrice b1.
+
+# Pour extraire des lignes entières, la seconde 
+# position de `[` doit rester vide
+b1[3, ]
+
+# Pour extraire des colonnes entières, la première
+# position de `[` doit rester vide
+b1[, 1:ncol(b1) %% 2 == 1]
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+c. Utilisez les fonctions `colSums()` et `rowSums()` pour déterminer : 
+
+    - la somme des éléments de chaque ligne de `b1`;
+    - pour chaque colonne de `b1`, le nombre d'éléments pairs.
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# Les fonctions colSums() et rowSums() calculent
+# des sommes respectivement selon les colonnes et
+# les lignes d'une matrice.
+rowSums(b1)
+    
+# Appliqué à une matrice, une expression logique
+# produit une matrice de mêmes dimensions composée
+# de valeur TRUE ou FALSE
+b1 %% 2 == 0
+# Il n'y a alors plus qu'à utiliser la fonction
+# colSums() pour sommer ces valeurs en colonne
+# (TRUE est converti en 1 et FALSE en 0). 
+colSums(b1 %% 2 == 0)
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+
+```{r, results = "asis", echo = FALSE}
+.question("Savoir manipuler des listes et des data.frame")
+```
+Les listes constituent un type d'objet particulièrement souple dans R : contrairement aux vecteurs ou aux matrices, elles peuvent contenir des objets de types ou de dimensions différents. Les `data.frame` sont des cas particuliers de listes dans lesquels tous les éléments ont la même longueur (et sont en général de dimension 1). La plupart des données statistiques sont stockées sous la forme de `data.frame`.
+
+a. Utilisez la fonction `list()` pour créer la liste `c1` contenant le vecteur `a1` du cas pratique 1 et la matrice `b1` du cas pratique 2. Assignez à chaque élément de la liste le nom de son objet d'origine.
+
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# La fonction list() permet de créer une liste 
+# à partir d'autres objets. 
+c1 <- list(a1, b1)
+c1
+names(c1)
+
+# Pour créer c1 en associant à chaque objet un nom,
+# il suffit de l'indiquer dans la fonction list()
+c1 <- list(a1 = a1, b1 = b1)
+c1
+names(c1)
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+b. Comparez les caractéristiques de `c1[1]` et `c1[[1]]`. Quelle valeur renvoie `c1[[1]][2]` ? Quelle syntaxe alternative pourriez-vous utilisez ? 
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r, error=TRUE}
+# Appliqué à une liste, l'opérateur d'extraction `[` retourne
+# une sous-liste de la liste originale
+c1[1]
+is.list(c1[1])
+# On peut utiliser un vecteur logique ou un nom avec `[`
+c1[c(TRUE, FALSE)]
+c1["a1"]
+
+# En revanche, `[[` renvoie non pas une sous-liste mais l'élément
+# de la liste lui-même 
+c1[[1]]
+is.list(c1[[1]])
+str(c1[[1]])
+# En l'occurrence ici, c1[[1]] renvoie la valeur du vecteur a1
+# du premier cas pratique (au moment où c1 a été créée).
+# On ne peut pas utiliser de vecteur logique avec `[[`
+c1[[c(TRUE, FALSE)]]
+c1[["a1"]]
+
+
+# De ce fait, c1[[1]][2] renvoie la valeur de l'élément en 
+# deuxième position dans l'élément en première position de c1
+c1[[1]][2]
+
+# On peut aussi utiliser les noms 
+c1[["a1"]]["b"]
+
+# Et même le signe $ pour extraire des valeurs par noms de la liste
+c1$a1["b"]
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+    
+c. On définit le `data.frame` `c2` : 
+    ```{r}
+c2 <- data.frame(
+  var1 = 1:20
+  , var2 = letters[20:1]
+  , var3 = rep(c(TRUE, FALSE), times = 10)
+)
+    ```
+Quelles sont les caractéristiques de `c2` ? Vérifiez qu'il s'agit bien d'une liste. 
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# Caractéristiques
+str(c2)
+dim(c2)
+length(c2)
+# Note : la fonction length() renvoie le nombre de colonnes
+# de c2. Cela traduit le fait que c2 est en fait une liste
+# dont chaque colonne est un élément.
+is.list(c2)
+as.list(c2)
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+    
+
+d. Quel est le type de la variable `var2` ? Comment l'expliquez-vous et comment feriez-vous pour qu'il n'en soit pas ainsi ? 
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# La variable var2 est de type factor
+class(c2$var2)
+# Par défaut, la fonction data.frame() convertit 
+# les variables caractères en type factor. Pour 
+# empêcher la conversion, utiliser l'option 
+# stringsAsFactors = FALSE dans la fonction data.frame().
+c3 <- data.frame(
+  var1 = 1:20
+  , var2 = letters[20:1]
+  , var3 = rep(c(TRUE, FALSE), times = 10)
+  , stringsAsFactors = FALSE
+)
+class(c3$var2)
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+    
+e. Sélectionnez la variable `var3` en utilisant son nom de quatre manières différentes. Sélectionner les variables `var2` et `var1` (dans cet ordre). Sélectionnez toutes les variables sauf la variable `var2`. 
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# Le data.frame est un liste susceptible d'être représentée
+# par un tableau à deux dimensions. De ce fait, le fonctionnement
+# des opérateurs d'extraction est proche de celui des listes
+# mais aussi de celui des matrices
+    
+# Méthode 1 : `[` comme une liste
+c2["var3"]
+    
+# Méthode 2 : `[` comme une matrice
+c2[, "var3"]
+
+# Méthode 3 : `[[`
+c2[["var3"]]
+
+# Méthode 4 : `$`
+c2$var3
+
+# Sélection des variables var2 et var1
+c2[, c("var2", "var1")]
+
+# Sélection de toutes les variables sauf var2
+
+# Note : l'idée est de se ramener au cas précédent
+# en déterminant le vecteur des variables à conserver.
+# Cette liste n'est rien d'autre que le vecteur des 
+# noms de variables de c2 sans la variable var2. 
+# La fonction setdiff() permet d'effectuer cette opération :
+setdiff(names(c2), "var2")
+
+# Il ne reste plus qu'à utiliser cette structure dans `[`
+c2[, setdiff(names(c2), "var2")]
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
+    
+f. Sélectionnez les observations pour lesquelles `var3` est fausse ; les observations pour lesquelles `var1` est impaire ; les observations pour lesquelles `var2` vaut d, e ou f.
+    ```{r, results = "asis", echo = FALSE}
+.beginsol()
+    ```
+    ```{r}
+# La sélection des observations dans un data.frame est analogue
+# à celle qui s'opère dans une matrice. En particulier, on peut
+# avoir recours à un vecteur logique. 
+    
+# Ainsi, la première condition demandée (var3 fausse) est évaluée
+# par
+c2$var3 == FALSE
+# Le vecteur logique correspondant peut donc être utilisé dans
+# l'opérateur `[`
+c2[c2$var3 == FALSE, ]
+
+# Les autres cas ne sont que des variations sur cette structure
+c2[c2$var1 %% 2 == 1, ]
+c2[c2$var2 %in% c("d", "e", "f"), ]
+    ```
+    ```{r, results = "asis", echo = FALSE}
+.endsol()
+    ```
