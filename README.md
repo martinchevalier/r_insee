@@ -5,4 +5,4 @@ Ce dépôt contient les codes sources des supports des formations R initiation e
 - [r.slmc.fr](r.slmc.fr)
 - [t.slmc.fr/perf](t.slmc.fr/perf)
 
-L'ensemble des support sont sous &copy;\ 2017 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
+L'ensemble des support sont sous &copy; 2017 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
