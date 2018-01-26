@@ -2,7 +2,7 @@ setwd("/home/mc/Bureau/nc/cours/Insee R/perf")
 rm(list = ls(all.names = TRUE))
 
 # Presentation version beamer
-rmarkdown::render("presentation/presentation.Rmd", encoding = "latin1", clean = FALSE)
+rmarkdown::render("presentation/presentation.Rmd", encoding = "utf8", clean = FALSE)
 file.copy("presentation/presentation.pdf", "#output/presentation_beamer.pdf", overwrite = TRUE)
 
 # Presentation version handout
@@ -13,5 +13,5 @@ rmarkdown::render("presentation/presentation.utf8.md", output_file = "presentati
 file.copy("presentation/presentation.pdf", "#output/presentation_handout.pdf", overwrite = TRUE)
 
 # Support d'exercices
-rmarkdown::render("pratique/index.Rmd", encoding = "latin1")
+rmarkdown::render("pratique/index.Rmd", encoding = "utf8")
 file.copy("pratique/index.html", "#output/index.html", overwrite = TRUE)

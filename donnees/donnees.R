@@ -37,7 +37,7 @@ eec12t3$EXTRI1613 <- eec12t3$EXTRI1613 * 4
 # gc()
 
 
-# Données sur la maturation du raisin en Saône-et-Loire
+# DonnÃ©es sur la maturation du raisin en SaÃ´ne-et-Loire
 raisin <- read.csv("Insee R/donnees/INDEXLDAOenologie.csv", stringsAsFactors = FALSE)
 raisin$annee <- 2000L + as.integer(substr(raisin$date, nchar(raisin$date) - 1, nchar(raisin$date)))
 raisin <- raisin[raisin$annee != 2096, ]
@@ -46,14 +46,14 @@ str(raisin)
 
 
 
-# Création des fichiers d'export
+# CrÃ©ation des fichiers d'export
 setwd("Insee R/donnees/#output")
 
 save(bpe, rp, file = "exemples.RData")
 
 write.csv(bpe2, file = "bpe2/bpe2.csv", row.names = FALSE)
-write.dta(bpe2, file = "bpe2/bpe2.dta")
-write.dbf(bpe2, file = "bpe2/bpe2.dbf")
+# write.dta(bpe2, file = "bpe2/bpe2.dta")
+# write.dbf(bpe2, file = "bpe2/bpe2.dbf")
 
 write.dta(dep, file = "cog/dep.dta")
 

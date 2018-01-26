@@ -15,13 +15,14 @@ geometry: top=2.5cm, bottom=2.5cm, inner=3.5cm, outer=2.5cm
 
 ```{r, include = FALSE}
 rm(list = ls())
-if(!exists(".initOK")) source("../site/init.R", encoding = "latin1")
+if(!exists(".initOK")) source("../site/init.R", encoding = "utf8")
+.init()
 options(width = 65)
 ```
 
 \thispagestyle{empty}
 
-Ce document est la version imprimable du support de la formation R initiation des 8 et 9 juin 2017.
+Ce document est la version imprimable du support de la formation R initiation des 22 et 23 janvier 2018.
 
 \ 
 
@@ -29,12 +30,9 @@ Ce document est la version imprimable du support de la formation R initiation de
 
 \ 
 
-Les supports de cette formation ont été conçus sous RStudio avec [R Markdown](http://rmarkdown.rstudio.com/) et compilés le `r format(Sys.Date(), format="%d/%m/%Y")`. Certains éléments de mise en forme du site compagnon sont repris de l'ouvrage [R packages](http://r-pkgs.had.co.nz/) de Hadley Wickham. 
+Les supports de cette formation ont Ã©tÃ© conÃ§us sous RStudio avec [R Markdown](http://rmarkdown.rstudio.com/) et compilÃ©s le `r format(Sys.Date(), format="%d/%m/%Y")`. Certains Ã©lÃ©ments de mise en forme du site compagnon sont repris de l'ouvrage [R packages](http://r-pkgs.had.co.nz/) de Hadley Wickham. 
 
-Ces supports seront durablement disponibles à l'adresse [http://r.slmc.fr](http://r.slmc.fr) et sont sous \copyright \ 2017 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
-
-Un grand merci aux participants pour leurs nombreuses remarques et suggestions particulièrement constructives.
-
+Ces supports seront durablement disponibles Ã  l'adresse [http://   r.slmc.fr](http://r.slmc.fr/) et leur code source sur [github](https://github.com/martinchevalier/r_insee). L'ensemble est librement rÃ©utilisable sous &copy;\ 2016-2018 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
 
 <!-- Interaction minitoc tocloft : section en gras -->
 <!-- dans minitoc mais pas dans toc -->

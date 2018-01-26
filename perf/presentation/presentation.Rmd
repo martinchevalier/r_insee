@@ -15,11 +15,11 @@ knitr::opts_chunk$set(cache=TRUE)
 ### \ 
 
 \large 
-Apprendre à perfectionner son utilisation de R : acquérir des points de repères, des réflexes, des méthodes de travail.
+Apprendre Ã  perfectionner son utilisation de R : acquÃ©rir des points de repÃ¨res, des rÃ©flexes, des mÃ©thodes de travail.
 
 \bigskip \pause 
 
-Effectuer un panorama structuré et hiérarchisé de méthodes et outils largement utilisés. 
+Effectuer un panorama structurÃ© et hiÃ©rarchisÃ© de mÃ©thodes et outils largement utilisÃ©s. 
 
 \bigskip \pause 
 
@@ -29,21 +29,21 @@ Prendre du recul sur le logiciel, comprendre certains modes de fonctionnement co
 
 \large 
 
-1. Travailler sur des données dans R : 
+1. Travailler sur des donnÃ©es dans R : 
 
     - travailler efficacement (+++);
-    - optimiser les performances (++);
-    - programmer avec R (+);
-    - interroger des bases de données (++).
+    - amÃ©liorer les performances (+++);
+    - programmer avec R (++);
+    - interroger des bases de donnÃ©es (+).
     
-2. \pause Présenter des résultats avec R : 
+2. \pause PrÃ©senter des rÃ©sultats avec R : 
 
     - faire des graphiques avec base R et `ggplot2` (++);
     - faire du reporting (+).
 
 \normalsize \pause
 
-**Pédagogie** : équilibre entre présentations et cas pratiques.
+**PÃ©dagogie** : Ã©quilibre entre prÃ©sentations et cas pratiques.
 
 **Horaires (proposition !)** : 9h30-12h20, 13h40-16h30
 
@@ -51,15 +51,15 @@ Prendre du recul sur le logiciel, comprendre certains modes de fonctionnement co
 
 \large
 
-Mercredi 21 juin
+Lundi 15 janvier
 
-- Introduction + Travailler sur des données 1 (2h)
+- Introduction + Travailler sur des donnÃ©es 1 (2h)
 - Cas pratiques (2h)
 - Faire des graphiques avec `ggplot2` (2h)
 
-\pause Jeudi 22 juin
+\pause Mardi 16 janvier
 
-- Travailler sur des données 2 + R Markdown (2h)
+- Travailler sur des donnÃ©es 2 + R Markdown (2h)
 - Cas pratiques (au choix, 4h)
 
 

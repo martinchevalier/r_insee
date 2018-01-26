@@ -8,29 +8,29 @@ if(!exists(".initOK")) source("fonctions.R")
 knitr::opts_chunk$set(cache=TRUE)
 ```
 
-# Travailler\ efficacement\ sur\ des\ données\ avec\ R
+# Travailler\ efficacement\ sur\ des\ donnÃ©es\ avec\ R
 
-## Travailler\ efficacement\ sur\ des\ données\ avec\ R {.unnumbered}
+## Travailler\ efficacement\ sur\ des\ donnÃ©es\ avec\ R {.unnumbered}
 
 ### Qu'est-ce que travailler efficacement avec R ? 
 
-Appliqué au travail sur des données, l'efficacité peut avoir au moins deux significations distinctes : 
+AppliquÃ© au travail sur des donnÃ©es, l'efficacitÃ© peut avoir au moins deux significations distinctes : 
 
-- efficacité **algorithmique** : minimisation du temps passé par la machine pour réaliser une série d'opérations;
-- **productivité** du programmeur : minimisation du temps passé à coder une série d'opération. 
+- efficacitÃ© **algorithmique** : minimisation du temps passÃ© par la machine pour rÃ©aliser une sÃ©rie d'opÃ©rations;
+- **productivitÃ©** du programmeur : minimisation du temps passÃ© Ã  coder une sÃ©rie d'opÃ©ration. 
 
-\pause En règle générale, on peut avoir l'idée que plus on souhaite être efficace algorithmiquement, plus la programmation risque d'être longue et difficile. 
+\pause En rÃ¨gle gÃ©nÃ©rale, on peut avoir l'idÃ©e que plus on souhaite Ãªtre efficace algorithmiquement, plus la programmation risque d'Ãªtre longue et difficile. 
 
-\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de temps à (ré)inventer une méthode peu efficace quand une beaucoup plus simple et rapide existe déjà.
+\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de temps Ã  (rÃ©)inventer une mÃ©thode peu efficace quand une beaucoup plus simple et rapide existe dÃ©jÃ .
 
 \pause \small
 
-**Référence** \textsc{Gillepsie C., Lovelace R.}, \textit{Efficient R programming} (disponible sur [\underline{bookdown.org}](](https://bookdown.org/csgillepsie/efficientR)))
+**RÃ©fÃ©rence** \textsc{Gillepsie C., Lovelace R.}, \textit{Efficient R programming} (disponible sur [\underline{bookdown.org}](](https://bookdown.org/csgillepsie/efficientR)))
 
 
-### Mesure l'efficacité algorithmique
+### Mesure l'efficacitÃ© algorithmique
 
-La fonction `system.time()` permet de mesurer la durée d'un traitement. 
+La fonction `system.time()` permet de mesurer la durÃ©e d'un traitement. 
 
 \footnotesize
 ```{r}
@@ -38,7 +38,7 @@ system.time(rnorm(1e6))
 ```
 
 \pause \normalsize
-Néanmoins, elle est inadaptée aux traitements de très courte durée. Dans ces situations, privilégier la fonction `microbenchmark()` du package `microbenchmark`.
+NÃ©anmoins, elle est inadaptÃ©e aux traitements de trÃ¨s courte durÃ©e. Dans ces situations, privilÃ©gier la fonction `microbenchmark()` du package `microbenchmark`.
 
 \footnotesize
 ```{r}
@@ -46,9 +46,9 @@ library(microbenchmark)
 microbenchmark(times = 10, rnorm(1e6))
 ```
 
-### Mesurer la taille d'un objet en mémoire
+### Mesurer la taille d'un objet en mÃ©moire
 
-R stocke l'ensemble des fichiers sur lesquels il travaille dans la mémoire vive.
+R stocke l'ensemble des fichiers sur lesquels il travaille dans la mÃ©moire vive.
 
 Afin de loger les objets les plus gros mais aussi d'optimiser les performances, il est souvent utile de **limiter la taille des objets** sur lesquels portent les traitements.
 
@@ -61,14 +61,14 @@ object_size(rnorm(1e6))
 
 ### Construire un exemple reproductible (MWE)
 
-Lorsque l'on cherche à améliorer les performances d'un programme, il est important de pouvoir le tester sur des données **autonomes et reproductibles**. 
+Lorsque l'on cherche Ã  amÃ©liorer les performances d'un programme, il est important de pouvoir le tester sur des donnÃ©es **autonomes et reproductibles**. 
 
-\pause Pour ce faire, les **fonctions de générations de nombres aléatoires** de R sont particulièrement utiles. 
+\pause Pour ce faire, les **fonctions de gÃ©nÃ©rations de nombres alÃ©atoires** de R sont particuliÃ¨rement utiles. 
 
 \footnotesize
 ```{r}
-# Graine pour pouvoir reproduire l'aléa
-set.seed(2016)
+# Graine pour pouvoir reproduire l'alÃ©a
+set.seed(2018)
 
 # Vecteur de nombres de taille 1 000
 a <- rnorm(1000)
@@ -103,23 +103,23 @@ c <- matrix(runif(100000) > 0.99, ncol = 100)
 
 \pause \footnotesize
 ```{r}
-# ... même assigner une valeur
+# ... mÃªme assigner une valeur
 is.function(`<-`)
 `<-`(a, 10)
 
-# ... même afficher la valeur d'un objet
+# ... mÃªme afficher la valeur d'un objet
 a
 print(a)
 ```
 
-### Définir une fonction dans R
+### DÃ©finir une fonction dans R
 
-Utilisé avec `<-`, `function()` définit une nouvelle fonction :
+UtilisÃ© avec `<-`, `function()` dÃ©finit une nouvelle fonction :
 
 \pause \footnotesize
 
 ```{r}
-# Définition de la fonction monCalcul()
+# DÃ©finition de la fonction monCalcul()
 monCalcul <- function(a, b){
   resultat <- 10 * a + b
   return(resultat)
@@ -132,35 +132,35 @@ monCalcul
 monCalcul(2, 3)
 ```
 
-### Valeurs par défaut des paramètres
+### Valeurs par dÃ©faut des paramÃ¨tres
 
-Des valeurs par défaut peuvent être renseignées pour les paramètres. 
+Des valeurs par dÃ©faut peuvent Ãªtre renseignÃ©es pour les paramÃ¨tres. 
 
 ```{r}
 monCalcul <- function(a, b = 3) 10 * a + b
 monCalcul(8)
 ```
 
-\pause Les valeurs par défaut peuvent dépendre des autres paramètres.
+\pause Les valeurs par dÃ©faut peuvent dÃ©pendre des autres paramÃ¨tres.
 
 ```{r}
 monCalcul <- function(a, b = a * 2) 10 * a + b
 monCalcul(2)
 ```
 
-\pause \textbf{Remarque} Ceci est la conséquence de la *lazy evaluation* des arguments dans R (*cf.* [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Functions.html#function-arguments)).
+\pause \textbf{Remarque} Ceci est la consÃ©quence de la *lazy evaluation* des arguments dans R (*cf.* [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Functions.html#function-arguments)).
 
-### Contrôle de la valeur des paramètres
+### ContrÃ´le de la valeur des paramÃ¨tres
 
-Des structures conditionnelles `if()` permettent de contrôler la valeur des arguments. 
+Des structures conditionnelles `if()` permettent de contrÃ´ler la valeur des arguments. 
 
 \pause \footnotesize
 ```{r, error=TRUE, warning=TRUE}
 monCalcul <- function(a = NULL, b = NULL){
-  if(is.null(a)) stop("a n'est pas renseigné.")
+  if(is.null(a)) stop("a n'est pas renseignÃ©.")
   if(is.null(b)){
     b <- a * 2
-    warning("b n'est pas renseigné.")
+    warning("b n'est pas renseignÃ©.")
   }
   return(10 * a + b)
 }
@@ -169,20 +169,20 @@ monCalcul(b = 3)
 monCalcul(a = 1)
 ```
 
-### \large Portée des variables et environnements (1)
+### \large PortÃ©e des variables et environnements (1)
 
-Dans R **chaque objet est repéré par son nom et son environnement** : cela permet d'éviter les conflits de noms.
+Dans R **chaque objet est repÃ©rÃ© par son nom et son environnement** : cela permet d'Ã©viter les conflits de noms.
 
 \pause \footnotesize
 ```{r}
-# Création d'une fonction sum() un peu absurde
+# CrÃ©ation d'une fonction sum() un peu absurde
 sum <- function(...) "Ma super somme !"
 sum(2, 3)
 
-# Cette fonction est rattachée à l'environnement global
+# Cette fonction est rattachÃ©e Ã  l'environnement global
 ls()
 
-# Mais on peut toujours accéder à la fonction 
+# Mais on peut toujours accÃ©der Ã  la fonction 
 # de base en utilisant ::
 base::sum(2, 3)
 ```
@@ -191,10 +191,10 @@ base::sum(2, 3)
 rm(sum)
 ```
 
-### \large Portée des variables et environnements (2)
+### \large PortÃ©e des variables et environnements (2)
 
 \small
-À chaque appel d'une fonction, un **environnement d'exécution** éphémère est créé.
+Ã€ chaque appel d'une fonction, un **environnement d'exÃ©cution** est crÃ©Ã©.
 
 \footnotesize
 ```{r}
@@ -204,7 +204,7 @@ maFun()
 ```
 
 \pause \small
-En conséquence, les instructions exécutées à l'intérieur d'une fonction **ne modifient pas l'environnement global**.
+En consÃ©quence, les instructions exÃ©cutÃ©es Ã  l'intÃ©rieur d'une fonction **ne modifient pas l'environnement global**.
 
 \footnotesize
 ```{r}
@@ -216,9 +216,9 @@ maFonction3()
 a
 ```
 
-### \large Portée des variables et environnements (3)
+### \large PortÃ©e des variables et environnements (3)
 
-En revanche, les objets définis dans l'environnement global sont accessibles au sein d'une fonction. 
+En revanche, les objets dÃ©finis dans l'environnement global sont accessibles au sein d'une fonction. 
 
 \footnotesize
 ```{r}
@@ -230,14 +230,14 @@ maFonction4()
 ```
 
 \pause \normalsize
-Ceci est dû au fait que les environnements dans lequel R recherche des objets sont **emboîtés les uns dans les autres** (\textit{cf.} la fonction `search()`).
+Ceci est dÃ» au fait que les environnements dans lequel R recherche des objets sont **emboÃ®tÃ©s les uns dans les autres** (\textit{cf.} la fonction `search()`).
 
 **Pour en savoir plus** [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Environments.html#function-envs), [\underline{obeautifulcode.com}](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/)
 
 
 ### Valeur de retour d'une fonction
 
-La fonction `return()` spécifie la valeur à renvoyer. Pour renvoyer plusieurs valeurs, utiliser une liste.
+La fonction `return()` spÃ©cifie la valeur Ã  renvoyer. Pour renvoyer plusieurs valeurs, utiliser une liste.
 
 \pause \footnotesize
 ```{r}
@@ -254,31 +254,31 @@ maFonction2()
 
 ### \large Effets de bord et programmation fonctionnelle
 
-Par défaut, les fonctions dans R : 
+Par dÃ©faut, les fonctions dans R : 
 
 - ne modifient pas l'environnement d'origine (il n'y a **pas d'effets de bord**);
-- peuvent être utilisées en lieu et place des valeurs qu'elles retournent.
+- peuvent Ãªtre utilisÃ©es en lieu et place des valeurs qu'elles retournent.
 ```{r}
 monCalcul <-  function(a, b) 10 * a + b
 monCalcul(2, 3) + 5
 ```
 
-\pause Ces éléments font de R un **langage particulièrement adapté à la programmation fonctionnelle**. 
+\pause Ces Ã©lÃ©ments font de R un **langage particuliÃ¨rement adaptÃ© Ã  la programmation fonctionnelle**. 
 
 
 ### Quelques principes de la programmation fonctionnelle
 
 \vfill
 
-1. **Ne jamais créer d'effets de bord** Toute modification apportée à l'environnement par une fonction passe par sa valeur de sortie. 
+1. **Ne jamais crÃ©er d'effets de bord** Toute modification apportÃ©e Ã  l'environnement par une fonction passe par sa valeur de sortie. 
 
 \vfill
 
-2. \pause \textbf{Vectoriser \textit{i.e.} appliquer des fonctions systématiquement à un ensemble d'éléments} Fonctions `*apply()`, `Reduce()`, `do.call()`. 
+2. \pause \textbf{Vectoriser \textit{i.e.} appliquer des fonctions systÃ©matiquement Ã  un ensemble d'Ã©lÃ©ments} Fonctions `*apply()`, `Reduce()`, `do.call()`. 
 
 \vfill
 
-3. \pause \textbf{Structurer les traitements à l'aide de fonctions courtes et explicites} Faciliter la relecture, la maintenance et la modularisation. 
+3. \pause \textbf{Structurer les traitements Ã  l'aide de fonctions courtes et explicites} Faciliter la relecture, la maintenance et la modularisation. 
 
 \vfill
 
@@ -288,13 +288,13 @@ monCalcul(2, 3) + 5
 
 ## Vectoriser : `*apply()`, `Reduce()` et `do.call()`
 
-### \large Appliquer sur chaque indépendamment : `apply()`
+### \large Appliquer sur chaque indÃ©pendamment : `apply()`
 
-La fonction `apply(X, MARGIN, FUN)` applique la fonction `FUN` à la matrice `X` selon la dimension `MARGIN`.
+La fonction `apply(X, MARGIN, FUN)` applique la fonction `FUN` Ã  la **matrice** `X` selon la dimension `MARGIN`.
 
 \pause \footnotesize
 ```{r}
-# Définition et affichage de la matrice m
+# DÃ©finition et affichage de la matrice m
 m <- matrix(1:6, ncol = 3)
 m
 
@@ -306,10 +306,10 @@ apply(m, 2, sum)
 ```
 
 
-### \large Appliquer sur chaque indépendamment : `lapply()`
+### \large Appliquer sur chaque indÃ©pendamment : `lapply()`
 
 \small
-La fonction `lapply(X, FUN)` applique la fonction `FUN` à l'objet `X` (vecteur ou liste).
+La fonction `lapply(X, FUN)` applique la fonction `FUN` au **vecteur** ou Ã  la **liste** `X`.
 
 \pause \footnotesize
 ```{r}
@@ -320,17 +320,17 @@ lapply(l, sum)
 
 \pause \small \vspace{-0.2cm}
 
-**Exemple d'utilisation** Appliquer une fonction à toutes les variables d'une table.
+**Exemple d'utilisation** Appliquer une fonction Ã  toutes les variables d'une table.
 
-### \large Appliquer sur chaque indépendamment : `sapply()`
+### \large Appliquer sur chaque indÃ©pendamment : `sapply()`
 
-La fonction `sapply()` est analogue à la fonction `lapply()`, mais simplifie le résultat produit quand c'est possible.
+La fonction `sapply()` est analogue Ã  la fonction `lapply()`, mais simplifie le rÃ©sultat produit quand c'est possible.
 
 ```{r}
 sapply(l, sum)
 ```
 
-\pause Les arguments optionnels de la fonction utilisée peuvent être ajoutés à la suite dans toutes les fonctions `*apply()`. 
+\pause Les arguments optionnels de la fonction utilisÃ©e peuvent Ãªtre ajoutÃ©s Ã  la suite dans toutes les fonctions `*apply()`. 
 
 ```{r}
 sapply(l, sum, na.rm = TRUE)
@@ -338,103 +338,106 @@ sapply(l, sum, na.rm = TRUE)
 
 \pause \textbf{Exemple d'utilisation} Calcul de statistiques sur toutes les variables d'une table.
 
-### \large Définir une fonction à la volée dans `*apply()`
+### \large DÃ©finir une fonction Ã  la volÃ©e dans `*apply()`
 
-Il est fréquent que l'opération que l'on souhaite appliquer ne corresponde pas exactement à une fonction pré-existante. 
+Il est frÃ©quent que l'opÃ©ration que l'on souhaite appliquer ne corresponde pas exactement Ã  une fonction prÃ©-existante. 
 
-\pause Dans ce cas, on peut définir une **fonction à la volée** dans la fonction `*apply()`. 
+\pause Dans ce cas, on peut dÃ©finir une **fonction Ã  la volÃ©e** dans la fonction `*apply()`. 
 
 \footnotesize
 ```{r}
-# On souhaite sélectionner le second élément de 
+# On souhaite sÃ©lectionner le second Ã©lÃ©ment de 
 # de chaque vecteur de la liste l
 l
 
-# On définit une fonction dans sapply()
+# On dÃ©finit une fonction dans sapply()
 sapply(l, function(x) x[2])
 ```
 
-### \large Appliquer sur chaque indépendamment : `tapply()`
+### \large Appliquer sur chaque par groupe : `tapply()`
 
-La fonction `tapply(X, INDEX, FUN)` applique la fonction `FUN`, à l'objet `X` ventilé selon les modalités de `INDEX`. 
+La fonction `tapply(X, INDEX, FUN)` applique la fonction `FUN`, Ã  l'objet `X` ventilÃ© selon les modalitÃ©s de `INDEX`. 
 
-\pause 
+\footnotesize \pause
 ```{r}
-# Variables d'âge et de sexe
+# Variables d'Ã¢ge et de sexe
 age <- c(45, 50, 35, 20)
 sexe <- c("H", "F", "F", "H")
 
-# Âge moyen par sexe
+# Ã‚ge moyen par sexe
 tapply(age, sexe, mean)
+
+# MÃªme rÃ©sultat avec une combinaison de sapply() et de split()
+sapply(split(age, sexe), mean)
 ```
 
-\normalsize \pause
+\normalsize \pause \vspace{-0.2cm}
 
-**Exemple d'utilisation** Calcul de statistiques agrégées par catégories.
+**Exemple d'utilisation** Calcul de statistiques agrÃ©gÃ©es par catÃ©gories.
 
 ### \large Appliquer sur tous : `do.call()`
 
-La fonction `do.call(what, args)` permet d'appliquer la fonction `what()` à un **ensemble** d'arguments `args` spécifié comme une liste (alors que les fonctions `*apply()` appliqueraient `what()` à **chaque** élément de `args`).
+La fonction `do.call(what, args)` permet d'appliquer la fonction `what()` Ã  un **ensemble** d'arguments `args` spÃ©cifiÃ© comme une liste (alors que les fonctions `*apply()` appliqueraient `what()` Ã  **chaque** Ã©lÃ©ment de `args`).
 
 \pause \small
 ```{r}
-# Concaténation des vecteurs de l
+# ConcatÃ©nation des vecteurs de l
 do.call(base::c, l)
 
-# Equivalent à 
-c(l[[1]], l[[2]])
+# Equivalent Ã  
+base::c(l[[1]], l[[2]])
 ```
 
 \pause \normalsize
 
-**Exemple d'utilisation** Concaténer de nombreuses tables avec `rbind()` ou `cbind()`.
+**Exemple d'utilisation** ConcatÃ©ner de nombreuses tables avec `rbind()` ou `cbind()`.
 
 ### \large Appliquer sur tous successivement : `Reduce()`
 
-La fonction `Reduce(f, x)` permet d'appliquer la fonction `f()` **successivement** à l'ensemble des éléments  de `x` (alors que `do.call()` appliquerait `f` **simultanément**).
+La fonction `Reduce(f, x)` permet d'appliquer la fonction `f()` **successivement** Ã  l'ensemble des Ã©lÃ©ments  de `x` (alors que `do.call()` applique `f` **simultanÃ©ment**).
 
 \pause \small
 ```{r}
 # Application successive de la division au vecteur 1:4
 Reduce(`/`, 1:4)
 
-# Equivalent à 
+# Equivalent Ã  
 ((1/2)/3)/4
 ```
 
 \pause \normalsize
 
-**Exemple d'utilisation** Fusionner de nombreuses tables avec `merge()` (sur les mêmes identifiants).
+**Exemple d'utilisation** Fusionner de nombreuses tables avec `merge()` (sur les mÃªmes identifiants).
 
 
 ## Coder efficacement en base R
 
-### L'idée : En faire faire le moins possible à R
+### L'idÃ©e : En faire faire le moins possible Ã  R
 
-R est un langage dit \og de haut niveau \fg{} : les objets qui le composent sont relativement faciles d'utilisation, au prix de performances limitées. 
-
-\vfill
-
-À l'inverse, des langages dits de \og bas niveau \fg{} (par exemple C++) sont plus difficiles à utiliser mais aussi plus efficaces. 
+R est un langage dit \og de haut niveau \fg{} : les objets qui le composent sont relativement faciles d'utilisation, au prix de performances limitÃ©es. 
 
 \vfill
 
-\pause La plupart des fonctions fondamentales de R font appel à des fonctions compilées à partir d'un langage de plus bas niveau. 
+Ã€ l'inverse, des langages dits de \og bas niveau \fg{} (par exemple C++) sont plus difficiles Ã  utiliser mais aussi plus efficaces. 
 
 \vfill
 
-D'où le principe : **limiter au maximum la surcharge liée à R** pour retomber au plus vite sur des fonctions pré-compilées.
+\pause La plupart des fonctions fondamentales de R font appel Ã  des fonctions compilÃ©es Ã  partir d'un langage de plus bas niveau. 
+
+\vfill
+
+D'oÃ¹ le principe : **limiter au maximum la surcharge liÃ©e Ã  R** pour retomber au plus vite sur des fonctions prÃ©-compilÃ©es.
 
 \pause \vfill
 
-**Remarque** Il est très facile en pratique d'utiliser R comme une interface vers des langages de plus bas niveau, *cf. infra* à propos de `Rcpp`. 
+**Remarque** Il est trÃ¨s facile en pratique d'utiliser R comme une interface vers des langages de plus bas niveau, *cf. infra* Ã  propos de `Rcpp`. 
 
 
 
 
 ### Utiliser les boucles avec parcimonie (1)
 
-Comme la plupart des langages de programmation, R dispose de **structures de contrôles** permettant de réaliser des boucles. 
+Comme la plupart des langages de programmation, R dispose de **structures de contrÃ´les** permettant de rÃ©aliser des boucles. 
 
 \footnotesize
 ```{r}
@@ -448,103 +451,134 @@ boucle(1:5)
 ```
 
 \pause \normalsize
-Ces opérations présentent plusieurs inconvénients : 
+Ces opÃ©rations prÃ©sentent plusieurs inconvÃ©nients : 
 
-1. Elles sont longues à écrire et assez peu claires;
+1. Elles sont longues Ã  Ã©crire et assez peu claires;
 2. Elles reposent sur des effets de bord;
-3. Elles sont en général très peu **efficaces algorithmiquement**.
+3. Elles sont en gÃ©nÃ©ral trÃ¨s peu **efficaces algorithmiquement**.
 
 ### Utiliser les boucles avec parcimonie (2)
 
 \small
-Les méthodes de vectorisation sont en général beaucoup plus efficaces que les boucles en R : 
+Les mÃ©thodes de vectorisation sont en gÃ©nÃ©ral beaucoup plus efficaces que les boucles en R : 
 
 - vectorisation de haut niveau (*cf.* *supra*);
-- vectorisation de bas niveau : la vectorisation est opérée par le langage de bas niveau auquel fait appel R. 
+- vectorisation de bas niveau : la vectorisation est opÃ©rÃ©e par le langage de bas niveau auquel fait appel R. 
 
 \pause \footnotesize
 ```{r}
-microbenchmark(times = 10L
-  , boucle = boucle(1:10000)
-  , Reduce = Reduce(`+`, 1:10000, accumulate = TRUE)
-  , cumsum = cumsum(1:10000)
-)
+summary(microbenchmark(times = 10L
+  , boucle = boucle(1:1e4)
+  , Reduce = Reduce(`+`, 1:1e4, accumulate = TRUE)
+  , cumsum = cumsum(1:1e4)
+))[, 1:4]
 ```
 
-### Utiliser l'opérateur `[` au lieu de `ifelse()`
+### Tirer le meilleur parti de la compilation (1)
+
+On distingue souvent deux familles de langages informatiques : 
+
+- \pause \vspace{-0.2cm} les langages **compilÃ©s** (C, C++) : l'ensemble du code est transformÃ© en langage machine par un *compilateur* puis soumis par le systÃ¨me d'exploitation;
+- \pause les langages **interprÃ©tÃ©s** (R, Python) : les instructions du code sont soumises les unes aprÃ¨s les autres par un *interprÃ©teur*, ce qui est moins efficace (*cf.* boucles en R). 
+
+\vspace{0.1cm} \pause La fonction `compiler::cmpfun()` permet nÃ©anmoins de **compiler** des fonctions R avant utilisation.
+
+\pause \footnotesize \vspace{-0.2cm}
+```{r}
+# Compilation de la fonction boucle()
+boucle_compil <- compiler::cmpfun(boucle)
+microbenchmark(boucle(1:1e4), boucle_compil(1:1e4))
+```
+
+### Tirer le meilleur parti de la compilation (2)
+
+Une autre fonctionnalitÃ© du *package* `compiler` est la compilation \og juste-Ã -temps \fg{} (ou \textit{just-in-time}, JIT): le code n'est plus interprÃ©tÃ© mais **compilÃ© au fur et Ã  mesure**.
+
+\bigskip \pause Dans R, on active le mode JIT pour une session grÃ¢ce Ã  la fonction `compiler::enableJIT()` en spÃ©cifiant le [\underline{niveau de compilation JIT}](https://stat.ethz.ch/R-manual/R-devel/library/compiler/html/compile.html) (de 0 Ã  3).
+
+\pause \footnotesize
+```{r}
+# Passage au niveau maximal de compilation JIT
+compiler::enableJIT(3)
+summary(microbenchmark(boucle(1:1e4), boucle_compil(1:1e4)))[, 1:4]
+```
+
+\pause \small \textbf{Remarque} Depuis R 3.4.0, `enableJIT()` vaut 3 par dÃ©faut. 
+
+### Utiliser l'opÃ©rateur `[` au lieu de `ifelse()`
 
 \small
-Lorsqu'on crée une variable en faisant intervenir une condition, il est fréquent d'utiliser la fonction `ifelse()` : 
+Lorsqu'on crÃ©e une variable en faisant intervenir une condition, il est frÃ©quent d'utiliser la fonction `ifelse()` : 
 
 \footnotesize
 ```{r}
 notes <- runif(n = 100000, min = 0, max = 20)
-mavar <- ifelse(notes >= 10, "Reçu", "Recalé")
+mavar <- ifelse(notes >= 10, "ReÃ§u", "RecalÃ©")
 ```
 
 \pause \small
-Il est néanmoins beaucoup plus efficace d'utiliser l'opérateur `[`. 
+Il est nÃ©anmoins beaucoup plus efficace d'utiliser l'opÃ©rateur `[`. 
 
 \footnotesize
 ```{r}
 microbenchmark(times = 10L
-  , ifelse = ifelse(notes >= 10, "Reçu", "Recalé")
+  , ifelse = ifelse(notes >= 10, "ReÃ§u", "RecalÃ©")
   , "[" = {
-    mavar <- rep("Recalé", length(notes))
-    mavar[notes >= 10] <- "Reçu"
+    mavar <- rep("RecalÃ©", length(notes))
+    mavar[notes >= 10] <- "ReÃ§u"
   } 
 )
 ```
 
-### Simplifier les données :  le type `factor`
+### Simplifier les donnÃ©es :  le type `factor`
 
-On utilise souvent des chaînes de caractère pour coder une variable de nature catégorielle.
+On utilise souvent des chaÃ®nes de caractÃ¨re pour coder une variable de nature catÃ©gorielle.
 
-Le type `factor` permet de remplacer chaque valeur distincte par un entier en sauvegardant la table de correspondance. Il est **beaucoup plus léger**.
+Le type `factor` permet de remplacer chaque valeur distincte par un entier en sauvegardant la table de correspondance. Il est **beaucoup plus lÃ©ger**.
 
 \pause \footnotesize
 
 ```{r}
-# Variable à trois modalités codées en caractères
-acteu <- as.character(sample(1:3, 120000, replace = TRUE))
-object_size(acteu)
+# Variable Ã  deux modalitÃ©s codÃ©es en caractÃ¨res
+sexe <- sample(c("H", "F"), 120000, replace = TRUE)
+object_size(sexe)
 
 # Conversion en facteur
-f.acteu <- as.factor(acteu)
-str(f.acteu)
-object_size(f.acteu)
+f.sexe <- factor(sexe)
+str(f.sexe)
+object_size(f.sexe)
 ```
 
-### Utiliser les noms à bon escient (1)
+### Utiliser les noms Ã  bon escient (1)
 
-La plupart des objets manipulés couramment dans R peuvent être **nommés** : vecteurs, matrices, listes, `data.frame`. 
+La plupart des objets manipulÃ©s couramment dans R peuvent Ãªtre **nommÃ©s** : vecteurs, matrices, listes, `data.frame`. 
 
-Utiliser des noms est une méthode souvent **très rapide** pour **accéder aux éléments** qui composent ces objets.
+Utiliser des noms est une mÃ©thode souvent **trÃ¨s rapide** pour **accÃ©der aux Ã©lÃ©ments** qui composent ces objets.
 
 \ 
 
 \pause 
 
-**Exemple** On cherche à extraire les observations d'une table *via* leur identifiant `id`. On compare l'utilisation des noms à une fusion réalisée avec `merge()`.
+**Exemple** On cherche Ã  extraire les observations d'une table *via* leur identifiant `id`. On compare l'utilisation des noms Ã  une fusion rÃ©alisÃ©e avec `merge()`.
 
 \small 
 
 ```{r}
-# Création de la table df
+# CrÃ©ation de la table df
 id <- as.character(sample(1e5))
 sexe <- sample(1:2, 1e5, replace = TRUE)
 df <- data.frame(id, sexe)
 ```
 
-### Utiliser les noms à bon escient (2)
+### Utiliser les noms Ã  bon escient (2)
 
 \footnotesize
 
 ```{r}
-# Affectation de noms à df 
+# Affectation de noms Ã  df 
 row.names(df) <- id
 
-# Liste des identifiants à extraire
+# Liste des identifiants Ã  extraire
 extract <- c("234", "12", "7890")
 
 # Comparaison
@@ -555,28 +589,28 @@ microbenchmark(times = 10L
 ```
 
 
-### À propos des matrices (1)
+### Ã€ propos des matrices (1)
 
-Quand c'est possible, **travailler sur des matrices** (plutôt que des `data.frame`) est souvent source d'efficacité : 
+Quand c'est possible, **travailler sur des matrices** (plutÃ´t que des `data.frame`) est souvent source d'efficacitÃ© : 
 
 \vfill
 
-- \pause de nombreuses opérations sont **vectorisées** pour les matrices : sommes en lignes et en colonnes (`rowSums()` et `colSums()`), etc. ;
+- \pause de nombreuses opÃ©rations sont **vectorisÃ©es** pour les matrices : sommes en lignes et en colonnes (`rowSums()` et `colSums()`), etc. ;
 
 \vfill 
 
-- \pause l'**algèbre matricielle** (le produit matriciel notamment) est très bien optimisée ;
+- \pause l'**algÃ¨bre matricielle** (le produit matriciel notamment) est trÃ¨s bien optimisÃ©e ;
 
 \vfill
 
-- \pause selon la nature du problème, l'utilisation de **matrices lacunaires** (*sparse*) peut faire gagner et en empreinte mémoire et en temps de calcul (*cf.* le *package* `Matrix`).
+- \pause selon la nature du problÃ¨me, l'utilisation de **matrices lacunaires** (*sparse*) peut faire gagner et en empreinte mÃ©moire et en temps de calcul (*cf.* le *package* `Matrix`).
 
-### À propos des matrices (2)
+### Ã€ propos des matrices (2)
 
 \footnotesize 
 
 ```{r}
-# Création d'une matrice m avec 99 % de 0
+# CrÃ©ation d'une matrice m avec 99 % de 0
 v <- rep(0, 1e6); v[sample(1e6, 1e4)] <- rnorm(1e4)
 m <- matrix(v, ncol = 100)
 
@@ -591,15 +625,15 @@ c(object_size(m), object_size(M))
 microbenchmark(dense = colSums(m), sparse = colSums(M))
 ```
 
-## dplyr : une grammaire du traitement des données
+## dplyr : une grammaire du traitement des donnÃ©es
 
 ### Philosophie de `dplyr`
 
-`dplyr` est un *package* développé par RStudio et en particulier par Hadley Wickham. Il constitue un véritable **écosystème** visant à faciliter le travail sur des tables statistiques :
+`dplyr` est un *package* dÃ©veloppÃ© par RStudio et en particulier par Hadley Wickham. Il constitue un vÃ©ritable **Ã©cosystÃ¨me** visant Ã  faciliter le travail sur des tables statistiques :
 
-- \pause il fournit un ensemble de **fonctions élémentaires** (les \og verbes \fg{}) pour effectuer les manipulations de données;
-- \pause plusieurs verbes peuvent facilement être **combinés en utilisant l'opérateur `%>%`** (*pipe*);
-- \pause toutes les opérations sont optimisées par du **code de bas niveau**. 
+- \pause il fournit un ensemble de **fonctions Ã©lÃ©mentaires** (les \og verbes \fg{}) pour effectuer les manipulations de donnÃ©es;
+- \pause plusieurs verbes peuvent facilement Ãªtre **combinÃ©s en utilisant l'opÃ©rateur `%>%`** (*pipe*);
+- \pause toutes les opÃ©rations sont optimisÃ©es par du **code de bas niveau**. 
 
 ```{r, eval = FALSE}
 library(dplyr)
@@ -607,17 +641,17 @@ library(dplyr)
 
 \pause
 
-**Pour en savoir plus** De nombreuses vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=dplyr). Un [\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf) est également disponible sur le site de RStudio.
+**Pour en savoir plus** De nombreuses vignettes trÃ¨s pÃ©dagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=dplyr). Un [\underline{aide-mÃ©moire}](https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf) est Ã©galement disponible sur le site de RStudio.
 
-### \large Données d'exemple : table `flights` de `nycflights13`
+### \large DonnÃ©es d'exemple : table `flights` de `nycflights13`
 
-Les exemples relatifs aux *packages* `dplyr` et `data.table` s'appuient sur les données du *package* `nycflights13`.
+Les exemples relatifs aux *packages* `dplyr` et `data.table` s'appuient sur les donnÃ©es du *package* `nycflights13`.
 
 ```{r, eval = FALSE}
 library(nycflights13)
 ```
 
-\pause Ce *package* contient des données sur tous les vols au départ de la ville de New-York en 2013. 
+\pause Ce *package* contient des donnÃ©es sur tous les vols au dÃ©part de la ville de New-York en 2013. 
 
 \small
 
@@ -627,12 +661,12 @@ dim(flights)
 names(flights)[1:9]
 ```
 
-### Simplifier des opérations de base R
+### Simplifier des opÃ©rations de base R
 
-`dplyr` propose plusieurs verbes pour simplifier certaines opérations parfois fastidieuses en base R : 
+`dplyr` propose plusieurs verbes pour simplifier certaines opÃ©rations parfois fastidieuses en base R : 
 
 \pause \vspace{-1mm}
-- `filter()` sélectionne des observations selon une ou plusieurs conditions;
+- `filter()` sÃ©lectionne des observations selon une ou plusieurs conditions;
 
 \vspace{-3mm}
 ```{r, eval= FALSE}
@@ -648,7 +682,7 @@ arrange(flights, month, desc(distance))
 ```
 
 \pause \vspace{-3mm}
-- `select()` sélectionne des variables par leur noms;
+- `select()` sÃ©lectionne des variables par leur noms;
 
 \vspace{-3mm}
 ```{r, eval= FALSE}
@@ -665,7 +699,7 @@ rename(flights, annee = year)
 
 ### Calculer des statistiques avec `summarise()`
 
-La fonction `summarise()` permet de facilement calculer des statistiques sur des données. 
+La fonction `summarise()` permet de facilement calculer des statistiques sur des donnÃ©es. 
 
 \pause 
 ```{r, eval = FALSE}
@@ -684,12 +718,12 @@ print.data.frame(summarise(flights
 
 \pause 
 
-**Remarque** Comme toutes les fonctions de `dplyr`, `summarise()` prend un `data.frame` en entrée et produit un `data.frame` en sortie. 
+**Remarque** Comme toutes les fonctions de `dplyr`, `summarise()` prend un `data.frame` en entrÃ©e et produit un `data.frame` en sortie. 
 
 
 ### Ventiler des traitements avec `group_by()`
 
-Appliqué au préalable à un `data.frame`, `group_by()` ventile tous les traitements ultérieurs selon les modalités d'une ou plusieurs variables.
+AppliquÃ© au prÃ©alable Ã  un `data.frame`, `group_by()` ventile tous les traitements ultÃ©rieurs selon les modalitÃ©s d'une ou plusieurs variables.
 
 ```{r, eval = FALSE}
 flights_bymonth <- group_by(flights, month)
@@ -708,13 +742,13 @@ print.data.frame(summarise(flights_bymonth
 ```
 
 
-### Enchaîner des opérations avec `%>%`
+### EnchaÃ®ner des opÃ©rations avec `%>%`
 
-L'utilisation des verbes de `dplyr` ne prend tout son intérêt que quand ils sont enchaînés en utilisant l'opérateur *pipe* `%>%`. 
+L'utilisation des verbes de `dplyr` ne prend tout son intÃ©rÃªt que quand ils sont enchaÃ®nÃ©s en utilisant l'opÃ©rateur *pipe* `%>%`. 
 
-`maTable %>% maFonction(param1, param2)` est équivalent à `maFonction(maTable, param1, param2)`. 
+`maTable %>% maFonction(param1, param2)` est Ã©quivalent Ã  `maFonction(maTable, param1, param2)`. 
 
-\pause Ainsi, l'**enchaînement de nombreuses opérations** devient beaucoup plus facile à mettre en \oe uvre et à comprendre. 
+\pause Ainsi, l'**enchaÃ®nement de nombreuses opÃ©rations** devient beaucoup plus facile Ã  mettre en \oe uvre et Ã  comprendre. 
 
 \pause \footnotesize
 
@@ -722,27 +756,27 @@ L'utilisation des verbes de `dplyr` ne prend tout son intérêt que quand ils sont
 flights %>%
   group_by(year, month, day) %>%
   summarise(
-    arr = mean(arr_delay, na.rm = TRUE),
-    dep = mean(dep_delay, na.rm = TRUE)
+    retard_arrivee = mean(arr_delay, na.rm = TRUE),
+    retard_depart = mean(dep_delay, na.rm = TRUE)
   ) %>%
-  filter(arr > 30 | dep > 30)
+  filter(retard_arrivee > 30 | retard_depart > 30)
 ```
 
 
 ### Fusionner des tables avec `*_join()`
 
-`dplyr` dispose de nombreuses fonctions très utiles pour fusionner une ou plusieurs tables ensemble, qui **s'inspirent très fortement de SQL** : 
+`dplyr` dispose de nombreuses fonctions trÃ¨s utiles pour fusionner une ou plusieurs tables ensemble, qui **s'inspirent trÃ¨s fortement de SQL** : 
 
 - `a %>% left_join(b, by = "id")` : fusionne `a` et `b` en conservant toutes les observations de `a`;
 - `a %>% right_join(b, by = "id")` : fusionne `a` et `b` en conservant toutes les observations de `b`;
 - `a %>% inner_join(b, by = "id")` : fusionne `a` et `b` en ne conservant que les observations dans `a` et `b`;
 - `a %>% full_join(b, by = "id")` : fusionne `a` et `b` en conservant toutes les observations.
 
-**Pour en savoir plus** Une [\underline{vignette}](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html) est consacrée à la présentation des fonctions de `dplyr` portant sur deux tables.
+**Pour en savoir plus** Une [\underline{vignette}](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html) est consacrÃ©e Ã  la prÃ©sentation des fonctions de `dplyr` portant sur deux tables.
 
 ### Comparaison de base R et de `dplyr`
 
-`dplyr` est particulièrement intéressant pour travailler sur des données par groupe. On compare donc l'utilisation de `tapply()` de base R avec `group_by()` de `dplyr`.
+`dplyr` est particuliÃ¨rement intÃ©ressant pour travailler sur des donnÃ©es par groupe. On compare donc l'utilisation de `tapply()` de base R avec `group_by()` de `dplyr`.
 
 \footnotesize
 
@@ -758,7 +792,7 @@ microbenchmark(times = 10L
 )
 ```
 
-<!-- ## Une petite parenthèse {.unnumbered} -->
+<!-- ## Une petite parenthÃ¨se {.unnumbered} -->
 
 <!-- ### Utliser SQL dans R avec `sqldf` -->
 
@@ -784,9 +818,9 @@ microbenchmark(times = 10L
 
 <!-- \vspace{-3mm} -->
 
-<!-- Ce *package* permet ainsi de bénéficier de toute la souplesse de SQL dans R, notamment pour les fusions de tables.  -->
+<!-- Ce *package* permet ainsi de bÃ©nÃ©ficier de toute la souplesse de SQL dans R, notamment pour les fusions de tables.  -->
 
-<!-- Ses performances sont cependant en général **en retrait** par rapport aux solutions alternatives. -->
+<!-- Ses performances sont cependant en gÃ©nÃ©ral **en retrait** par rapport aux solutions alternatives. -->
 
 <!-- \footnotesize -->
 
@@ -798,26 +832,26 @@ microbenchmark(times = 10L
 <!-- ) -->
 <!-- ``` -->
 
-## data.table : un data.frame optimisé
+## data.table : un data.frame optimisÃ©
 
 ### Philosophie de `data.table`
 
-Contrairement à `dplyr`, `data.table` ne cherche pas à se substituer à base R mais à le compléter. 
+Contrairement Ã  `dplyr`, `data.table` ne cherche pas Ã  se substituer Ã  base R mais Ã  le complÃ©ter. 
 
-Il introduit un nouveau type d'objet, le `data.table`, qui **hérite** du `data.frame` (tout `data.table` est un `data.frame`).
+Il introduit un nouveau type d'objet, le `data.table`, qui **hÃ©rite** du `data.frame` (tout `data.table` est un `data.frame`).
 
-Appliqué à un `data.table`, l'opérateur `[` est **enrichi et optimisé**.
+AppliquÃ© Ã  un `data.table`, l'opÃ©rateur `[` est **enrichi et optimisÃ©**.
 
 ```{r}
 library(data.table)
 flights_DT <- data.table(flights)
 ```
 
-**Pour en savoir plus** Là encore des vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=data.table).
+**Pour en savoir plus** LÃ  encore des vignettes trÃ¨s pÃ©dagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=data.table).
 
-### L'opérateur `[` du `data.table` : `i`, `j` et `by`
+### L'opÃ©rateur `[` du `data.table` : `i`, `j` et `by`
 
-La syntaxe de l'opérateur `[` appliqué à un `data.table` est la suivante (`DT` représente le `data.table`): 
+La syntaxe de l'opÃ©rateur `[` appliquÃ© Ã  un `data.table` est la suivante (`DT` reprÃ©sente le `data.table`): 
 
 \centering \large
 
@@ -825,9 +859,9 @@ La syntaxe de l'opérateur `[` appliqué à un `data.table` est la suivante (`DT` r
 
 \raggedright \normalsize
 
-- `i` : sélectionner des observations selon une condition;
-- `j` : sélectionner ou **créer** une ou plusieurs variables;
-- `by` : ventiler les traitements selon les modalités d'une ou plusieurs variables.
+- `i` : sÃ©lectionner des observations selon une condition;
+- `j` : sÃ©lectionner ou **crÃ©er** une ou plusieurs variables;
+- `by` : ventiler les traitements selon les modalitÃ©s d'une ou plusieurs variables.
 
 \bigskip 
 
@@ -840,14 +874,14 @@ flights_DT[
   month == 1, max(arr_delay, na.rm = TRUE), by = day
 ]
 ```
-### Sélectionner des observations avec `i`
+### SÃ©lectionner des observations avec `i`
 
 \small
-Il est beaucoup plus simple et efficace de sélectionner des observations dans un `data.table` que dans un `data.frame`:
+Il est beaucoup plus simple et efficace de sÃ©lectionner des observations dans un `data.table` que dans un `data.frame`:
 
-- il n'y a pas à répéter le nom du `data.frame` dans `[`;
+- il n'y a pas Ã  rÃ©pÃ©ter le nom du `data.frame` dans `[`;
 
-- il est possible d'indexer un `data.table` par une ou plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
+- il est possible d'indexer un `data.table` par une ou plusieurs \og clÃ©s \fg{} permettant une recherche souvent plus rapide.
 
 \footnotesize
 
@@ -869,7 +903,7 @@ microbenchmark(times = 100L
 
 ### Calculer des statistiques avec `j`
 
-L'argument `j` permet de calculer des statistiques agrégées. 
+L'argument `j` permet de calculer des statistiques agrÃ©gÃ©es. 
 
 \small
 
@@ -882,7 +916,7 @@ flights_DT[, j = list(
 
 \normalsize 
 
-Utilisé avec `:=` il permet de les refusionner automatiquement avec les données d'origine. 
+UtilisÃ© avec `:=` il permet de les refusionner automatiquement avec les donnÃ©es d'origine. 
 
 \small
 
@@ -896,7 +930,7 @@ flights_DT <- flights_DT[, j := list(
 
 ### Ventiler des traitements avec `by` et `keyby`
 
-L'argument `by` de `[` ventile tous les traitements renseignés dans `j` selon les modalités d'une ou plusieurs variables.
+L'argument `by` de `[` ventile tous les traitements renseignÃ©s dans `j` selon les modalitÃ©s d'une ou plusieurs variables.
 
 ```{r}
 flights_DT[, j = list(
@@ -905,23 +939,23 @@ flights_DT[, j = list(
 ), by = month][1:3,]
 ```
 
-**Remarque** Par défaut, `by` ordonne les résultats dans l'ordre des groupes dans le `data.table`. `keyby` trie les données selon la variable d'agrégation (comme `group_by` de `dplyr`).
+**Remarque** Par dÃ©faut, `by` ordonne les rÃ©sultats dans l'ordre des groupes dans le `data.table`. `keyby` trie les donnÃ©es selon la variable d'agrÃ©gation (comme `group_by` de `dplyr`).
 
-### Chaîner les opérations dans un `data.table`
+### ChaÃ®ner les opÃ©rations dans un `data.table`
 
-Il est très facile de chaîner les opérations sur un `data.table` en enchaînant les `[`. 
+Il est trÃ¨s facile de chaÃ®ner les opÃ©rations sur un `data.table` en enchaÃ®nant les `[`. 
 
 ```{r, eval = FALSE}
 flights_DT[
   , j = list(
-    arr = mean(arr_delay, na.rm = TRUE)
-    , dep = mean(dep_delay, na.rm = TRUE)
+    retard_arrivee = mean(arr_delay, na.rm = TRUE)
+    , retard_depart = mean(dep_delay, na.rm = TRUE)
   )
   , keyby = list(year, month, day)
-][arr > 30 | dep > 30]
+][retard_arrivee > 30 | retard_depart > 30]
 ```
 
-**Remarque** Ces chaînages sont possibles avec  un `data.table` mais pas avec un `data.frame`. 
+**Remarque** Ces chaÃ®nages sont possibles avec  un `data.table` mais pas avec un `data.frame`. 
 
   
 ### Comparaison de base R, `dplyr` et `data.table`
@@ -953,7 +987,7 @@ summary(microbenchmark(times = 10L
 
 \normalsize
 
-**Pour en savoir plus** Cette discussion sur [\underline{stackoverflow.com}](http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) (notamment entre les auteurs des *packages*) aborde les avantages et les inconvénients de `dplyr` et `data.table`. 
+**Pour en savoir plus** Cette discussion sur [\underline{stackoverflow.com}](http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) (notamment entre les auteurs des *packages*) aborde les avantages et les inconvÃ©nients de `dplyr` et `data.table`. 
 
 
 
@@ -961,81 +995,81 @@ summary(microbenchmark(times = 10L
 
 ### Les limites du logiciel
 
-Les outils présentés jusqu'à présent correspondent à une utilisation \og classique \fg{} de R : production d'une enquête, redressements, études.
+Les outils prÃ©sentÃ©s jusqu'Ã  prÃ©sent correspondent Ã  une utilisation \og classique \fg{} de R : production d'une enquÃªte, redressements, Ã©tudes.
 
 \ 
 
-Il arrive néanmoins que certains traitements soient rendus **difficiles par les caractéristiques du logiciel** :
+Il arrive nÃ©anmoins que certains traitements soient rendus **difficiles par les caractÃ©ristiques du logiciel** :
 
-- travail sur des volumes de données impossibles à loger en mémoire;
-- temps de calcul trop longs et impossibles à réduire.
+- travail sur des volumes de donnÃ©es impossibles Ã  loger en mÃ©moire;
+- temps de calcul trop longs et impossibles Ã  rÃ©duire.
 
 \ 
 
-Dans ce genre de situations, la solution consiste en général à utiliser R comme une **interface** vers des techniques ou langages susceptibles de répondre au problème posé. 
+Dans ce genre de situations, la solution consiste en gÃ©nÃ©ral Ã  utiliser R comme une **interface** vers des techniques ou langages susceptibles de rÃ©pondre au problÃ¨me posÃ©. 
 
 
-### \large Travailler sur des données *out-of-memory*
+<!-- ### \large Travailler sur des donnÃ©es *out-of-memory* -->
 
-Les *packages* `ff` et `ffbase` permettent de travailler sur des objets directement stockés sur le disque dur de l'ordinateur.
+<!-- Les *packages* `ff` et `ffbase` permettent de travailler sur des objets directement stockÃ©s sur le disque dur de l'ordinateur. -->
 
-\footnotesize
-```{r, eval = FALSE}
-library(ff)
-library(ffbase)
+<!-- \footnotesize -->
+<!-- ```{r, eval = FALSE} -->
+<!-- library(ff) -->
+<!-- library(ffbase) -->
 
-# Lecture d'un fichier .csv important (RP)
-ffdf <- read.csv2.ffdf(
-  file = "FD_INDREGZA_2013.txt"
-  , VERBOSE = TRUE
-)
+<!-- # Lecture d'un fichier .csv important (RP) -->
+<!-- ffdf <- read.csv2.ffdf( -->
+<!--   file = "FD_INDREGZA_2013.txt" -->
+<!--   , VERBOSE = TRUE -->
+<!-- ) -->
 
-# Calculs simples sur l'objet ffdf
-table(ffdf$REGION)
-```
+<!-- # Calculs simples sur l'objet ffdf -->
+<!-- table(ffdf$REGION) -->
+<!-- ``` -->
 
-\normalsize
+<!-- \normalsize -->
 
-**Remarque** Ces *packages* n'ont pas connu d'évolutions depuis plusieurs années.
+<!-- **Remarque** Ces *packages* n'ont pas connu d'Ã©volutions depuis plusieurs annÃ©es. -->
 
-### \large Se connecter à des bases de données 
+### \large Se connecter Ã  des bases de donnÃ©es 
 
-Une autre solution pour exploiter de grands volumes de données dans R est de l'utiliser pour **interroger des bases de données**, *via* par exemple le *package* `RPostgreSQL`. 
+Une autre solution pour exploiter de grands volumes de donnÃ©es dans R est de l'utiliser pour **interroger des bases de donnÃ©es**, *via* par exemple le *package* `RPostgreSQL`. 
 
 \footnotesize
 ```{r, eval = FALSE}
 library(RPostgreSQL)
 
-# Connexion à la base de données maBdd
+# Connexion Ã  la base de donnÃ©es maBdd
 drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv, dbname = "maBdd"
   , host = "localhost", port = 5432
   , user = "utilisateur", password = "motDePasse"
 )
 
-# Requête SQL sur la table maTable
+# RequÃªte SQL sur la table maTable
 dbGetQuery(con, "SELECT COUNT(*) FROM maTable")
 ```
 
 \normalsize
 
-**Remarque** Différents *packages* permettent de se connecter à différents types de base de données : `RMySQl` pour MySQL, etc.
+**Remarque** DiffÃ©rents *packages* permettent de se connecter Ã  diffÃ©rents types de base de donnÃ©es : `RMySQl` pour MySQL, etc.
 
-### \large Se connecter à des bases de données avec `dplyr`
+### \large Se connecter Ã  des bases de donnÃ©es avec `dplyr`
 
-`dplyr` a la particularité de pouvoir fonctionner de façon totalement transparente sur des bases de données de différents types. 
+`dplyr` a la particularitÃ© de pouvoir fonctionner de faÃ§on totalement transparente sur des bases de donnÃ©es de diffÃ©rents types. 
 
 \footnotesize
 ```{r, eval = FALSE}
 library(dplyr)
 
-# Connexion à la base de données maBdd
+# Connexion Ã  la base de donnÃ©es maBdd
 con <- src_postgres(
   dbname = "maBdd", host = "localhost", port = 5432
   , user = "utilisateur", password = "motDePasse"
 )
 
-# Requête SQL sur la table maTable...
+# RequÃªte SQL sur la table maTable...
 tbl(con, "SELECT COUNT(*) FROM maTable")
 
 # ... ou utilisation des verbes de dplyr
@@ -1044,29 +1078,29 @@ tbl(con) %>% summarise(n())
 
 
 
-<!-- R est un langage de haut niveau : sa simplicité d'utilisation se paie par un coût en termes de performances ou de mémoire.  -->
+<!-- R est un langage de haut niveau : sa simplicitÃ© d'utilisation se paie par un coÃ»t en termes de performances ou de mÃ©moire.  -->
 
-<!-- Il arrive ainsi que les contraintes physiques (mémoire installée ou temps disponible) interdisent de réaliser certaines opérations avec base R ou d'autres *packages*.  -->
+<!-- Il arrive ainsi que les contraintes physiques (mÃ©moire installÃ©e ou temps disponible) interdisent de rÃ©aliser certaines opÃ©rations avec base R ou d'autres *packages*.  -->
 
-<!-- **Exemples** Traitement de volumes de données conséquents quand la mémoire est insuffisante, algorithme séquentiel complexe. -->
+<!-- **Exemples** Traitement de volumes de donnÃ©es consÃ©quents quand la mÃ©moire est insuffisante, algorithme sÃ©quentiel complexe. -->
 
-<!-- Pour faire face à ce genre de situations, R propose des interfaces vers d'autres langages ou d'autres systèmes de traitements de données.  -->
+<!-- Pour faire face Ã  ce genre de situations, R propose des interfaces vers d'autres langages ou d'autres systÃ¨mes de traitements de donnÃ©es.  -->
 
-### \large Paralléliser des traitements avec `parallel` (1)
+### \large ParallÃ©liser des traitements avec `parallel` (1)
 
-La plupart des ordinateurs possèdent aujourd'hui plusieurs c\oe urs (*core*) susceptibles de mener des traitements **en parallèle** (8 sur chaque serveur d'AUS par exemple). 
+La plupart des ordinateurs possÃ¨dent aujourd'hui plusieurs c\oe urs (*core*) susceptibles de mener des traitements **en parallÃ¨le** (8 sur chaque serveur d'AUS par exemple). 
 
-Par défaut, R n'expoite qu'un seul c\oe ur : le *package* `parallel` (mais aussi les *packages* `snow` ou `foreach` par exemple) permettent de **paralléliser des structures du type `*apply`**.
+Par dÃ©faut, R n'expoite qu'un seul c\oe ur : le *package* `parallel` (mais aussi les *packages* `snow` ou `foreach` par exemple) permettent de **parallÃ©liser des structures du type `*apply`**.
 
-Ce type d'opérations est composé de plusieurs étapes : 
+Ce type d'opÃ©rations est composÃ© de plusieurs Ã©tapes : 
 
-1. Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à utiliser (chargement des fonctions et *packages* nécessaires sur chaque c\oe ur);
-2. Lancement du traitement parallélisé avec `parLapply()`;
-3. Arrêt des processus du *cluster* avec `stopCluster()`.
+1. CrÃ©ation et paramÃ©trage du \og \textit{cluster} \fg{} de c\oe urs Ã  utiliser (chargement des fonctions et *packages* nÃ©cessaires sur chaque c\oe ur);
+2. Lancement du traitement parallÃ©lisÃ© avec `parLapply()`;
+3. ArrÃªt des processus du *cluster* avec `stopCluster()`.
 
-### \large Paralléliser des traitements avec `parallel` (2)
+### \large ParallÃ©liser des traitements avec `parallel` (2)
 
-Dans cet exemple, on cherche à appliquer la fonction `f` à chaque matrice de la liste `l`. 
+Dans cet exemple, on cherche Ã  appliquer la fonction `f` Ã  chaque matrice de la liste `l`. 
 
 \footnotesize
 ```{r, eval = FALSE}
@@ -1074,27 +1108,27 @@ library(MASS)
 f <- function(x) rowSums(ginv(x))
 l <- lapply(1:100, function(x) matrix(runif(1e4), ncol = 1e2))
 
-# Création et paramétrage du cluster
+# CrÃ©ation et paramÃ©trage du cluster
 library(parallel)
 cl <- makeCluster(4)
 clusterEvalQ(cl, library(MASS))
 clusterExport(cl, "f")
 
-# Lancement du calcul parallélisé
+# Lancement du calcul parallÃ©lisÃ©
 parLapply(cl, l, f)
 
-# Arrêt des processus du cluster
+# ArrÃªt des processus du cluster
 stopCluster(cl)
 ```
 
-### \large Paralléliser des traitements avec `parallel` (3)
+### \large ParallÃ©liser des traitements avec `parallel` (3)
 
 ```{r, echo = FALSE, results = FALSE, message=FALSE}
 library(MASS)
 f <- function(x) rowSums(ginv(x))
 l <- lapply(1:100, function(x) matrix(runif(1e4), ncol = 1e2))
 
-# Création et paramétrage du cluster
+# CrÃ©ation et paramÃ©trage du cluster
 library(parallel)
 cl <- makeCluster(4)
 invisible(clusterEvalQ(cl, library(MASS)))
@@ -1114,7 +1148,7 @@ stopCluster(cl)
 
 ### `Rcpp` : un package R pour utiliser C++ (1)
 
-Le *package* `Rcpp` permet d'intégrer facilement des fonctions codées en C++ dans un programme R. 
+Le *package* `Rcpp` permet d'intÃ©grer facilement des fonctions codÃ©es en C++ dans un programme R. 
 
 \footnotesize
 
@@ -1130,15 +1164,15 @@ add(1, 2)
 
 \normalsize
 
-**Remarque** Il est également possible de soumettre un fichier contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction `sourceCpp()`. 
+**Remarque** Il est Ã©galement possible de soumettre un fichier contenant des fonctions C++ Ã©crit par ailleurs Ã  l'aide de la fonction `sourceCpp()`. 
 
 **Pour en savoir plus** [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Rcpp.html)
 
 ### `Rcpp` : un package R pour utiliser C++ (2)
 
-Contrairement à R, C++ est un langage de bas niveau : les boucles y sont en particulier extrêmement rapides. 
+Contrairement Ã  R, C++ est un langage de bas niveau : les boucles y sont en particulier extrÃªmement rapides. 
 
-**Exemple** Somme cumulée par colonne 
+**Exemple** Somme cumulÃ©e par colonne 
 
 \footnotesize
 
@@ -1168,7 +1202,7 @@ cumColSumsR <- function(x){
   apply(x, 2, cumsum)
 }
 
-# Les deux fonctions produisent les mêmes résultats...
+# Les deux fonctions produisent les mÃªmes rÃ©sultats...
 x <- matrix(rnorm(1e6), ncol = 1e2)
 all.equal(cumColSumsR(x), cumColSumsC(x))
 

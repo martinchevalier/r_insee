@@ -1,21 +1,21 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Manipuler les \texttt {data.frame}}{\reset@font\mtcSfont 112}{section*.46}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Cr\IeC {\'e}er des data.frame et y s\IeC {\'e}lectionner des \IeC {\'e}l\IeC {\'e}ments}{\reset@font\mtcSSfont 112}{section*.47}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.1} S\IeC {\'e}lectionner des variables et des observations dans une table}{\reset@font\mtcSSSfont 117}{section*.48}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Cr\IeC {\'e}er ou modifier des variables dans un \texttt {data.frame}}{\reset@font\mtcSSfont 122}{section*.49}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.2} Recoder des variables dans des donn\IeC {\'e}es statistiques}{\reset@font\mtcSSSfont 125}{section*.50}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Modifier la structure d'un \texttt {data.frame}}{\reset@font\mtcSSfont 130}{section*.51}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.3} Modifier la structure de donn\IeC {\'e}es statistiques}{\reset@font\mtcSSSfont 135}{section*.52}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Effectuer des calculs sur un \texttt {data.frame}}{\reset@font\mtcSSfont 143}{section*.53}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.4} Effectuer des manipulations complexes sur des donn\IeC {\'e}es statistiques}{\reset@font\mtcSSSfont 147}{section*.54}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Calculer des statistiques descriptives}{\reset@font\mtcSfont 153}{section*.55}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Variables qualitatives}{\reset@font\mtcSSfont 154}{section*.56}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Variables quantitatives}{\reset@font\mtcSSfont 160}{section*.57}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Graphiques}{\reset@font\mtcSSfont 162}{section*.58}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012}{\reset@font\mtcSSfont 171}{section*.59}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.5} Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012 : Importation et mise en forme des donn\IeC {\'e}es}{\reset@font\mtcSSSfont 173}{section*.60}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.6} Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012 : Statistiques descriptives}{\reset@font\mtcSSSfont 176}{section*.61}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.7} Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012 : Graphiques}{\reset@font\mtcSSSfont 178}{section*.62}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Quelques liens pour aller plus loin}{\reset@font\mtcSfont 181}{section*.63}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Formation R perfectionnement}{\reset@font\mtcSSfont 181}{section*.64}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Utiliser des techniques d'analyse de donn\IeC {\'e}es multidimensionnelles}{\reset@font\mtcSSfont 182}{section*.65}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Estimer des mod\IeC {\`e}les de r\IeC {\'e}gression}{\reset@font\mtcSSfont 182}{section*.66}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Manipuler les \texttt {data.frame}}{\reset@font\mtcSfont 96}{section*.41}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Cr\IeC {\'e}er des data.frame et y s\IeC {\'e}lectionner des \IeC {\'e}l\IeC {\'e}ments}{\reset@font\mtcSSfont 96}{section*.42}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.1} S\IeC {\'e}lectionner des variables et des observations dans une table}{\reset@font\mtcSSSfont 101}{section*.43}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Cr\IeC {\'e}er ou modifier des variables dans un \texttt {data.frame}}{\reset@font\mtcSSfont 106}{section*.44}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.2} Recoder des variables}{\reset@font\mtcSSSfont 109}{section*.45}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Modifier la structure d'un \texttt {data.frame}}{\reset@font\mtcSSfont 114}{section*.46}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.3} Modifier la structure de donn\IeC {\'e}es statistiques}{\reset@font\mtcSSSfont 120}{section*.47}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Effectuer des calculs sur un \texttt {data.frame}}{\reset@font\mtcSSfont 127}{section*.48}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.4} Effectuer des manipulations complexes sur des donn\IeC {\'e}es statistiques}{\reset@font\mtcSSSfont 130}{section*.49}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Calculer des statistiques descriptives}{\reset@font\mtcSfont 137}{section*.50}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Variables qualitatives}{\reset@font\mtcSSfont 137}{section*.51}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Variables quantitatives}{\reset@font\mtcSSfont 143}{section*.52}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Graphiques}{\reset@font\mtcSSfont 146}{section*.53}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012}{\reset@font\mtcSSfont 155}{section*.54}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.5} Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012 : Importation et mise en forme des donn\IeC {\'e}es}{\reset@font\mtcSSSfont 157}{section*.55}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.6} Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012 : Statistiques descriptives}{\reset@font\mtcSSSfont 160}{section*.56}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \textbf {Cas pratique 3.7} Application \IeC {\`a} l'enqu\IeC {\^e}te Pisa 2012 : Graphiques}{\reset@font\mtcSSSfont 162}{section*.57}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode Quelques liens pour aller plus loin}{\reset@font\mtcSfont 165}{section*.58}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Formation R perfectionnement}{\reset@font\mtcSSfont 165}{section*.59}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Utiliser des techniques d'analyse de donn\IeC {\'e}es multidimensionnelles}{\reset@font\mtcSSfont 166}{section*.60}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode Estimer des mod\IeC {\`e}les de r\IeC {\'e}gression}{\reset@font\mtcSSfont 166}{section*.61}}

@@ -1,19 +1,19 @@
 setwd("/home/mc/Bureau/nc/cours/Insee R/initiation")
 rm(list = ls(all.names = TRUE))
 
-.download <- TRUE
-if(!exists(".initOK")) source("site/init.R", encoding = "latin1")
+.download <- FALSE
+if(!exists(".initOK")) source("site/init.R", encoding = "utf8")
 
-rmarkdown::render("site/index.Rmd", encoding = "latin1")
+rmarkdown::render("site/index.Rmd", encoding = "utf8")
 file.copy("site/index.html", "#output/index.html", overwrite = TRUE)
 
-rmarkdown::render("site/module1.Rmd", encoding = "latin1")
+rmarkdown::render("site/module1.Rmd", encoding = "utf8")
 file.copy("site/module1.html", "#output/module1.html", overwrite = TRUE)
 
-rmarkdown::render("site/module2.Rmd", encoding = "latin1")
+rmarkdown::render("site/module2.Rmd", encoding = "utf8")
 file.copy("site/module2.html", "#output/module2.html", overwrite = TRUE)
 
-rmarkdown::render("site/module3.Rmd", encoding = "latin1")
+rmarkdown::render("site/module3.Rmd", encoding = "utf8")
 file.copy("site/module3.html", "#output/module3.html", overwrite = TRUE)
 
 #--------------------------------------------------
@@ -23,7 +23,7 @@ file.copy("site/module3.html", "#output/module3.html", overwrite = TRUE)
 compilerLivret <- function(.sol = FALSE, .wd = "livret"){
   .old_wd <- getwd()
   setwd(.wd)
-  rmarkdown::render("livret.Rmd", encoding = "latin1")
+  rmarkdown::render("livret.Rmd", encoding = "utf8")
   system("pdflatex livret.tex")
   system("makeindex livret.idx ")
   system("pdflatex livret.tex")
@@ -42,8 +42,8 @@ file.copy("livret/livret.pdf", "#output/livret_sol.pdf", overwrite = TRUE)
 # PRESENTATION
 #--------------------------------------------------
 
-# Version beamer (par défaut)
-rmarkdown::render("presentation/presentation.Rmd", encoding = "latin1", clean = FALSE)
+# Version beamer (par d?faut)
+rmarkdown::render("presentation/presentation.Rmd", encoding = "utf8", clean = FALSE)
 file.copy("presentation/presentation.pdf", "#output/presentation_beamer.pdf", overwrite = TRUE)
 
 # Ajout de la ligne "handout: yes" dans le fichier Markdown
@@ -55,5 +55,5 @@ writeLines(md, "presentation/presentation.utf8.md")
 rmarkdown::render("presentation/presentation.utf8.md", output_file = "presentation.pdf")
 file.copy("presentation/presentation.pdf", "#output/presentation.pdf", overwrite = TRUE)
 
-# Suppression des fichiers intermédiaires
+# Suppression des fichiers interm?diaires
 file.remove("presentation/presentation.knit.md", "presentation/presentation.utf8.md")

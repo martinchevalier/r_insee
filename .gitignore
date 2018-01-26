@@ -1,11 +1,13 @@
 # Ignore everything in repository root 
 /*
 \#old/
+\#archives/
 \#previous/
 *_cache/
 *_files/
 unnamed-chunk*
 .Rhistory
+.Rproj.user
 
 # Files to not ignore
 !/.gitignore
@@ -15,9 +17,3 @@ unnamed-chunk*
 !/LICENSE
 !/README.md
 
-
-
-
-# Folder to not ignore
-!/puppet/
-.Rproj.user

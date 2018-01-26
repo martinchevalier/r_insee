@@ -7,33 +7,31 @@ output:
 
 \ 
 
-Cette page rassemble les supports de la formation R initiation des 8 et 9 juin 2017 :
+Cette page rassemble les supports de la formation R initiation des 22 et 23 janvier 2018 :
 
 - [Module 1 Prise en main du logiciel (.html)](module1.html)
 
 - [Module 2 Manipuler les outils fondamentaux du langage (.html)](module2.html)
 
-- [Module 3 Travailler avec des données statistiques (.html)](module3.html)
+- [Module 3 Travailler avec des donnÃ©es statistiques (.html)](module3.html)
 
-- [Données utilisées pour les cas pratiques (.zip, 4,1 Mo)](donnees.zip)
+- [DonnÃ©es utilisÃ©es pour les cas pratiques (.zip, 3,6 Mo)](donnees.zip)
 
 - [Support de formation en format imprimable (.pdf)](livret.pdf)
 
 - [Support de formation en format imprimable et avec solutions (.pdf)](livret_sol.pdf)
 
-- [Support de présentation utilisé lors de la formation (.pdf)](presentation.pdf)
+- [Support de prÃ©sentation utilisÃ© lors de la formation (.pdf)](presentation.pdf)
 
 
-**Note** Les pages html peuvent être téléchargées sous forme de fichiers .html autonomes et consultées hors connexion.
+**Note** Les pages html peuvent Ãªtre tÃ©lÃ©chargÃ©es sous forme de fichiers .html autonomes et consultÃ©es hors connexion.
 
 \ 
 
-Les supports de cette formation ont été conçus sous RStudio avec [R Markdown](http://rmarkdown.rstudio.com/) et compilés le `r format(Sys.Date(), format="%d/%m/%Y")`. Certains éléments de mise en forme du site compagnon sont repris de l'ouvrage [R packages](http://r-pkgs.had.co.nz/) de Hadley Wickham. 
+Les supports de cette formation ont Ã©tÃ© conÃ§us sous RStudio avec [R Markdown](http://rmarkdown.rstudio.com/) et compilÃ©s le `r format(Sys.Date(), format="%d/%m/%Y")`. Certains Ã©lÃ©ments de mise en forme du site compagnon sont repris de l'ouvrage [R packages](http://r-pkgs.had.co.nz/) de Hadley Wickham. 
   
-Ces supports seront durablement disponibles à l'adresse [r.slmc.fr](http://r.slmc.fr) et sont sous &copy;\ 2017 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
-
-Un grand merci aux participants pour leurs nombreuses remarques et suggestions particulièrement constructives.
+Ces supports seront durablement disponibles Ã  l'adresse [http://   r.slmc.fr](http://r.slmc.fr/) et leur code source sur [github](https://github.com/martinchevalier/r_insee). L'ensemble est librement rÃ©utilisable sous &copy;\ 2016-2018 Martin Chevalier [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/fr).
 
 \ 
 
-[Retour à la page d'accueil](..)
+[Retour Ã  la page d'accueil](..)

@@ -1,0 +1,2017 @@
+\documentclass[12pt,ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Formation R Perfectionnement},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\DataTypeTok}[1]{#1}
+\newcommand{\DecValTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{#1}
+\newcommand{\FloatTok}[1]{#1}
+\newcommand{\ConstantTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{#1}
+\newcommand{\VariableTok}[1]{#1}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\OperatorTok}[1]{#1}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{#1}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{textcomp} 
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{booktabs,multirow}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{pgfpages}
+\usepackage{colortbl}
+\usepackage{epstopdf}
+\usepackage{framed}
+
+
+
+\definecolor{shadecolor}{RGB}{248,248,248}
+\definecolor{grayInsee}{HTML}{5a5758}
+\definecolor{redInsee}{HTML}{ed1443}
+
+%Everything about the notes and formatting of the notepage
+\setbeamertemplate{note page}{%
+	Notes personnelles
+	\insertnote%
+}
+
+
+\setbeamertemplate{navigation symbols}{}
+\usetheme{default} %Malmoe not bad
+\setbeamertemplate{footline}[frame number]
+
+
+%\setbeamerfont{frametitle}{size=\normalsize}
+%\setbeamerfont{framesubtitle}{size=\Large}
+%\setbeamercolor{frametitle}{fg=grayInsee}
+%\setbeamercolor{framesubtitle}{fg=redInsee}
+\setbeamercolor{title}{fg=grayInsee}
+\setbeamercolor{subsection in toc}{fg=grayInsee}
+\setbeamertemplate{frametitle}{%
+	\large \textcolor{grayInsee}{\subsecname}
+	\\ \vspace{0.1cm} \Large \textcolor{redInsee}{\insertframetitle}
+}
+%\setbeamertemplate{frametitle}{%
+%	\large \textcolor{grayInsee}{
+%		\ifx\intertsubsection\emptyset
+%			\secname \\ \vspace{0.1cm} 
+%		\else 
+%			\subsecname \\ \vspace{0.1cm}
+%		\fi
+%	}
+%	\Large \textcolor{redInsee}{\insertframetitle}
+%}
+\setbeamercolor{local structure}{fg=redInsee}
+
+\AtBeginSection[]
+{\ifnum \thesection>1
+  \begin{frame}
+  \vfill
+  \begin{center}
+  \LARGE
+  \textcolor{grayInsee}{\insertsectionhead}
+  \end{center}
+  \vfill
+  \end{frame}
+\else
+\fi
+}
+
+\AtBeginSubsection[]{}
+
+\title{\Large Formation \textbf{R} Perfectionnement}
+
+\institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
+
+\author{15-16 janvier 2018}
+
+\date{}
+
+\renewenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+
+\newcommand{\aparte}[2]{
+	{\small\textsf{\textbf{#1} #2}}
+}
+
+%\usepackage{enumitem}
+%\setlist{nolistsep}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc, positioning}
+\tikzstyle{input} = [draw, rectangle,rounded corners, text width=2.5cm, fill=green!20, node distance=0.5cm, minimum height=2em, text centered]
+\tikzstyle{output} = [draw, ellipse,fill=red!20, node distance=0.5cm, minimum height=2em, text centered]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=1.5cm, text centered, minimum height=2em, node distance = 0.5cm]
+\tikzstyle{line} = [draw, -latex', shorten >=2pt, shorten <=2pt]
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
+
+%\usepackage{pgfpages}
+%\mode<handout>{
+%	%\setbeamercolor{background canvas}{bg=black!20}
+%	\pgfpagesuselayout{2 on 1}[border shrink=2mm]
+%}
+
+\title{Formation R Perfectionnement}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Travailler~efficacement~sur~des~données~avec~R}\label{travaillerefficacementsurdesdonneesavecr}
+
+\subsection*{Travailler~efficacement~sur~des~données~avec~R}\label{travaillerefficacementsurdesdonneesavecr-1}
+\addcontentsline{toc}{subsection}{Travailler~efficacement~sur~des~données~avec~R}
+
+\begin{frame}{Qu'est-ce que travailler efficacement avec R ?}
+
+Appliqué au travail sur des données, l'efficacité peut avoir au moins
+deux significations distinctes :
+
+\begin{itemize}
+\tightlist
+\item
+  efficacité \textbf{algorithmique} : minimisation du temps passé par la
+  machine pour réaliser une série d'opérations;
+\item
+  \textbf{productivité} du programmeur : minimisation du temps passé à
+  coder une série d'opération.
+\end{itemize}
+
+\pause En règle générale, on peut avoir l'idée que plus on souhaite être
+efficace algorithmiquement, plus la programmation risque d'être longue
+et difficile.
+
+\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de
+temps à (ré)inventer une méthode peu efficace quand une beaucoup plus
+simple et rapide existe déjà.
+
+\pause \small
+
+\textbf{Référence} \textsc{Gillepsie C., Lovelace R.},
+\textit{Efficient R programming} (disponible sur
+\href{\%5D(https://bookdown.org/csgillepsie/efficientR)}{\underline{bookdown.org}})
+
+\end{frame}
+
+\begin{frame}[fragile]{Mesure l'efficacité algorithmique}
+
+La fonction \texttt{system.time()} permet de mesurer la durée d'un
+traitement.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{system.time}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
+\NormalTok{  ##    user  system elapsed }
+\NormalTok{  ##   0.141   0.000   0.141}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \normalsize
+Néanmoins, elle est inadaptée aux traitements de très courte durée. Dans
+ces situations, privilégier la fonction \texttt{microbenchmark()} du
+package \texttt{microbenchmark}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(microbenchmark)}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}\NormalTok{, }\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##          expr      min       lq     mean   median}
+\NormalTok{  ##  rnorm(1e+06) 69.56526 69.77588 70.48042 70.52055}
+\NormalTok{  ##        uq      max neval}
+\NormalTok{  ##  71.06151 71.49039    10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Mesurer la taille d'un objet en mémoire}
+
+R stocke l'ensemble des fichiers sur lesquels il travaille dans la
+mémoire vive.
+
+Afin de loger les objets les plus gros mais aussi d'optimiser les
+performances, il est souvent utile de \textbf{limiter la taille des
+objets} sur lesquels portent les traitements.
+
+\pause Pour mesurer la taille des objets, utiliser la fonction
+\texttt{object\_size()} du \emph{package} \texttt{pryr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(pryr)}
+\KeywordTok{object_size}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
+\NormalTok{  ## 8 MB}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Construire un exemple reproductible (MWE)}
+
+Lorsque l'on cherche à améliorer les performances d'un programme, il est
+important de pouvoir le tester sur des données \textbf{autonomes et
+reproductibles}.
+
+\pause Pour ce faire, les \textbf{fonctions de générations de nombres
+aléatoires} de R sont particulièrement utiles.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Graine pour pouvoir reproduire l'aléa}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2018}\NormalTok{)}
+
+\CommentTok{# Vecteur de nombres de taille 1 000}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Vecteur de lettres de taille 1 000}
+\NormalTok{b <-}\StringTok{ }\NormalTok{letters[}\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{26}\NormalTok{, }\DecValTok{1000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)]}
+
+\CommentTok{# Matrice logique 1 000 x 100 avec 1 % de TRUE}
+\NormalTok{c <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{100000}\NormalTok{) }\OperatorTok{>}\StringTok{ }\FloatTok{0.99}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Plan de la partie}
+
+\large  \vfill
+\tableofcontents[currentsection, sectionstyle = hide, subsectionstyle = show/show/hide]
+\vfill
+
+\end{frame}
+
+\subsection{De l'importance des fonctions dans
+R}\label{de-limportance-des-fonctions-dans-r}
+
+\begin{frame}[fragile]{\og Tout ce qui agit est un appel de fonction
+\fg{}}
+
+\begin{quote}
+\emph{To understand computations in R, two slogans are helpful:}
+
+\begin{itemize}
+\item
+  \emph{Everything that exists is an object.}
+\item
+  \emph{Everything that happens is a function call.}
+\end{itemize}
+
+\emph{John Chambers}
+\end{quote}
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ... même assigner une valeur}
+\KeywordTok{is.function}\NormalTok{(}\StringTok{`}\DataTypeTok{<-}\StringTok{`}\NormalTok{)}
+\NormalTok{  ## [1] TRUE}
+\StringTok{`}\DataTypeTok{<-}\StringTok{`}\NormalTok{(a, }\DecValTok{10}\NormalTok{)}
+
+\CommentTok{# ... même afficher la valeur d'un objet}
+\NormalTok{a}
+\NormalTok{  ## [1] 10}
+\KeywordTok{print}\NormalTok{(a)}
+\NormalTok{  ## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Définir une fonction dans R}
+
+Utilisé avec \texttt{\textless{}-}, \texttt{function()} définit une
+nouvelle fonction :
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Définition de la fonction monCalcul()}
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, b)\{}
+\NormalTok{  resultat <-}\StringTok{ }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
+  \KeywordTok{return}\NormalTok{(resultat)}
+\NormalTok{\}}
+
+\CommentTok{# Code de monCalcul()}
+\NormalTok{monCalcul}
+\NormalTok{  ## function(a, b)\{}
+\NormalTok{  ##   resultat <- 10 * a + b}
+\NormalTok{  ##   return(resultat)}
+\NormalTok{  ## \}}
+
+\CommentTok{# Appel de la fonction monCalcul()}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{  ## [1] 23}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Valeurs par défaut des paramètres}
+
+Des valeurs par défaut peuvent être renseignées pour les paramètres.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, }\DataTypeTok{b =} \DecValTok{3}\NormalTok{) }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{8}\NormalTok{)}
+\NormalTok{  ## [1] 83}
+\end{Highlighting}
+\end{Shaded}
+
+\pause Les valeurs par défaut peuvent dépendre des autres paramètres.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, }\DataTypeTok{b =}\NormalTok{ a }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{) }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\NormalTok{  ## [1] 24}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \textbf{Remarque} Ceci est la conséquence de la \emph{lazy
+evaluation} des arguments dans R (\emph{cf.}
+\href{http://adv-r.had.co.nz/Functions.html\#function-arguments}{\underline{\textit{Advanced R}}}).
+
+\end{frame}
+
+\begin{frame}[fragile]{Contrôle de la valeur des paramètres}
+
+Des structures conditionnelles \texttt{if()} permettent de contrôler la
+valeur des arguments.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{a =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{b =} \OtherTok{NULL}\NormalTok{)\{}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(a)) }\KeywordTok{stop}\NormalTok{(}\StringTok{"a n'est pas renseigné."}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(b))\{}
+\NormalTok{    b <-}\StringTok{ }\NormalTok{a }\OperatorTok{*}\StringTok{ }\DecValTok{2}
+    \KeywordTok{warning}\NormalTok{(}\StringTok{"b n'est pas renseigné."}\NormalTok{)}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(}\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b)}
+\NormalTok{\}}
+
+\KeywordTok{monCalcul}\NormalTok{(}\DataTypeTok{b =} \DecValTok{3}\NormalTok{)}
+\NormalTok{  ## Error in monCalcul(b = 3): a n'est pas renseigné.}
+\KeywordTok{monCalcul}\NormalTok{(}\DataTypeTok{a =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  ## Warning in monCalcul(a = 1): b n'est pas renseigné.}
+\NormalTok{  ## [1] 12}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Portée des variables et environnements
+(1)}
+
+Dans R \textbf{chaque objet est repéré par son nom et son environnement}
+: cela permet d'éviter les conflits de noms.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Création d'une fonction sum() un peu absurde}
+\NormalTok{sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(...) }\StringTok{"Ma super somme !"}
+\KeywordTok{sum}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{  ## [1] "Ma super somme !"}
+
+\CommentTok{# Cette fonction est rattachée à l'environnement global}
+\KeywordTok{ls}\NormalTok{()}
+\NormalTok{  ## [1] "a"         "b"         "c"         "monCalcul"}
+\NormalTok{  ## [5] "sum"}
+
+\CommentTok{# Mais on peut toujours accéder à la fonction }
+\CommentTok{# de base en utilisant ::}
+\NormalTok{base}\OperatorTok{::}\KeywordTok{sum}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{  ## [1] 5}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Portée des variables et environnements
+(2)}
+
+\small
+À chaque appel d'une fonction, un \textbf{environnement d'exécution} est
+créé.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maFun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() }\KeywordTok{environment}\NormalTok{()}
+\KeywordTok{maFun}\NormalTok{()}
+\NormalTok{  ## <environment: 0x562bb6437f70>}
+\KeywordTok{maFun}\NormalTok{()}
+\NormalTok{  ## <environment: 0x562bb658b100>}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \small
+En conséquence, les instructions exécutées à l'intérieur d'une fonction
+\textbf{ne modifient pas l'environnement global}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\DecValTok{10}
+\NormalTok{maFonction3 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a <-}\StringTok{ }\DecValTok{5}
+\NormalTok{\}}
+\KeywordTok{maFonction3}\NormalTok{()}
+\NormalTok{a}
+\NormalTok{  ## [1] 10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Portée des variables et environnements
+(3)}
+
+En revanche, les objets définis dans l'environnement global sont
+accessibles au sein d'une fonction.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\DecValTok{10}
+\NormalTok{maFonction4 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a }\OperatorTok{+}\StringTok{ }\DecValTok{5}
+\NormalTok{\}}
+\KeywordTok{maFonction4}\NormalTok{()}
+\NormalTok{  ## [1] 15}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \normalsize
+Ceci est dû au fait que les environnements dans lequel R recherche des
+objets sont \textbf{emboîtés les uns dans les autres} (\textit{cf.} la
+fonction \texttt{search()}).
+
+\textbf{Pour en savoir plus}
+\href{http://adv-r.had.co.nz/Environments.html\#function-envs}{\underline{\textit{Advanced R}}},
+\href{http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/}{\underline{obeautifulcode.com}}
+
+\end{frame}
+
+\begin{frame}[fragile]{Valeur de retour d'une fonction}
+
+La fonction \texttt{return()} spécifie la valeur à renvoyer. Pour
+renvoyer plusieurs valeurs, utiliser une liste.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maFonction1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{; b <-}\StringTok{ }\DecValTok{6}\OperatorTok{:}\DecValTok{10}\NormalTok{; }\KeywordTok{return}\NormalTok{(a)}
+\NormalTok{\}}
+\KeywordTok{maFonction1}\NormalTok{()}
+\NormalTok{  ## [1] 1 2 3 4 5}
+
+\NormalTok{maFonction2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{; b <-}\StringTok{ }\DecValTok{6}\OperatorTok{:}\DecValTok{10}\NormalTok{; }\KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{a =}\NormalTok{ a, }\DataTypeTok{b =}\NormalTok{ b))}
+\NormalTok{\}}
+\KeywordTok{maFonction2}\NormalTok{()}
+\NormalTok{  ## $a}
+\NormalTok{  ## [1] 1 2 3 4 5}
+\NormalTok{  ## }
+\NormalTok{  ## $b}
+\NormalTok{  ## [1]  6  7  8  9 10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Effets de bord et programmation
+fonctionnelle}
+
+Par défaut, les fonctions dans R :
+
+\begin{itemize}
+\tightlist
+\item
+  ne modifient pas l'environnement d'origine (il n'y a \textbf{pas
+  d'effets de bord});
+\item
+  peuvent être utilisées en lieu et place des valeurs qu'elles
+  retournent.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monCalcul <-}\StringTok{  }\ControlFlowTok{function}\NormalTok{(a, b) }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\DecValTok{5}
+\NormalTok{  ## [1] 28}
+\end{Highlighting}
+\end{Shaded}
+
+\pause Ces éléments font de R un \textbf{langage particulièrement adapté
+à la programmation fonctionnelle}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Quelques principes de la programmation
+fonctionnelle}
+
+\vfill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Ne jamais créer d'effets de bord} Toute modification apportée
+  à l'environnement par une fonction passe par sa valeur de sortie.
+\end{enumerate}
+
+\vfill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \pause \textbf{Vectoriser \textit{i.e.} appliquer des fonctions systématiquement à un ensemble d'éléments}
+  Fonctions \texttt{*apply()}, \texttt{Reduce()}, \texttt{do.call()}.
+\end{enumerate}
+
+\vfill
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \pause \textbf{Structurer les traitements à l'aide de fonctions courtes et explicites}
+  Faciliter la relecture, la maintenance et la modularisation.
+\end{enumerate}
+
+\vfill
+
+\pause \textbf{Pour en savoir plus}
+\href{https://en.wikipedia.org/wiki/FP_(programming_language)}{\underline{Wikipedia}},
+\href{https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming}{\underline{maryrosecook.com}}.
+
+\vfill
+
+\end{frame}
+
+\subsection{\texorpdfstring{Vectoriser : \texttt{*apply()},
+\texttt{Reduce()} et
+\texttt{do.call()}}{Vectoriser : *apply(), Reduce() et do.call()}}\label{vectoriser-apply-reduce-et-do.call}
+
+\begin{frame}[fragile]{\large Appliquer sur chaque indépendamment :
+\texttt{apply()}}
+
+La fonction \texttt{apply(X,\ MARGIN,\ FUN)} applique la fonction
+\texttt{FUN} à la \textbf{matrice} \texttt{X} selon la dimension
+\texttt{MARGIN}.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Définition et affichage de la matrice m}
+\NormalTok{m <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{)}
+\NormalTok{m}
+\NormalTok{  ##      [,1] [,2] [,3]}
+\NormalTok{  ## [1,]    1    3    5}
+\NormalTok{  ## [2,]    2    4    6}
+
+\CommentTok{# Application de la fonction sum() selon les lignes}
+\KeywordTok{apply}\NormalTok{(m, }\DecValTok{1}\NormalTok{, sum)}
+\NormalTok{  ## [1]  9 12}
+
+\CommentTok{# Application de la fonction sum() selon les colonnes}
+\KeywordTok{apply}\NormalTok{(m, }\DecValTok{2}\NormalTok{, sum)}
+\NormalTok{  ## [1]  3  7 11}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Appliquer sur chaque indépendamment :
+\texttt{lapply()}}
+
+\small
+La fonction \texttt{lapply(X,\ FUN)} applique la fonction \texttt{FUN}
+au \textbf{vecteur} ou à la \textbf{liste} \texttt{X}.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\DecValTok{6}\OperatorTok{:}\DecValTok{9}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\NormalTok{l}
+\NormalTok{  ## [[1]]}
+\NormalTok{  ## [1] 1 2 3 4 5}
+\NormalTok{  ## }
+\NormalTok{  ## [[2]]}
+\NormalTok{  ## [1]  6  7  8  9 NA}
+\KeywordTok{lapply}\NormalTok{(l, sum)}
+\NormalTok{  ## [[1]]}
+\NormalTok{  ## [1] 15}
+\NormalTok{  ## }
+\NormalTok{  ## [[2]]}
+\NormalTok{  ## [1] NA}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \small \vspace{-0.2cm}
+
+\textbf{Exemple d'utilisation} Appliquer une fonction à toutes les
+variables d'une table.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Appliquer sur chaque indépendamment :
+\texttt{sapply()}}
+
+La fonction \texttt{sapply()} est analogue à la fonction
+\texttt{lapply()}, mais simplifie le résultat produit quand c'est
+possible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sapply}\NormalTok{(l, sum)}
+\NormalTok{  ## [1] 15 NA}
+\end{Highlighting}
+\end{Shaded}
+
+\pause Les arguments optionnels de la fonction utilisée peuvent être
+ajoutés à la suite dans toutes les fonctions \texttt{*apply()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sapply}\NormalTok{(l, sum, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  ## [1] 15 30}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \textbf{Exemple d'utilisation} Calcul de statistiques sur toutes
+les variables d'une table.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Définir une fonction à la volée dans
+\texttt{*apply()}}
+
+Il est fréquent que l'opération que l'on souhaite appliquer ne
+corresponde pas exactement à une fonction pré-existante.
+
+\pause Dans ce cas, on peut définir une \textbf{fonction à la volée}
+dans la fonction \texttt{*apply()}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# On souhaite sélectionner le second élément de }
+\CommentTok{# de chaque vecteur de la liste l}
+\NormalTok{l}
+\NormalTok{  ## [[1]]}
+\NormalTok{  ## [1] 1 2 3 4 5}
+\NormalTok{  ## }
+\NormalTok{  ## [[2]]}
+\NormalTok{  ## [1]  6  7  8  9 NA}
+
+\CommentTok{# On définit une fonction dans sapply()}
+\KeywordTok{sapply}\NormalTok{(l, }\ControlFlowTok{function}\NormalTok{(x) x[}\DecValTok{2}\NormalTok{])}
+\NormalTok{  ## [1] 2 7}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Appliquer sur chaque par groupe :
+\texttt{tapply()}}
+
+La fonction \texttt{tapply(X,\ INDEX,\ FUN)} applique la fonction
+\texttt{FUN}, à l'objet \texttt{X} ventilé selon les modalités de
+\texttt{INDEX}.
+
+\footnotesize \pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Variables d'âge et de sexe}
+\NormalTok{age <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{45}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{20}\NormalTok{)}
+\NormalTok{sexe <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"H"}\NormalTok{)}
+
+\CommentTok{# Âge moyen par sexe}
+\KeywordTok{tapply}\NormalTok{(age, sexe, mean)}
+\NormalTok{  ##    F    H }
+\NormalTok{  ## 42.5 32.5}
+
+\CommentTok{# Même résultat avec une combinaison de sapply() et de split()}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(age, sexe), mean)}
+\NormalTok{  ##    F    H }
+\NormalTok{  ## 42.5 32.5}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize \pause \vspace{-0.2cm}
+
+\textbf{Exemple d'utilisation} Calcul de statistiques agrégées par
+catégories.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Appliquer sur tous : \texttt{do.call()}}
+
+La fonction \texttt{do.call(what,\ args)} permet d'appliquer la fonction
+\texttt{what()} à un \textbf{ensemble} d'arguments \texttt{args}
+spécifié comme une liste (alors que les fonctions \texttt{*apply()}
+appliqueraient \texttt{what()} à \textbf{chaque} élément de
+\texttt{args}).
+
+\pause \small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Concaténation des vecteurs de l}
+\KeywordTok{do.call}\NormalTok{(base}\OperatorTok{::}\NormalTok{c, l)}
+\NormalTok{  ##  [1]  1  2  3  4  5  6  7  8  9 NA}
+
+\CommentTok{# Equivalent à }
+\NormalTok{base}\OperatorTok{::}\KeywordTok{c}\NormalTok{(l[[}\DecValTok{1}\NormalTok{]], l[[}\DecValTok{2}\NormalTok{]])}
+\NormalTok{  ##  [1]  1  2  3  4  5  6  7  8  9 NA}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \normalsize
+
+\textbf{Exemple d'utilisation} Concaténer de nombreuses tables avec
+\texttt{rbind()} ou \texttt{cbind()}.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Appliquer sur tous successivement :
+\texttt{Reduce()}}
+
+La fonction \texttt{Reduce(f,\ x)} permet d'appliquer la fonction
+\texttt{f()} \textbf{successivement} à l'ensemble des éléments de
+\texttt{x} (alors que \texttt{do.call()} applique \texttt{f}
+\textbf{simultanément}).
+
+\pause \small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Application successive de la division au vecteur 1:4}
+\KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{/}\StringTok{`}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{)}
+\NormalTok{  ## [1] 0.04166667}
+
+\CommentTok{# Equivalent à }
+\NormalTok{((}\DecValTok{1}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\DecValTok{3}\NormalTok{)}\OperatorTok{/}\DecValTok{4}
+\NormalTok{  ## [1] 0.04166667}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \normalsize
+
+\textbf{Exemple d'utilisation} Fusionner de nombreuses tables avec
+\texttt{merge()} (sur les mêmes identifiants).
+
+\end{frame}
+
+\subsection{Coder efficacement en base
+R}\label{coder-efficacement-en-base-r}
+
+\begin{frame}[fragile]{L'idée : En faire faire le moins possible à R}
+
+R est un langage dit \og de haut niveau \fg{} : les objets qui le
+composent sont relativement faciles d'utilisation, au prix de
+performances limitées.
+
+\vfill
+
+À l'inverse, des langages dits de \og bas niveau \fg{} (par exemple C++)
+sont plus difficiles à utiliser mais aussi plus efficaces.
+
+\vfill
+
+\pause La plupart des fonctions fondamentales de R font appel à des
+fonctions compilées à partir d'un langage de plus bas niveau.
+
+\vfill
+
+D'où le principe : \textbf{limiter au maximum la surcharge liée à R}
+pour retomber au plus vite sur des fonctions pré-compilées.
+
+\pause \vfill
+
+\textbf{Remarque} Il est très facile en pratique d'utiliser R comme une
+interface vers des langages de plus bas niveau, \emph{cf.~infra} à
+propos de \texttt{Rcpp}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Utiliser les boucles avec parcimonie (1)}
+
+Comme la plupart des langages de programmation, R dispose de
+\textbf{structures de contrôles} permettant de réaliser des boucles.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{boucle <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  cumul <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{length}\NormalTok{(x))}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(x)) }
+\NormalTok{    cumul[i] <-}\StringTok{ }\ControlFlowTok{if}\NormalTok{(i }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{) x[i] }\ControlFlowTok{else}\NormalTok{ cumul[i }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{] }\OperatorTok{+}\StringTok{ }\NormalTok{x[i]}
+  \KeywordTok{return}\NormalTok{(cumul)}
+\NormalTok{\}}
+\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)}
+\NormalTok{  ## [1]  1  3  6 10 15}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \normalsize
+Ces opérations présentent plusieurs inconvénients :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Elles sont longues à écrire et assez peu claires;
+\item
+  Elles reposent sur des effets de bord;
+\item
+  Elles sont en général très peu \textbf{efficaces algorithmiquement}.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Utiliser les boucles avec parcimonie (2)}
+
+\small
+Les méthodes de vectorisation sont en général beaucoup plus efficaces
+que les boucles en R :
+
+\begin{itemize}
+\tightlist
+\item
+  vectorisation de haut niveau (\emph{cf.} \emph{supra});
+\item
+  vectorisation de bas niveau : la vectorisation est opérée par le
+  langage de bas niveau auquel fait appel R.
+\end{itemize}
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{boucle =} \KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{Reduce =} \KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{+}\StringTok{`}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{, }\DataTypeTok{accumulate =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{cumsum =} \KeywordTok{cumsum}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)}
+\NormalTok{))[, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
+\NormalTok{  ##     expr       min        lq       mean}
+\NormalTok{  ## 1 boucle 16705.371 22047.502 23381.2887}
+\NormalTok{  ## 2 Reduce  6106.949  6723.186  9166.0918}
+\NormalTok{  ## 3 cumsum    36.226    38.036    55.9669}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tirer le meilleur parti de la compilation (1)}
+
+On distingue souvent deux familles de langages informatiques :
+
+\begin{itemize}
+\tightlist
+\item
+  \pause \vspace{-0.2cm} les langages \textbf{compilés} (C, C++) :
+  l'ensemble du code est transformé en langage machine par un
+  \emph{compilateur} puis soumis par le système d'exploitation;
+\item
+  \pause les langages \textbf{interprétés} (R, Python) : les
+  instructions du code sont soumises les unes après les autres par un
+  \emph{interpréteur}, ce qui est moins efficace (\emph{cf.} boucles en
+  R).
+\end{itemize}
+
+\vspace{0.1cm} \pause La fonction \texttt{compiler::cmpfun()} permet
+néanmoins de \textbf{compiler} des fonctions R avant utilisation.
+
+\pause \footnotesize \vspace{-0.2cm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Compilation de la fonction boucle()}
+\NormalTok{boucle_compil <-}\StringTok{ }\NormalTok{compiler}\OperatorTok{::}\KeywordTok{cmpfun}\NormalTok{(boucle)}
+\KeywordTok{microbenchmark}\NormalTok{(}\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{), }\KeywordTok{boucle_compil}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{))}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##                    expr       min        lq      mean}
+\NormalTok{  ##         boucle(1:10000) 15.082436 18.375149 21.189216}
+\NormalTok{  ##  boucle_compil(1:10000)  1.525206  1.652735  1.939735}
+\NormalTok{  ##     median        uq       max neval}
+\NormalTok{  ##  20.956547 24.001520 27.866753   100}
+\NormalTok{  ##   1.707153  2.126435  3.806843   100}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tirer le meilleur parti de la compilation (2)}
+
+Une autre fonctionnalité du \emph{package} \texttt{compiler} est la
+compilation \og juste-à-temps \fg{} (ou \textit{just-in-time}, JIT): le
+code n'est plus interprété mais \textbf{compilé au fur et à mesure}.
+
+\bigskip \pause Dans R, on active le mode JIT pour une session grâce à
+la fonction \texttt{compiler::enableJIT()} en spécifiant le
+\href{https://stat.ethz.ch/R-manual/R-devel/library/compiler/html/compile.html}{\underline{niveau de compilation JIT}}
+(de 0 à 3).
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Passage au niveau maximal de compilation JIT}
+\NormalTok{compiler}\OperatorTok{::}\KeywordTok{enableJIT}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\NormalTok{  ## [1] 0}
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{), }\KeywordTok{boucle_compil}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)))[, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
+\NormalTok{  ##                     expr      min       lq     mean}
+\NormalTok{  ## 1        boucle(1:10000) 1.494327 1.574196 1.928021}
+\NormalTok{  ## 2 boucle_compil(1:10000) 1.512143 1.564685 1.713391}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \small \textbf{Remarque} Depuis R 3.4.0, \texttt{enableJIT()}
+vaut 3 par défaut.
+
+\end{frame}
+
+\begin{frame}[fragile]{Utiliser l'opérateur \texttt{{[}} au lieu de
+\texttt{ifelse()}}
+
+\small
+Lorsqu'on crée une variable en faisant intervenir une condition, il est
+fréquent d'utiliser la fonction \texttt{ifelse()} :
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{notes <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n =} \DecValTok{100000}\NormalTok{, }\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max =} \DecValTok{20}\NormalTok{)}
+\NormalTok{mavar <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(notes }\OperatorTok{>=}\StringTok{ }\DecValTok{10}\NormalTok{, }\StringTok{"Reçu"}\NormalTok{, }\StringTok{"Recalé"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \small
+Il est néanmoins beaucoup plus efficace d'utiliser l'opérateur
+\texttt{{[}}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{ifelse =} \KeywordTok{ifelse}\NormalTok{(notes }\OperatorTok{>=}\StringTok{ }\DecValTok{10}\NormalTok{, }\StringTok{"Reçu"}\NormalTok{, }\StringTok{"Recalé"}\NormalTok{)}
+\NormalTok{  , }\StringTok{"["}\NormalTok{ =}\StringTok{ }\NormalTok{\{}
+\NormalTok{    mavar <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\StringTok{"Recalé"}\NormalTok{, }\KeywordTok{length}\NormalTok{(notes))}
+\NormalTok{    mavar[notes }\OperatorTok{>=}\StringTok{ }\DecValTok{10}\NormalTok{] <-}\StringTok{ "Reçu"}
+\NormalTok{  \} }
+\NormalTok{)}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##    expr       min        lq      mean   median}
+\NormalTok{  ##  ifelse 27.815496 29.111395 42.367241 31.15054}
+\NormalTok{  ##       [  1.376459  1.407397  1.875707  1.50845}
+\NormalTok{  ##         uq        max neval}
+\NormalTok{  ##  33.501269 147.813919    10}
+\NormalTok{  ##   1.711601   3.406202    10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Simplifier les données : le type \texttt{factor}}
+
+On utilise souvent des chaînes de caractère pour coder une variable de
+nature catégorielle.
+
+Le type \texttt{factor} permet de remplacer chaque valeur distincte par
+un entier en sauvegardant la table de correspondance. Il est
+\textbf{beaucoup plus léger}.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Variable à deux modalités codées en caractères}
+\NormalTok{sexe <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{, }\StringTok{"F"}\NormalTok{), }\DecValTok{120000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{object_size}\NormalTok{(sexe)}
+\NormalTok{  ## 960 kB}
+
+\CommentTok{# Conversion en facteur}
+\NormalTok{f.sexe <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(sexe)}
+\KeywordTok{str}\NormalTok{(f.sexe)}
+\NormalTok{  ##  Factor w/ 2 levels "F","H": 1 2 1 2 1 2 2 2 1 1 ...}
+\KeywordTok{object_size}\NormalTok{(f.sexe)}
+\NormalTok{  ## 481 kB}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Utiliser les noms à bon escient (1)}
+
+La plupart des objets manipulés couramment dans R peuvent être
+\textbf{nommés} : vecteurs, matrices, listes, \texttt{data.frame}.
+
+Utiliser des noms est une méthode souvent \textbf{très rapide} pour
+\textbf{accéder aux éléments} qui composent ces objets.
+
+~
+
+\pause 
+
+\textbf{Exemple} On cherche à extraire les observations d'une table
+\emph{via} leur identifiant \texttt{id}. On compare l'utilisation des
+noms à une fusion réalisée avec \texttt{merge()}.
+
+\small 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Création de la table df}
+\NormalTok{id <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\FloatTok{1e5}\NormalTok{))}
+\NormalTok{sexe <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\FloatTok{1e5}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(id, sexe)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Utiliser les noms à bon escient (2)}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Affectation de noms à df }
+\KeywordTok{row.names}\NormalTok{(df) <-}\StringTok{ }\NormalTok{id}
+
+\CommentTok{# Liste des identifiants à extraire}
+\NormalTok{extract <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"234"}\NormalTok{, }\StringTok{"12"}\NormalTok{, }\StringTok{"7890"}\NormalTok{)}
+
+\CommentTok{# Comparaison}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{merge =} \KeywordTok{merge}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =}\NormalTok{ extract), df, }\DataTypeTok{sort =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{names =}\NormalTok{ df[extract, ]}
+\NormalTok{)}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##   expr       min        lq      mean    median}
+\NormalTok{  ##  merge 15.657587 17.971193 22.305240 22.837128}
+\NormalTok{  ##  names  2.725046  2.746538  3.782196  3.233351}
+\NormalTok{  ##         uq       max neval}
+\NormalTok{  ##  27.666208 30.020111    10}
+\NormalTok{  ##   5.349018  5.757353    10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{À propos des matrices (1)}
+
+Quand c'est possible, \textbf{travailler sur des matrices} (plutôt que
+des \texttt{data.frame}) est souvent source d'efficacité :
+
+\vfill
+
+\begin{itemize}
+\tightlist
+\item
+  \pause de nombreuses opérations sont \textbf{vectorisées} pour les
+  matrices : sommes en lignes et en colonnes (\texttt{rowSums()} et
+  \texttt{colSums()}), etc. ;
+\end{itemize}
+
+\vfill 
+
+\begin{itemize}
+\tightlist
+\item
+  \pause l'\textbf{algèbre matricielle} (le produit matriciel notamment)
+  est très bien optimisée ;
+\end{itemize}
+
+\vfill
+
+\begin{itemize}
+\tightlist
+\item
+  \pause selon la nature du problème, l'utilisation de \textbf{matrices
+  lacunaires} (\emph{sparse}) peut faire gagner et en empreinte mémoire
+  et en temps de calcul (\emph{cf.} le \emph{package} \texttt{Matrix}).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{À propos des matrices (2)}
+
+\footnotesize 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Création d'une matrice m avec 99 % de 0}
+\NormalTok{v <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{1e6}\NormalTok{); v[}\KeywordTok{sample}\NormalTok{(}\FloatTok{1e6}\NormalTok{, }\FloatTok{1e4}\NormalTok{)] <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e4}\NormalTok{)}
+\NormalTok{m <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(v, }\DataTypeTok{ncol =} \DecValTok{100}\NormalTok{)}
+
+\CommentTok{# Transformation en matrice lacunaire}
+\KeywordTok{library}\NormalTok{(Matrix)}
+\NormalTok{M <-}\StringTok{ }\KeywordTok{Matrix}\NormalTok{(m)}
+
+\CommentTok{# Gain en espace (en ko)}
+\KeywordTok{c}\NormalTok{(}\KeywordTok{object_size}\NormalTok{(m), }\KeywordTok{object_size}\NormalTok{(M))}
+\NormalTok{  ## [1] 8000200  121824}
+
+\CommentTok{# Gain de performances pour la fonction colSums()}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{dense =} \KeywordTok{colSums}\NormalTok{(m), }\DataTypeTok{sparse =} \KeywordTok{colSums}\NormalTok{(M))}
+\NormalTok{  ## Unit: microseconds}
+\NormalTok{  ##    expr      min       lq       mean   median       uq}
+\NormalTok{  ##   dense 1271.903 1290.240 1465.75316 1344.764 1408.385}
+\NormalTok{  ##  sparse   54.282   66.571   92.75276   87.245   93.173}
+\NormalTok{  ##       max neval}
+\NormalTok{  ##  4048.731   100}
+\NormalTok{  ##   595.279   100}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\subsection{dplyr : une grammaire du traitement des
+données}\label{dplyr-une-grammaire-du-traitement-des-donnees}
+
+\begin{frame}[fragile]{Philosophie de \texttt{dplyr}}
+
+\texttt{dplyr} est un \emph{package} développé par RStudio et en
+particulier par Hadley Wickham. Il constitue un véritable
+\textbf{écosystème} visant à faciliter le travail sur des tables
+statistiques :
+
+\begin{itemize}
+\tightlist
+\item
+  \pause il fournit un ensemble de \textbf{fonctions élémentaires} (les
+  \og verbes \fg{}) pour effectuer les manipulations de données;
+\item
+  \pause plusieurs verbes peuvent facilement être \textbf{combinés en
+  utilisant l'opérateur \texttt{\%\textgreater{}\%}} (\emph{pipe});
+\item
+  \pause toutes les opérations sont optimisées par du \textbf{code de
+  bas niveau}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause
+
+\textbf{Pour en savoir plus} De nombreuses vignettes très pédagogiques
+sont disponibles sur la
+\href{https://cran.r-project.org/package=dplyr}{\underline{page du \textit{package}}}.
+Un
+\href{https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf}{\underline{aide-mémoire}}
+est également disponible sur le site de RStudio.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Données d'exemple : table \texttt{flights}
+de \texttt{nycflights13}}
+
+Les exemples relatifs aux \emph{packages} \texttt{dplyr} et
+\texttt{data.table} s'appuient sur les données du \emph{package}
+\texttt{nycflights13}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(nycflights13)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause Ce \emph{package} contient des données sur tous les vols au
+départ de la ville de New-York en 2013.
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(}\DataTypeTok{package =} \StringTok{"nycflights13"}\NormalTok{)}
+\KeywordTok{dim}\NormalTok{(flights)}
+\NormalTok{  ## [1] 336776     19}
+\KeywordTok{names}\NormalTok{(flights)[}\DecValTok{1}\OperatorTok{:}\DecValTok{9}\NormalTok{]}
+\NormalTok{  ## [1] "year"           "month"          "day"           }
+\NormalTok{  ## [4] "dep_time"       "sched_dep_time" "dep_delay"     }
+\NormalTok{  ## [7] "arr_time"       "sched_arr_time" "arr_delay"}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Simplifier des opérations de base R}
+
+\texttt{dplyr} propose plusieurs verbes pour simplifier certaines
+opérations parfois fastidieuses en base R :
+
+\pause \vspace{-1mm} - \texttt{filter()} sélectionne des observations
+selon une ou plusieurs conditions;
+
+\vspace{-3mm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(flights, month }\OperatorTok{==}\StringTok{ }\DecValTok{7}\NormalTok{, day }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \vspace{-3mm} - \texttt{arrange()} trie le fichier selon une ou
+plusieurs variables;
+
+\vspace{-3mm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{arrange}\NormalTok{(flights, month, }\KeywordTok{desc}\NormalTok{(distance))}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \vspace{-3mm} - \texttt{select()} sélectionne des variables par
+leur noms;
+
+\vspace{-3mm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{select}\NormalTok{(flights, year}\OperatorTok{:}\NormalTok{arr_delay)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \vspace{-3mm} - \texttt{rename()} renomme des variables.
+
+\vspace{-3mm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rename}\NormalTok{(flights, }\DataTypeTok{annee =}\NormalTok{ year)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Calculer des statistiques avec
+\texttt{summarise()}}
+
+La fonction \texttt{summarise()} permet de facilement calculer des
+statistiques sur des données.
+
+\pause 
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summarise}\NormalTok{(flights}
+\NormalTok{  , }\DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  ##   distance_moyenne retard_max
+  ## 1         1039.913       1272
+\end{verbatim}
+
+\pause 
+
+\textbf{Remarque} Comme toutes les fonctions de \texttt{dplyr},
+\texttt{summarise()} prend un \texttt{data.frame} en entrée et produit
+un \texttt{data.frame} en sortie.
+
+\end{frame}
+
+\begin{frame}[fragile]{Ventiler des traitements avec
+\texttt{group\_by()}}
+
+Appliqué au préalable à un \texttt{data.frame}, \texttt{group\_by()}
+ventile tous les traitements ultérieurs selon les modalités d'une ou
+plusieurs variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights_bymonth <-}\StringTok{ }\KeywordTok{group_by}\NormalTok{(flights, month)}
+\KeywordTok{summarise}\NormalTok{(flights_bymonth}
+\NormalTok{  , }\DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  ##   month distance_moyenne retard_max
+  ## 1     1         1006.844       1272
+  ## 2     2         1000.982        834
+  ## 3     3         1011.987        915
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Enchaîner des opérations avec
+\texttt{\%\textgreater{}\%}}
+
+L'utilisation des verbes de \texttt{dplyr} ne prend tout son intérêt que
+quand ils sont enchaînés en utilisant l'opérateur \emph{pipe}
+\texttt{\%\textgreater{}\%}.
+
+\texttt{maTable\ \%\textgreater{}\%\ maFonction(param1,\ param2)} est
+équivalent à \texttt{maFonction(maTable,\ param1,\ param2)}.
+
+\pause Ainsi, l'\textbf{enchaînement de nombreuses opérations} devient
+beaucoup plus facile à mettre en \oe uvre et à comprendre.
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year, month, day) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}
+    \DataTypeTok{retard_arrivee =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+    \DataTypeTok{retard_depart =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  ) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(retard_arrivee }\OperatorTok{>}\StringTok{ }\DecValTok{30} \OperatorTok{|}\StringTok{ }\NormalTok{retard_depart }\OperatorTok{>}\StringTok{ }\DecValTok{30}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Fusionner des tables avec \texttt{*\_join()}}
+
+\texttt{dplyr} dispose de nombreuses fonctions très utiles pour
+fusionner une ou plusieurs tables ensemble, qui \textbf{s'inspirent très
+fortement de SQL} :
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{a\ \%\textgreater{}\%\ left\_join(b,\ by\ =\ "id")} : fusionne
+  \texttt{a} et \texttt{b} en conservant toutes les observations de
+  \texttt{a};
+\item
+  \texttt{a\ \%\textgreater{}\%\ right\_join(b,\ by\ =\ "id")} :
+  fusionne \texttt{a} et \texttt{b} en conservant toutes les
+  observations de \texttt{b};
+\item
+  \texttt{a\ \%\textgreater{}\%\ inner\_join(b,\ by\ =\ "id")} :
+  fusionne \texttt{a} et \texttt{b} en ne conservant que les
+  observations dans \texttt{a} et \texttt{b};
+\item
+  \texttt{a\ \%\textgreater{}\%\ full\_join(b,\ by\ =\ "id")} : fusionne
+  \texttt{a} et \texttt{b} en conservant toutes les observations.
+\end{itemize}
+
+\textbf{Pour en savoir plus} Une
+\href{https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html}{\underline{vignette}}
+est consacrée à la présentation des fonctions de \texttt{dplyr} portant
+sur deux tables.
+
+\end{frame}
+
+\begin{frame}[fragile]{Comparaison de base R et de \texttt{dplyr}}
+
+\texttt{dplyr} est particulièrement intéressant pour travailler sur des
+données par groupe. On compare donc l'utilisation de \texttt{tapply()}
+de base R avec \texttt{group\_by()} de \texttt{dplyr}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{x =} \KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{by =} \KeywordTok{sample}\NormalTok{(}\FloatTok{1e3}\NormalTok{, }\FloatTok{1e6}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(df}\OperatorTok{$}\NormalTok{x, df}\OperatorTok{$}\NormalTok{by, sum)}
+\NormalTok{  , }\DataTypeTok{dplyr =}\NormalTok{ df }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(by) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x))}
+\NormalTok{)}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##   expr      min       lq     mean   median       uq}
+\NormalTok{  ##   base 40.79184 41.45713 44.89822 44.29427 47.29994}
+\NormalTok{  ##  dplyr 49.23555 53.48221 59.57438 54.48100 55.97304}
+\NormalTok{  ##        max neval}
+\NormalTok{  ##   54.05332    10}
+\NormalTok{  ##  108.10298    10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\subsection{data.table : un data.frame
+optimisé}\label{data.table-un-data.frame-optimise}
+
+\begin{frame}[fragile]{Philosophie de \texttt{data.table}}
+
+Contrairement à \texttt{dplyr}, \texttt{data.table} ne cherche pas à se
+substituer à base R mais à le compléter.
+
+Il introduit un nouveau type d'objet, le \texttt{data.table}, qui
+\textbf{hérite} du \texttt{data.frame} (tout \texttt{data.table} est un
+\texttt{data.frame}).
+
+Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
+\textbf{enrichi et optimisé}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(data.table)}
+\NormalTok{flights_DT <-}\StringTok{ }\KeywordTok{data.table}\NormalTok{(flights)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Pour en savoir plus} Là encore des vignettes très pédagogiques
+sont disponibles sur la
+\href{https://cran.r-project.org/package=data.table}{\underline{page du \textit{package}}}.
+
+\end{frame}
+
+\begin{frame}[fragile]{L'opérateur \texttt{{[}} du \texttt{data.table} :
+\texttt{i}, \texttt{j} et \texttt{by}}
+
+La syntaxe de l'opérateur \texttt{{[}} appliqué à un \texttt{data.table}
+est la suivante (\texttt{DT} représente le \texttt{data.table}):
+
+\centering \large
+
+\texttt{DT{[}i,\ j,\ by{]}}
+
+\raggedright \normalsize
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{i} : sélectionner des observations selon une condition;
+\item
+  \texttt{j} : sélectionner ou \textbf{créer} une ou plusieurs
+  variables;
+\item
+  \texttt{by} : ventiler les traitements selon les modalités d'une ou
+  plusieurs variables.
+\end{itemize}
+
+\bigskip 
+
+\textbf{Exemple} Retard quotidien maximal au mois de janvier.
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights_DT[}
+\NormalTok{  month }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, }\KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{), by =}\StringTok{ }\NormalTok{day}
+\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sélectionner des observations avec \texttt{i}}
+
+\small
+Il est beaucoup plus simple et efficace de sélectionner des observations
+dans un \texttt{data.table} que dans un \texttt{data.frame}:
+
+\begin{itemize}
+\item
+  il n'y a pas à répéter le nom du \texttt{data.frame} dans
+  \texttt{{[}};
+\item
+  il est possible d'indexer un \texttt{data.table} par une ou plusieurs
+  \og clés \fg{} permettant une recherche souvent plus rapide.
+\end{itemize}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setkey}\NormalTok{(flights_DT, origin)}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 100L}
+\NormalTok{  , }\DataTypeTok{base =}\NormalTok{ flights[flights}\OperatorTok{$}\NormalTok{origin }\OperatorTok{==}\StringTok{ "JFK"}\NormalTok{,]}
+\NormalTok{  , }\DataTypeTok{dt1 =}\NormalTok{ flights_DT[origin }\OperatorTok{==}\StringTok{ "JFK"}\NormalTok{]}
+\NormalTok{  , }\DataTypeTok{dt2 =}\NormalTok{ flights_DT[}\KeywordTok{list}\NormalTok{(}\StringTok{"JFK"}\NormalTok{)]}
+\NormalTok{)}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##  expr      min       lq     mean   median       uq}
+\NormalTok{  ##  base 43.21609 49.84061 59.34352 52.46760 58.23084}
+\NormalTok{  ##   dt1 10.95107 11.80423 14.56624 13.56939 16.50279}
+\NormalTok{  ##   dt2 10.47420 11.13283 14.12447 13.31107 16.29555}
+\NormalTok{  ##        max neval}
+\NormalTok{  ##  215.79663   100}
+\NormalTok{  ##   24.36293   100}
+\NormalTok{  ##   26.08380   100}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Calculer des statistiques avec \texttt{j}}
+
+L'argument \texttt{j} permet de calculer des statistiques agrégées.
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights_DT[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)]}
+\NormalTok{  ##    distance_moyenne retard_max}
+\NormalTok{  ## 1:         1039.913       1272}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize 
+
+Utilisé avec \texttt{:=} il permet de les refusionner automatiquement
+avec les données d'origine.
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights_DT <-}\StringTok{ }\NormalTok{flights_DT[, j }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ventiler des traitements avec \texttt{by} et
+\texttt{keyby}}
+
+L'argument \texttt{by} de \texttt{{[}} ventile tous les traitements
+renseignés dans \texttt{j} selon les modalités d'une ou plusieurs
+variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights_DT[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{), by =}\StringTok{ }\NormalTok{month][}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{,]}
+\NormalTok{  ##    month distance_moyenne retard_max}
+\NormalTok{  ## 1:     1         1006.844       1272}
+\NormalTok{  ## 2:    10         1038.876        688}
+\NormalTok{  ## 3:    11         1050.305        796}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Remarque} Par défaut, \texttt{by} ordonne les résultats dans
+l'ordre des groupes dans le \texttt{data.table}. \texttt{keyby} trie les
+données selon la variable d'agrégation (comme \texttt{group\_by} de
+\texttt{dplyr}).
+
+\end{frame}
+
+\begin{frame}[fragile]{Chaîner les opérations dans un
+\texttt{data.table}}
+
+Il est très facile de chaîner les opérations sur un \texttt{data.table}
+en enchaînant les \texttt{{[}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{flights_DT[}
+\NormalTok{  , j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+    \DataTypeTok{retard_arrivee =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{    , }\DataTypeTok{retard_depart =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\NormalTok{  , keyby =}\StringTok{ }\KeywordTok{list}\NormalTok{(year, month, day)}
+\NormalTok{][retard_arrivee }\OperatorTok{>}\StringTok{ }\DecValTok{30} \OperatorTok{|}\StringTok{ }\NormalTok{retard_depart }\OperatorTok{>}\StringTok{ }\DecValTok{30}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Remarque} Ces chaînages sont possibles avec un
+\texttt{data.table} mais pas avec un \texttt{data.frame}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Comparaison de base R, \texttt{dplyr} et
+\texttt{data.table}}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Conversion de la table de test en data.table}
+\NormalTok{dt <-}\StringTok{ }\KeywordTok{data.table}\NormalTok{(df)}
+
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(df}\OperatorTok{$}\NormalTok{x, df}\OperatorTok{$}\NormalTok{by, sum)}
+\NormalTok{  , }\DataTypeTok{dplyr =}\NormalTok{ df }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(by) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x))}
+\NormalTok{  , }\DataTypeTok{data.table =}\NormalTok{ dt[, }\KeywordTok{sum}\NormalTok{(x), }\DataTypeTok{keyby =}\NormalTok{ by]}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\vspace{-5mm}
+
+\begin{verbatim}
+  ##         expr       lq     mean       uq
+  ## 1       base 40.50007 51.00310 61.15298
+  ## 2      dplyr 50.49077 58.10007 63.03932
+  ## 3 data.table 22.53888 27.79945 30.58824
+\end{verbatim}
+
+\normalsize
+
+\textbf{Pour en savoir plus} Cette discussion sur
+\href{http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly}{\underline{stackoverflow.com}}
+(notamment entre les auteurs des \emph{packages}) aborde les avantages
+et les inconvénients de \texttt{dplyr} et \texttt{data.table}.
+
+\end{frame}
+
+\subsection{Aller plus loin avec R}\label{aller-plus-loin-avec-r}
+
+\begin{frame}{Les limites du logiciel}
+
+Les outils présentés jusqu'à présent correspondent à une utilisation
+\og classique \fg{} de R : production d'une enquête, redressements,
+études.
+
+~
+
+Il arrive néanmoins que certains traitements soient rendus
+\textbf{difficiles par les caractéristiques du logiciel} :
+
+\begin{itemize}
+\tightlist
+\item
+  travail sur des volumes de données impossibles à loger en mémoire;
+\item
+  temps de calcul trop longs et impossibles à réduire.
+\end{itemize}
+
+~
+
+Dans ce genre de situations, la solution consiste en général à utiliser
+R comme une \textbf{interface} vers des techniques ou langages
+susceptibles de répondre au problème posé.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Se connecter à des bases de données}
+
+Une autre solution pour exploiter de grands volumes de données dans R
+est de l'utiliser pour \textbf{interroger des bases de données},
+\emph{via} par exemple le \emph{package} \texttt{RPostgreSQL}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(RPostgreSQL)}
+
+\CommentTok{# Connexion à la base de données maBdd}
+\NormalTok{drv <-}\StringTok{ }\KeywordTok{dbDriver}\NormalTok{(}\StringTok{"PostgreSQL"}\NormalTok{)}
+\NormalTok{con <-}\StringTok{ }\KeywordTok{dbConnect}\NormalTok{(drv, }\DataTypeTok{dbname =} \StringTok{"maBdd"}
+\NormalTok{  , }\DataTypeTok{host =} \StringTok{"localhost"}\NormalTok{, }\DataTypeTok{port =} \DecValTok{5432}
+\NormalTok{  , }\DataTypeTok{user =} \StringTok{"utilisateur"}\NormalTok{, }\DataTypeTok{password =} \StringTok{"motDePasse"}
+\NormalTok{)}
+
+\CommentTok{# Requête SQL sur la table maTable}
+\KeywordTok{dbGetQuery}\NormalTok{(con, }\StringTok{"SELECT COUNT(*) FROM maTable"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\textbf{Remarque} Différents \emph{packages} permettent de se connecter
+à différents types de base de données : \texttt{RMySQl} pour MySQL, etc.
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Se connecter à des bases de données avec
+\texttt{dplyr}}
+
+\texttt{dplyr} a la particularité de pouvoir fonctionner de façon
+totalement transparente sur des bases de données de différents types.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{# Connexion à la base de données maBdd}
+\NormalTok{con <-}\StringTok{ }\KeywordTok{src_postgres}\NormalTok{(}
+  \DataTypeTok{dbname =} \StringTok{"maBdd"}\NormalTok{, }\DataTypeTok{host =} \StringTok{"localhost"}\NormalTok{, }\DataTypeTok{port =} \DecValTok{5432}
+\NormalTok{  , }\DataTypeTok{user =} \StringTok{"utilisateur"}\NormalTok{, }\DataTypeTok{password =} \StringTok{"motDePasse"}
+\NormalTok{)}
+
+\CommentTok{# Requête SQL sur la table maTable...}
+\KeywordTok{tbl}\NormalTok{(con, }\StringTok{"SELECT COUNT(*) FROM maTable"}\NormalTok{)}
+
+\CommentTok{# ... ou utilisation des verbes de dplyr}
+\KeywordTok{tbl}\NormalTok{(con) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Paralléliser des traitements avec
+\texttt{parallel} (1)}
+
+La plupart des ordinateurs possèdent aujourd'hui plusieurs c\oe urs
+(\emph{core}) susceptibles de mener des traitements \textbf{en
+parallèle} (8 sur chaque serveur d'AUS par exemple).
+
+Par défaut, R n'expoite qu'un seul c\oe ur : le \emph{package}
+\texttt{parallel} (mais aussi les \emph{packages} \texttt{snow} ou
+\texttt{foreach} par exemple) permettent de \textbf{paralléliser des
+structures du type \texttt{*apply}}.
+
+Ce type d'opérations est composé de plusieurs étapes :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à
+  utiliser (chargement des fonctions et \emph{packages} nécessaires sur
+  chaque c\oe ur);
+\item
+  Lancement du traitement parallélisé avec \texttt{parLapply()};
+\item
+  Arrêt des processus du \emph{cluster} avec \texttt{stopCluster()}.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Paralléliser des traitements avec
+\texttt{parallel} (2)}
+
+Dans cet exemple, on cherche à appliquer la fonction \texttt{f} à chaque
+matrice de la liste \texttt{l}.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(MASS)}
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{rowSums}\NormalTok{(}\KeywordTok{ginv}\NormalTok{(x))}
+\NormalTok{l <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{100}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\FloatTok{1e4}\NormalTok{), }\DataTypeTok{ncol =} \FloatTok{1e2}\NormalTok{))}
+
+\CommentTok{# Création et paramétrage du cluster}
+\KeywordTok{library}\NormalTok{(parallel)}
+\NormalTok{cl <-}\StringTok{ }\KeywordTok{makeCluster}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\KeywordTok{clusterEvalQ}\NormalTok{(cl, }\KeywordTok{library}\NormalTok{(MASS))}
+\KeywordTok{clusterExport}\NormalTok{(cl, }\StringTok{"f"}\NormalTok{)}
+
+\CommentTok{# Lancement du calcul parallélisé}
+\KeywordTok{parLapply}\NormalTok{(cl, l, f)}
+
+\CommentTok{# Arrêt des processus du cluster}
+\KeywordTok{stopCluster}\NormalTok{(cl)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Paralléliser des traitements avec
+\texttt{parallel} (3)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+\NormalTok{  , }\KeywordTok{lapply}\NormalTok{(l, f)}
+\NormalTok{  , }\KeywordTok{parLapply}\NormalTok{(cl, l, f)}
+\NormalTok{)}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##                 expr      min       lq     mean}
+\NormalTok{  ##         lapply(l, f) 685.5965 689.0597 711.2954}
+\NormalTok{  ##  parLapply(cl, l, f) 394.6888 426.4845 461.8367}
+\NormalTok{  ##    median       uq      max neval}
+\NormalTok{  ##  697.1698 721.4244 792.8151    10}
+\NormalTok{  ##  445.0535 498.3799 591.0796    10}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{Rcpp} : un package R pour utiliser C++
+(1)}
+
+Le \emph{package} \texttt{Rcpp} permet d'intégrer facilement des
+fonctions codées en C++ dans un programme R.
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(Rcpp)}
+\KeywordTok{cppFunction}\NormalTok{(}\StringTok{'int add(int x, int y) \{}
+\StringTok{  int result = x + y;}
+\StringTok{  return result;}
+\StringTok{\}'}\NormalTok{)}
+
+\KeywordTok{add}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{  ## [1] 3}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\textbf{Remarque} Il est également possible de soumettre un fichier
+contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction
+\texttt{sourceCpp()}.
+
+\textbf{Pour en savoir plus}
+\href{http://adv-r.had.co.nz/Rcpp.html}{\underline{\textit{Advanced R}}}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{Rcpp} : un package R pour utiliser C++
+(2)}
+
+Contrairement à R, C++ est un langage de bas niveau : les boucles y sont
+en particulier extrêmement rapides.
+
+\textbf{Exemple} Somme cumulée par colonne
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Fonction C++}
+\KeywordTok{cppFunction}\NormalTok{(}\StringTok{'NumericMatrix cumColSumsC(NumericMatrix x) \{}
+\StringTok{  int nrow = x.nrow(), ncol = x.ncol();}
+\StringTok{  NumericMatrix out(nrow, ncol);}
+\StringTok{  for (int j = 0; j < ncol; j++) \{}
+\StringTok{    double acc = 0;}
+\StringTok{    for(int i = 0; i < nrow; i++)\{}
+\StringTok{      acc += x(i, j);}
+\StringTok{      out(i, j) = acc;}
+\StringTok{    \}}
+\StringTok{  \}}
+\StringTok{  return out;}
+\StringTok{\}'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{Rcpp} : un package R pour utiliser C++
+(3)}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Fonction R}
+\NormalTok{cumColSumsR <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{apply}\NormalTok{(x, }\DecValTok{2}\NormalTok{, cumsum)}
+\NormalTok{\}}
+
+\CommentTok{# Les deux fonctions produisent les mêmes résultats...}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{), }\DataTypeTok{ncol =} \FloatTok{1e2}\NormalTok{)}
+\KeywordTok{all.equal}\NormalTok{(}\KeywordTok{cumColSumsR}\NormalTok{(x), }\KeywordTok{cumColSumsC}\NormalTok{(x))}
+\NormalTok{  ## [1] TRUE}
+
+\CommentTok{# ... mais cumColSumsC() est beaucoup plus rapide !}
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
+\NormalTok{  , }\KeywordTok{cumColSumsR}\NormalTok{(x)}
+\NormalTok{  , }\KeywordTok{cumColSumsC}\NormalTok{(x)}
+\NormalTok{))[, }\KeywordTok{c}\NormalTok{(}\StringTok{"expr"}\NormalTok{, }\StringTok{"lq"}\NormalTok{, }\StringTok{"mean"}\NormalTok{, }\StringTok{"uq"}\NormalTok{)]}
+\NormalTok{  ##             expr        lq      mean       uq}
+\NormalTok{  ## 1 cumColSumsR(x) 27.054698 45.593325 31.76764}
+\NormalTok{  ## 2 cumColSumsC(x)  5.344443  7.852879  9.91970}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\end{document}

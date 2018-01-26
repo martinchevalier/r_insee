@@ -7,29 +7,29 @@ fontsize: 12pt
 if(!exists(".initOK")) source("fonctions.R")
 ```
 
-# Réaliser des graphiques avec R
+# RÃ©aliser des graphiques avec R
 
-\subsection*{Réaliser des graphiques avec R}
+\subsection*{RÃ©aliser des graphiques avec R}
 
-### R et la réalisation de graphiques
+### R et la rÃ©alisation de graphiques
 
-La réalisation de graphiques dans un logiciel statistique est une opération souvent longue et complexe. 
+La rÃ©alisation de graphiques dans un logiciel statistique est une opÃ©ration souvent longue et complexe. 
 
-Dans la plupart des cas, l'ajustement fin des paramètres par le biais de lignes de code relève de la gageure. 
+Dans la plupart des cas, l'ajustement fin des paramÃ¨tres par le biais de lignes de code relÃ¨ve de la gageure. 
 
-\pause R dispose néanmoins de plusieurs caractéristiques qui facilitent la réalisation de graphiques : 
+\pause R dispose nÃ©anmoins de plusieurs caractÃ©ristiques qui facilitent la rÃ©alisation de graphiques : 
 
-- **souplesse** : la très grande variété des types d'objets simplifie les paramétrages ;
-- **rigueur** : la dimension fonctionnelle du langage aide à systématiser l'utilisation des paramètres graphiques ;
-- **adaptabilité** : la liberté de développement de modules complémentaires rend possible de profondes innovations dans la conception des graphiques. 
+- **souplesse** : la trÃ¨s grande variÃ©tÃ© des types d'objets simplifie les paramÃ©trages ;
+- **rigueur** : la dimension fonctionnelle du langage aide Ã  systÃ©matiser l'utilisation des paramÃ¨tres graphiques ;
+- **adaptabilitÃ©** : la libertÃ© de dÃ©veloppement de modules complÃ©mentaires rend possible de profondes innovations dans la conception des graphiques. 
 
 ### Base R ou `ggplot2` ? 
 
 Il existe aujourd'hui troix principaux paradigmes pour produire des graphiques avec R : 
 
-- les fonctionnalités de base du logiciel du *package* `graphics`;
+- les fonctionnalitÃ©s de base du logiciel du *package* `graphics`;
 
-- les fonctionnalités plus élaborées des *packages* `grid` et `lattice` (non-abordées dans cette formation);
+- les fonctionnalitÃ©s plus Ã©laborÃ©es des *packages* `grid` et `lattice` (non-abordÃ©es dans cette formation);
 
 - la \og grammaire des graphiques \fg{} du *package* `ggplot2`.
 
@@ -42,11 +42,11 @@ Il existe aujourd'hui troix principaux paradigmes pour produire des graphiques a
 \tableofcontents[currentsection, sectionstyle = hide, subsectionstyle = show/show/hide]
 
 
-### Données d'exemple : table `mpg` de `ggplot2`
+### DonnÃ©es d'exemple : table `mpg` de `ggplot2`
 
 \small
 
-La plupart des exemples de cette partie sont produits à partir de la table `mpg` du *package* `ggplot2`.
+La plupart des exemples de cette partie sont produits Ã  partir de la table `mpg` du *package* `ggplot2`.
 
 \footnotesize
 
@@ -59,49 +59,49 @@ names(mpg)
 \pause \vspace{-0.4cm}
 \small
 
-- `displ` : cylindrée;
+- `displ` : cylindrÃ©e;
 - `drv` : transmission (`f` traction, `r` propulsion, `4` quatre roues motrices);
 - `cty` et `hwy` :  nombre de *miles* parcourus par *gallon* d'essence en ville et sur autoroute respectivement.
 
 
-## Réaliser des graphiques avec `graphics`
+## RÃ©aliser des graphiques avec `graphics`
 
-### \large Beaucoup de fonctions, des paramètres communs
+### \large Beaucoup de fonctions, des paramÃ¨tres communs
 
-La création de graphiques avec le *package* de base `graphics` s'appuie sur la **fonction `plot()`** ainsi que sur des **fonctions spécifiques** : 
+La crÃ©ation de graphiques avec le *package* de base `graphics` s'appuie sur la **fonction `plot()`** ainsi que sur des **fonctions spÃ©cifiques** : 
 
-- `plot(hist(x))`, `plot(density(x))` : histogrammes et densités;
-- `plot(ts)` : représentation de séries chronologiques;
+- `plot(hist(x))`, `plot(density(x))` : histogrammes et densitÃ©s;
+- `plot(ts)` : reprÃ©sentation de sÃ©ries chronologiques;
 - `plot(x, y)` : nuages de points;
-- `barplot(table(x))` et `pie(table(x))` : diagrammes en bâtons et circulaires.
+- `barplot(table(x))` et `pie(table(x))` : diagrammes en bÃ¢tons et circulaires.
 
-\pause Si ce n'est quelques **arguments spécifiques**, ces fonctions partagent un ensemble de **paramètres graphiques communs**. 
+\pause Si ce n'est quelques **arguments spÃ©cifiques**, ces fonctions partagent un ensemble de **paramÃ¨tres graphiques communs**. 
 
 \pause 
 
 **Pour en savoir plus** Le site [\underline{statmethods.net}](http://www.statmethods.net/graphs/) recense et illustre la plupart des fonctions du *package* `graphics`.
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
-Les fonctions `histogram()` et `density()` calculent les statistiques ensuite utilisées par la fonction `plot()` pour construire les graphiques. 
+Les fonctions `histogram()` et `density()` calculent les statistiques ensuite utilisÃ©es par la fonction `plot()` pour construire les graphiques. 
 
-\pause Arguments spécifiques à `hist()` : 
+\pause Arguments spÃ©cifiques Ã  `hist()` : 
 \vspace{-0.3cm}
 
-- `breaks` : méthode pour déterminer les limites des classes;
+- `breaks` : mÃ©thode pour dÃ©terminer les limites des classes;
 - `labels = TRUE` : ajoute l'effectif de chaque classe.
 
-\pause Arguments spécifiques à `density()` : 
+\pause Arguments spÃ©cifiques Ã  `density()` : 
 \vspace{-0.3cm}
 
-- `bw` : largeur de la fenêtre utilisée par la fonction de lissage;
-- `kernel` : fonction de lissage utilisée.
+- `bw` : largeur de la fenÃªtre utilisÃ©e par la fonction de lissage;
+- `kernel` : fonction de lissage utilisÃ©e.
 
 \pause
 
-**Remarque** L'argument `plot` de la fonction `hist()` (`TRUE` par défaut) affiche automatiquement un graphique, sans avoir à appeler explicitement la fonction `plot()`.
+**Remarque** L'argument `plot` de la fonction `hist()` (`TRUE` par dÃ©faut) affiche automatiquement un graphique, sans avoir Ã  appeler explicitement la fonction `plot()`.
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
 \centering \footnotesize
 ```{r, out.height="7cm"}
@@ -109,14 +109,14 @@ hist(mpg$hwy, breaks = seq(10, 44, by = 2),
      col = "lightblue", labels = TRUE)
 ```
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
 \centering \footnotesize
 ```{r, out.height="7cm"}
 plot(density(mpg$hwy, bw = 0.5, kernel = "gaussian"))
 ```
 
-### Séries chronologiques avec `plot(ts)`
+### SÃ©ries chronologiques avec `plot(ts)`
 
 \centering \footnotesize
 
@@ -133,33 +133,33 @@ plot(AirPassengers)
 plot(mpg$displ, mpg$hwy)
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
-La fonction `table()` permet de calculer les statistiques utilisées ensuite par `barplot()` et `pie()` pour construire les graphiques.
+La fonction `table()` permet de calculer les statistiques utilisÃ©es ensuite par `barplot()` et `pie()` pour construire les graphiques.
 
-\pause Arguments spécifiques à `barplot()` : 
+\pause Arguments spÃ©cifiques Ã  `barplot()` : 
 \vspace{-3mm}
 
 - `horiz` : construit le graphique horizontalement;
-- `names.arg` : nom à afficher près des barres.
+- `names.arg` : nom Ã  afficher prÃ¨s des barres.
 
-\pause Arguments spécifiques à `pie()` : 
+\pause Arguments spÃ©cifiques Ã  `pie()` : 
 \vspace{-3mm}
 
-- `labels` : noms à afficher à côté des portions de disque; 
-- `clockwise` : sens dans lequel sont représentées les modalités;
-- `init.angle` : point de départ en degrés.
+- `labels` : noms Ã  afficher Ã  cÃ´tÃ© des portions de disque; 
+- `clockwise` : sens dans lequel sont reprÃ©sentÃ©es les modalitÃ©s;
+- `init.angle` : point de dÃ©part en degrÃ©s.
 
 \pause
 
-**Remarque** Quand `barplot()` est appliqué à un tri croisé, la couleur des barres varie et les paramètres deviennent utiles : 
+**Remarque** Quand `barplot()` est appliquÃ© Ã  un tri croisÃ©, la couleur des barres varie et les paramÃ¨tres deviennent utiles : 
 \vspace{-3mm}
 
 - `beside` : position des barres;
-- `legend.text` : ajoute une légende avec le texte indiqué.
+- `legend.text` : ajoute une lÃ©gende avec le texte indiquÃ©.
 
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \centering \footnotesize
 
@@ -169,7 +169,7 @@ lab <- c("4 roues", "Traction", "Propulsion")
 barplot(uni, names.arg = lab)
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \centering \footnotesize
 
@@ -178,7 +178,7 @@ pie(uni, labels = paste0(lab, "\n", uni)
     , init.angle = 90, clockwise = TRUE)
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \centering \footnotesize
 
@@ -189,16 +189,16 @@ barplot(bi, horiz = TRUE, beside = TRUE, legend.text = lab)
 
 ### Couleur, forme et taille des objets
 
-Plusieurs paramètres permettent de modifier la couleur, la forme ou la taille des éléments qui composent un graphique: 
+Plusieurs paramÃ¨tres permettent de modifier la couleur, la forme ou la taille des Ã©lÃ©ments qui composent un graphique: 
 
-- \pause `pch` : entier ou caractère spécial indiquant la forme des points à représenter. 
+- \pause `pch` : entier ou caractÃ¨re spÃ©cial indiquant la forme des points Ã  reprÃ©senter. 
 
 ```{r, fig.height = 5, echo = FALSE}
 plot(x = 1:25, y = rep(1, 25), pch = 1:25,bty="n", axes = FALSE, ylab = "", xlab = "", cex = 2)
 text(x = 1:25, rep(1, 25), 1:25, adj = c(0.5, -1.5), cex = 1.5)
 ```
 
-- \pause `col` : valeur indiquant la couleur du contour des formes utilisées. Peut être un entier (recyclé au-delà de 8), un nom ou un code RGB hexadécimal (du type `"#FF1111"`).
+- \pause `col` : valeur indiquant la couleur du contour des formes utilisÃ©es. Peut Ãªtre un entier (recyclÃ© au-delÃ  de 8), un nom ou un code RGB hexadÃ©cimal (du type `"#FF1111"`).
 \small  
 
 ```{r, fig.height = 5, echo = FALSE}
@@ -206,11 +206,11 @@ plot(x = 1:8, y = rep(1, 8), col = 1:8, bg = 1:8, pch = 21, bty="n", axes = FALS
 text(x = 1:8, rep(1, 8), 1:8, adj = c(0.5, -1.5), cex = 1.5)
 ```
 
-Pour certaines formes (`pch` entre 21 et 25), il est également possible de modifier la couleur de remplissage avec `bg`. 
+Pour certaines formes (`pch` entre 21 et 25), il est Ã©galement possible de modifier la couleur de remplissage avec `bg`. 
 
 ### Couleur, forme et taille des objets
 
-**Remarque** : la palette de couleurs accessibles en utilisant des entiers est réduite. Il est possible de l'étendre considérablement *via* la fonction `colors()`. 
+**Remarque** : la palette de couleurs accessibles en utilisant des entiers est rÃ©duite. Il est possible de l'Ã©tendre considÃ©rablement *via* la fonction `colors()`. 
 
 \small
 ```{r}
@@ -220,7 +220,7 @@ grep("blue", colors(), value = TRUE)[1:3]
 ```
 
 \pause \normalsize
-- `cex` : utilisé dans une fonction `plot()`, `cex` permet d'ajuster la taille des points qui le composent. 
+- `cex` : utilisÃ© dans une fonction `plot()`, `cex` permet d'ajuster la taille des points qui le composent. 
 
 ```{r, fig.height = 5, echo = FALSE}
 plot(x = 1:6, y = rep(1, 6), col = "royalblue", bg = "royalblue", pch = 21, bty="n", axes = FALSE, ylab = "", xlab = "", cex = 1:6)
@@ -229,7 +229,7 @@ text(x = 1:6, rep(1, 6), 1:6, adj = c(0.5, -2), cex = 1.5)
 
 ### Couleur, forme et taille des objets
 
-La fonction `legend()` permet d'ajouter une légende. 
+La fonction `legend()` permet d'ajouter une lÃ©gende. 
 \footnotesize \center
 
 \pause \vspace{-0.4cm}
@@ -243,38 +243,39 @@ legend("topright", legend = unique(t), pch = 21
 
 ### Titres, texte et axes
 
-Les titres sont paramétrés à l'aide des fonctions suivantes : 
+Les titres sont paramÃ©trÃ©s Ã  l'aide des fonctions suivantes : 
 
 \vspace{-0.3cm}
+
 - `main` pour ajouter le titre principal;
 - `xlab` et `ylab` pour ajouter des titres aux axes.
 
-\pause La fonction `text()` permet d'ajouter du texte sur le graphique en le positionnant par ses coordonnées, éventuellement avec un décalage (pour nommer des points par exemple). 
-
-\pause Il est également possible de paramétrer les axes :
+\pause La fonction `text()` permet d'ajouter du texte sur le graphique en le positionnant par ses coordonnÃ©es, Ã©ventuellement avec un dÃ©calage (pour nommer des points par exemple). 
+\pause Il est Ã©galement possible de paramÃ©trer les axes :
 
 \vspace{-0.3cm}
-- `xlim` et `ylim` spécifient les valeurs minimales et maximales de chaque axe;
-- `axis()` est une fonction qui permet d'ajouter un axe personnalisé. 
+
+- `xlim` et `ylim` spÃ©cifient les valeurs minimales et maximales de chaque axe;
+- `axis()` est une fonction qui permet d'ajouter un axe personnalisÃ©. 
 
 \pause 
 
-**Remarque** Pour produire un graphique sans axe et les rajouter après, utiliser l'option `axes = FALSE` de la fonction `plot()`. 
+**Remarque** Pour produire un graphique sans axe et les rajouter aprÃ¨s, utiliser l'option `axes = FALSE` de la fonction `plot()`. 
 
 ### Combinaison de plusieurs graphiques
 
-Par défaut l'utilisation de la fonction `plot()` produit un nouveau graphique. 
+Par dÃ©faut l'utilisation de la fonction `plot()` produit un nouveau graphique. 
 
-\pause Pour superposer différents graphiques, le plus simple est de commencer par une instruction `plot()` puis de la compléter : 
+\pause Pour superposer diffÃ©rents graphiques, le plus simple est de commencer par une instruction `plot()` puis de la complÃ©ter : 
 
 - avec `points()` pour ajouter des points;
 - avec `lines()` pour ajouter des lignes;
-- avec `abline()` pour ajouter des lignes d'après une équation;
-- avec `curve()` pour ajouter des courbes d'après une équation. 
+- avec `abline()` pour ajouter des lignes d'aprÃ¨s une Ã©quation;
+- avec `curve()` pour ajouter des courbes d'aprÃ¨s une Ã©quation. 
 
 \pause 
 
-**Exemple** Ajout d'une droite de régression au graphique de `hwy` par `displ`. 
+**Exemple** Ajout d'une droite de rÃ©gression au graphique de `hwy` par `displ`. 
 
 ### Combinaison de plusieurs graphiques
 
@@ -287,26 +288,26 @@ abline(a = reg$coefficients[1], b = reg$coefficients[2])
 ```
 
 
-### Paramètres généraux et disposition (1)
+### ParamÃ¨tres gÃ©nÃ©raux et disposition (1)
 
-Utilisée en dehors de la fonction `plot()`, la fonction `par()` permet de définir l'ensemble des paramètres graphiques globaux. 
+UtilisÃ©e en dehors de la fonction `plot()`, la fonction `par()` permet de dÃ©finir l'ensemble des paramÃ¨tres graphiques globaux. 
 
-\pause Ses mots-clés les plus importants sont : 
+\pause Ses mots-clÃ©s les plus importants sont : 
 
-- `mfrow` : permet de disposer plusieurs graphiques côte-à-côte. 
+- `mfrow` : permet de disposer plusieurs graphiques cÃ´te-Ã -cÃ´te. 
     ```{r, eval = FALSE}
 par(mfrow = c(1, 2)) # 1 ligne et 2 colonnes
 par(mfrow = c(3, 2)) # 3 lignes et 2 colonnes
 par(mfrow = c(1, 1)) # 1 ligne et 1 colonne
     ```
-- `cex` :  coefficient multiplicatif pour modifier la taille de l'ensemble des textes et symboles utilisés dans les graphiques (1 par défaut). 
+- `cex` :  coefficient multiplicatif pour modifier la taille de l'ensemble des textes et symboles utilisÃ©s dans les graphiques (1 par dÃ©faut). 
 
 \pause 
 
-**Pour en savoir plus** La [page d'aide](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/par.html) de la fonction `par()` détaille toutes ces options. 
+**Pour en savoir plus** La [page d'aide](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/par.html) de la fonction `par()` dÃ©taille toutes ces options. 
 
 
-### Paramètres généraux et disposition (2)
+### ParamÃ¨tres gÃ©nÃ©raux et disposition (2)
 
 ```{r, fig.height=5}
 par(mfrow = c(1, 2))
@@ -320,7 +321,7 @@ par(mfrow = c(1, 1))
 
 ### Exportation
 
-Pour exporter des graphiques depuis R, la démarche consiste à rediriger le flux de production du graphiques vers un fichier à l'aide d'une fonction du *package* `grDevices`. Par exemple : 
+Pour exporter des graphiques depuis R, la dÃ©marche consiste Ã  rediriger le flux de production du graphique vers un fichier Ã  l'aide d'une fonction du *package* `grDevices`. Par exemple : 
 
 \pause 
 ```{r, eval = FALSE}
@@ -330,24 +331,24 @@ plot(mpg$displ, mpg$hwy)
 dev.off()
 ```
 
-\pause Dans ce contexte, les fonctions les plus utiles sont : `png()`, `jpeg()` et `pdf()`. En particulier, `pdf()` permet de conserver le caractère vectoriel des graphiques dans R. 
+\pause Dans ce contexte, les fonctions les plus utiles sont : `png()`, `jpeg()` et `pdf()`. En particulier, `pdf()` permet de conserver le caractÃ¨re vectoriel des graphiques produits par R.
 
 \pause 
 
-**Remarque** Les graphiques peuvent également facilement être exportés depuis RStudio en utilisant les menus spécialement conçus à cet effet. 
+**Remarque** Les graphiques peuvent Ã©galement facilement Ãªtre exportÃ©s depuis RStudio en utilisant les menus prÃ©vus Ã  cet effet. 
 
-## Réaliser des graphiques avec \protect\texttt{ggplot2}
+## RÃ©aliser des graphiques avec \protect\texttt{ggplot2}
 
-### \large L'implémentation d'une grammaire des graphiques
+### \large L'implÃ©mentation d'une grammaire des graphiques
 
-Le *package* `graphics` permet de réaliser une grande quantité de graphiques mais présente deux limites importantes : 
+Le *package* `graphics` permet de rÃ©aliser une grande quantitÃ© de graphiques mais prÃ©sente deux limites importantes : 
 
 - les fonctions qui le composent forment une casuistique complexe;
-- il n'est pas possible d'inventer de nouvelles représentations à partir des fonctions existantes.
+- il n'est pas possible d'inventer de nouvelles reprÃ©sentations Ã  partir des fonctions existantes.
 
-\pause Ce sont ces limites que tente de dépasser le *package* `ggplot2` en implémentant une **grammaire des graphiques**
+\pause Ce sont ces limites que tente de dÃ©passer le *package* `ggplot2` en implÃ©mentant une **grammaire des graphiques**.
 
-Comme les éléments du langage, les **composants élémentaires** d'un graphique doivent pouvoir être **réassemblés** pour produire de **nouvelles représentations.**
+Comme les Ã©lÃ©ments du langage, les **composants Ã©lÃ©mentaires** d'un graphique doivent pouvoir Ãªtre **rÃ©assemblÃ©s** pour produire de **nouvelles reprÃ©sentations.**
 
 \pause 
 
@@ -355,15 +356,15 @@ Comme les éléments du langage, les **composants élémentaires** d'un graphique do
 
 ### \large Les trois composants essentiels d'un graphique
 
-La construction d'un graphique avec `ggplot2` fait intervenir trois composants essentiels (d'après Wickham, *ibid.*, 2.3) : 
+La construction d'un graphique avec `ggplot2` fait intervenir trois composants essentiels (d'aprÃ¨s Wickham, *ibid.*, 2.3) : 
 
-- le `data.frame` dans lequel sont stockées les données à représenter ;
-- des correspondances esthétiques (*aesthetic mappings*) entre des variables et des propriétés visuelles; 
-- au moins une couche (*layer*) décrivant comment représenter les observations.
+- le `data.frame` dans lequel sont stockÃ©es les donnÃ©es Ã  reprÃ©senter ;
+- des correspondances esthÃ©tiques (*aesthetic mappings*) entre des variables et des propriÃ©tÃ©s visuelles; 
+- au moins une couche (*layer*) dÃ©crivant comment reprÃ©senter les observations.
 
 \pause 
 
-**Exemple** *Miles per gallon* sur l'autoroute en fonction de la cylindrée.
+**Exemple** *Miles per gallon* sur l'autoroute en fonction de la cylindrÃ©e.
 
 \center \small 
 ```{r, eval = FALSE}
@@ -379,74 +380,24 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
   geom_point()
 ```
 
+### \large Rappel : le mÃªme graphique avec base R
 
-<!-- ### Couleur, forme et taille des objets -->
+\centering \footnotesize
 
-<!-- \begin{overprint} -->
-
-<!-- \onslide<1;3;5;7|handout:1> -->
-
-<!-- Pour faire varier l'aspect visuel des éléments représentés en fonction de données, il suffit d'\textbf{associer une variable à l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}. -->
-
-<!-- \onslide<3|handout:1> -->
-
-<!-- Selon le type des variables utilisées pour les correspondances esthétiques, \textbf{les échelles sont continues ou discrètes}. -->
-
-<!-- \onslide<5|handout:1> -->
-
-<!-- Quand la même variable est utilisée dans plusieurs correspondances esthétiques, \textbf{les échelles qui lui correspondent sont fusionnées}. -->
-
-<!-- \onslide<7|handout:1> -->
-
-<!-- Au-delà des correspondances esthétiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut être ajusté directement dans la fonction \texttt{geom\_*}}. -->
-
-<!-- \footnotesize \center -->
-
-<!-- \onslide<2|handout:2> -->
-
-<!-- ```{r, fig.asp = 3/5, fig.width = 6, out.width = "90%"} -->
-<!-- ggplot(mpg, aes(displ, hwy, colour = cyl, shape = drv)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-
-<!-- \onslide<4|handout:3> -->
-
-<!-- ```{r, fig.asp = 3/5, fig.width = 6, out.width = "90%"} -->
-<!-- ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl) -->
-<!--   , shape = drv)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-
-<!-- \onslide<6|handout:4> -->
-
-<!-- ```{r, fig.asp = 3/5, fig.width = 6, out.width = "90%"} -->
-<!-- ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl) -->
-<!--   , shape = as.factor(cyl))) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-
-<!-- \onslide<8|handout:5> -->
-
-<!-- ```{r, fig.asp = 3/5, fig.width = 6, out.width = "90%"} -->
-<!-- ggplot(mpg, aes(displ, hwy)) + -->
-<!--   geom_point(colour = "red", size = 8, alpha = 0.5) -->
-<!-- ``` -->
-
-<!-- \end{overprint} -->
-
+```{r, out.height="6.5cm"}
+plot(mpg$displ, mpg$hwy)
+```
 
 
 ### Couleur, forme et taille des objets
 
-Pour faire varier l'aspect visuel des éléments représentés en fonction de données, il suffit d'\textbf{associer une variable à l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
+Pour faire varier l'aspect visuel des Ã©lÃ©ments reprÃ©sentÃ©s en fonction de donnÃ©es, il suffit d'\textbf{associer une variable Ã  l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
 
-\textcolor{white}{Selon le type des variables utilisées pour les correspondances esthétiques, \textbf{les échelles sont continues ou discrètes}.}
+\textcolor{white}{Selon le type des variables utilisÃ©es pour les correspondances esthÃ©tiques, \textbf{les Ã©chelles sont continues ou discrÃ¨tes}.}
 
-\textcolor{white}{Quand la même variable est utilisée dans plusieurs correspondances esthétiques, \textbf{les échelles qui lui correspondent sont fusionnées}.}
+\textcolor{white}{Quand la mÃªme variable est utilisÃ©e dans plusieurs correspondances esthÃ©tiques, \textbf{les Ã©chelles qui lui correspondent sont fusionnÃ©es}.}
 
-\textcolor{white}{Au-delà des correspondances esthétiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut être ajusté directement dans la fonction \texttt{geom\_*}}.}
-
-
+\textcolor{white}{Au-delÃ  des correspondances esthÃ©tiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut Ãªtre ajustÃ© directement dans la fonction \texttt{geom\_*}}.}
 
 
 ### Couleur, forme et taille des objets
@@ -460,13 +411,13 @@ ggplot(mpg, aes(displ, hwy, colour = cyl, shape = drv)) +
 
 ### Couleur, forme et taille des objets
 
-Pour faire varier l'aspect visuel des éléments représentés en fonction de données, il suffit d'\textbf{associer une variable à l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
+Pour faire varier l'aspect visuel des Ã©lÃ©ments reprÃ©sentÃ©s en fonction de donnÃ©es, il suffit d'\textbf{associer une variable Ã  l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
 
-Selon le type des variables utilisées pour les correspondances esthétiques, \textbf{les échelles sont continues ou discrètes}. 
+Selon le type des variables utilisÃ©es pour les correspondances esthÃ©tiques, \textbf{les Ã©chelles sont continues ou discrÃ¨tes}. 
 
-\textcolor{white}{Quand la même variable est utilisée dans plusieurs correspondances esthétiques, \textbf{les échelles qui lui correspondent sont fusionnées}.}
+\textcolor{white}{Quand la mÃªme variable est utilisÃ©e dans plusieurs correspondances esthÃ©tiques, \textbf{les Ã©chelles qui lui correspondent sont fusionnÃ©es}.}
 
-\textcolor{white}{Au-delà des correspondances esthétiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut être ajusté directement dans la fonction \texttt{geom\_*}}.}
+\textcolor{white}{Au-delÃ  des correspondances esthÃ©tiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut Ãªtre ajustÃ© directement dans la fonction \texttt{geom\_*}}.}
 
 ### Couleur, forme et taille des objets
 
@@ -480,13 +431,13 @@ ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl)
 
 ### Couleur, forme et taille des objets
 
-Pour faire varier l'aspect visuel des éléments représentés en fonction de données, il suffit d'\textbf{associer une variable à l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
+Pour faire varier l'aspect visuel des Ã©lÃ©ments reprÃ©sentÃ©s en fonction de donnÃ©es, il suffit d'\textbf{associer une variable Ã  l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
 
-Selon le type des variables utilisées pour les correspondances esthétiques, \textbf{les échelles sont continues ou discrètes}. 
+Selon le type des variables utilisÃ©es pour les correspondances esthÃ©tiques, \textbf{les Ã©chelles sont continues ou discrÃ¨tes}. 
 
-Quand la même variable est utilisée dans plusieurs correspondances esthétiques, \textbf{les échelles qui lui correspondent sont fusionnées}. 
+Quand la mÃªme variable est utilisÃ©e dans plusieurs correspondances esthÃ©tiques, \textbf{les Ã©chelles qui lui correspondent sont fusionnÃ©es}. 
 
-\textcolor{white}{Au-delà des correspondances esthétiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut être ajusté directement dans la fonction \texttt{geom\_*}}.}
+\textcolor{white}{Au-delÃ  des correspondances esthÃ©tiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut Ãªtre ajustÃ© directement dans la fonction \texttt{geom\_*}}.}
 
 ### Couleur, forme et taille des objets
 
@@ -501,13 +452,13 @@ ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl)
 
 ### Couleur, forme et taille des objets
 
-Pour faire varier l'aspect visuel des éléments représentés en fonction de données, il suffit d'\textbf{associer une variable à l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
+Pour faire varier l'aspect visuel des Ã©lÃ©ments reprÃ©sentÃ©s en fonction de donnÃ©es, il suffit d'\textbf{associer une variable Ã  l'attribut de couleur, de taille ou de forme} dans la fonction \texttt{aes()}.
 
-Selon le type des variables utilisées pour les correspondances esthétiques, \textbf{les échelles sont continues ou discrètes}. 
+Selon le type des variables utilisÃ©es pour les correspondances esthÃ©tiques, \textbf{les Ã©chelles sont continues ou discrÃ¨tes}. 
 
-Quand la même variable est utilisée dans plusieurs correspondances esthétiques, \textbf{les échelles qui lui correspondent sont fusionnées}. 
+Quand la mÃªme variable est utilisÃ©e dans plusieurs correspondances esthÃ©tiques, \textbf{les Ã©chelles qui lui correspondent sont fusionnÃ©es}. 
 
-Au-delà des correspondances esthétiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut être ajusté directement dans la fonction \texttt{geom\_*}}.
+Au-delÃ  des correspondances esthÃ©tiques dans la fonction \texttt{aes()}, \textbf{l'aspect visuel peut Ãªtre ajustÃ© directement dans la fonction \texttt{geom\_*}}.
 
 ### Couleur, forme et taille des objets
 
@@ -556,25 +507,25 @@ ggplot(mpg, aes(displ, hwy, colour = drv)) +
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
-La construction d'un graphique dans `ggplot2` repose sur la superposition de couches (*layer*) **conçues indépendamment** mais **réconciliées en fin d'opération**. 
+La construction d'un graphique dans `ggplot2` repose sur la superposition de couches (*layer*) **conÃ§ues indÃ©pendamment** mais **rÃ©conciliÃ©es en fin d'opÃ©ration**. 
 
-\pause Chaque couche est composée de cinq éléments : 
+\pause Chaque couche est composÃ©e de cinq Ã©lÃ©ments : 
 
 - un `data.frame` (`data`);
-- une ou plusieurs correspondances esthétiques (`mapping`);
+- une ou plusieurs correspondances esthÃ©tiques (`mapping`);
 - une transformation statistique (`stat`);
-- un objet géométrique (`geom`);
-- un paramètre d'ajustement de la position (`position`). 
+- un objet gÃ©omÃ©trique (`geom`);
+- un paramÃ¨tre d'ajustement de la position (`position`). 
 
-C'est la **fonction `layer()`** qui articule ces cinq éléments. 
+C'est la **fonction `layer()`** qui articule ces cinq Ã©lÃ©ments. 
 
 \pause 
 
-**Les fonctions `geom_*` vues précédemment sont des appels pré-paramétrées de `layer()`**.
+**Les fonctions `geom_*` vues prÃ©cÃ©demment sont des appels prÃ©-paramÃ©trÃ©es de `layer()`**.
 
 <!-- ### \large Le fonctionnement en \og couches \fg{} de `ggplot2` -->
 
-<!-- Un graphique à une couche :  -->
+<!-- Un graphique Ã  une couche :  -->
 
 <!-- \footnotesize \vspace{-1mm} -->
 
@@ -589,7 +540,7 @@ C'est la **fonction `layer()`** qui articule ces cinq éléments.
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
-*Un graphique à une couche*
+*Un graphique Ã  une couche*
 
 \footnotesize \centering
 
@@ -603,7 +554,7 @@ ggplot() + layer(
 
 <!-- ### \large Le fonctionnement en \og couches \fg{} de `ggplot2` -->
 
-<!-- Un graphique à une couche :  -->
+<!-- Un graphique Ã  une couche :  -->
 
 <!-- \footnotesize \vspace{-1mm} -->
 
@@ -617,7 +568,7 @@ ggplot() + layer(
 
 <!-- \normalsize \vspace{-3mm} -->
 
-<!-- Un graphique à deux couches :  -->
+<!-- Un graphique Ã  deux couches :  -->
 
 <!-- \footnotesize \vspace{-1mm} -->
 
@@ -636,7 +587,7 @@ ggplot() + layer(
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
-*Un graphique à deux couches*
+*Un graphique Ã  deux couches*
 
 \footnotesize \centering
 
@@ -657,7 +608,7 @@ ggplot() + layer(
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
-*Un graphique à deux couches*
+*Un graphique Ã  deux couches*
 
 \centering
 
@@ -689,7 +640,7 @@ ggplot(data = mpg, mapping = aes(displ, hwy)) + layer(
 
 \normalsize \vspace{-3mm}
 
-*Remplacement de `layer()` par des alias pré-paramétrés*
+*Remplacement de `layer()` par des alias prÃ©-paramÃ©trÃ©s*
 
 \footnotesize \vspace{-1mm}
 
@@ -705,7 +656,7 @@ ggplot(data = mpg, mapping = aes(displ, hwy)) +
 ```
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
-À chaque fonction `geom_*()` est assocée un paramètre `stat` par défaut, et à chaque fonction `stat_*()` un `geom` par défaut.
+Ã€ chaque fonction `geom_*()` est assocÃ©e un paramÃ¨tre `stat` par dÃ©faut, et Ã  chaque fonction `stat_*()` un `geom` par dÃ©faut.
 
 \footnotesize \center
 
@@ -737,7 +688,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
 \footnotesize \center
 
@@ -748,9 +699,9 @@ ggplot(mpg, aes(hwy)) + geom_histogram()
 
 \pause \raggedright \small \vspace{-0.3cm}
 
-**Remarque** Le positionnement des classes des histogrammes semble perturbé dans les dernières versions de `ggplot2` : le paramètre `boundary` permet de corriger ce problème (*cf.* [\underline{cette discussion}](http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins)).
+**Remarque** Le positionnement des classes des histogrammes semble perturbÃ© dans les derniÃ¨res versions de `ggplot2` : le paramÃ¨tre `boundary` permet de corriger ce problÃ¨me (*cf.* [\underline{cette discussion}](http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins)).
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
 \footnotesize \center
 
@@ -759,7 +710,7 @@ ggplot(mpg, aes(hwy, colour = drv, fill = drv)) +
   geom_histogram()
 ```
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
 \footnotesize \center
 
@@ -767,7 +718,7 @@ ggplot(mpg, aes(hwy, colour = drv, fill = drv)) +
 ggplot(mpg, aes(hwy)) + geom_density(bw = 0.5)
 ```
 
-### Histogrammes et densités
+### Histogrammes et densitÃ©s
 
 \footnotesize \center
 
@@ -776,7 +727,7 @@ ggplot(mpg, aes(hwy, colour = drv, fill = drv)) +
   geom_density(bw = 0.5, alpha = 0.5)
 ```
 
-### Séries temporelles
+### SÃ©ries temporelles
 
 \footnotesize \center
 
@@ -785,7 +736,7 @@ ggplot(economics, aes(date, unemploy / pop)) +
   geom_line()
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -794,7 +745,7 @@ ggplot(mpg, aes(drv, colour = drv, fill = drv)) +
   geom_bar()
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -806,7 +757,7 @@ ggplot(mpg, aes(drv, fill = drv)) +
   scale_fill_brewer(palette="Blues")
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -817,7 +768,7 @@ g
 ```
 
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -829,9 +780,9 @@ g + coord_polar(theta = "y") + theme_minimal() +
 
 \pause \raggedright \small
 
-**Pour aller plus loin** Une page du site [\underline{sthda.com}](http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) explique (en français) comment produire un diagramme circulaire complet avec `ggplot2`.
+**Pour aller plus loin** Une page du site [\underline{sthda.com}](http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) explique (en franÃ§ais) comment produire un diagramme circulaire complet avec `ggplot2`.
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -841,7 +792,7 @@ ggplot(mpg, aes(drv, fill = as.factor(year))) +
 ```
 
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -850,7 +801,7 @@ ggplot(mpg, aes(drv, fill = as.factor(year))) +
   geom_bar(position = "fill")
 ```
 
-### Diagrammes en bâtons et circulaires
+### Diagrammes en bÃ¢tons et circulaires
 
 \footnotesize \center
 
@@ -861,7 +812,7 @@ ggplot(mpg, aes(as.factor(year), fill = drv)) +
 ```
 
 
-### Boîtes à moustaches et assimilés
+### BoÃ®tes Ã  moustaches et assimilÃ©s
 
 \footnotesize \center
 
@@ -870,7 +821,7 @@ ggplot(mpg, aes(x = drv, y = hwy)) +
   geom_boxplot(coef = 1.5)
 ```
 
-### Boîtes à moustaches et assimilés
+### BoÃ®tes Ã  moustaches et assimilÃ©s
 
 \footnotesize \center
 
@@ -879,7 +830,7 @@ ggplot(mpg, aes(x = drv, y = hwy)) +
   geom_jitter()
 ```
 
-### Boîtes à moustaches et assimilés
+### BoÃ®tes Ã  moustaches et assimilÃ©s
 
 \footnotesize \center
 
@@ -894,8 +845,8 @@ ggplot(mpg, aes(x = drv, y = hwy)) +
 
 ```{r, fig.asp = 3/5, fig.width = 6, out.width = "90%"}
 ggplot(mpg, aes(displ, hwy)) + geom_point() + 
-  ggtitle("Mon titre avec un retour \nà la ligne") +
-  xlab("Cylindrée") + ylab("Miles per gallon") +
+  ggtitle("Mon titre avec un retour \nÃ  la ligne") +
+  xlab("CylindrÃ©e") + ylab("Miles per gallon") +
   coord_cartesian(xlim = c(0,10), ylim = c(0, 100))
 ```
 
@@ -923,13 +874,13 @@ ggplot(mpg, aes(displ, hwy)) +
 
 ### Sauvegarde et exportation
 
-Le résultat de la fonction `ggplot()` pouvant être stocké dans un objet R, il est possible de le sauvegarder tel quel avec `save()` ou `saveRDS()` et de le réutiliser par la suite dans R.
+Le rÃ©sultat de la fonction `ggplot()` pouvant Ãªtre stockÃ© dans un objet R, il est possible de le sauvegarder tel quel avec `save()` ou `saveRDS()` et de le rÃ©utiliser par la suite dans R.
 ```{r, eval = FALSE}
 g <- ggplot(mpg, aes(displ, hwy)) + geom_point()
 saveRDS(g, file = "g.rds")
 ```
 
-\pause La fonction `ggsave()` simplifie l'export de graphiques en dehors de R. Par défaut, elle sauvegarde le dernier graphique produit.
+\pause La fonction `ggsave()` simplifie l'export de graphiques en dehors de R. Par dÃ©faut, elle sauvegarde le dernier graphique produit.
 ```{r, eval = FALSE}
 g + geom_smooth(method = "lm", se = FALSE)
 ggsave("monGraphique.pdf")
@@ -942,23 +893,23 @@ ggsave("monGraphique.png")
 
 <!-- ### Une construction en plusieurs couches -->
 
-<!-- ### Construire un graphique étape par étape (1) -->
+<!-- ### Construire un graphique Ã©tape par Ã©tape (1) -->
 
-<!-- ### Construire un graphique étape par étape (2) -->
+<!-- ### Construire un graphique Ã©tape par Ã©tape (2) -->
 
-<!-- ### Construire un graphique étape par étape (3) -->
+<!-- ### Construire un graphique Ã©tape par Ã©tape (3) -->
 
 <!-- ### Utiliser les alias `geom_*` et `stat_*` -->
 
 <!-- ### Fixer la valeur d'un attribut visuel -->
 
-<!-- ### Faire varier les échelles -->
+<!-- ### Faire varier les Ã©chelles -->
 
 <!-- ## Faire des cartes avec R -->
 
-<!-- ### Importer des coordonnées géographiques (1) -->
+<!-- ### Importer des coordonnÃ©es gÃ©ographiques (1) -->
 
-<!-- ### Importer des coordonnées géographiques (2) -->
+<!-- ### Importer des coordonnÃ©es gÃ©ographiques (2) -->
 
 <!-- ### Faire des cartes avec base R (1) -->
 

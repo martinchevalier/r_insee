@@ -8,9 +8,11 @@ if(!exists(".sol")) .sol <- FALSE
 
 knitr::opts_chunk$set(comment = "  ##", collapse = TRUE, fig.path = "../figures/")
 options(scipen = 10, stringsAsFactors = TRUE)
+options(repos = "https://cran.rstudio.com/")
+
 
 #--------------------------------------------
-# Téléchargement des données et espace de travail
+# TÃ©lÃ©chargement des donnÃ©es et espace de travail
 #--------------------------------------------
 
 if(.download){
@@ -38,24 +40,27 @@ library(microbenchmark)
 # Sectionnement des documents
 #--------------------------------------------
 
-.module <- function(numModule, text){
+.init <- function(){
   set.seed(1)
-  .numModule <<- numModule
   .numHide <<- 0
   .numQuestion <<- 0
   .html <<- knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
   .pdf <<- knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"
+  options(stringsAsFactors = TRUE)
+}
+
+.module <- function(numModule, text){
+  .numModule <<- numModule
   if(.html) cat("\n \\ \n")
   if(.pdf){
-    # cat("\n"); cat("\\ \n"); cat("\\newpage \n"); cat("\n");
     if(.numModule > 1) cat("\\addtocontents{cp}{\\vspace{\\normalbaselineskip}}")
-    # cat("\\addtocontents{cp}{\\textbf{", text, "}}", sep = "")
     cat("\\chapter{", text, "}", sep = "")
     cat("\n \\minitoc \n")
   }
 }
 
 .partie <- function(text){
+  cat("\n"); cat("\\ \n"); cat("\n");
   if(.html) cat("#", text, sep = "")
   if(.pdf) cat("##", text, "", sep = "")
 }
@@ -81,13 +86,13 @@ library(microbenchmark)
   return(r)
 }
 
-# Fonction pour garantir la cohérence des références internes
-# entre la version web et la version imprimée
-.ref <- function(text, link_html, link_pdf = NULL){
+# Fonction pour garantir la cohÃ©rence des rÃ©fÃ©rences internes
+# entre la version web et la version imprimÃ©e
+.ref <- function(text, link_html = NULL, link_pdf = NULL){
   if(.html & !is.null(link_html)) out <- paste0("[", text, "](", link_html, ")")
   if(.html & is.null(link_html)) out <- paste0(text)
-  if(.pdf & !is.null(link_pdf)) out <- paste0("[", text, "](", link_pdf, ")")
-  if(.pdf & is.null(link_pdf)) out <- paste0(text)
+  if(.pdf & !is.null(link_pdf)) out <- paste0("[\\underline{", text, "}](", link_pdf, ")")
+  if(.pdf & is.null(link_pdf)) out <- paste0("\\underline{", text, "}")
   return(out)
 }
 

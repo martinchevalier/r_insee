@@ -8,15 +8,15 @@
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
 \else % if luatex or xelatex
-\ifxetex
-\usepackage{mathspec}
-\else
-\usepackage{fontspec}
-\fi
-\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -26,6 +26,11 @@
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \newif\ifbibliography
+\hypersetup{
+            pdftitle={Formation R Perfectionnement},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -33,37 +38,37 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
 \newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
-\newcommand{\DataTypeTok}[1]{{#1}}
-\newcommand{\DecValTok}[1]{{#1}}
-\newcommand{\BaseNTok}[1]{{#1}}
-\newcommand{\FloatTok}[1]{{#1}}
-\newcommand{\ConstantTok}[1]{{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
-\newcommand{\FunctionTok}[1]{{#1}}
-\newcommand{\VariableTok}[1]{{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
-\newcommand{\OperatorTok}[1]{{#1}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
-\newcommand{\AttributeTok}[1]{{#1}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\DataTypeTok}[1]{#1}
+\newcommand{\DecValTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{#1}
+\newcommand{\FloatTok}[1]{#1}
+\newcommand{\ConstantTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{#1}
+\newcommand{\VariableTok}[1]{#1}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\OperatorTok}[1]{#1}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{#1}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -79,29 +84,29 @@
 \raggedbottom
 
 \AtBeginPart{
-\let\insertpartnumber\relax
-\let\partname\relax
-\frame{\partpage}
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
 }
 \AtBeginSection{
-\ifbibliography
-\else
-\let\insertsectionnumber\relax
-\let\sectionname\relax
-\frame{\sectionpage}
-\fi
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
 }
 \AtBeginSubsection{
-\let\insertsubsectionnumber\relax
-\let\subsectionname\relax
-\frame{\subsectionpage}
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
 }
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
-\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{0}
 
 \usepackage[french]{babel}
@@ -117,6 +122,8 @@
 \usepackage{colortbl}
 \usepackage{epstopdf}
 \usepackage{framed}
+
+
 
 \definecolor{shadecolor}{RGB}{248,248,248}
 \definecolor{grayInsee}{HTML}{5a5758}
@@ -176,7 +183,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{21-22 juin 2017}
+\author{15-16 janvier 2018}
 
 \date{}
 
@@ -289,12 +296,12 @@ table \texttt{mpg} du \emph{package} \texttt{ggplot2}.
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(ggplot2)}
 \KeywordTok{dim}\NormalTok{(mpg)}
-  \NormalTok{## [1] 234  11}
+\NormalTok{  ## [1] 234  11}
 \KeywordTok{names}\NormalTok{(mpg)}
-  \NormalTok{##  [1] "manufacturer" "model"        "displ"       }
-  \NormalTok{##  [4] "year"         "cyl"          "trans"       }
-  \NormalTok{##  [7] "drv"          "cty"          "hwy"         }
-  \NormalTok{## [10] "fl"           "class"}
+\NormalTok{  ##  [1] "manufacturer" "model"        "displ"       }
+\NormalTok{  ##  [4] "year"         "cyl"          "trans"       }
+\NormalTok{  ##  [7] "drv"          "cty"          "hwy"         }
+\NormalTok{  ## [10] "fl"           "class"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -393,7 +400,7 @@ graphique, sans avoir à appeler explicitement la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{hist}\NormalTok{(mpg$hwy, }\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{), }
+\KeywordTok{hist}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{hwy, }\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{), }
      \DataTypeTok{col =} \StringTok{"lightblue"}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -408,7 +415,7 @@ graphique, sans avoir à appeler explicitement la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(mpg$hwy, }\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{kernel =} \StringTok{"gaussian"}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{hwy, }\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{kernel =} \StringTok{"gaussian"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -423,7 +430,7 @@ graphique, sans avoir à appeler explicitement la fonction
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{class}\NormalTok{(AirPassengers)}
-  \NormalTok{## [1] "ts"}
+\NormalTok{  ## [1] "ts"}
 \KeywordTok{plot}\NormalTok{(AirPassengers)}
 \end{Highlighting}
 \end{Shaded}
@@ -438,7 +445,7 @@ graphique, sans avoir à appeler explicitement la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -496,9 +503,9 @@ la couleur des barres varie et les paramètres deviennent utiles :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{uni <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg$drv)}
+\NormalTok{uni <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{drv)}
 \NormalTok{lab <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"4 roues"}\NormalTok{, }\StringTok{"Traction"}\NormalTok{, }\StringTok{"Propulsion"}\NormalTok{)}
-\KeywordTok{barplot}\NormalTok{(uni, }\DataTypeTok{names.arg =} \NormalTok{lab)}
+\KeywordTok{barplot}\NormalTok{(uni, }\DataTypeTok{names.arg =}\NormalTok{ lab)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -513,7 +520,7 @@ la couleur des barres varie et les paramètres deviennent utiles :
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{pie}\NormalTok{(uni, }\DataTypeTok{labels =} \KeywordTok{paste0}\NormalTok{(lab, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, uni)}
-    \NormalTok{, }\DataTypeTok{init.angle =} \DecValTok{90}\NormalTok{, }\DataTypeTok{clockwise =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{    , }\DataTypeTok{init.angle =} \DecValTok{90}\NormalTok{, }\DataTypeTok{clockwise =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -527,8 +534,8 @@ la couleur des barres varie et les paramètres deviennent utiles :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bi <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg$drv, mpg$year)}
-\KeywordTok{barplot}\NormalTok{(bi, }\DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{legend.text =} \NormalTok{lab)}
+\NormalTok{bi <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{drv, mpg}\OperatorTok{$}\NormalTok{year)}
+\KeywordTok{barplot}\NormalTok{(bi, }\DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{legend.text =}\NormalTok{ lab)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -575,12 +582,12 @@ entiers est réduite. Il est possible de l'étendre considérablement
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{colors}\NormalTok{()[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{]}
-  \NormalTok{## [1] "white"        "aliceblue"    "antiquewhite"}
+\KeywordTok{colors}\NormalTok{()[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{  ## [1] "white"        "aliceblue"    "antiquewhite"}
 \KeywordTok{length}\NormalTok{(}\KeywordTok{colors}\NormalTok{())}
-  \NormalTok{## [1] 657}
-\KeywordTok{grep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\KeywordTok{colors}\NormalTok{(), }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{]}
-  \NormalTok{## [1] "aliceblue" "blue"      "blue1"}
+\NormalTok{  ## [1] 657}
+\KeywordTok{grep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\KeywordTok{colors}\NormalTok{(), }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{  ## [1] "aliceblue" "blue"      "blue1"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -601,11 +608,11 @@ La fonction \texttt{legend()} permet d'ajouter une légende.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{t <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(mpg$drv}
-  \NormalTok{, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"4 roues"}\NormalTok{, }\StringTok{"Traction"}\NormalTok{, }\StringTok{"Propulsion"}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy, }\DataTypeTok{pch =} \DecValTok{21}\NormalTok{, }\DataTypeTok{col =} \NormalTok{t, }\DataTypeTok{bg =} \NormalTok{t)}
+\NormalTok{t <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{drv}
+\NormalTok{  , }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"4 roues"}\NormalTok{, }\StringTok{"Traction"}\NormalTok{, }\StringTok{"Propulsion"}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy, }\DataTypeTok{pch =} \DecValTok{21}\NormalTok{, }\DataTypeTok{col =}\NormalTok{ t, }\DataTypeTok{bg =}\NormalTok{ t)}
 \KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\DataTypeTok{legend =} \KeywordTok{unique}\NormalTok{(t), }\DataTypeTok{pch =} \DecValTok{21}
-  \NormalTok{, }\DataTypeTok{col =} \KeywordTok{unique}\NormalTok{(t), }\DataTypeTok{pt.bg =} \KeywordTok{unique}\NormalTok{(t))}
+\NormalTok{  , }\DataTypeTok{col =} \KeywordTok{unique}\NormalTok{(t), }\DataTypeTok{pt.bg =} \KeywordTok{unique}\NormalTok{(t))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -617,15 +624,8 @@ La fonction \texttt{legend()} permet d'ajouter une légende.
 
 Les titres sont paramétrés à l'aide des fonctions suivantes :
 
-\vspace{-0.3cm}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{main} pour ajouter le titre principal;
-\item
-  \texttt{xlab} et \texttt{ylab} pour ajouter des titres aux axes.
-\end{itemize}
+\vspace{-0.3cm} - \texttt{main} pour ajouter le titre principal; -
+\texttt{xlab} et \texttt{ylab} pour ajouter des titres aux axes.
 
 \pause La fonction \texttt{text()} permet d'ajouter du texte sur le
 graphique en le positionnant par ses coordonnées, éventuellement avec un
@@ -633,17 +633,9 @@ décalage (pour nommer des points par exemple).
 
 \pause Il est également possible de paramétrer les axes :
 
-\vspace{-0.3cm}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{xlim} et \texttt{ylim} spécifient les valeurs minimales et
-  maximales de chaque axe;
-\item
-  \texttt{axis()} est une fonction qui permet d'ajouter un axe
-  personnalisé.
-\end{itemize}
+\vspace{-0.3cm} - \texttt{xlim} et \texttt{ylim} spécifient les valeurs
+minimales et maximales de chaque axe; - \texttt{axis()} est une fonction
+qui permet d'ajouter un axe personnalisé.
 
 \pause 
 
@@ -686,9 +678,9 @@ commencer par une instruction \texttt{plot()} puis de la compléter :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{reg <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(hwy ~}\StringTok{ }\NormalTok{displ, }\DataTypeTok{data =} \NormalTok{mpg)}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a =} \NormalTok{reg$coefficients[}\DecValTok{1}\NormalTok{], }\DataTypeTok{b =} \NormalTok{reg$coefficients[}\DecValTok{2}\NormalTok{])}
+\NormalTok{reg <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(hwy }\OperatorTok{~}\StringTok{ }\NormalTok{displ, }\DataTypeTok{data =}\NormalTok{ mpg)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a =}\NormalTok{ reg}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{], }\DataTypeTok{b =}\NormalTok{ reg}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{2}\NormalTok{])}
 \end{Highlighting}
 \end{Shaded}
 
@@ -734,7 +726,7 @@ d'aide} de la fonction \texttt{par()} détaille toutes ces options.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
 \KeywordTok{plot}\NormalTok{(AirPassengers)}
 \end{Highlighting}
 \end{Shaded}
@@ -754,8 +746,8 @@ fonction du \emph{package} \texttt{grDevices}. Par exemple :
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{png}\NormalTok{(}\StringTok{"monGraphique.png"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{10}\NormalTok{, }\DataTypeTok{height =} \DecValTok{8}
-    \NormalTok{, }\DataTypeTok{unit =} \StringTok{"cm"}\NormalTok{, }\DataTypeTok{res =} \DecValTok{600}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
+\NormalTok{    , }\DataTypeTok{unit =} \StringTok{"cm"}\NormalTok{, }\DataTypeTok{res =} \DecValTok{600}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
 \KeywordTok{dev.off}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
@@ -798,7 +790,9 @@ Comme les éléments du langage, les \textbf{composants élémentaires} d'un
 graphique doivent pouvoir être \textbf{réassemblés} pour produire de
 \textbf{nouvelles représentations.}
 
-\pause **Pour aller plus loin** \textsc{Wilkinson L.} (2005)
+\pause 
+
+\textbf{Pour aller plus loin} \textsc{Wilkinson L.} (2005)
 \textit{The Grammar of Graphics}, Springer,
 \href{https://github.com/hadley/ggplot2-book}{\underline{ggplot2: elegant graphics for data analysis}}
 
@@ -832,10 +826,24 @@ la cylindrée.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{displ, }\DataTypeTok{y =} \NormalTok{hwy)) +}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ displ, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Rappel : le même graphique avec base R}
+
+\centering \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=6.5cm]{partie2_files/figure-beamer/unnamed-chunk-21-1}
 
 \end{frame}
 
@@ -846,12 +854,12 @@ graphique}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{displ, }\DataTypeTok{y =} \NormalTok{hwy)) +}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ displ, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-21-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-22-1}
 
 \end{frame}
 
@@ -876,12 +884,12 @@ dans la fonction \texttt{aes()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \NormalTok{cyl, }\DataTypeTok{shape =} \NormalTok{drv)) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =}\NormalTok{ cyl, }\DataTypeTok{shape =}\NormalTok{ drv)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-22-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-23-1}
 
 \end{frame}
 
@@ -908,12 +916,12 @@ esthétiques, \textbf{les échelles sont continues ou discrètes}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \KeywordTok{as.factor}\NormalTok{(cyl)}
-  \NormalTok{, }\DataTypeTok{shape =} \NormalTok{drv)) +}
+\NormalTok{  , }\DataTypeTok{shape =}\NormalTok{ drv)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-23-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-24-1}
 
 \end{frame}
 
@@ -942,12 +950,12 @@ esthétiques,
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \KeywordTok{as.factor}\NormalTok{(cyl)}
-  \NormalTok{, }\DataTypeTok{shape =} \KeywordTok{as.factor}\NormalTok{(cyl))) +}
+\NormalTok{  , }\DataTypeTok{shape =} \KeywordTok{as.factor}\NormalTok{(cyl))) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-24-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-25-1}
 
 \end{frame}
 
@@ -976,24 +984,8 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-25-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Combinaison de plusieurs graphiques}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{()}
-  \NormalTok{## `geom_smooth()` using method = 'loess'}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1007,8 +999,9 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{()}
+\NormalTok{  ## `geom_smooth()` using method = 'loess'}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1022,12 +1015,27 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \NormalTok{drv)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-28-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinaison de plusieurs graphiques}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =}\NormalTok{ drv)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-29-1}
 
 \end{frame}
 
@@ -1057,8 +1065,10 @@ mais \textbf{réconciliées en fin d'opération}.
 C'est la \textbf{fonction \texttt{layer()}} qui articule ces cinq
 éléments.
 
-\pause **Les fonctions \texttt{geom\_*} vues précédemment sont des
-appels pré-paramétrées de \texttt{layer()}**.
+\pause 
+
+\textbf{Les fonctions \texttt{geom\_*} vues précédemment sont des appels
+pré-paramétrées de \texttt{layer()}}.
 
 \end{frame}
 
@@ -1071,14 +1081,14 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{() +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
-  \DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+  \DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
+\NormalTok{  , }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{partie2_files/figure-beamer/unnamed-chunk-29-1}
+\includegraphics[width=0.8\linewidth]{partie2_files/figure-beamer/unnamed-chunk-30-1}
 
 \end{frame}
 
@@ -1091,13 +1101,13 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{() +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
-  \DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-\NormalTok{) +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
-  \DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"smooth"}
-  \NormalTok{, }\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =} \NormalTok{y ~}\StringTok{ }\NormalTok{x)}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+  \DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
+\NormalTok{  , }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
+\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+  \DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"smooth"}
+\NormalTok{  , }\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
+\NormalTok{  , }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =}\NormalTok{ y }\OperatorTok{~}\StringTok{ }\NormalTok{x)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1115,7 +1125,7 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \centering
 
-\includegraphics[width=1\linewidth]{partie2_files/figure-beamer/unnamed-chunk-31-1}
+\includegraphics[width=1\linewidth]{partie2_files/figure-beamer/unnamed-chunk-32-1}
 
 \end{frame}
 
@@ -1129,11 +1139,11 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
   \DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-\NormalTok{) +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
   \DataTypeTok{stat =} \StringTok{"smooth"}\NormalTok{, }\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =} \NormalTok{y ~}\StringTok{ }\NormalTok{x)}
+\NormalTok{  , }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =}\NormalTok{ y }\OperatorTok{~}\StringTok{ }\NormalTok{x)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1146,15 +1156,15 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1171,27 +1181,10 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{size =} \NormalTok{cyl)) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{size =}\NormalTok{ cyl)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}
-    \NormalTok{, }\DataTypeTok{colour =} \StringTok{"blue"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-35-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{\large Le fonctionnement en \og couches \fg{} de
-\texttt{ggplot2}}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{    , }\DataTypeTok{colour =} \StringTok{"blue"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1206,13 +1199,30 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{shape =} \NormalTok{drv), }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \NormalTok{class), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-37-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Le fonctionnement en \og couches \fg{} de
+\texttt{ggplot2}}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{shape =}\NormalTok{ drv), }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =}\NormalTok{ class), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-38-1}
 
 \end{frame}
 
@@ -1224,11 +1234,11 @@ appels pré-paramétrées de \texttt{layer()}**.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) +}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{partie2_files/figure-beamer/unnamed-chunk-38-1}
+\includegraphics[width=0.8\linewidth]{partie2_files/figure-beamer/unnamed-chunk-39-1}
 
 \pause \raggedright \small \vspace{-0.3cm}
 
@@ -1245,22 +1255,8 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =} \NormalTok{drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =}\NormalTok{ drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-39-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Histogrammes et densités}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) +}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1274,12 +1270,26 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =} \NormalTok{drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-41-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Histogrammes et densités}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =}\NormalTok{ drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-42-1}
 
 \end{frame}
 
@@ -1289,23 +1299,8 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(economics, }\KeywordTok{aes}\NormalTok{(date, unemploy /}\StringTok{ }\NormalTok{pop)) +}
+\KeywordTok{ggplot}\NormalTok{(economics, }\KeywordTok{aes}\NormalTok{(date, unemploy }\OperatorTok{/}\StringTok{ }\NormalTok{pop)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-42-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{colour =} \NormalTok{drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1319,15 +1314,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(scales)}
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =} \NormalTok{(..count..)/}\KeywordTok{sum}\NormalTok{(..count..))) +}
-\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{percent) +}
-\StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette=}\StringTok{"Blues"}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{colour =}\NormalTok{ drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.7\linewidth]{partie2_files/figure-beamer/unnamed-chunk-44-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-44-1}
 
 \end{frame}
 
@@ -1337,13 +1329,31 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{""}\NormalTok{, }\DataTypeTok{fill =} \NormalTok{drv, }\DataTypeTok{colour =} \NormalTok{drv)) +}\StringTok{ }
+\KeywordTok{library}\NormalTok{(scales)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (..count..)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(..count..))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{percent) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette=}\StringTok{"Blues"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.7\linewidth]{partie2_files/figure-beamer/unnamed-chunk-45-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{""}\NormalTok{, }\DataTypeTok{fill =}\NormalTok{ drv, }\DataTypeTok{colour =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{width =} \DecValTok{1}\NormalTok{)}
 \NormalTok{g}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.75\linewidth]{partie2_files/figure-beamer/unnamed-chunk-45-1}
+\includegraphics[width=0.75\linewidth]{partie2_files/figure-beamer/unnamed-chunk-46-1}
 
 \end{frame}
 
@@ -1353,12 +1363,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g +}\StringTok{ }\KeywordTok{coord_polar}\NormalTok{(}\DataTypeTok{theta =} \StringTok{"y"}\NormalTok{) +}\StringTok{ }\KeywordTok{theme_minimal}\NormalTok{() +}
-\StringTok{  }\KeywordTok{scale_fill_grey}\NormalTok{() +}\StringTok{ }\KeywordTok{scale_colour_grey}\NormalTok{()}
+\NormalTok{g }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_polar}\NormalTok{(}\DataTypeTok{theta =} \StringTok{"y"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_minimal}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_grey}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_colour_grey}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.5\linewidth]{partie2_files/figure-beamer/unnamed-chunk-46-1}
+\includegraphics[width=0.5\linewidth]{partie2_files/figure-beamer/unnamed-chunk-47-1}
 
 \pause \raggedright \small
 
@@ -1375,23 +1385,8 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_bar}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-47-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1405,9 +1400,8 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\KeywordTok{as.factor}\NormalTok{(year), }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"dodge"}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1415,14 +1409,15 @@ avec \texttt{ggplot2}.
 
 \end{frame}
 
-\begin{frame}[fragile]{Boîtes à moustaches et assimilés}
+\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
 
 \footnotesize \center
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{drv, }\DataTypeTok{y =} \NormalTok{hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{coef =} \FloatTok{1.5}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\KeywordTok{as.factor}\NormalTok{(year), }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"dodge"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1436,8 +1431,8 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{drv, }\DataTypeTok{y =} \NormalTok{hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_jitter}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ drv, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{coef =} \FloatTok{1.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1451,12 +1446,27 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{drv, }\DataTypeTok{y =} \NormalTok{hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_violin}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ drv, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_jitter}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-52-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Boîtes à moustaches et assimilés}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ drv, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_violin}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-53-1}
 
 \end{frame}
 
@@ -1466,26 +1476,10 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }
-\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Mon titre avec un retour }\CharTok{\textbackslash{}n}\StringTok{à la ligne"}\NormalTok{) +}
-\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Cylindrée"}\NormalTok{) +}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Miles per gallon"}\NormalTok{) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Mon titre avec un retour }\CharTok{\textbackslash{}n}\StringTok{à la ligne"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Cylindrée"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Miles per gallon"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{coord_cartesian}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{), }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-53-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Disposition : le \emph{facetting}}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(~manufacturer, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1499,13 +1493,29 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(drv~class)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{manufacturer, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{partie2_files/figure-beamer/unnamed-chunk-55-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-55-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Disposition : le \emph{facetting}}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(drv}\OperatorTok{~}\NormalTok{class)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=1\linewidth]{partie2_files/figure-beamer/unnamed-chunk-56-1}
 
 \end{frame}
 
@@ -1517,7 +1527,7 @@ ou \texttt{saveRDS()} et de le réutiliser par la suite dans R.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
 \KeywordTok{saveRDS}\NormalTok{(g, }\DataTypeTok{file =} \StringTok{"g.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1527,7 +1537,7 @@ dehors de R. Par défaut, elle sauvegarde le dernier graphique produit.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{g }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \KeywordTok{ggsave}\NormalTok{(}\StringTok{"monGraphique.pdf"}\NormalTok{)}
 \KeywordTok{ggsave}\NormalTok{(}\StringTok{"monGraphique.png"}\NormalTok{)}
 \end{Highlighting}

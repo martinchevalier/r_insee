@@ -1,5 +1,5 @@
 ---
-title: 'Formation **R** initiation'
+title: 'Formation R initiation'
 output:
   beamer_presentation:
     highlight: haddock
@@ -10,95 +10,95 @@ output:
 fontsize: 12pt
 ---
 
-## Formation \protect\textbf{R} initiation {.unnumbered}
+## Formation R initiation {.unnumbered}
 
-### Objectifs et pédagogie
+### Objectifs et pÃ©dagogie
 
 \strong{Objectifs de la formation} 
 
-1. \pause Acquérir des points de repères et des réflexes dans l'utilisation du logiciel **R**;
+1. \pause AcquÃ©rir des points de repÃ¨res et des rÃ©flexes dans l'utilisation du logiciel R;
 
-2. \pause Savoir travailler de façon autonome sur des données statistiques dans une perspective Insee;
+2. \pause Savoir travailler de faÃ§on autonome sur des donnÃ©es statistiques dans une perspective Insee;
 
-3. \pause Maîtriser suffisamment les principes fondamentaux du logiciel pour être en mesure de se perfectionner par la suite.
+3. \pause MaÃ®triser suffisamment les principes fondamentaux du logiciel pour Ãªtre en mesure de se perfectionner par la suite.
 
 
-\bigskip \pause \strong{Principes pédagogiques}  
+\bigskip \pause \strong{Principes pÃ©dagogiques}  
 
-1. \pause Pratique permanente et orientée métier;
+1. \pause Pratique permanente et orientÃ©e mÃ©tier;
 
-2. \pause Autonomie dans l'apprentissage et progression à son rythme;
+2. \pause Autonomie dans l'apprentissage et progression Ã  son rythme;
 
-3. \pause Accompagnement personnalisé par le formateur.
+3. \pause Accompagnement personnalisÃ© par le formateur.
 
 
 
 ### Supports (1) : pages web de la formation
 
-Le support principal de la formation est un ensemble de pages web accessibles à l'adresse [\link{r.slmc.fr}](http://r.slmc.fr).
+Le support principal de la formation est un ensemble de pages web accessibles Ã  l'adresse [\link{r.slmc.fr}](http://r.slmc.fr).
 
 \bigskip \pause Ces pages web contiennent l'ensemble du contenu de la formation: 
 
-- présentation, explication et illustration des notions avec des exemples de code;
-- cas pratiques corrigés.
+- prÃ©sentation, explication et illustration des notions avec des exemples de code;
+- cas pratiques corrigÃ©s.
 
 \bigskip \pause \strong{Remarques}
 
-- Ces pages web peuvent être sauvegardées sous forme de fichiers `.html` et consultées hors connexion;
-- Tous les supports figurent également dans le répertoire de la formation : `N:\A_Salle_440\R_initiation`.
+- Ces pages web peuvent Ãªtre sauvegardÃ©es sous forme de fichiers `.html` et consultÃ©es hors connexion;
+- Les supports figurent dans le rÃ©pertoire de la formation sur AUS : `Y:\Documentation\R\R_initiation\`.
 
-### Supports (2) : livret et présentations
+### Supports (2) : livret et prÃ©sentations
 
-Le contenu de la formation est également disponible dans un \strong{livret imprimé}:
+Le contenu de la formation est Ã©galement disponible dans un \strong{livret imprimÃ©}:
 
 - faciliter l'appropriation des notions;
-- réduire la fatigue visuelle;
-- constituer une référence à l'issue de la formation.
+- rÃ©duire la fatigue visuelle;
+- constituer une rÃ©fÃ©rence Ã  l'issue de la formation.
 
-\bigskip \pause De \strong{courtes présentations} ponctuent la formation: 
+\bigskip \pause De \strong{courtes prÃ©sentations} ponctuent la formation: 
 
 - rythmer la progression;
-- présenter les objectifs des modules;
+- prÃ©senter les objectifs des modules;
 - insister sur les notions les plus importantes.
 
 
-\bigskip \pause \strong{Remarque} Tous les supports de la formation ont été produits depuis **R** avec [\link{\textbf{R} Markdown}](http://rmarkdown.rstudio.com/) (*cf.* [\link{\textbf{R} perfectionnement}](http://teaching.slmc.fr/perf)).
+\bigskip \pause \strong{Remarque} Tous les supports de la formation ont Ã©tÃ© produits depuis R avec [\link{R Markdown}](http://rmarkdown.rstudio.com/) (*cf.* [\link{R perfectionnement}](http://t.slmc.fr/perf)).
 
 
 
 ### Progression
 
-La formation est articulée autour de \textbf{trois modules}: 
+La formation est articulÃ©e autour de \textbf{trois modules}: 
 
-1. \pause \textbf{Prise en main du logiciel}: se repérer dans l'interface et savoir explorer des données;
+1. \pause \textbf{Prise en main du logiciel}: se repÃ©rer dans l'interface et savoir explorer des donnÃ©es;
 
-2. \pause \textbf{Manipuler les éléments fondamentaux du langage}: acquérir une connaissance solide des briques élémentaires de **R**;
+2. \pause \textbf{Manipuler les Ã©lÃ©ments fondamentaux du langage}: acquÃ©rir une connaissance solide des briques Ã©lÃ©mentaires de R;
 
-3. \pause \textbf{Travailler avec des données statistiques}: articuler les briques du module 2 pour la statistique appliquée.
+3. \pause \textbf{Travailler avec des donnÃ©es statistiques}: articuler les briques du module 2 pour la statistique appliquÃ©e.
 
-\bigskip \pause \strong{Articulation générale} 
+\bigskip \pause \strong{Articulation gÃ©nÃ©rale} 
 
-- \pause Les modules 1 et 3 sont **orientés métier**: travail sur des données Insee dans une perspective "chargé d'études". 
-- \pause Le module 2 est un **détour nécessaire** pour maîtriser les manipulations effectuées dans le module 3.
+- \pause Les modules 1 et 3 sont **orientÃ©s mÃ©tier**: travail sur des donnÃ©es Insee dans une perspective "chargÃ© d'Ã©tudes". 
+- \pause Le module 2 est un **dÃ©tour nÃ©cessaire** pour maÃ®triser les manipulations effectuÃ©es dans le module 3.
 
 
 ### Organisation pratique
 
 \strong{Travail en autonomie}
 
-- partie "cours" à partir du livret;
-- cas pratiques corrigés sur AUS;
-- \pause \textbf{vous m'appelez en cas de difficulté}.
+- \vspace{-0.2cm} partie "cours" Ã  partir du livret;
+- cas pratiques corrigÃ©s sur AUS;
+- \pause \textbf{vous m'appelez en cas de difficultÃ©}.
 
 \bigskip \pause \strong{Horaires}
 
-- proposition : 9h30-12h30 puis 13h30-16h30;
-- pauses : quand vous sentez que c'est nécessaire !
+- \vspace{-0.2cm} proposition : 9h30-12h20 puis 13h40-16h30;
+- pauses : 11h, 15h et quand vous sentez que c'est nÃ©cessaire !
 
 \bigskip \pause \strong{Conditions de travail} La formation est **intensive**:
 
-- prenez le temps de bien paramétrer votre espace de travail (éclairage, siège, etc.) et faites des pauses régulièrement;
-- n'hésitez pas à m'indiquer tout ce qui peut améliorer votre confort.
+- \vspace{-0.2cm} prenez le temps de bien paramÃ©trer votre espace de travail (Ã©clairage, siÃ¨ge, etc.) et faites des pauses rÃ©guliÃ¨rement;
+- n'hÃ©sitez pas Ã  m'indiquer tout ce qui peut amÃ©liorer votre confort.
 
 
 
@@ -111,28 +111,28 @@ La formation est articulée autour de \textbf{trois modules}:
 
 \strong{Objectifs}
 
-1. Acquérir des points de repère dans l'interface de **R**;
+1. AcquÃ©rir des points de repÃ¨re dans l'interface de R;
 2. Mener quelques traitements simples pour observer le fonctionnement du logiciel;
-3. Introduire des problématiques métier: travail sur des données, importation de fichiers de données SAS.
+3. Introduire des problÃ©matiques mÃ©tier: travail sur des donnÃ©es, importation de fichiers de donnÃ©es SAS.
 
 \bigskip \pause \strong{Organisation}
 
 1. Un peu d'histoire et quelques grands principes
 
-2. Découverte de l'interface
+2. DÃ©couverte de l'interface
 
-3. Charger et explorer des données
+3. Charger et explorer des donnÃ©es
 
-4. Importer des données à l'aide de *packages*
+4. Importer des donnÃ©es Ã  l'aide de *packages*
 
 ### \large Un peu d'histoire et quelques grands principes
 
-Insister sur les **spécificités de R**, notamment par rapport à SAS: 
+Insister sur les **spÃ©cificitÃ©s de R**, notamment par rapport Ã  SAS: 
 
-- **R** est sensible à la casse;
-- dans **R**, les chemins doivent être indiqués avec des `/` et non des `\`.
+- R est sensible Ã  la casse;
+- dans R, les chemins doivent Ãªtre indiquÃ©s avec des `/` et non des `\`.
 
-\bigskip \pause Plus généralement, **R** s'apparente davantage à un **langage de programmation "classique"** (Python par exemple):
+\bigskip \pause Plus gÃ©nÃ©ralement, R s'apparente davantage Ã  un **langage de programmation "classique"** (Python par exemple):
 
 > *To understand computations in R, two slogans are helpful:*
 >
@@ -142,62 +142,61 @@ Insister sur les **spécificités de R**, notamment par rapport à SAS:
 >
 > *John Chambers*
 
-### Découverte de l'interface
+### DÃ©couverte de l'interface
 
-Faire de **premières manipulations** dans les deux interfaces de **R** disponibles sur AUS: 
+Faire de **premiÃ¨res manipulations** dans les deux interfaces de R disponibles sur AUS: 
 
-- **R** "classique": programme très dépouillé, essentiellement utilisé en mode "console";
+- R "classique": programme trÃ¨s dÃ©pouillÃ©, essentiellement utilisÃ© en mode "console";
 
-- Rstudio: environnement de développement intégré qui facilite considérablement l'**écriture de scripts** (colorisation du code, auto-complétion, etc.).
+- Rstudio: environnement de dÃ©veloppement intÃ©grÃ© qui facilite considÃ©rablement l'**Ã©criture de scripts** (colorisation du code, auto-complÃ©tion, etc.).
 
-\bigskip \pause Acquérir un **vocabulaire de base**: 
+\bigskip \pause AcquÃ©rir un **vocabulaire de base**: 
 
-- création d'objets simples et opérations arithmétiques;
-- affichage et manipulation des objets stockés en mémoire;
-- utilisation de l'aide intégrée dans le logiciel;
-- écriture d'une première fonction personnalisée.
+- crÃ©ation d'objets simples et opÃ©rations arithmÃ©tiques;
+- affichage et manipulation des objets stockÃ©s en mÃ©moire;
+- utilisation de l'aide intÃ©grÃ©e dans le logiciel;
+- Ã©criture d'une premiÃ¨re fonction personnalisÃ©e.
 
 
-### Charger et explorer des données
+### Charger et explorer des donnÃ©es
 
-Savoir **utiliser des données** dans **R** : 
+Savoir **utiliser des donnÃ©es** dans R : 
 
-- chargement d'un fichier de données `.RData`;
-- principales caractéristiques des données : nombre d'observations, affichage des premières lignes, etc.
+- chargement d'un fichier de donnÃ©es `.RData`;
+- principales caractÃ©ristiques des donnÃ©es : nombre d'observations, affichage des premiÃ¨res lignes, etc.
 
-\bigskip \pause Mener des **traitements simples** avec **R** : 
+\bigskip \pause Mener des **traitements simples** avec R : 
 
 - indicateurs statistiques usuels: moyenne d'une variable quantitative, distribution d'une variable qualitative;
-- ventilation des traitements selon les modalités d'une variable qualitative;
+- ventilation des traitements selon les modalitÃ©s d'une variable qualitative;
 - production de graphiques simples.
 
-### Importer des données à l'aide de *packages*
+### Importer des donnÃ©es Ã  l'aide de *packages*
 
-**Importer des données** qui ne sont pas en format **R** natif: 
+**Importer des donnÃ©es** qui ne sont pas en format R natif: 
 
 - fichiers plats: `.txt`, `.csv`, `.dlm`;
-- fichiers structurés: `.dbf`, `.dta` (Stata);
 - fichiers SAS: `.sas7bdat`.
 
-\bigskip \pause \textbf{Exporter des données} au format **R** natif. 
+\bigskip \pause \textbf{Exporter des donnÃ©es} au format R natif. 
 
-\bigskip \pause Percevoir l'**importance des *packages*** dans **R** : 
+\bigskip \pause Percevoir l'**importance des *packages*** dans R : 
 
-- installation depuis le dépôt local AUS;
-- chargement pour accéder à de nouvelles fonctions. 
+- installation;
+- chargement pour accÃ©der Ã  de nouvelles fonctions. 
 
 
 
-# Module 2 : Manipuler les éléments fondamentaux du langage
+# Module 2 : Manipuler les Ã©lÃ©ments fondamentaux du langage
 
-## Manipuler les éléments fondamentaux du langage  {.unnumbered}
+## Manipuler les Ã©lÃ©ments fondamentaux du langage  {.unnumbered}
 
 ### Objectifs et organisation
 
 \strong{Objectifs}
 
-1. Introduire progressivement les briques élémentaires du langage de **R**;
-2. Connaître leurs propriétés et savoir les manipuler;
+1. Introduire progressivement les briques Ã©lÃ©mentaires du langage de R;
+2. ConnaÃ®tre leurs propriÃ©tÃ©s et savoir les manipuler;
 3. Enrichir son vocabulaire de fonctions.
 
 \bigskip \pause \strong{Organisation}
@@ -211,60 +210,53 @@ Savoir **utiliser des données** dans **R** :
 
 ### Manipuler les vecteurs
 
-Les vecteurs sont les éléments fondamentaux du langage de **R**. Ils servent notamment : 
+Les vecteurs sont les Ã©lÃ©ments fondamentaux du langage de R. Ils servent notamment : 
 
-- à coder l'information statistique: les variables d'une table sont des vecteurs;
-- à modifier le contenu d'une table: créer de nouvelles variables, sélectionner des variables et des observations;
-- à calculer des indicateurs statistiques: les *inputs* de la plupart des fonctions statistiques sont des vecteurs.
+- Ã  coder l'information statistique: les variables d'une table sont des vecteurs;
+- Ã  modifier le contenu d'une table: crÃ©er de nouvelles variables, sÃ©lectionner des variables et des observations;
+- Ã  calculer des indicateurs statistiques: les *inputs* de la plupart des fonctions statistiques sont des vecteurs.
 
 \pause \bigskip \strong{Progression de la partie}
 
-1. Création de vecteurs et extraction d'éléments;
-2. Spécificités des différents types de vecteurs;
-3. Modification de la structure d'un vecteur.
+1. CrÃ©ation de vecteurs et sÃ©lection d'Ã©lÃ©ments;
+2. SpÃ©cificitÃ©s des diffÃ©rents types de vecteurs et manipulations;
+3. ComplÃ©ments : valeurs spÃ©ciales, conversion de type 
 
 ### Manipuler les matrices
 
-Les matrices sont une généralisation directe des vecteurs en deux dimensions (ou plus, on parle alors de `array`). 
+Les matrices sont une gÃ©nÃ©ralisation directe des vecteurs en deux dimensions (ou plus, on parle alors de `array`). 
 
-\pause Cette structure à deux dimensions les rapproche par certains égards des tableaux de données statistiques : 
+\pause Cette structure Ã  deux dimensions les rapproche par certains Ã©gards des tableaux de donnÃ©es statistiques. 
 
-- extraction d'éléments selon les lignes ou les colonnes;
-- calculs d'indicateurs standard selon les lignes ou les colonnes.
-
-\pause \bigskip \strong{Progression de la partie}
-
-1. Création de matrices et extraction d'éléments;
-2. Calculs sur les matrices.
-
+\pause \bigskip \strong{Objectif de la partie} CrÃ©ation de matrices et sÃ©lection d'Ã©lÃ©ments.
 
 ### Manipuler les listes
 
 Les listes sont des objets plus complexes que les vecteurs ou les matrices. 
 
-\pause En particulier, elles peuvent contenir des **éléments de types différents** (numérique, caractère, logique, etc.), voire d'autres listes.
+\pause En particulier, elles peuvent contenir des **Ã©lÃ©ments de types diffÃ©rents** (numÃ©rique, caractÃ¨re, logique, etc.), voire d'autres listes.
 
-\pause Cela en fait un type d'objet particulièrement souple pour **stocker et exploiter une information riche et structurée**. 
+\pause Cela en fait un type d'objet particuliÃ¨rement souple pour **stocker et exploiter une information riche et structurÃ©e**. 
 
-\aparte{Exemples}{Résultats d'un modèle de régression ou d'une méthode de classification.}
+\aparte{Exemples}{RÃ©sultats d'un modÃ¨le de rÃ©gression ou d'une mÃ©thode de classification.}
 
 \pause \bigskip \strong{Progression de la partie}
 
-1. Création de listes et extraction d'éléments;
+1. CrÃ©ation de listes et sÃ©lection d'Ã©lÃ©ments;
 2. Calculs sur les listes.
 
 
-# Module 3 : Travailler avec des données statistiques
+# Module 3 : Travailler avec des donnÃ©es statistiques
 
-## Travailler avec des données statistiques {.unnumbered}
+## Travailler avec des donnÃ©es statistiques {.unnumbered}
 
 ### Objectifs et organisation
 
 \strong{Objectifs}
 
-1. Revenir à des problématiques métiers courantes : sélection d'observations et de variables, tri d'une table, etc.;
-2. Mobiliser les fonctions abordées dans le module 2;
-3. Présenter le calcul de statistiques descriptives avec **R**. 
+1. Revenir Ã  des problÃ©matiques mÃ©tiers courantes : sÃ©lection d'observations et de variables, tri d'une table, etc.;
+2. Mobiliser les fonctions abordÃ©es dans le module 2;
+3. PrÃ©senter le calcul de statistiques descriptives avec R. 
 
 \bigskip \pause \strong{Organisation}
 
@@ -277,26 +269,26 @@ Les listes sont des objets plus complexes que les vecteurs ou les matrices.
 
 ### Manipuler les `data.frame`
 
-Le type `data.frame` est le type le plus souvent utilisé pour exploiter des données statistiques. 
+Le type `data.frame` est le type le plus souvent utilisÃ© pour exploiter des donnÃ©es statistiques. 
 
-\pause Il s'agit d'un **cas particulier de listes** qui **partage beaucoup de propriétés avec les matrices**. 
+\pause Il s'agit d'un **cas particulier de listes** qui **partage beaucoup de propriÃ©tÃ©s avec les matrices**. 
 
 
 \bigskip \pause \strong{Progression}
 
-1. Création d'un `data.frame` et sélection d'éléments : sélection d'observations et de variables;
+1. CrÃ©ation d'un `data.frame` et sÃ©lection d'Ã©lÃ©ments : sÃ©lection d'observations et de variables;
 
-2. \pause Création ou modification de variables dans un `data.frame`;
+2. \pause CrÃ©ation ou modification de variables dans un `data.frame`;
 
-3. \pause Modification de la structure d'un `data.frame` : tri, concaténation, fusions, etc.;
+3. \pause Modification de la structure d'un `data.frame` : tri, concatÃ©nation, fusions, etc.;
 
-4. \pause Calculs sur un `data.frame` : application d'une fonction à toutes les variables, application d'une fonction par groupe.
+4. \pause Calculs sur un `data.frame` : application d'une fonction Ã  toutes les variables, application d'une fonction par groupe.
 
 ### Calculer des statistiques descriptives
 
 Plusieurs fonctions permettant d'effectuer des statistiques descriptives sont introduites dans les modules 1 et 2. 
 
-\pause Cette partie présente ces fonctions de façon **plus systématique**, notamment autour de la question des **statistiques descriptives pondérées**.
+\pause Cette partie prÃ©sente ces fonctions de faÃ§on **plus systÃ©matique**, notamment autour de la question des **statistiques descriptives pondÃ©rÃ©es**.
 
 \bigskip \pause \strong{Progression}
 
@@ -304,21 +296,21 @@ Plusieurs fonctions permettant d'effectuer des statistiques descriptives sont in
 
 2. Statistiques descriptives sur variables qualitatives;
 
-3. Création et paramétrisation de graphiques;
+3. CrÃ©ation et paramÃ©trisation de graphiques;
 
-4. \pause Application à l'enquête Pisa 2012.
+4. \pause Application Ã  l'enquÃªte Pisa 2012.
 
 ### Quelques liens pour aller plus loin
 
-Les méthodes statistiques plus avancées sortent du cadre de cette formation au logiciel **R**. 
+Les mÃ©thodes statistiques plus avancÃ©es sortent du cadre de cette formation au logiciel R. 
 
-\pause Des liens sont néanmoins fournis pour approfondir deux aspects souvent utiles en pratique : 
+\pause Des liens sont nÃ©anmoins fournis pour approfondir deux aspects souvent utiles en pratique : 
 
-- **analyse de données multidimensionnelle** avec le [\link{\textit{package} \texttt{FactoMineR}}](https://CRAN.R-project.org/package=FactoMineR);
-- [\link{\textbf{modèles de régression}}](http://teaching.slmc.fr/mqs2/index.html) avec les fonctions `lm()` et `glm()`. 
+- **analyse de donnÃ©es multidimensionnelle** avec le [\link{\textit{package} \texttt{FactoMineR}}](https://CRAN.R-project.org/package=FactoMineR);
+- [\link{\textbf{modÃ¨les de rÃ©gression}}](http://teaching.slmc.fr/mqs2/index.html) avec les fonctions `lm()` et `glm()`. 
 
-\bigskip \pause Un lien vers la [\textbf{\link{formation R perfectionnement}}](http://teaching.slmc.fr/perf/index.html) est également proposé: 
+\bigskip \pause Un lien vers la [\textbf{\link{formation R perfectionnement}}](http://teaching.slmc.fr/perf/index.html) est Ã©galement proposÃ©: 
 
-- outils et méthodes pour se perfectionner en **R**;
-- traitements avancés sur des données dans **R**;
-- graphiques et *reporting* avec **R**. 
+- outils et mÃ©thodes pour se perfectionner en R;
+- traitements avancÃ©s sur des donnÃ©es dans R;
+- graphiques et *reporting* avec R. 

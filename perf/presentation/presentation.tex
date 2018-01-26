@@ -8,15 +8,15 @@
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
 \else % if luatex or xelatex
-\ifxetex
-\usepackage{mathspec}
-\else
-\usepackage{fontspec}
-\fi
-\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -26,6 +26,11 @@
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \newif\ifbibliography
+\hypersetup{
+            pdftitle={Formation R Perfectionnement},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -33,37 +38,37 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
 \newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
-\newcommand{\DataTypeTok}[1]{{#1}}
-\newcommand{\DecValTok}[1]{{#1}}
-\newcommand{\BaseNTok}[1]{{#1}}
-\newcommand{\FloatTok}[1]{{#1}}
-\newcommand{\ConstantTok}[1]{{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
-\newcommand{\FunctionTok}[1]{{#1}}
-\newcommand{\VariableTok}[1]{{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
-\newcommand{\OperatorTok}[1]{{#1}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
-\newcommand{\AttributeTok}[1]{{#1}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\DataTypeTok}[1]{#1}
+\newcommand{\DecValTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{#1}
+\newcommand{\FloatTok}[1]{#1}
+\newcommand{\ConstantTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{#1}
+\newcommand{\VariableTok}[1]{#1}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\OperatorTok}[1]{#1}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{#1}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{caption}
 % These lines are needed to make table captions work with longtable:
@@ -85,29 +90,29 @@
 \raggedbottom
 
 \AtBeginPart{
-\let\insertpartnumber\relax
-\let\partname\relax
-\frame{\partpage}
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
 }
 \AtBeginSection{
-\ifbibliography
-\else
-\let\insertsectionnumber\relax
-\let\sectionname\relax
-\frame{\sectionpage}
-\fi
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
 }
 \AtBeginSubsection{
-\let\insertsubsectionnumber\relax
-\let\subsectionname\relax
-\frame{\subsectionpage}
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
 }
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
-\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{0}
 
 \usepackage[french]{babel}
@@ -184,7 +189,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{21-22 juin 2017}
+\author{15-16 janvier 2018}
 
 \date{}
 
@@ -260,11 +265,11 @@ fonctionnement complexes.
   \item
     travailler efficacement (+++);
   \item
-    optimiser les performances (++);
+    améliorer les performances (+++);
   \item
-    programmer avec R (+);
+    programmer avec R (++);
   \item
-    interroger des bases de données (++).
+    interroger des bases de données (+).
   \end{itemize}
 \item
   \pause Présenter des résultats avec R :
@@ -290,7 +295,7 @@ fonctionnement complexes.
 
 \large
 
-Mercredi 21 juin
+Lundi 15 janvier
 
 \begin{itemize}
 \tightlist
@@ -302,7 +307,7 @@ Mercredi 21 juin
   Faire des graphiques avec \texttt{ggplot2} (2h)
 \end{itemize}
 
-\pause Jeudi 22 juin
+\pause Mardi 16 janvier
 
 \begin{itemize}
 \tightlist
@@ -410,7 +415,7 @@ Quand l'utilisation d'une fonction pose problème (message d'erreur
 inattendu), il est souvent utile d'\textbf{afficher son code} pour
 comprendre d'où vient le problème.
 
-\pause Pour ce faire, il suffit de saisir son nom sans parenthèses.
+\pause Pour ce faire, il suffit de saisir son nom sans parenthèse.
 
 \footnotesize
 
@@ -418,12 +423,12 @@ comprendre d'où vient le problème.
 \begin{Highlighting}[]
 \CommentTok{# Code de la fonction read.csv}
 \NormalTok{read.csv}
-  \NormalTok{## function (file, header = TRUE, sep = ",", quote = "\textbackslash{}"", dec = ".", }
-  \NormalTok{##     fill = TRUE, comment.char = "", ...) }
-  \NormalTok{## read.table(file = file, header = header, sep = sep, quote = quote, }
-  \NormalTok{##     dec = dec, fill = fill, comment.char = comment.char, ...)}
-  \NormalTok{## <bytecode: 0x3c13ac0>}
-  \NormalTok{## <environment: namespace:utils>}
+\NormalTok{  ## function (file, header = TRUE, sep = ",", quote = "\textbackslash{}"", dec = ".", }
+\NormalTok{  ##     fill = TRUE, comment.char = "", ...) }
+\NormalTok{  ## read.table(file = file, header = header, sep = sep, quote = quote, }
+\NormalTok{  ##     dec = dec, fill = fill, comment.char = comment.char, ...)}
+\NormalTok{  ## <bytecode: 0x873b900>}
+\NormalTok{  ## <environment: namespace:utils>}
 \end{Highlighting}
 \end{Shaded}
 
@@ -522,8 +527,8 @@ l'enseignement des fonctionnalités de R, comme par exemple :
 \begin{frame}{Accéder à la documentation d'un \emph{package}}
 
 Une des principales forces de R est d'être un langage hautement
-modulaire comptant \textbf{plusieurs milliers de \emph{packages}} (0 au
-21/06/2017).
+modulaire comptant \textbf{plusieurs milliers de \emph{packages}} (12
+094 au 26/01/2018).
 
 \pause Toutes les informations sur un \emph{package} sont accessibles
 sur sa page du \emph{Comprehensive R Archive Network} (CRAN).
@@ -592,10 +597,10 @@ Pour une installation sous Windows, il faut privilégier les
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Note : Le fichier haven._1.0.0.zip est situé }
+\CommentTok{# Note : Le fichier haven._1.1.0.zip est situé }
 \CommentTok{# dans le répertoire de travail}
 \KeywordTok{install.packages}\NormalTok{(}
-  \StringTok{"haven_1.0.0.zip"}\NormalTok{, }\DataTypeTok{repos =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{type =} \StringTok{"binaries"}
+  \StringTok{"haven_1.1.0.zip"}\NormalTok{, }\DataTypeTok{repos =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{type =} \StringTok{"binaries"}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -711,8 +716,8 @@ traitement.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{system.time}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
-  \NormalTok{## utilisateur     système      écoulé }
-  \NormalTok{##       0.068       0.000       0.069}
+\NormalTok{  ## utilisateur     système      écoulé }
+\NormalTok{  ##        0.07        0.00        0.07}
 \end{Highlighting}
 \end{Shaded}
 
@@ -727,11 +732,11 @@ package \texttt{microbenchmark}.
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(microbenchmark)}
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}\NormalTok{, }\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
-  \NormalTok{## Unit: milliseconds}
-  \NormalTok{##          expr      min       lq    mean   median}
-  \NormalTok{##  rnorm(1e+06) 66.47196 66.94083 68.3047 67.37058}
-  \NormalTok{##      uq      max neval}
-  \NormalTok{##  68.094 76.13308    10}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##          expr      min       lq     mean   median}
+\NormalTok{  ##  rnorm(1e+06) 70.50072 75.59383 83.88297 85.28535}
+\NormalTok{  ##        uq      max neval}
+\NormalTok{  ##  90.59321 95.62014    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -753,7 +758,7 @@ objets} sur lesquels portent les traitements.
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(pryr)}
 \KeywordTok{object_size}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
-  \NormalTok{## 8 MB}
+\NormalTok{  ## 8 MB}
 \end{Highlighting}
 \end{Shaded}
 
@@ -773,16 +778,16 @@ aléatoires} de R sont particulièrement utiles.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Graine pour pouvoir reproduire l'aléa}
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2016}\NormalTok{)}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2018}\NormalTok{)}
 
 \CommentTok{# Vecteur de nombres de taille 1 000}
 \NormalTok{a <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{)}
 
 \CommentTok{# Vecteur de lettres de taille 1 000}
-\NormalTok{b <-}\StringTok{ }\NormalTok{letters[}\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{26}\NormalTok{, }\DecValTok{1000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)]}
+\NormalTok{b <-}\StringTok{ }\NormalTok{letters[}\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{26}\NormalTok{, }\DecValTok{1000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)]}
 
 \CommentTok{# Matrice logique 1 000 x 100 avec 1 % de TRUE}
-\NormalTok{c <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{100000}\NormalTok{) >}\StringTok{ }\FloatTok{0.99}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{100}\NormalTok{)}
+\NormalTok{c <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{100000}\NormalTok{) }\OperatorTok{>}\StringTok{ }\FloatTok{0.99}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{100}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -821,14 +826,14 @@ R}\label{de-limportance-des-fonctions-dans-r}
 \begin{Highlighting}[]
 \CommentTok{# ... même assigner une valeur}
 \KeywordTok{is.function}\NormalTok{(}\StringTok{`}\DataTypeTok{<-}\StringTok{`}\NormalTok{)}
-  \NormalTok{## [1] TRUE}
+\NormalTok{  ## [1] TRUE}
 \StringTok{`}\DataTypeTok{<-}\StringTok{`}\NormalTok{(a, }\DecValTok{10}\NormalTok{)}
 
 \CommentTok{# ... même afficher la valeur d'un objet}
 \NormalTok{a}
-  \NormalTok{## [1] 10}
+\NormalTok{  ## [1] 10}
 \KeywordTok{print}\NormalTok{(a)}
-  \NormalTok{## [1] 10}
+\NormalTok{  ## [1] 10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -844,21 +849,21 @@ nouvelle fonction :
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Définition de la fonction monCalcul()}
-\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(a, b)\{}
-  \NormalTok{resultat <-}\StringTok{ }\DecValTok{10} \NormalTok{*}\StringTok{ }\NormalTok{a +}\StringTok{ }\NormalTok{b}
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, b)\{}
+\NormalTok{  resultat <-}\StringTok{ }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
   \KeywordTok{return}\NormalTok{(resultat)}
 \NormalTok{\}}
 
 \CommentTok{# Code de monCalcul()}
 \NormalTok{monCalcul}
-  \NormalTok{## function(a, b)\{}
-  \NormalTok{##   resultat <- 10 * a + b}
-  \NormalTok{##   return(resultat)}
-  \NormalTok{## \}}
+\NormalTok{  ## function(a, b)\{}
+\NormalTok{  ##   resultat <- 10 * a + b}
+\NormalTok{  ##   return(resultat)}
+\NormalTok{  ## \}}
 
 \CommentTok{# Appel de la fonction monCalcul()}
 \KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
-  \NormalTok{## [1] 23}
+\NormalTok{  ## [1] 23}
 \end{Highlighting}
 \end{Shaded}
 
@@ -870,9 +875,9 @@ Des valeurs par défaut peuvent être renseignées pour les paramètres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(a, }\DataTypeTok{b =} \DecValTok{3}\NormalTok{) }\DecValTok{10} \NormalTok{*}\StringTok{ }\NormalTok{a +}\StringTok{ }\NormalTok{b}
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, }\DataTypeTok{b =} \DecValTok{3}\NormalTok{) }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
 \KeywordTok{monCalcul}\NormalTok{(}\DecValTok{8}\NormalTok{)}
-  \NormalTok{## [1] 83}
+\NormalTok{  ## [1] 83}
 \end{Highlighting}
 \end{Shaded}
 
@@ -880,9 +885,9 @@ Des valeurs par défaut peuvent être renseignées pour les paramètres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(a, }\DataTypeTok{b =} \NormalTok{a *}\StringTok{ }\DecValTok{2}\NormalTok{) }\DecValTok{10} \NormalTok{*}\StringTok{ }\NormalTok{a +}\StringTok{ }\NormalTok{b}
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, }\DataTypeTok{b =}\NormalTok{ a }\OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{) }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
 \KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-  \NormalTok{## [1] 24}
+\NormalTok{  ## [1] 24}
 \end{Highlighting}
 \end{Shaded}
 
@@ -901,20 +906,20 @@ valeur des arguments.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{monCalcul <-}\StringTok{ }\NormalTok{function(}\DataTypeTok{a =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{b =} \OtherTok{NULL}\NormalTok{)\{}
-  \NormalTok{if(}\KeywordTok{is.null}\NormalTok{(a)) }\KeywordTok{stop}\NormalTok{(}\StringTok{"a n'est pas renseigné."}\NormalTok{)}
-  \NormalTok{if(}\KeywordTok{is.null}\NormalTok{(b))\{}
-    \NormalTok{b <-}\StringTok{ }\NormalTok{a *}\StringTok{ }\DecValTok{2}
+\NormalTok{monCalcul <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{a =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{b =} \OtherTok{NULL}\NormalTok{)\{}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(a)) }\KeywordTok{stop}\NormalTok{(}\StringTok{"a n'est pas renseigné."}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(b))\{}
+\NormalTok{    b <-}\StringTok{ }\NormalTok{a }\OperatorTok{*}\StringTok{ }\DecValTok{2}
     \KeywordTok{warning}\NormalTok{(}\StringTok{"b n'est pas renseigné."}\NormalTok{)}
-  \NormalTok{\}}
-  \KeywordTok{return}\NormalTok{(}\DecValTok{10} \NormalTok{*}\StringTok{ }\NormalTok{a +}\StringTok{ }\NormalTok{b)}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(}\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b)}
 \NormalTok{\}}
 
 \KeywordTok{monCalcul}\NormalTok{(}\DataTypeTok{b =} \DecValTok{3}\NormalTok{)}
-  \NormalTok{## Error in monCalcul(b = 3): a n'est pas renseigné.}
+\NormalTok{  ## Error in monCalcul(b = 3): a n'est pas renseigné.}
 \KeywordTok{monCalcul}\NormalTok{(}\DataTypeTok{a =} \DecValTok{1}\NormalTok{)}
-  \NormalTok{## Warning in monCalcul(a = 1): b n'est pas renseigné.}
-  \NormalTok{## [1] 12}
+\NormalTok{  ## Warning in monCalcul(a = 1): b n'est pas renseigné.}
+\NormalTok{  ## [1] 12}
 \end{Highlighting}
 \end{Shaded}
 
@@ -931,19 +936,19 @@ Dans R \textbf{chaque objet est repéré par son nom et son environnement}
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Création d'une fonction sum() un peu absurde}
-\NormalTok{sum <-}\StringTok{ }\NormalTok{function(...) }\StringTok{"Ma super somme !"}
+\NormalTok{sum <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(...) }\StringTok{"Ma super somme !"}
 \KeywordTok{sum}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
-  \NormalTok{## [1] "Ma super somme !"}
+\NormalTok{  ## [1] "Ma super somme !"}
 
 \CommentTok{# Cette fonction est rattachée à l'environnement global}
 \KeywordTok{ls}\NormalTok{()}
-  \NormalTok{## [1] "a"         "b"         "c"         "monCalcul"}
-  \NormalTok{## [5] "sum"}
+\NormalTok{  ## [1] "a"         "b"         "c"         "monCalcul"}
+\NormalTok{  ## [5] "sum"}
 
 \CommentTok{# Mais on peut toujours accéder à la fonction }
 \CommentTok{# de base en utilisant ::}
-\NormalTok{base::}\KeywordTok{sum}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
-  \NormalTok{## [1] 5}
+\NormalTok{base}\OperatorTok{::}\KeywordTok{sum}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{  ## [1] 5}
 \end{Highlighting}
 \end{Shaded}
 
@@ -953,18 +958,18 @@ Dans R \textbf{chaque objet est repéré par son nom et son environnement}
 (2)}
 
 \small
-À chaque appel d'une fonction, un \textbf{environnement d'exécution}
-éphémère est créé.
+À chaque appel d'une fonction, un \textbf{environnement d'exécution} est
+créé.
 
 \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{maFun <-}\StringTok{ }\NormalTok{function() }\KeywordTok{environment}\NormalTok{()}
+\NormalTok{maFun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() }\KeywordTok{environment}\NormalTok{()}
 \KeywordTok{maFun}\NormalTok{()}
-  \NormalTok{## <environment: 0x754fdb0>}
+\NormalTok{  ## <environment: 0xae9f8a8>}
 \KeywordTok{maFun}\NormalTok{()}
-  \NormalTok{## <environment: 0x87f3708>}
+\NormalTok{  ## <environment: 0xae552b0>}
 \end{Highlighting}
 \end{Shaded}
 
@@ -977,12 +982,12 @@ En conséquence, les instructions exécutées à l'intérieur d'une fonction
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{a <-}\StringTok{ }\DecValTok{10}
-\NormalTok{maFonction3 <-}\StringTok{ }\NormalTok{function()\{}
-  \NormalTok{a <-}\StringTok{ }\DecValTok{5}
+\NormalTok{maFonction3 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a <-}\StringTok{ }\DecValTok{5}
 \NormalTok{\}}
 \KeywordTok{maFonction3}\NormalTok{()}
 \NormalTok{a}
-  \NormalTok{## [1] 10}
+\NormalTok{  ## [1] 10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -999,11 +1004,11 @@ accessibles au sein d'une fonction.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{a <-}\StringTok{ }\DecValTok{10}
-\NormalTok{maFonction4 <-}\StringTok{ }\NormalTok{function()\{}
-  \NormalTok{a +}\StringTok{ }\DecValTok{5}
+\NormalTok{maFonction4 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a }\OperatorTok{+}\StringTok{ }\DecValTok{5}
 \NormalTok{\}}
 \KeywordTok{maFonction4}\NormalTok{()}
-  \NormalTok{## [1] 15}
+\NormalTok{  ## [1] 15}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1027,21 +1032,21 @@ renvoyer plusieurs valeurs, utiliser une liste.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{maFonction1 <-}\StringTok{ }\NormalTok{function()\{}
-  \NormalTok{a <-}\StringTok{ }\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{; b <-}\StringTok{ }\DecValTok{6}\NormalTok{:}\DecValTok{10}\NormalTok{; }\KeywordTok{return}\NormalTok{(a)}
+\NormalTok{maFonction1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{; b <-}\StringTok{ }\DecValTok{6}\OperatorTok{:}\DecValTok{10}\NormalTok{; }\KeywordTok{return}\NormalTok{(a)}
 \NormalTok{\}}
 \KeywordTok{maFonction1}\NormalTok{()}
-  \NormalTok{## [1] 1 2 3 4 5}
+\NormalTok{  ## [1] 1 2 3 4 5}
 
-\NormalTok{maFonction2 <-}\StringTok{ }\NormalTok{function()\{}
-  \NormalTok{a <-}\StringTok{ }\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{; b <-}\StringTok{ }\DecValTok{6}\NormalTok{:}\DecValTok{10}\NormalTok{; }\KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{a =} \NormalTok{a, }\DataTypeTok{b =} \NormalTok{b))}
+\NormalTok{maFonction2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()\{}
+\NormalTok{  a <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{; b <-}\StringTok{ }\DecValTok{6}\OperatorTok{:}\DecValTok{10}\NormalTok{; }\KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{a =}\NormalTok{ a, }\DataTypeTok{b =}\NormalTok{ b))}
 \NormalTok{\}}
 \KeywordTok{maFonction2}\NormalTok{()}
-  \NormalTok{## $a}
-  \NormalTok{## [1] 1 2 3 4 5}
-  \NormalTok{## }
-  \NormalTok{## $b}
-  \NormalTok{## [1]  6  7  8  9 10}
+\NormalTok{  ## $a}
+\NormalTok{  ## [1] 1 2 3 4 5}
+\NormalTok{  ## }
+\NormalTok{  ## $b}
+\NormalTok{  ## [1]  6  7  8  9 10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1064,9 +1069,9 @@ Par défaut, les fonctions dans R :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{monCalcul <-}\StringTok{  }\NormalTok{function(a, b) }\DecValTok{10} \NormalTok{*}\StringTok{ }\NormalTok{a +}\StringTok{ }\NormalTok{b}
-\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{) +}\StringTok{ }\DecValTok{5}
-  \NormalTok{## [1] 28}
+\NormalTok{monCalcul <-}\StringTok{  }\ControlFlowTok{function}\NormalTok{(a, b) }\DecValTok{10} \OperatorTok{*}\StringTok{ }\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
+\KeywordTok{monCalcul}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{) }\OperatorTok{+}\StringTok{ }\DecValTok{5}
+\NormalTok{  ## [1] 28}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1128,26 +1133,27 @@ fonctionnelle}
 \texttt{apply()}}
 
 La fonction \texttt{apply(X,\ MARGIN,\ FUN)} applique la fonction
-\texttt{FUN} à la matrice \texttt{X} selon la dimension \texttt{MARGIN}.
+\texttt{FUN} à la \textbf{matrice} \texttt{X} selon la dimension
+\texttt{MARGIN}.
 
 \pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Définition et affichage de la matrice m}
-\NormalTok{m <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{6}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{)}
+\NormalTok{m <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{)}
 \NormalTok{m}
-  \NormalTok{##      [,1] [,2] [,3]}
-  \NormalTok{## [1,]    1    3    5}
-  \NormalTok{## [2,]    2    4    6}
+\NormalTok{  ##      [,1] [,2] [,3]}
+\NormalTok{  ## [1,]    1    3    5}
+\NormalTok{  ## [2,]    2    4    6}
 
 \CommentTok{# Application de la fonction sum() selon les lignes}
 \KeywordTok{apply}\NormalTok{(m, }\DecValTok{1}\NormalTok{, sum)}
-  \NormalTok{## [1]  9 12}
+\NormalTok{  ## [1]  9 12}
 
 \CommentTok{# Application de la fonction sum() selon les colonnes}
 \KeywordTok{apply}\NormalTok{(m, }\DecValTok{2}\NormalTok{, sum)}
-  \NormalTok{## [1]  3  7 11}
+\NormalTok{  ## [1]  3  7 11}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1157,26 +1163,26 @@ La fonction \texttt{apply(X,\ MARGIN,\ FUN)} applique la fonction
 \texttt{lapply()}}
 
 \small
-La fonction \texttt{lapply(X,\ FUN)} applique la fonction \texttt{FUN} à
-l'objet \texttt{X} (vecteur ou liste).
+La fonction \texttt{lapply(X,\ FUN)} applique la fonction \texttt{FUN}
+au \textbf{vecteur} ou à la \textbf{liste} \texttt{X}.
 
 \pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{l <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{:}\DecValTok{9}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\NormalTok{l <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\DecValTok{6}\OperatorTok{:}\DecValTok{9}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
 \NormalTok{l}
-  \NormalTok{## [[1]]}
-  \NormalTok{## [1] 1 2 3 4 5}
-  \NormalTok{## }
-  \NormalTok{## [[2]]}
-  \NormalTok{## [1]  6  7  8  9 NA}
+\NormalTok{  ## [[1]]}
+\NormalTok{  ## [1] 1 2 3 4 5}
+\NormalTok{  ## }
+\NormalTok{  ## [[2]]}
+\NormalTok{  ## [1]  6  7  8  9 NA}
 \KeywordTok{lapply}\NormalTok{(l, sum)}
-  \NormalTok{## [[1]]}
-  \NormalTok{## [1] 15}
-  \NormalTok{## }
-  \NormalTok{## [[2]]}
-  \NormalTok{## [1] NA}
+\NormalTok{  ## [[1]]}
+\NormalTok{  ## [1] 15}
+\NormalTok{  ## }
+\NormalTok{  ## [[2]]}
+\NormalTok{  ## [1] NA}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1197,7 +1203,7 @@ possible.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{sapply}\NormalTok{(l, sum)}
-  \NormalTok{## [1] 15 NA}
+\NormalTok{  ## [1] 15 NA}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1207,7 +1213,7 @@ ajoutés à la suite dans toutes les fonctions \texttt{*apply()}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{sapply}\NormalTok{(l, sum, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-  \NormalTok{## [1] 15 30}
+\NormalTok{  ## [1] 15 30}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1232,28 +1238,28 @@ dans la fonction \texttt{*apply()}.
 \CommentTok{# On souhaite sélectionner le second élément de }
 \CommentTok{# de chaque vecteur de la liste l}
 \NormalTok{l}
-  \NormalTok{## [[1]]}
-  \NormalTok{## [1] 1 2 3 4 5}
-  \NormalTok{## }
-  \NormalTok{## [[2]]}
-  \NormalTok{## [1]  6  7  8  9 NA}
+\NormalTok{  ## [[1]]}
+\NormalTok{  ## [1] 1 2 3 4 5}
+\NormalTok{  ## }
+\NormalTok{  ## [[2]]}
+\NormalTok{  ## [1]  6  7  8  9 NA}
 
 \CommentTok{# On définit une fonction dans sapply()}
-\KeywordTok{sapply}\NormalTok{(l, function(x) x[}\DecValTok{2}\NormalTok{])}
-  \NormalTok{## [1] 2 7}
+\KeywordTok{sapply}\NormalTok{(l, }\ControlFlowTok{function}\NormalTok{(x) x[}\DecValTok{2}\NormalTok{])}
+\NormalTok{  ## [1] 2 7}
 \end{Highlighting}
 \end{Shaded}
 
 \end{frame}
 
-\begin{frame}[fragile]{\large Appliquer sur chaque indépendamment :
+\begin{frame}[fragile]{\large Appliquer sur chaque par groupe :
 \texttt{tapply()}}
 
 La fonction \texttt{tapply(X,\ INDEX,\ FUN)} applique la fonction
 \texttt{FUN}, à l'objet \texttt{X} ventilé selon les modalités de
 \texttt{INDEX}.
 
-\pause 
+\footnotesize \pause
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1263,12 +1269,17 @@ La fonction \texttt{tapply(X,\ INDEX,\ FUN)} applique la fonction
 
 \CommentTok{# Âge moyen par sexe}
 \KeywordTok{tapply}\NormalTok{(age, sexe, mean)}
-  \NormalTok{##    F    H }
-  \NormalTok{## 42.5 32.5}
+\NormalTok{  ##    F    H }
+\NormalTok{  ## 42.5 32.5}
+
+\CommentTok{# Même résultat avec une combinaison de sapply() et de split()}
+\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(age, sexe), mean)}
+\NormalTok{  ##    F    H }
+\NormalTok{  ## 42.5 32.5}
 \end{Highlighting}
 \end{Shaded}
 
-\normalsize \pause
+\normalsize \pause \vspace{-0.2cm}
 
 \textbf{Exemple d'utilisation} Calcul de statistiques agrégées par
 catégories.
@@ -1288,12 +1299,12 @@ appliqueraient \texttt{what()} à \textbf{chaque} élément de
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Concaténation des vecteurs de l}
-\KeywordTok{do.call}\NormalTok{(base::c, l)}
-  \NormalTok{##  [1]  1  2  3  4  5  6  7  8  9 NA}
+\KeywordTok{do.call}\NormalTok{(base}\OperatorTok{::}\NormalTok{c, l)}
+\NormalTok{  ##  [1]  1  2  3  4  5  6  7  8  9 NA}
 
 \CommentTok{# Equivalent à }
-\KeywordTok{c}\NormalTok{(l[[}\DecValTok{1}\NormalTok{]], l[[}\DecValTok{2}\NormalTok{]])}
-  \NormalTok{##  [1]  1  2  3  4  5  6  7  8  9 NA}
+\NormalTok{base}\OperatorTok{::}\KeywordTok{c}\NormalTok{(l[[}\DecValTok{1}\NormalTok{]], l[[}\DecValTok{2}\NormalTok{]])}
+\NormalTok{  ##  [1]  1  2  3  4  5  6  7  8  9 NA}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1309,7 +1320,7 @@ appliqueraient \texttt{what()} à \textbf{chaque} élément de
 
 La fonction \texttt{Reduce(f,\ x)} permet d'appliquer la fonction
 \texttt{f()} \textbf{successivement} à l'ensemble des éléments de
-\texttt{x} (alors que \texttt{do.call()} appliquerait \texttt{f}
+\texttt{x} (alors que \texttt{do.call()} applique \texttt{f}
 \textbf{simultanément}).
 
 \pause \small
@@ -1317,12 +1328,12 @@ La fonction \texttt{Reduce(f,\ x)} permet d'appliquer la fonction
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Application successive de la division au vecteur 1:4}
-\KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{/}\StringTok{`}\NormalTok{, }\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{)}
-  \NormalTok{## [1] 0.04166667}
+\KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{/}\StringTok{`}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{)}
+\NormalTok{  ## [1] 0.04166667}
 
 \CommentTok{# Equivalent à }
-\NormalTok{((}\DecValTok{1}\NormalTok{/}\DecValTok{2}\NormalTok{)/}\DecValTok{3}\NormalTok{)/}\DecValTok{4}
-  \NormalTok{## [1] 0.04166667}
+\NormalTok{((}\DecValTok{1}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\DecValTok{3}\NormalTok{)}\OperatorTok{/}\DecValTok{4}
+\NormalTok{  ## [1] 0.04166667}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1374,14 +1385,14 @@ Comme la plupart des langages de programmation, R dispose de
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{boucle <-}\StringTok{ }\NormalTok{function(x)\{}
-  \NormalTok{cumul <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{length}\NormalTok{(x))}
-  \NormalTok{for(i in }\KeywordTok{seq_along}\NormalTok{(x)) }
-    \NormalTok{cumul[i] <-}\StringTok{ }\NormalTok{if(i ==}\StringTok{ }\DecValTok{1}\NormalTok{) x[i] else cumul[i -}\StringTok{ }\DecValTok{1}\NormalTok{] +}\StringTok{ }\NormalTok{x[i]}
+\NormalTok{boucle <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  cumul <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\KeywordTok{length}\NormalTok{(x))}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(x)) }
+\NormalTok{    cumul[i] <-}\StringTok{ }\ControlFlowTok{if}\NormalTok{(i }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{) x[i] }\ControlFlowTok{else}\NormalTok{ cumul[i }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{] }\OperatorTok{+}\StringTok{ }\NormalTok{x[i]}
   \KeywordTok{return}\NormalTok{(cumul)}
 \NormalTok{\}}
-\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{)}
-  \NormalTok{## [1]  1  3  6 10 15}
+\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)}
+\NormalTok{  ## [1]  1  3  6 10 15}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1420,22 +1431,86 @@ que les boucles en R :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \NormalTok{10L}
-  \NormalTok{, }\DataTypeTok{boucle =} \KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{10000}\NormalTok{)}
-  \NormalTok{, }\DataTypeTok{Reduce =} \KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{+}\StringTok{`}\NormalTok{, }\DecValTok{1}\NormalTok{:}\DecValTok{10000}\NormalTok{, }\DataTypeTok{accumulate =} \OtherTok{TRUE}\NormalTok{)}
-  \NormalTok{, }\DataTypeTok{cumsum =} \KeywordTok{cumsum}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{10000}\NormalTok{)}
-\NormalTok{)}
-  \NormalTok{## Unit: microseconds}
-  \NormalTok{##    expr       min        lq       mean    median}
-  \NormalTok{##  boucle 16152.618 16462.201 19031.2555 17284.143}
-  \NormalTok{##  Reduce  5595.064  5964.842  6441.1111  6234.577}
-  \NormalTok{##  cumsum    35.750    40.257    61.8559    44.762}
-  \NormalTok{##         uq       max neval}
-  \NormalTok{##  18458.342 34343.917    10}
-  \NormalTok{##   6505.539  8956.778    10}
-  \NormalTok{##     54.097   186.937    10}
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{boucle =} \KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{Reduce =} \KeywordTok{Reduce}\NormalTok{(}\StringTok{`}\DataTypeTok{+}\StringTok{`}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{, }\DataTypeTok{accumulate =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{cumsum =} \KeywordTok{cumsum}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)}
+\NormalTok{))[, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
+\NormalTok{  ##     expr       min        lq       mean}
+\NormalTok{  ## 1 boucle 18686.838 20569.758 21284.5156}
+\NormalTok{  ## 2 Reduce  6402.722  6963.981  8102.1192}
+\NormalTok{  ## 3 cumsum    37.218    38.982    46.4275}
 \end{Highlighting}
 \end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tirer le meilleur parti de la compilation (1)}
+
+On distingue souvent deux familles de langages informatiques :
+
+\begin{itemize}
+\tightlist
+\item
+  \pause \vspace{-0.2cm} les langages \textbf{compilés} (C, C++) :
+  l'ensemble du code est transformé en langage machine par un
+  \emph{compilateur} puis soumis par le système d'exploitation;
+\item
+  \pause les langages \textbf{interprétés} (R, Python) : les
+  instructions du code sont soumises les unes après les autres par un
+  \emph{interpréteur}, ce qui est moins efficace (\emph{cf.} boucles en
+  R).
+\end{itemize}
+
+\vspace{0.1cm} \pause La fonction \texttt{compiler::cmpfun()} permet
+néanmoins de \textbf{compiler} des fonctions R avant utilisation.
+
+\pause \footnotesize \vspace{-0.2cm}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Compilation de la fonction boucle()}
+\NormalTok{boucle_compil <-}\StringTok{ }\NormalTok{compiler}\OperatorTok{::}\KeywordTok{cmpfun}\NormalTok{(boucle)}
+\KeywordTok{microbenchmark}\NormalTok{(}\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{), }\KeywordTok{boucle_compil}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{))}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##                    expr       min        lq      mean}
+\NormalTok{  ##         boucle(1:10000) 18.256964 22.946919 28.623216}
+\NormalTok{  ##  boucle_compil(1:10000)  1.673866  1.907869  2.841323}
+\NormalTok{  ##     median        uq       max neval}
+\NormalTok{  ##  28.101686 32.983239 49.743687   100}
+\NormalTok{  ##   2.591686  3.598628  6.182954   100}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}[fragile]{Tirer le meilleur parti de la compilation (2)}
+
+Une autre fonctionnalité du \emph{package} \texttt{compiler} est la
+compilation \og juste-à-temps \fg{} (ou \textit{just-in-time}, JIT): le
+code n'est plus interprété mais \textbf{compilé au fur et à mesure}.
+
+\bigskip \pause Dans R, on active le mode JIT pour une session grâce à
+la fonction \texttt{compiler::enableJIT()} en spécifiant le
+\href{https://stat.ethz.ch/R-manual/R-devel/library/compiler/html/compile.html}{\underline{niveau de compilation JIT}}
+(de 0 à 3).
+
+\pause \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Passage au niveau maximal de compilation JIT}
+\NormalTok{compiler}\OperatorTok{::}\KeywordTok{enableJIT}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\NormalTok{  ## [1] 0}
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{), }\KeywordTok{boucle_compil}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)))[, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
+\NormalTok{  ##                     expr      min       lq     mean}
+\NormalTok{  ## 1        boucle(1:10000) 1.683376 1.806746 2.656830}
+\NormalTok{  ## 2 boucle_compil(1:10000) 1.678782 1.907039 2.755148}
+\end{Highlighting}
+\end{Shaded}
+
+\pause \small \textbf{Remarque} Depuis R 3.4.0, \texttt{enableJIT()}
+vaut 3 par défaut.
 
 \end{frame}
 
@@ -1451,7 +1526,7 @@ fréquent d'utiliser la fonction \texttt{ifelse()} :
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{notes <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n =} \DecValTok{100000}\NormalTok{, }\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max =} \DecValTok{20}\NormalTok{)}
-\NormalTok{mavar <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(notes >=}\StringTok{ }\DecValTok{10}\NormalTok{, }\StringTok{"Reçu"}\NormalTok{, }\StringTok{"Recalé"}\NormalTok{)}
+\NormalTok{mavar <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(notes }\OperatorTok{>=}\StringTok{ }\DecValTok{10}\NormalTok{, }\StringTok{"Reçu"}\NormalTok{, }\StringTok{"Recalé"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1463,20 +1538,20 @@ Il est néanmoins beaucoup plus efficace d'utiliser l'opérateur
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \NormalTok{10L}
-  \NormalTok{, }\DataTypeTok{ifelse =} \KeywordTok{ifelse}\NormalTok{(notes >=}\StringTok{ }\DecValTok{10}\NormalTok{, }\StringTok{"Reçu"}\NormalTok{, }\StringTok{"Recalé"}\NormalTok{)}
-  \NormalTok{, }\StringTok{"["} \NormalTok{=}\StringTok{ }\NormalTok{\{}
-    \NormalTok{mavar <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\StringTok{"Recalé"}\NormalTok{, }\KeywordTok{length}\NormalTok{(notes))}
-    \NormalTok{mavar[notes >=}\StringTok{ }\DecValTok{10}\NormalTok{] <-}\StringTok{ "Reçu"}
-  \NormalTok{\} }
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{ifelse =} \KeywordTok{ifelse}\NormalTok{(notes }\OperatorTok{>=}\StringTok{ }\DecValTok{10}\NormalTok{, }\StringTok{"Reçu"}\NormalTok{, }\StringTok{"Recalé"}\NormalTok{)}
+\NormalTok{  , }\StringTok{"["}\NormalTok{ =}\StringTok{ }\NormalTok{\{}
+\NormalTok{    mavar <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\StringTok{"Recalé"}\NormalTok{, }\KeywordTok{length}\NormalTok{(notes))}
+\NormalTok{    mavar[notes }\OperatorTok{>=}\StringTok{ }\DecValTok{10}\NormalTok{] <-}\StringTok{ "Reçu"}
+\NormalTok{  \} }
 \NormalTok{)}
-  \NormalTok{## Unit: milliseconds}
-  \NormalTok{##    expr       min        lq      mean    median}
-  \NormalTok{##  ifelse 24.766078 24.992902 25.549918 25.163601}
-  \NormalTok{##       [  1.363973  1.386601  1.411959  1.407191}
-  \NormalTok{##         uq       max neval}
-  \NormalTok{##  25.833693 27.527202    10}
-  \NormalTok{##   1.442876  1.480608    10}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##    expr       min       lq      mean    median}
+\NormalTok{  ##  ifelse 36.374660 46.54510 70.446984 51.274090}
+\NormalTok{  ##       [  1.636993  1.95378  2.749823  2.353574}
+\NormalTok{  ##         uq        max neval}
+\NormalTok{  ##  54.188208 262.560529    10}
+\NormalTok{  ##   3.586164   5.333204    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1495,17 +1570,17 @@ un entier en sauvegardant la table de correspondance. Il est
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Variable à trois modalités codées en caractères}
-\NormalTok{acteu <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{120000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{))}
-\KeywordTok{object_size}\NormalTok{(acteu)}
-  \NormalTok{## 960 kB}
+\CommentTok{# Variable à deux modalités codées en caractères}
+\NormalTok{sexe <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{, }\StringTok{"F"}\NormalTok{), }\DecValTok{120000}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{object_size}\NormalTok{(sexe)}
+\NormalTok{  ## 960 kB}
 
 \CommentTok{# Conversion en facteur}
-\NormalTok{f.acteu <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(acteu)}
-\KeywordTok{str}\NormalTok{(f.acteu)}
-  \NormalTok{##  Factor w/ 3 levels "1","2","3": 1 3 2 2 2 2 3 1 1 1 ...}
-\KeywordTok{object_size}\NormalTok{(f.acteu)}
-  \NormalTok{## 481 kB}
+\NormalTok{f.sexe <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(sexe)}
+\KeywordTok{str}\NormalTok{(f.sexe)}
+\NormalTok{  ##  Factor w/ 2 levels "F","H": 1 2 1 2 1 2 2 2 1 1 ...}
+\KeywordTok{object_size}\NormalTok{(f.sexe)}
+\NormalTok{  ## 481 kB}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1533,7 +1608,7 @@ noms à une fusion réalisée avec \texttt{merge()}.
 \begin{Highlighting}[]
 \CommentTok{# Création de la table df}
 \NormalTok{id <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\FloatTok{1e5}\NormalTok{))}
-\NormalTok{sexe <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{, }\FloatTok{1e5}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{sexe <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\FloatTok{1e5}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
 \NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(id, sexe)}
 \end{Highlighting}
 \end{Shaded}
@@ -1553,17 +1628,17 @@ noms à une fusion réalisée avec \texttt{merge()}.
 \NormalTok{extract <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"234"}\NormalTok{, }\StringTok{"12"}\NormalTok{, }\StringTok{"7890"}\NormalTok{)}
 
 \CommentTok{# Comparaison}
-\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \NormalTok{10L}
-  \NormalTok{, }\DataTypeTok{merge =} \KeywordTok{merge}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =} \NormalTok{extract), df, }\DataTypeTok{sort =} \OtherTok{FALSE}\NormalTok{)}
-  \NormalTok{, }\DataTypeTok{names =} \NormalTok{df[extract, ]}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{merge =} \KeywordTok{merge}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{id =}\NormalTok{ extract), df, }\DataTypeTok{sort =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{names =}\NormalTok{ df[extract, ]}
 \NormalTok{)}
-  \NormalTok{## Unit: milliseconds}
-  \NormalTok{##   expr       min        lq      mean    median}
-  \NormalTok{##  merge 13.868964 14.261877 14.975551 14.682713}
-  \NormalTok{##  names  2.449722  2.483716  2.711015  2.659243}
-  \NormalTok{##         uq       max neval}
-  \NormalTok{##  15.148270 18.012145    10}
-  \NormalTok{##   2.741494  3.314512    10}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##   expr       min        lq      mean    median}
+\NormalTok{  ##  merge 16.127307 17.827670 20.804243 20.165223}
+\NormalTok{  ##  names  3.395627  3.473018  3.678273  3.575197}
+\NormalTok{  ##         uq       max neval}
+\NormalTok{  ##  24.251721 26.346721    10}
+\NormalTok{  ##   3.658939  4.807671    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1621,17 +1696,17 @@ des \texttt{data.frame}) est souvent source d'efficacité :
 
 \CommentTok{# Gain en espace (en ko)}
 \KeywordTok{c}\NormalTok{(}\KeywordTok{object_size}\NormalTok{(m), }\KeywordTok{object_size}\NormalTok{(M))}
-  \NormalTok{## [1] 8000200  121800}
+\NormalTok{  ## [1] 8000200  121824}
 
 \CommentTok{# Gain de performances pour la fonction colSums()}
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{dense =} \KeywordTok{colSums}\NormalTok{(m), }\DataTypeTok{sparse =} \KeywordTok{colSums}\NormalTok{(M))}
-  \NormalTok{## Unit: microseconds}
-  \NormalTok{##    expr      min        lq       mean    median}
-  \NormalTok{##   dense 1258.396 1279.8925 1402.13968 1319.8680}
-  \NormalTok{##  sparse   61.805   75.0895   90.45723   86.9045}
-  \NormalTok{##        uq      max neval}
-  \NormalTok{##  1368.829 4009.479   100}
-  \NormalTok{##    95.571  170.348   100}
+\NormalTok{  ## Unit: microseconds}
+\NormalTok{  ##    expr      min        lq       mean   median}
+\NormalTok{  ##   dense 1255.196 1282.6595 1360.35790 1335.667}
+\NormalTok{  ##  sparse   57.559   74.1685   89.06236   89.084}
+\NormalTok{  ##         uq      max neval}
+\NormalTok{  ##  1404.4910 1967.851   100}
+\NormalTok{  ##    96.5855  151.089   100}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1699,11 +1774,11 @@ départ de la ville de New-York en 2013.
 \begin{Highlighting}[]
 \KeywordTok{data}\NormalTok{(}\DataTypeTok{package =} \StringTok{"nycflights13"}\NormalTok{)}
 \KeywordTok{dim}\NormalTok{(flights)}
-  \NormalTok{## [1] 336776     19}
-\KeywordTok{names}\NormalTok{(flights)[}\DecValTok{1}\NormalTok{:}\DecValTok{9}\NormalTok{]}
-  \NormalTok{## [1] "year"           "month"          "day"           }
-  \NormalTok{## [4] "dep_time"       "sched_dep_time" "dep_delay"     }
-  \NormalTok{## [7] "arr_time"       "sched_arr_time" "arr_delay"}
+\NormalTok{  ## [1] 336776     19}
+\KeywordTok{names}\NormalTok{(flights)[}\DecValTok{1}\OperatorTok{:}\DecValTok{9}\NormalTok{]}
+\NormalTok{  ## [1] "year"           "month"          "day"           }
+\NormalTok{  ## [4] "dep_time"       "sched_dep_time" "dep_delay"     }
+\NormalTok{  ## [7] "arr_time"       "sched_arr_time" "arr_delay"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1721,7 +1796,7 @@ selon une ou plusieurs conditions;
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{filter}\NormalTok{(flights, month ==}\StringTok{ }\DecValTok{7}\NormalTok{, day ==}\StringTok{ }\DecValTok{4}\NormalTok{)}
+\KeywordTok{filter}\NormalTok{(flights, month }\OperatorTok{==}\StringTok{ }\DecValTok{7}\NormalTok{, day }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1743,7 +1818,7 @@ leur noms;
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{select}\NormalTok{(flights, year:arr_delay)}
+\KeywordTok{select}\NormalTok{(flights, year}\OperatorTok{:}\NormalTok{arr_delay)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1753,7 +1828,7 @@ leur noms;
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{rename}\NormalTok{(flights, }\DataTypeTok{annee =} \NormalTok{year)}
+\KeywordTok{rename}\NormalTok{(flights, }\DataTypeTok{annee =}\NormalTok{ year)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1770,8 +1845,8 @@ statistiques sur des données.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{summarise}\NormalTok{(flights}
-  \NormalTok{, }\DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
-  \NormalTok{, }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1800,9 +1875,9 @@ plusieurs variables.
 \begin{Highlighting}[]
 \NormalTok{flights_bymonth <-}\StringTok{ }\KeywordTok{group_by}\NormalTok{(flights, month)}
 \KeywordTok{summarise}\NormalTok{(flights_bymonth}
-  \NormalTok{, }\DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
-  \NormalTok{, }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-\NormalTok{)[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, ]}
+\NormalTok{  , }\DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{)[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, ]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1832,13 +1907,13 @@ beaucoup plus facile à mettre en \oe uvre et à comprendre.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{flights %>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(year, month, day) %>%}
+\NormalTok{flights }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year, month, day) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}
-    \DataTypeTok{arr =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
-    \DataTypeTok{dep =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-  \NormalTok{) %>%}
-\StringTok{  }\KeywordTok{filter}\NormalTok{(arr >}\StringTok{ }\DecValTok{30} \NormalTok{|}\StringTok{ }\NormalTok{dep >}\StringTok{ }\DecValTok{30}\NormalTok{)}
+    \DataTypeTok{retard_arrivee =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{),}
+    \DataTypeTok{retard_depart =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  ) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(retard_arrivee }\OperatorTok{>}\StringTok{ }\DecValTok{30} \OperatorTok{|}\StringTok{ }\NormalTok{retard_depart }\OperatorTok{>}\StringTok{ }\DecValTok{30}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1888,20 +1963,20 @@ de base R avec \texttt{group\_by()} de \texttt{dplyr}.
 \begin{Highlighting}[]
 \NormalTok{df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
   \DataTypeTok{x =} \KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{)}
-  \NormalTok{, }\DataTypeTok{by =} \KeywordTok{sample}\NormalTok{(}\FloatTok{1e3}\NormalTok{, }\FloatTok{1e6}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{by =} \KeywordTok{sample}\NormalTok{(}\FloatTok{1e3}\NormalTok{, }\FloatTok{1e6}\NormalTok{, }\DataTypeTok{replace =} \OtherTok{TRUE}\NormalTok{)}
 \NormalTok{)}
 
-\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \NormalTok{10L}
-  \NormalTok{, }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(df$x, df$by, sum)}
-  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{df %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(by) %>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x))}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(df}\OperatorTok{$}\NormalTok{x, df}\OperatorTok{$}\NormalTok{by, sum)}
+\NormalTok{  , }\DataTypeTok{dplyr =}\NormalTok{ df }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(by) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x))}
 \NormalTok{)}
-  \NormalTok{## Unit: milliseconds}
-  \NormalTok{##   expr      min       lq     mean   median       uq}
-  \NormalTok{##   base 37.64261 38.03618 41.82012 41.88673 45.41735}
-  \NormalTok{##  dplyr 46.90118 47.41262 47.82028 47.92937 48.27681}
-  \NormalTok{##       max neval}
-  \NormalTok{##  46.70003    10}
-  \NormalTok{##  48.47417    10}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##   expr      min       lq     mean   median       uq}
+\NormalTok{  ##   base 37.92114 46.84232 56.65085 50.55141 70.85616}
+\NormalTok{  ##  dplyr 48.34361 50.91462 64.66221 55.71249 73.45178}
+\NormalTok{  ##        max neval}
+\NormalTok{  ##   85.66136    10}
+\NormalTok{  ##  101.98539    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1968,7 +2043,7 @@ est la suivante (\texttt{DT} représente le \texttt{data.table}):
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{flights_DT[}
-  \NormalTok{month ==}\StringTok{ }\DecValTok{1}\NormalTok{, }\KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{), by =}\StringTok{ }\NormalTok{day}
+\NormalTok{  month }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, }\KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{), by =}\StringTok{ }\NormalTok{day}
 \NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -1995,20 +2070,20 @@ dans un \texttt{data.table} que dans un \texttt{data.frame}:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{setkey}\NormalTok{(flights_DT, origin)}
-\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \NormalTok{100L}
-  \NormalTok{, }\DataTypeTok{base =} \NormalTok{flights[flights$origin ==}\StringTok{ "JFK"}\NormalTok{,]}
-  \NormalTok{, }\DataTypeTok{dt1 =} \NormalTok{flights_DT[origin ==}\StringTok{ "JFK"}\NormalTok{]}
-  \NormalTok{, }\DataTypeTok{dt2 =} \NormalTok{flights_DT[}\KeywordTok{list}\NormalTok{(}\StringTok{"JFK"}\NormalTok{)]}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 100L}
+\NormalTok{  , }\DataTypeTok{base =}\NormalTok{ flights[flights}\OperatorTok{$}\NormalTok{origin }\OperatorTok{==}\StringTok{ "JFK"}\NormalTok{,]}
+\NormalTok{  , }\DataTypeTok{dt1 =}\NormalTok{ flights_DT[origin }\OperatorTok{==}\StringTok{ "JFK"}\NormalTok{]}
+\NormalTok{  , }\DataTypeTok{dt2 =}\NormalTok{ flights_DT[}\KeywordTok{list}\NormalTok{(}\StringTok{"JFK"}\NormalTok{)]}
 \NormalTok{)}
-  \NormalTok{## Unit: milliseconds}
-  \NormalTok{##  expr      min       lq     mean   median       uq}
-  \NormalTok{##  base 39.93500 41.02064 47.52981 47.84936 48.94594}
-  \NormalTok{##   dt1 11.18588 11.38343 15.11531 11.62197 14.05389}
-  \NormalTok{##   dt2 10.61155 10.92853 11.95295 11.03300 11.53576}
-  \NormalTok{##        max neval}
-  \NormalTok{##  204.32653   100}
-  \NormalTok{##  183.28408   100}
-  \NormalTok{##   21.06783   100}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##  expr      min       lq     mean   median       uq}
+\NormalTok{  ##  base 41.98297 47.92040 55.90588 50.78441 58.67894}
+\NormalTok{  ##   dt1 11.15860 11.49826 17.72419 12.97871 19.45241}
+\NormalTok{  ##   dt2 10.57523 11.04820 15.11194 12.74932 17.22756}
+\NormalTok{  ##        max neval}
+\NormalTok{  ##  201.05644   100}
+\NormalTok{  ##  227.58992   100}
+\NormalTok{  ##   39.50966   100}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2024,10 +2099,10 @@ L'argument \texttt{j} permet de calculer des statistiques agrégées.
 \begin{Highlighting}[]
 \NormalTok{flights_DT[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
   \DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
-  \NormalTok{, }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
 \NormalTok{)]}
-  \NormalTok{##    distance_moyenne retard_max}
-  \NormalTok{## 1:         1039.913       1272}
+\NormalTok{  ##    distance_moyenne retard_max}
+\NormalTok{  ## 1:         1039.913       1272}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2040,9 +2115,9 @@ avec les données d'origine.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{flights_DT <-}\StringTok{ }\NormalTok{flights_DT[, j :}\ErrorTok{=}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+\NormalTok{flights_DT <-}\StringTok{ }\NormalTok{flights_DT[, j }\OperatorTok{:}\ErrorTok{=}\StringTok{ }\KeywordTok{list}\NormalTok{(}
   \DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
-  \NormalTok{, }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
 \NormalTok{)]}
 \end{Highlighting}
 \end{Shaded}
@@ -2060,12 +2135,12 @@ variables.
 \begin{Highlighting}[]
 \NormalTok{flights_DT[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
   \DataTypeTok{distance_moyenne =} \KeywordTok{mean}\NormalTok{(distance)}
-  \NormalTok{, }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-\NormalTok{), by =}\StringTok{ }\NormalTok{month][}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{,]}
-  \NormalTok{##    month distance_moyenne retard_max}
-  \NormalTok{## 1:     1         1006.844       1272}
-  \NormalTok{## 2:    10         1038.876        688}
-  \NormalTok{## 3:    11         1050.305        796}
+\NormalTok{  , }\DataTypeTok{retard_max =} \KeywordTok{max}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{), by =}\StringTok{ }\NormalTok{month][}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{,]}
+\NormalTok{  ##    month distance_moyenne retard_max}
+\NormalTok{  ## 1:     1         1006.844       1272}
+\NormalTok{  ## 2:    10         1038.876        688}
+\NormalTok{  ## 3:    11         1050.305        796}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2085,12 +2160,12 @@ en enchaînant les \texttt{{[}}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{flights_DT[}
-  \NormalTok{, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
-    \DataTypeTok{arr =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-    \NormalTok{, }\DataTypeTok{dep =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-  \NormalTok{)}
-  \NormalTok{, keyby =}\StringTok{ }\KeywordTok{list}\NormalTok{(year, month, day)}
-\NormalTok{][arr >}\StringTok{ }\DecValTok{30} \NormalTok{|}\StringTok{ }\NormalTok{dep >}\StringTok{ }\DecValTok{30}\NormalTok{]}
+\NormalTok{  , j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+    \DataTypeTok{retard_arrivee =} \KeywordTok{mean}\NormalTok{(arr_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{    , }\DataTypeTok{retard_depart =} \KeywordTok{mean}\NormalTok{(dep_delay, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\NormalTok{  , keyby =}\StringTok{ }\KeywordTok{list}\NormalTok{(year, month, day)}
+\NormalTok{][retard_arrivee }\OperatorTok{>}\StringTok{ }\DecValTok{30} \OperatorTok{|}\StringTok{ }\NormalTok{retard_depart }\OperatorTok{>}\StringTok{ }\DecValTok{30}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2109,10 +2184,10 @@ en enchaînant les \texttt{{[}}.
 \CommentTok{# Conversion de la table de test en data.table}
 \NormalTok{dt <-}\StringTok{ }\KeywordTok{data.table}\NormalTok{(df)}
 
-\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \NormalTok{10L}
-  \NormalTok{, }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(df$x, df$by, sum)}
-  \NormalTok{, }\DataTypeTok{dplyr =} \NormalTok{df %>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(by) %>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x))}
-  \NormalTok{, }\DataTypeTok{data.table =} \NormalTok{dt[, }\KeywordTok{sum}\NormalTok{(x), }\DataTypeTok{keyby =} \NormalTok{by]}
+\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =}\NormalTok{ 10L}
+\NormalTok{  , }\DataTypeTok{base =} \KeywordTok{tapply}\NormalTok{(df}\OperatorTok{$}\NormalTok{x, df}\OperatorTok{$}\NormalTok{by, sum)}
+\NormalTok{  , }\DataTypeTok{dplyr =}\NormalTok{ df }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(by) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x))}
+\NormalTok{  , }\DataTypeTok{data.table =}\NormalTok{ dt[, }\KeywordTok{sum}\NormalTok{(x), }\DataTypeTok{keyby =}\NormalTok{ by]}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -2121,9 +2196,9 @@ en enchaînant les \texttt{{[}}.
 
 \begin{verbatim}
   ##         expr       lq     mean       uq
-  ## 1       base 37.98608 43.61748 45.62521
-  ## 2      dplyr 46.59135 47.12917 47.49720
-  ## 3 data.table 21.66920 23.70292 23.84025
+  ## 1       base 38.32042 47.52636 48.74153
+  ## 2      dplyr 49.53867 62.07801 74.74132
+  ## 3 data.table 21.10773 38.63131 25.69521
 \end{verbatim}
 
 \normalsize
@@ -2164,38 +2239,6 @@ susceptibles de répondre au problème posé.
 
 \end{frame}
 
-\begin{frame}[fragile]{\large Travailler sur des données
-\emph{out-of-memory}}
-
-Les \emph{packages} \texttt{ff} et \texttt{ffbase} permettent de
-travailler sur des objets directement stockés sur le disque dur de
-l'ordinateur.
-
-\footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ff)}
-\KeywordTok{library}\NormalTok{(ffbase)}
-
-\CommentTok{# Lecture d'un fichier .csv important (RP)}
-\NormalTok{ffdf <-}\StringTok{ }\KeywordTok{read.csv2.ffdf}\NormalTok{(}
-  \DataTypeTok{file =} \StringTok{"FD_INDREGZA_2013.txt"}
-  \NormalTok{, }\DataTypeTok{VERBOSE =} \OtherTok{TRUE}
-\NormalTok{)}
-
-\CommentTok{# Calculs simples sur l'objet ffdf}
-\KeywordTok{table}\NormalTok{(ffdf$REGION)}
-\end{Highlighting}
-\end{Shaded}
-
-\normalsize
-
-\textbf{Remarque} Ces \emph{packages} n'ont pas connu d'évolutions
-depuis plusieurs années.
-
-\end{frame}
-
 \begin{frame}[fragile]{\large Se connecter à des bases de données}
 
 Une autre solution pour exploiter de grands volumes de données dans R
@@ -2211,8 +2254,8 @@ est de l'utiliser pour \textbf{interroger des bases de données},
 \CommentTok{# Connexion à la base de données maBdd}
 \NormalTok{drv <-}\StringTok{ }\KeywordTok{dbDriver}\NormalTok{(}\StringTok{"PostgreSQL"}\NormalTok{)}
 \NormalTok{con <-}\StringTok{ }\KeywordTok{dbConnect}\NormalTok{(drv, }\DataTypeTok{dbname =} \StringTok{"maBdd"}
-  \NormalTok{, }\DataTypeTok{host =} \StringTok{"localhost"}\NormalTok{, }\DataTypeTok{port =} \DecValTok{5432}
-  \NormalTok{, }\DataTypeTok{user =} \StringTok{"utilisateur"}\NormalTok{, }\DataTypeTok{password =} \StringTok{"motDePasse"}
+\NormalTok{  , }\DataTypeTok{host =} \StringTok{"localhost"}\NormalTok{, }\DataTypeTok{port =} \DecValTok{5432}
+\NormalTok{  , }\DataTypeTok{user =} \StringTok{"utilisateur"}\NormalTok{, }\DataTypeTok{password =} \StringTok{"motDePasse"}
 \NormalTok{)}
 
 \CommentTok{# Requête SQL sur la table maTable}
@@ -2242,14 +2285,14 @@ totalement transparente sur des bases de données de différents types.
 \CommentTok{# Connexion à la base de données maBdd}
 \NormalTok{con <-}\StringTok{ }\KeywordTok{src_postgres}\NormalTok{(}
   \DataTypeTok{dbname =} \StringTok{"maBdd"}\NormalTok{, }\DataTypeTok{host =} \StringTok{"localhost"}\NormalTok{, }\DataTypeTok{port =} \DecValTok{5432}
-  \NormalTok{, }\DataTypeTok{user =} \StringTok{"utilisateur"}\NormalTok{, }\DataTypeTok{password =} \StringTok{"motDePasse"}
+\NormalTok{  , }\DataTypeTok{user =} \StringTok{"utilisateur"}\NormalTok{, }\DataTypeTok{password =} \StringTok{"motDePasse"}
 \NormalTok{)}
 
 \CommentTok{# Requête SQL sur la table maTable...}
 \KeywordTok{tbl}\NormalTok{(con, }\StringTok{"SELECT COUNT(*) FROM maTable"}\NormalTok{)}
 
 \CommentTok{# ... ou utilisation des verbes de dplyr}
-\KeywordTok{tbl}\NormalTok{(con) %>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{n}\NormalTok{())}
+\KeywordTok{tbl}\NormalTok{(con) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summarise}\NormalTok{(}\KeywordTok{n}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2295,8 +2338,8 @@ matrice de la liste \texttt{l}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(MASS)}
-\NormalTok{f <-}\StringTok{ }\NormalTok{function(x) }\KeywordTok{rowSums}\NormalTok{(}\KeywordTok{ginv}\NormalTok{(x))}
-\NormalTok{l <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{100}\NormalTok{, function(x) }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\FloatTok{1e4}\NormalTok{), }\DataTypeTok{ncol =} \FloatTok{1e2}\NormalTok{))}
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{rowSums}\NormalTok{(}\KeywordTok{ginv}\NormalTok{(x))}
+\NormalTok{l <-}\StringTok{ }\KeywordTok{lapply}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{100}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\FloatTok{1e4}\NormalTok{), }\DataTypeTok{ncol =} \FloatTok{1e2}\NormalTok{))}
 
 \CommentTok{# Création et paramétrage du cluster}
 \KeywordTok{library}\NormalTok{(parallel)}
@@ -2320,16 +2363,16 @@ matrice de la liste \texttt{l}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
-  \NormalTok{, }\KeywordTok{lapply}\NormalTok{(l, f)}
-  \NormalTok{, }\KeywordTok{parLapply}\NormalTok{(cl, l, f)}
+\NormalTok{  , }\KeywordTok{lapply}\NormalTok{(l, f)}
+\NormalTok{  , }\KeywordTok{parLapply}\NormalTok{(cl, l, f)}
 \NormalTok{)}
-  \NormalTok{## Unit: milliseconds}
-  \NormalTok{##                 expr      min       lq     mean}
-  \NormalTok{##         lapply(l, f) 653.5663 667.8096 678.4173}
-  \NormalTok{##  parLapply(cl, l, f) 347.7800 351.0758 411.1644}
-  \NormalTok{##    median       uq      max neval}
-  \NormalTok{##  672.4361 693.3183 710.1756    10}
-  \NormalTok{##  392.6949 454.0194 550.1971    10}
+\NormalTok{  ## Unit: milliseconds}
+\NormalTok{  ##                 expr      min       lq     mean}
+\NormalTok{  ##         lapply(l, f) 636.0039 641.6147 663.0252}
+\NormalTok{  ##  parLapply(cl, l, f) 341.5059 383.9122 412.6761}
+\NormalTok{  ##    median       uq      max neval}
+\NormalTok{  ##  650.1038 658.3229 782.8332    10}
+\NormalTok{  ##  405.4428 437.5670 480.6239    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2352,7 +2395,7 @@ fonctions codées en C++ dans un programme R.
 \StringTok{\}'}\NormalTok{)}
 
 \KeywordTok{add}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)}
-  \NormalTok{## [1] 3}
+\NormalTok{  ## [1] 3}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2405,23 +2448,23 @@ en particulier extrêmement rapides.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Fonction R}
-\NormalTok{cumColSumsR <-}\StringTok{ }\NormalTok{function(x)\{}
+\NormalTok{cumColSumsR <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
   \KeywordTok{apply}\NormalTok{(x, }\DecValTok{2}\NormalTok{, cumsum)}
 \NormalTok{\}}
 
 \CommentTok{# Les deux fonctions produisent les mêmes résultats...}
 \NormalTok{x <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{), }\DataTypeTok{ncol =} \FloatTok{1e2}\NormalTok{)}
 \KeywordTok{all.equal}\NormalTok{(}\KeywordTok{cumColSumsR}\NormalTok{(x), }\KeywordTok{cumColSumsC}\NormalTok{(x))}
-  \NormalTok{## [1] TRUE}
+\NormalTok{  ## [1] TRUE}
 
 \CommentTok{# ... mais cumColSumsC() est beaucoup plus rapide !}
 \KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
-  \NormalTok{, }\KeywordTok{cumColSumsR}\NormalTok{(x)}
-  \NormalTok{, }\KeywordTok{cumColSumsC}\NormalTok{(x)}
+\NormalTok{  , }\KeywordTok{cumColSumsR}\NormalTok{(x)}
+\NormalTok{  , }\KeywordTok{cumColSumsC}\NormalTok{(x)}
 \NormalTok{))[, }\KeywordTok{c}\NormalTok{(}\StringTok{"expr"}\NormalTok{, }\StringTok{"lq"}\NormalTok{, }\StringTok{"mean"}\NormalTok{, }\StringTok{"uq"}\NormalTok{)]}
-  \NormalTok{##             expr        lq      mean        uq}
-  \NormalTok{## 1 cumColSumsR(x) 16.420141 19.201384 21.674531}
-  \NormalTok{## 2 cumColSumsC(x)  4.177008  4.724542  4.279235}
+\NormalTok{  ##             expr        lq      mean        uq}
+\NormalTok{  ## 1 cumColSumsR(x) 17.589140 21.515209 25.846904}
+\NormalTok{  ## 2 cumColSumsC(x)  4.759599  6.959464  9.219795}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2500,12 +2543,12 @@ table \texttt{mpg} du \emph{package} \texttt{ggplot2}.
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(ggplot2)}
 \KeywordTok{dim}\NormalTok{(mpg)}
-  \NormalTok{## [1] 234  11}
+\NormalTok{  ## [1] 234  11}
 \KeywordTok{names}\NormalTok{(mpg)}
-  \NormalTok{##  [1] "manufacturer" "model"        "displ"       }
-  \NormalTok{##  [4] "year"         "cyl"          "trans"       }
-  \NormalTok{##  [7] "drv"          "cty"          "hwy"         }
-  \NormalTok{## [10] "fl"           "class"}
+\NormalTok{  ##  [1] "manufacturer" "model"        "displ"       }
+\NormalTok{  ##  [4] "year"         "cyl"          "trans"       }
+\NormalTok{  ##  [7] "drv"          "cty"          "hwy"         }
+\NormalTok{  ## [10] "fl"           "class"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2604,12 +2647,12 @@ graphique, sans avoir à appeler explicitement la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{hist}\NormalTok{(mpg$hwy, }\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{), }
+\KeywordTok{hist}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{hwy, }\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{44}\NormalTok{, }\DataTypeTok{by =} \DecValTok{2}\NormalTok{), }
      \DataTypeTok{col =} \StringTok{"lightblue"}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-82-1}
+\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-83-1}
 
 \end{frame}
 
@@ -2619,11 +2662,11 @@ graphique, sans avoir à appeler explicitement la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(mpg$hwy, }\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{kernel =} \StringTok{"gaussian"}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{hwy, }\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{kernel =} \StringTok{"gaussian"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-83-1}
+\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-84-1}
 
 \end{frame}
 
@@ -2634,12 +2677,12 @@ graphique, sans avoir à appeler explicitement la fonction
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{class}\NormalTok{(AirPassengers)}
-  \NormalTok{## [1] "ts"}
+\NormalTok{  ## [1] "ts"}
 \KeywordTok{plot}\NormalTok{(AirPassengers)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-84-1}
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-85-1}
 
 \end{frame}
 
@@ -2649,11 +2692,11 @@ graphique, sans avoir à appeler explicitement la fonction
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-85-1}
+\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-86-1}
 
 \end{frame}
 
@@ -2707,24 +2750,9 @@ la couleur des barres varie et les paramètres deviennent utiles :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{uni <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg$drv)}
+\NormalTok{uni <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{drv)}
 \NormalTok{lab <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"4 roues"}\NormalTok{, }\StringTok{"Traction"}\NormalTok{, }\StringTok{"Propulsion"}\NormalTok{)}
-\KeywordTok{barplot}\NormalTok{(uni, }\DataTypeTok{names.arg =} \NormalTok{lab)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-86-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
-
-\centering \footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{pie}\NormalTok{(uni, }\DataTypeTok{labels =} \KeywordTok{paste0}\NormalTok{(lab, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, uni)}
-    \NormalTok{, }\DataTypeTok{init.angle =} \DecValTok{90}\NormalTok{, }\DataTypeTok{clockwise =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{barplot}\NormalTok{(uni, }\DataTypeTok{names.arg =}\NormalTok{ lab)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2738,12 +2766,27 @@ la couleur des barres varie et les paramètres deviennent utiles :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bi <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg$drv, mpg$year)}
-\KeywordTok{barplot}\NormalTok{(bi, }\DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{legend.text =} \NormalTok{lab)}
+\KeywordTok{pie}\NormalTok{(uni, }\DataTypeTok{labels =} \KeywordTok{paste0}\NormalTok{(lab, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, uni)}
+\NormalTok{    , }\DataTypeTok{init.angle =} \DecValTok{90}\NormalTok{, }\DataTypeTok{clockwise =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-88-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
+
+\centering \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bi <-}\StringTok{ }\KeywordTok{table}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{drv, mpg}\OperatorTok{$}\NormalTok{year)}
+\KeywordTok{barplot}\NormalTok{(bi, }\DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{legend.text =}\NormalTok{ lab)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-89-1}
 
 \end{frame}
 
@@ -2759,7 +2802,7 @@ taille des éléments qui composent un graphique:
   des points à représenter.
 \end{itemize}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-89-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-90-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -2769,7 +2812,7 @@ taille des éléments qui composent un graphique:
   ou un code RGB hexadécimal (du type \texttt{"\#FF1111"}). \small  
 \end{itemize}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-90-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-91-1.pdf}
 
 Pour certaines formes (\texttt{pch} entre 21 et 25), il est également
 possible de modifier la couleur de remplissage avec \texttt{bg}.
@@ -2786,12 +2829,12 @@ entiers est réduite. Il est possible de l'étendre considérablement
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{colors}\NormalTok{()[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{]}
-  \NormalTok{## [1] "white"        "aliceblue"    "antiquewhite"}
+\KeywordTok{colors}\NormalTok{()[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{  ## [1] "white"        "aliceblue"    "antiquewhite"}
 \KeywordTok{length}\NormalTok{(}\KeywordTok{colors}\NormalTok{())}
-  \NormalTok{## [1] 657}
-\KeywordTok{grep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\KeywordTok{colors}\NormalTok{(), }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{]}
-  \NormalTok{## [1] "aliceblue" "blue"      "blue1"}
+\NormalTok{  ## [1] 657}
+\KeywordTok{grep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\KeywordTok{colors}\NormalTok{(), }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\NormalTok{  ## [1] "aliceblue" "blue"      "blue1"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2799,7 +2842,7 @@ entiers est réduite. Il est possible de l'étendre considérablement
 - \texttt{cex} : utilisé dans une fonction \texttt{plot()}, \texttt{cex}
 permet d'ajuster la taille des points qui le composent.
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-92-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-93-1.pdf}
 
 \end{frame}
 
@@ -2812,15 +2855,15 @@ La fonction \texttt{legend()} permet d'ajouter une légende.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{t <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(mpg$drv}
-  \NormalTok{, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"4 roues"}\NormalTok{, }\StringTok{"Traction"}\NormalTok{, }\StringTok{"Propulsion"}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy, }\DataTypeTok{pch =} \DecValTok{21}\NormalTok{, }\DataTypeTok{col =} \NormalTok{t, }\DataTypeTok{bg =} \NormalTok{t)}
+\NormalTok{t <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{drv}
+\NormalTok{  , }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"4 roues"}\NormalTok{, }\StringTok{"Traction"}\NormalTok{, }\StringTok{"Propulsion"}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy, }\DataTypeTok{pch =} \DecValTok{21}\NormalTok{, }\DataTypeTok{col =}\NormalTok{ t, }\DataTypeTok{bg =}\NormalTok{ t)}
 \KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\DataTypeTok{legend =} \KeywordTok{unique}\NormalTok{(t), }\DataTypeTok{pch =} \DecValTok{21}
-  \NormalTok{, }\DataTypeTok{col =} \KeywordTok{unique}\NormalTok{(t), }\DataTypeTok{pt.bg =} \KeywordTok{unique}\NormalTok{(t))}
+\NormalTok{  , }\DataTypeTok{col =} \KeywordTok{unique}\NormalTok{(t), }\DataTypeTok{pt.bg =} \KeywordTok{unique}\NormalTok{(t))}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-93-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-94-1.pdf}
 
 \end{frame}
 
@@ -2840,9 +2883,8 @@ Les titres sont paramétrés à l'aide des fonctions suivantes :
 
 \pause La fonction \texttt{text()} permet d'ajouter du texte sur le
 graphique en le positionnant par ses coordonnées, éventuellement avec un
-décalage (pour nommer des points par exemple).
-
-\pause Il est également possible de paramétrer les axes :
+décalage (pour nommer des points par exemple). \pause Il est également
+possible de paramétrer les axes :
 
 \vspace{-0.3cm}
 
@@ -2897,13 +2939,13 @@ commencer par une instruction \texttt{plot()} puis de la compléter :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{reg <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(hwy ~}\StringTok{ }\NormalTok{displ, }\DataTypeTok{data =} \NormalTok{mpg)}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a =} \NormalTok{reg$coefficients[}\DecValTok{1}\NormalTok{], }\DataTypeTok{b =} \NormalTok{reg$coefficients[}\DecValTok{2}\NormalTok{])}
+\NormalTok{reg <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(hwy }\OperatorTok{~}\StringTok{ }\NormalTok{displ, }\DataTypeTok{data =}\NormalTok{ mpg)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a =}\NormalTok{ reg}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{1}\NormalTok{], }\DataTypeTok{b =}\NormalTok{ reg}\OperatorTok{$}\NormalTok{coefficients[}\DecValTok{2}\NormalTok{])}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-94-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-95-1.pdf}
 
 \end{frame}
 
@@ -2945,19 +2987,19 @@ d'aide} de la fonction \texttt{par()} détaille toutes ces options.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
 \KeywordTok{plot}\NormalTok{(AirPassengers)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-96-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-97-1.pdf}
 
 \end{frame}
 
 \begin{frame}[fragile]{Exportation}
 
 Pour exporter des graphiques depuis R, la démarche consiste à rediriger
-le flux de production du graphiques vers un fichier à l'aide d'une
+le flux de production du graphique vers un fichier à l'aide d'une
 fonction du \emph{package} \texttt{grDevices}. Par exemple :
 
 \pause 
@@ -2965,8 +3007,8 @@ fonction du \emph{package} \texttt{grDevices}. Par exemple :
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{png}\NormalTok{(}\StringTok{"monGraphique.png"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{10}\NormalTok{, }\DataTypeTok{height =} \DecValTok{8}
-    \NormalTok{, }\DataTypeTok{unit =} \StringTok{"cm"}\NormalTok{, }\DataTypeTok{res =} \DecValTok{600}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(mpg$displ, mpg$hwy)}
+\NormalTok{    , }\DataTypeTok{unit =} \StringTok{"cm"}\NormalTok{, }\DataTypeTok{res =} \DecValTok{600}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
 \KeywordTok{dev.off}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
@@ -2974,13 +3016,12 @@ fonction du \emph{package} \texttt{grDevices}. Par exemple :
 \pause Dans ce contexte, les fonctions les plus utiles sont :
 \texttt{png()}, \texttt{jpeg()} et \texttt{pdf()}. En particulier,
 \texttt{pdf()} permet de conserver le caractère vectoriel des graphiques
-dans R.
+produits par R.
 
 \pause 
 
 \textbf{Remarque} Les graphiques peuvent également facilement être
-exportés depuis RStudio en utilisant les menus spécialement conçus à cet
-effet.
+exportés depuis RStudio en utilisant les menus prévus à cet effet.
 
 \end{frame}
 
@@ -3003,7 +3044,7 @@ quantité de graphiques mais présente deux limites importantes :
 \end{itemize}
 
 \pause Ce sont ces limites que tente de dépasser le \emph{package}
-\texttt{ggplot2} en implémentant une \textbf{grammaire des graphiques}
+\texttt{ggplot2} en implémentant une \textbf{grammaire des graphiques}.
 
 Comme les éléments du langage, les \textbf{composants élémentaires} d'un
 graphique doivent pouvoir être \textbf{réassemblés} pour produire de
@@ -3045,7 +3086,7 @@ la cylindrée.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{displ, }\DataTypeTok{y =} \NormalTok{hwy)) +}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ displ, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
@@ -3059,12 +3100,26 @@ graphique}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{displ, }\DataTypeTok{y =} \NormalTok{hwy)) +}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ displ, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-100-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-101-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Rappel : le même graphique avec base R}
+
+\centering \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-102-1}
 
 \end{frame}
 
@@ -3089,12 +3144,12 @@ dans la fonction \texttt{aes()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \NormalTok{cyl, }\DataTypeTok{shape =} \NormalTok{drv)) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =}\NormalTok{ cyl, }\DataTypeTok{shape =}\NormalTok{ drv)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-101-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-103-1}
 
 \end{frame}
 
@@ -3121,12 +3176,12 @@ esthétiques, \textbf{les échelles sont continues ou discrètes}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \KeywordTok{as.factor}\NormalTok{(cyl)}
-  \NormalTok{, }\DataTypeTok{shape =} \NormalTok{drv)) +}
+\NormalTok{  , }\DataTypeTok{shape =}\NormalTok{ drv)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-102-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-104-1}
 
 \end{frame}
 
@@ -3155,12 +3210,12 @@ esthétiques,
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \KeywordTok{as.factor}\NormalTok{(cyl)}
-  \NormalTok{, }\DataTypeTok{shape =} \KeywordTok{as.factor}\NormalTok{(cyl))) +}
+\NormalTok{  , }\DataTypeTok{shape =} \KeywordTok{as.factor}\NormalTok{(cyl))) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-103-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-105-1}
 
 \end{frame}
 
@@ -3189,39 +3244,8 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{8}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-104-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Combinaison de plusieurs graphiques}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{()}
-  \NormalTok{## `geom_smooth()` using method = 'loess'}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-105-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Combinaison de plusieurs graphiques}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3235,12 +3259,43 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =} \NormalTok{drv)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{()}
+\NormalTok{  ## `geom_smooth()` using method = 'loess'}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-107-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinaison de plusieurs graphiques}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-108-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Combinaison de plusieurs graphiques}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy, }\DataTypeTok{colour =}\NormalTok{ drv)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-109-1}
 
 \end{frame}
 
@@ -3286,14 +3341,14 @@ pré-paramétrées de \texttt{layer()}}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{() +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
-  \DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+  \DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
+\NormalTok{  , }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-108-1}
+\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-110-1}
 
 \end{frame}
 
@@ -3306,13 +3361,13 @@ pré-paramétrées de \texttt{layer()}}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{() +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
-  \DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-\NormalTok{) +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
-  \DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"smooth"}
-  \NormalTok{, }\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =} \NormalTok{y ~}\StringTok{ }\NormalTok{x)}
+\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+  \DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"identity"}
+\NormalTok{  , }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
+\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+  \DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy), }\DataTypeTok{stat =} \StringTok{"smooth"}
+\NormalTok{  , }\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
+\NormalTok{  , }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =}\NormalTok{ y }\OperatorTok{~}\StringTok{ }\NormalTok{x)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3330,7 +3385,7 @@ pré-paramétrées de \texttt{layer()}}.
 
 \centering
 
-\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-110-1}
+\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-112-1}
 
 \end{frame}
 
@@ -3344,11 +3399,11 @@ pré-paramétrées de \texttt{layer()}}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
   \DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{, }\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-\NormalTok{) +}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
+\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{layer}\NormalTok{(}
   \DataTypeTok{stat =} \StringTok{"smooth"}\NormalTok{, }\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{position =} \StringTok{"identity"}
-  \NormalTok{, }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =} \NormalTok{y ~}\StringTok{ }\NormalTok{x)}
+\NormalTok{  , }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{formula =}\NormalTok{ y }\OperatorTok{~}\StringTok{ }\NormalTok{x)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3361,15 +3416,15 @@ pré-paramétrées de \texttt{layer()}}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3386,48 +3441,48 @@ pré-paramétrées de \texttt{layer()}}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =} \NormalTok{mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{size =} \NormalTok{cyl)) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ mpg, }\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{size =}\NormalTok{ cyl)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"point"}\NormalTok{, }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}
-    \NormalTok{, }\DataTypeTok{colour =} \StringTok{"blue"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-114-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{\large Le fonctionnement en \og couches \fg{} de
-\texttt{ggplot2}}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-115-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{\large Le fonctionnement en \og couches \fg{} de
-\texttt{ggplot2}}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{shape =} \NormalTok{drv), }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \NormalTok{class), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{    , }\DataTypeTok{colour =} \StringTok{"blue"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-116-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Le fonctionnement en \og couches \fg{} de
+\texttt{ggplot2}}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-117-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Le fonctionnement en \og couches \fg{} de
+\texttt{ggplot2}}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{shape =}\NormalTok{ drv), }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{stat_smooth}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =}\NormalTok{ class), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-118-1}
 
 \end{frame}
 
@@ -3439,11 +3494,11 @@ pré-paramétrées de \texttt{layer()}}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) +}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-117-1}
+\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-119-1}
 
 \pause \raggedright \small \vspace{-0.3cm}
 
@@ -3460,12 +3515,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =} \NormalTok{drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =}\NormalTok{ drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-118-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-120-1}
 
 \end{frame}
 
@@ -3475,11 +3530,11 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) +}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-119-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-121-1}
 
 \end{frame}
 
@@ -3489,12 +3544,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =} \NormalTok{drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(hwy, }\DataTypeTok{colour =}\NormalTok{ drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-120-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-122-1}
 
 \end{frame}
 
@@ -3504,12 +3559,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(economics, }\KeywordTok{aes}\NormalTok{(date, unemploy /}\StringTok{ }\NormalTok{pop)) +}
+\KeywordTok{ggplot}\NormalTok{(economics, }\KeywordTok{aes}\NormalTok{(date, unemploy }\OperatorTok{/}\StringTok{ }\NormalTok{pop)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-121-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-123-1}
 
 \end{frame}
 
@@ -3519,12 +3574,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{colour =} \NormalTok{drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{colour =}\NormalTok{ drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_bar}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-122-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-124-1}
 
 \end{frame}
 
@@ -3535,14 +3590,14 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(scales)}
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =} \NormalTok{(..count..)/}\KeywordTok{sum}\NormalTok{(..count..))) +}
-\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{percent) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (..count..)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(..count..))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{percent) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette=}\StringTok{"Blues"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.7\linewidth]{presentation_files/figure-beamer/unnamed-chunk-123-1}
+\includegraphics[width=0.7\linewidth]{presentation_files/figure-beamer/unnamed-chunk-125-1}
 
 \end{frame}
 
@@ -3552,13 +3607,13 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{""}\NormalTok{, }\DataTypeTok{fill =} \NormalTok{drv, }\DataTypeTok{colour =} \NormalTok{drv)) +}\StringTok{ }
+\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{""}\NormalTok{, }\DataTypeTok{fill =}\NormalTok{ drv, }\DataTypeTok{colour =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{width =} \DecValTok{1}\NormalTok{)}
 \NormalTok{g}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.75\linewidth]{presentation_files/figure-beamer/unnamed-chunk-124-1}
+\includegraphics[width=0.75\linewidth]{presentation_files/figure-beamer/unnamed-chunk-126-1}
 
 \end{frame}
 
@@ -3568,12 +3623,12 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g +}\StringTok{ }\KeywordTok{coord_polar}\NormalTok{(}\DataTypeTok{theta =} \StringTok{"y"}\NormalTok{) +}\StringTok{ }\KeywordTok{theme_minimal}\NormalTok{() +}
-\StringTok{  }\KeywordTok{scale_fill_grey}\NormalTok{() +}\StringTok{ }\KeywordTok{scale_colour_grey}\NormalTok{()}
+\NormalTok{g }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_polar}\NormalTok{(}\DataTypeTok{theta =} \StringTok{"y"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_minimal}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_grey}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_colour_grey}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.5\linewidth]{presentation_files/figure-beamer/unnamed-chunk-125-1}
+\includegraphics[width=0.5\linewidth]{presentation_files/figure-beamer/unnamed-chunk-127-1}
 
 \pause \raggedright \small
 
@@ -3590,39 +3645,8 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) +}\StringTok{ }
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_bar}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-126-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-127-1}
-
-\end{frame}
-
-\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
-
-\footnotesize \center
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\KeywordTok{as.factor}\NormalTok{(year), }\DataTypeTok{fill =} \NormalTok{drv)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"dodge"}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3630,14 +3654,14 @@ avec \texttt{ggplot2}.
 
 \end{frame}
 
-\begin{frame}[fragile]{Boîtes à moustaches et assimilés}
+\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
 
 \footnotesize \center
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{drv, }\DataTypeTok{y =} \NormalTok{hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{coef =} \FloatTok{1.5}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(drv, }\DataTypeTok{fill =} \KeywordTok{as.factor}\NormalTok{(year))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3645,14 +3669,15 @@ avec \texttt{ggplot2}.
 
 \end{frame}
 
-\begin{frame}[fragile]{Boîtes à moustaches et assimilés}
+\begin{frame}[fragile]{Diagrammes en bâtons et circulaires}
 
 \footnotesize \center
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{drv, }\DataTypeTok{y =} \NormalTok{hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_jitter}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\KeywordTok{as.factor}\NormalTok{(year), }\DataTypeTok{fill =}\NormalTok{ drv)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{position =} \StringTok{"dodge"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3666,12 +3691,42 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{drv, }\DataTypeTok{y =} \NormalTok{hwy)) +}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_violin}\NormalTok{()}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ drv, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\DataTypeTok{coef =} \FloatTok{1.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-131-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Boîtes à moustaches et assimilés}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ drv, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_jitter}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-132-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{Boîtes à moustaches et assimilés}
+
+\footnotesize \center
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ drv, }\DataTypeTok{y =}\NormalTok{ hwy)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_violin}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-133-1}
 
 \end{frame}
 
@@ -3681,14 +3736,14 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }
-\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Mon titre avec un retour }\CharTok{\textbackslash{}n}\StringTok{à la ligne"}\NormalTok{) +}
-\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Cylindrée"}\NormalTok{) +}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Miles per gallon"}\NormalTok{) +}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Mon titre avec un retour }\CharTok{\textbackslash{}n}\StringTok{à la ligne"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Cylindrée"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Miles per gallon"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{coord_cartesian}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{), }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-132-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-134-1}
 
 \end{frame}
 
@@ -3698,13 +3753,13 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(~manufacturer, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{manufacturer, }\DataTypeTok{nrow =} \DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-133-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-135-1}
 
 \end{frame}
 
@@ -3714,13 +3769,13 @@ avec \texttt{ggplot2}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) +}\StringTok{ }
-\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(drv~class)}
+\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_grid}\NormalTok{(drv}\OperatorTok{~}\NormalTok{class)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-134-1}
+\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-136-1}
 
 \end{frame}
 
@@ -3732,7 +3787,7 @@ ou \texttt{saveRDS()} et de le réutiliser par la suite dans R.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) +}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\NormalTok{g <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(mpg, }\KeywordTok{aes}\NormalTok{(displ, hwy)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
 \KeywordTok{saveRDS}\NormalTok{(g, }\DataTypeTok{file =} \StringTok{"g.rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3742,7 +3797,7 @@ dehors de R. Par défaut, elle sauvegarde le dernier graphique produit.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{g +}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{g }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{se =} \OtherTok{FALSE}\NormalTok{)}
 \KeywordTok{ggsave}\NormalTok{(}\StringTok{"monGraphique.pdf"}\NormalTok{)}
 \KeywordTok{ggsave}\NormalTok{(}\StringTok{"monGraphique.png"}\NormalTok{)}
 \end{Highlighting}
@@ -3763,10 +3818,8 @@ R}\label{generer-automatiquement-des-documents-depuis-r}
   réutilisation future : statistiques pour une étude, traitements
   réalisés lors d'une réunion de travail, etc.
 
-  \vspace{0.2cm}
-
-  \small  \textbf{Remarque} Utilisation analogue à celle permise par les
-  instructions \textcolor{blue}{\texttt{ODS RTF}} ou
+  \vspace{0.2cm} \small  \textbf{Remarque} Utilisation analogue à celle
+  permise par les instructions \textcolor{blue}{\texttt{ODS RTF}} ou
   \textcolor{blue}{\texttt{ODS PDF}} de SAS.
 \end{itemize}
 
@@ -3968,7 +4021,7 @@ que ses résultats sont affichés} dans le document en sortie :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DecValTok{2} \NormalTok{+}\StringTok{ }\DecValTok{2}
+\DecValTok{2} \OperatorTok{+}\StringTok{ }\DecValTok{2}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4032,7 +4085,7 @@ document, utiliser
 Document compilé le `r Sys.Date()`.
 \end{verbatim}
 
-\pause Document compilé le 2017-06-21.
+\pause Document compilé le 2018-01-26.
 
 \end{frame}
 
@@ -4075,7 +4128,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 \end{verbatim}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-145-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-147-1.pdf}
 
 \end{frame}
 
@@ -4089,7 +4142,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 \end{verbatim}
 
-\includegraphics[width=4in]{presentation_files/figure-beamer/unnamed-chunk-147-1}
+\includegraphics[width=4in]{presentation_files/figure-beamer/unnamed-chunk-149-1}
 
 \end{frame}
 

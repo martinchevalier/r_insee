@@ -1,83 +1,81 @@
 ---
-title: "Module 2 Manipuler les éléments fondamentaux du langage"
+title: "Module 2 Manipuler les Ã©lÃ©ments fondamentaux du langage"
 ---
 
 ```{r, include = FALSE}
 rm(list = ls())
 if(!exists(".initOK")) source("init.R", encoding = "latin1")
+.init()
 ```
 
 ```{r, results = "asis", echo = FALSE}
-.module(numModule = 2, "Manipuler les éléments fondamentaux du langage")
+.module(numModule = 2, "Manipuler les Ã©lÃ©ments fondamentaux du langage")
 ```
 
 \ 
 
-La philosophie de ce deuxième module diffère sensiblement de celle des modules 1 et 3. Son objectif est de vous amener à **manipuler les briques élémentaires du langage de R : vecteurs, matrices et listes**. À ce titre, il s'agit d'un détour indispensable avant d'aborder les opérations plus complexes portant sur les tables de données (sélection d'observations et de variables, tri, fusion, etc.). 
+La philosophie de ce deuxiÃ¨me module diffÃ¨re sensiblement de celle des modules 1 et 3. Son objectif est de vous amener Ã  **manipuler les briques Ã©lÃ©mentaires du langage de R : vecteurs, matrices et listes**. Ã€ ce titre, il s'agit d'un dÃ©tour indispensable avant d'aborder les opÃ©rations plus complexes portant sur les tables de donnÃ©es (sÃ©lection d'observations et de variables, tri, fusion, etc.). 
 
-Plus encore que les autres modules, il est pensé pour **articuler étroitement apprentissage d'un "vocabulaire" de fonctions et mise en oeuvre autour de cas pratiques**. 
-
-```{r, results = "asis", echo = FALSE}
-.partie("Manipuler les vecteurs")
-```
-
-Les vecteurs constituent un des types d'objets les plus simples et les plus courants dans R. **Ils interviennent dans la manipulation de la plupart des autres types d'objets** et méritent à ce titre une attention particulière. 
-
-**Exemples** Les variables d'une table sont des vecteurs, tout comme la plupart des paramètres passés à une fonction.
+Plus encore que les autres modules, il est pensÃ© pour **articuler Ã©troitement apprentissage d'un "vocabulaire" de fonctions et mise en oeuvre autour de cas pratiques**. 
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Créer des vecteurs et connaître leurs caractéristiques")
+.partie("Les vecteurs : crÃ©ation et sÃ©lection")
 ```
 
-La **fonction `c()`**`r .fun("c", bold = TRUE)` permet de créer des vecteurs : 
+Les vecteurs constituent un des types d'objets les plus simples et les plus courants dans R. **Ils interviennent dans la manipulation de la plupart des autres types d'objets** et mÃ©ritent Ã  ce titre une attention particuliÃ¨re. 
+
+**Exemples** Les variables d'une table sont des vecteurs, tout comme la plupart des paramÃ¨tres passÃ©s Ã  une fonction.
+
+```{r, results = "asis", echo = FALSE}
+.souspartie("CrÃ©er des vecteurs et connaÃ®tre leurs caractÃ©ristiques")
+```
+
+La **fonction `c()`**`r .fun("c", bold = TRUE)` permet de crÃ©er des vecteurs : 
 ```{r}
-# Création de vecteurs
+# CrÃ©ation de vecteurs
 c(8, 5)
 c("z","B","e")
 c(TRUE, FALSE, FALSE, TRUE)
 ```
 
-Pour associer un vecteur à un nom d'objet, il suffit d'utiliser l'**opérateur d'assignation `<-`**`r .fun("<-")` : 
+Pour associer un vecteur Ã  un nom d'objet, il suffit d'utiliser l'**opÃ©rateur d'assignation `<-`**`r .fun("<-")` : 
 ```{r}
-# Assignation de vecteurs à des noms
+# Assignation de vecteurs Ã  des noms
 a1 <- c(8, 5)
 a2 <- c("z", "B", "e")
 a3 <- c(TRUE, FALSE, FALSE, TRUE)
 
-# Rappel de la valeur des vecteurs définis
+# Rappel de la valeur des vecteurs dÃ©finis
 a1
 a2
 a3
 ```
 
-Un vecteur possède plusieurs caractéristiques essentielles (que l'on qualifie d'**attributs**) : 
+Un vecteur possÃ¨de plusieurs caractÃ©ristiques essentielles (que l'on qualifie d'**attributs**) : 
 
-- son **type** : les types les plus courants sont numérique, caractère et logique ;
-- sa **longueur** : le nombre d'éléments qui le composent.
+- son **type** : les types les plus courants sont numÃ©rique, caractÃ¨re et logique ;
+- sa **longueur** : le nombre d'Ã©lÃ©ments qui le composent.
 
-Il est possible d'afficher ces attributs avec les **fonctions `str()`, `typeof()` et `length()`**`r .fun("str", bold = TRUE)``r .fun("typeof", bold = TRUE)``r .fun("length", bold = TRUE)`.
+Il est possible d'afficher ces attributs avec les **fonctions `str()`, `mode()` et `length()`**`r .fun("str", bold = TRUE)``r .fun("mode", bold = TRUE)``r .fun("length", bold = TRUE)`.
 ```{r}
 # Attributs de a1
 str(a1)
-typeof(a1)
+mode(a1)
 length(a1)
-# Note : Les vecteurs de type numérique peuvent 
-# être enregistrés de plusieurs façons différentes
-# (double, integer, etc.).
 
 # Attributs de a2
 str(a2)
-typeof(a2)
+mode(a2)
 length(a2)
 
 # Attributs de a3
 str(a3)
-typeof(a3)
+mode(a3)
 length(a3)
 
 ```
 
-Les fonctions **`is.numeric()`, `is.character()` et `is.logical()`**`r .fun("is.numeric", bold = TRUE)``r .fun("is.character", bold = TRUE)``r .fun("is.logical", bold = TRUE)` permettent de tester si un vecteur est de type numérique, caractère ou logique respectivement.
+Les fonctions **`is.numeric()`, `is.character()` et `is.logical()`**`r .fun("is.numeric", bold = TRUE)``r .fun("is.character", bold = TRUE)``r .fun("is.logical", bold = TRUE)` permettent de tester si un vecteur est de type numÃ©rique, caractÃ¨re ou logique respectivement.
 
 ```{r}
 # Utilisation de is.numeric()
@@ -102,37 +100,37 @@ is.logical(a3)
 
 **Remarques** : 
 
-- Quand on souhaite créer un vecteur de longueur 1, la fonction `c()` est inutile. C'est ce qui a été fait pendant tout le `r .ref("module 1", "module1.html")` de la formation.`r .fun("identical")`
+- Quand on souhaite crÃ©er un vecteur de longueur 1, la fonction `c()` est inutile. C'est ce qui a Ã©tÃ© fait pendant tout le `r .ref("module 1", "module1.html")` de la formation.`r .fun("identical", bold = TRUE)`
 ```{r}
-# Création d'un vecteur de longueur 1
+# CrÃ©ation d'un vecteur de longueur 1
 a4 <- 2
 a5 <- c(2)
 identical(a4, a5)
 ```
 
-- Les vecteurs de type logique ne peuvent comporter que **deux valeurs** (en plus des valeurs manquantes `NA`, *cf. infra*) : vrai (`TRUE`) et faux (`FALSE`). **`TRUE` et `FALSE` sont des mots-clés spécifiques qui doivent être écrits intégralement en majuscules** : 
+- Les vecteurs de type logique ne peuvent prendre que **deux valeurs** (en plus des valeurs manquantes `NA`, *cf. infra*) : vrai (`TRUE`) et faux (`FALSE`). **`TRUE` et `FALSE` sont des mots-clÃ©s spÃ©cifiques qui doivent Ãªtre Ã©crits intÃ©gralement en majuscules** : 
 ```{r, error = TRUE}
-# Création d'un vecteur logique
+# CrÃ©ation d'un vecteur logique
 a6 <- c(TRUE, FALSE, TRUE, TRUE)
 a6
 is.logical(a6)
 
-# Quand TRUE et FALSE ne sont pas écrits intégralement 
+# Quand TRUE et FALSE ne sont pas Ã©crits intÃ©gralement 
 # en majuscules, des erreurs surviennent
 a7 <- c(True, fALSE, true,false)
 # R recherche un objet dont le nom est `True` mais n'en 
 # trouve aucun.
 ```
 
-- Quand nombres, caractères ou valeurs logiques coexistent dans la définition d'un vecteur, des **conversions automatiques** sont opérées : 
+- Quand nombres, caractÃ¨res ou valeurs logiques coexistent dans la dÃ©finition d'un vecteur, des **conversions automatiques** sont opÃ©rÃ©es : 
 ```{r}
-# Création d'un vecteur mélangeant nombres, caractères
+# CrÃ©ation d'un vecteur mÃ©langeant nombres, caractÃ¨res
 # et valeurs logiques
 a8 <- c("a", 2, "b", TRUE)
 a8
 
-# Des guillemets apparaissent autour des valeurs numériques
-# ou logiques : le vecteur est de type caractère
+# Des guillemets apparaissent autour des valeurs numÃ©riques
+# ou logiques : le vecteur est de type caractÃ¨re
 is.character(a8)
 ```
 
@@ -140,38 +138,38 @@ is.character(a8)
 
 \ 
 
-**La fonction `c()` permet également de créer un vecteur à partir de plusieurs autres**`r .fun("c")`. 
+**La fonction `c()` permet Ã©galement de crÃ©er un vecteur Ã  partir de plusieurs autres**`r .fun("c")`. 
 ```{r}
-# Création des vecteurs de type caractère a9 et a10
+# CrÃ©ation des vecteurs de type caractÃ¨re a9 et a10
 a9 <- c("a", "b", "c", "d")
 a10 <- c("mais", "ou", "et", "donc", "or", "ni", "car")
 
-# Concaténation avec la fonction c()
+# ConcatÃ©nation avec la fonction c()
 c(a9, a10)
 c(a10, a9)
 ```
 
-**La fonction `rep()` permet enfin de créer des vecteurs en répétant une ou plusieurs valeurs un certain nombre de fois**`r .fun("rep", bold = TRUE)`. 
+**La fonction `rep()` permet enfin de crÃ©er des vecteurs en rÃ©pÃ©tant une ou plusieurs valeurs un certain nombre de fois**`r .fun("rep", bold = TRUE)`. 
 ```{r}
-# Création d'un vecteur avec la fonction rep()
+# CrÃ©ation d'un vecteur avec la fonction rep()
 rep(1, times = 5)
 
 # Quand le premier argument de rep() est un vecteur, 
-# il est répété en entier
+# il est rÃ©pÃ©tÃ© en entier
 rep(c(1, 2), times = 5)
 
-# Utilisé à la place de times = , l'argument each = 
-# permet de répéter chaque élément et non le vecteur
+# UtilisÃ© Ã  la place de times = , l'argument each = 
+# permet de rÃ©pÃ©ter chaque Ã©lÃ©ment et non le vecteur
 # en entier
 rep(c(1, 2), each = 5)
 ```
 
 
 ```{r,results = "asis", echo = FALSE}
-.question("Créer des vecteurs et connaître leurs caractéristiques")
+.question("CrÃ©er des vecteurs et connaÃ®tre leurs caractÃ©ristiques")
 ```
 
-a. Devinez le type et la longueur des vecteurs définis par le code suivant, puis vérifiez-les en créant ces vecteurs et en utilisant les fonctions `str()``r .fun("str")`, `length()``r .fun("length")` et `typeof()``r .fun("typeof")`.
+a. Devinez le type et la longueur des vecteurs dÃ©finis par le code suivant, puis vÃ©rifiez-les en crÃ©ant ces vecteurs et en utilisant les fonctions `str()``r .fun("str")`, `length()``r .fun("length")` et `mode()``r .fun("mode")`.
     ```{r}
 b1 <- c(1, 2, 3)
 b2 <- rep(c("aaa","bbb"), times = 2)
@@ -186,13 +184,13 @@ b6 <- c(b1, b3)
     ```
     ```{r}
     b1 <- c(1, 2, 3)
-    # b1 est de type numérique et de longueur 3
+    # b1 est de type numÃ©rique et de longueur 3
     str(b1)
-    typeof(b1)
+    mode(b1)
     length(b1)
     
     b2 <- rep(c("aaa","bbb"), times = 2)
-    # b2 est de type caractère et de longueur 4
+    # b2 est de type caractÃ¨re et de longueur 4
     str(b2)
     
     b3 <- c(TRUE, FALSE, TRUE)
@@ -200,24 +198,24 @@ b6 <- c(b1, b3)
     str(b3)
     
     b4 <- c("TRUE", "FALSE", "FALSE")
-    # b4 est de type caractère et de longueur 3
+    # b4 est de type caractÃ¨re et de longueur 3
     str(b4)
-    # Note : les mots-clés TRUE et FALSE sont entre
+    # Note : les mots-clÃ©s TRUE et FALSE sont entre
     # guillemets, ils sont donc reconnus comme des 
-    # caractères.
+    # caractÃ¨res.
     
     b5 <- c(b2, b4)
-    # b5 est de type caractère et de longueur 7
+    # b5 est de type caractÃ¨re et de longueur 7
     str(b5)
-    # Les deux vecteurs  b2 et b4 sont de type caractère
+    # Les deux vecteurs  b2 et b4 sont de type caractÃ¨re
     # et respectivement de longueur 4 et 3
     
     b6 <- c(b1, b3)
-    # b6 est de type numérique et de longueur 6
+    # b6 est de type numÃ©rique et de longueur 6
     str(b6)
-    # b1 est de type numérique, b3 de type logique : 
-    # b3 est converti en numérique (TRUE en 1 et 
-    # FALSE en 0) avant la concaténation. 
+    # b1 est de type numÃ©rique, b3 de type logique : 
+    # b3 est converti en numÃ©rique (TRUE en 1 et 
+    # FALSE en 0) avant la concatÃ©nation. 
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
@@ -225,7 +223,7 @@ b6 <- c(b1, b3)
 
 
 
-b. Utilisez la fonction `rep()``r .fun("rep")` pour créer la séquence `r rep(c(1, 2), times = 2)`. Utilisez de nouveau `rep()` pour créer la séquence `r rep(c(1, 2), each = 3)`. Combinez ces éléments pour créer la séquence `r rep(c(1, 2), each = 3, times = 2)`. 
+b. Utilisez la fonction `rep()``r .fun("rep")` pour crÃ©er la sÃ©quence `r rep(c(1, 2), times = 2)`. Utilisez de nouveau `rep()` pour crÃ©er la sÃ©quence `r rep(c(1, 2), each = 3)`. Combinez ces Ã©lÃ©ments pour crÃ©er la sÃ©quence `r rep(c(1, 2), each = 3, times = 2)`. 
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -237,7 +235,7 @@ b. Utilisez la fonction `rep()``r .fun("rep")` pour créer la séquence `r rep(c(1
     # Utilisation de l'argument each = de rep()
     rep(c(1, 2), each = 3)
     
-    # Deux possibilités ici : 
+    # Deux possibilitÃ©s ici : 
     # - enchasser le second appel de rep() dans le premier
     rep(rep(c(1, 2), each = 3), times = 2)
     # - utiliser directement rep() avec each = et times =
@@ -247,119 +245,119 @@ b. Utilisez la fonction `rep()``r .fun("rep")` pour créer la séquence `r rep(c(1
     .endsol()
     ```
 
-c. Créez la fonction `maSequence(x, y)` telle que `maSequence(c("a", "b"), c("c", "d"))` génère automatiquement la séquence`r .fun("rep")``r .fun("function")` : 
-    ```{r,echo = FALSE}
-rep(c(rep(c("a", "b"), each = 2), rep(c("c", "d"), each = 3)), times = 2)
-    ```
+<!-- c. (Optionnel) CrÃ©ez la fonction `maSequence(x, y)` telle que `maSequence(c("a", "b"), c("c", "d"))` gÃ©nÃ¨re automatiquement la sÃ©quence`r .fun("rep")``r .fun("function")` :  -->
+<!--     ```{r,echo = FALSE} -->
+<!-- rep(c(rep(c("a", "b"), each = 2), rep(c("c", "d"), each = 3)), times = 2) -->
+<!--     ``` -->
 
-    ```{r,results = "asis", echo = FALSE}
-    .beginsol()
-    ```
-    ```{r}
-    # Dans l'exemple fourni, chaque élément du vecteur c("a", "b") 
-    # est répété deux fois et chaque élément du vecteur c("c", "d") 
-    # est répété trois fois.
-    rep(c("a", "b"), each = 2)
-    rep(c("c", "d"), each = 3)
-    
-    # Puis l'ensemble de la séquence est répétée deux fois.
-    # On commence donc par concaténer les deux séquences
-    # élémentaires.
-    c(rep(c("a", "b"), each = 2), rep(c("c", "d"), each = 3))
-    
-    # Puis on utilise de nouveau rep(), avec l'argument times
-    rep(
-      c(rep(c("a", "b"), each = 2), rep(c("c", "d"), each = 3))
-      , times = 2
-    )
-    # C'est bien le résultat attendu
-    
-    # Pour créer une fonction, il suffit d'utiliser
-    # l'opérateur d'assignation <- avec le mot-clé function()
-    maSequence <- function(x, y){
-      
-    }
-    
-    # Pour l'heure la fonction est vide et ne renvoie aucun
-    # résultat (NULL)
-    maSequence(c("a", "b"), c("c", "d"))
-    
-    # Il suffit d'adapter le code développé avec c("a", "b")
-    # et c("c", "d") à l'intérieur de la fonction
-    maSequence <- function(x, y){
-      resultat <- rep(c(rep(x, each = 2), rep(y, each = 3)), times = 2)
-      return(resultat)
-    }
-    
-    # On vérifie que cela fonctionne
-    maSequence(c("a", "b"), c("c", "d"))
-    
-    # On essaie avec d'autres arguments
-    maSequence(c(1, 2, 3), 4)
-    ```
-    ```{r,results = "asis", echo = FALSE}
-    .endsol()
-    ```
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .beginsol() -->
+<!--     ``` -->
+<!--     ```{r} -->
+<!--     # Dans l'exemple fourni, chaque Ã©lÃ©ment du vecteur c("a", "b")  -->
+<!--     # est rÃ©pÃ©tÃ© deux fois et chaque Ã©lÃ©ment du vecteur c("c", "d")  -->
+<!--     # est rÃ©pÃ©tÃ© trois fois. -->
+<!--     rep(c("a", "b"), each = 2) -->
+<!--     rep(c("c", "d"), each = 3) -->
+
+<!--     # Puis l'ensemble de la sÃ©quence est rÃ©pÃ©tÃ©e deux fois. -->
+<!--     # On commence donc par concatÃ©ner les deux sÃ©quences -->
+<!--     # Ã©lÃ©mentaires. -->
+<!--     c(rep(c("a", "b"), each = 2), rep(c("c", "d"), each = 3)) -->
+
+<!--     # Puis on utilise de nouveau rep(), avec l'argument times -->
+<!--     rep( -->
+<!--       c(rep(c("a", "b"), each = 2), rep(c("c", "d"), each = 3)) -->
+<!--       , times = 2 -->
+<!--     ) -->
+<!--     # C'est bien le rÃ©sultat attendu -->
+
+<!--     # Pour crÃ©er une fonction, il suffit d'utiliser -->
+<!--     # l'opÃ©rateur d'assignation <- avec le mot-clÃ© function() -->
+<!--     maSequence <- function(x, y){ -->
+
+<!--     } -->
+
+<!--     # Pour l'heure la fonction est vide et ne renvoie aucun -->
+<!--     # rÃ©sultat (NULL) -->
+<!--     maSequence(c("a", "b"), c("c", "d")) -->
+
+<!--     # Il suffit d'adapter le code dÃ©veloppÃ© avec c("a", "b") -->
+<!--     # et c("c", "d") Ã  l'intÃ©rieur de la fonction -->
+<!--     maSequence <- function(x, y){ -->
+<!--       resultat <- rep(c(rep(x, each = 2), rep(y, each = 3)), times = 2) -->
+<!--       return(resultat) -->
+<!--     } -->
+
+<!--     # On vÃ©rifie que cela fonctionne -->
+<!--     maSequence(c("a", "b"), c("c", "d")) -->
+
+<!--     # On essaie avec d'autres arguments -->
+<!--     maSequence(c(1, 2, 3), 4) -->
+<!--     ``` -->
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .endsol() -->
+<!--     ``` -->
 
 
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Extraire les éléments d'un vecteur")
+.souspartie("Extraire les Ã©lÃ©ments d'un vecteur")
 ```
 
-L'opérateur d'extraction `[` permet de sélectionner des éléments en utilisant leur **position dans le vecteur** :
+L'opÃ©rateur d'extraction `[` permet de sÃ©lectionner des Ã©lÃ©ments en utilisant leur **position dans le vecteur** :
 ```{r}
-# Définition du vecteur c1
-c1 <- c("a","b","c","d","e","f","g","h","i","j")
+# DÃ©finition du vecteur c1
+c1 <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
 c1
 
-# Sélection de l'élément en position 2
+# SÃ©lection de l'Ã©lÃ©ment en position 2
 c1[2]
 
-# Sélection de l'élément en position 5
+# SÃ©lection de l'Ã©lÃ©ment en position 5
 c1[5]
 ```
 
-Pour extraire plus d'une valeur à la fois, il suffit d'utiliser l'opérateur `[``r .fun("[", bold = TRUE)` avec le **vecteur des positions souhaitées** : 
+Pour extraire plus d'une valeur Ã  la fois, il suffit d'utiliser l'opÃ©rateur `[``r .fun("[", bold = TRUE)` avec le **vecteur des positions souhaitÃ©es** : 
 ```{r}
-# Sélection des éléments en position 3 et 6
+# SÃ©lection des Ã©lÃ©ments en position 3 et 6
 c1[c(3, 6)]
 ```
 
-Pour sélectionner **toutes les valeurs sauf certaines**, il suffit de d'indiquer leur **position précédée de `-`**`r .fun("-")` : 
+Pour sÃ©lectionner **toutes les valeurs sauf certaines**, il suffit de d'indiquer leur **position prÃ©cÃ©dÃ©e de `-`**`r .fun("-")` : 
 ```{r}
-# Sélection de tous les éléments SAUF celui en position 3
+# SÃ©lection de tous les Ã©lÃ©ments SAUF celui en position 3
 c1[-3]
 
-# Sélection de tous les éléments SAUF ceux en position 2 et 7
+# SÃ©lection de tous les Ã©lÃ©ments SAUF ceux en position 2 et 7
 c1[-c(2,7)]
 ```
 
 \ 
 
-Il est également possible de **définir des vecteurs dont chaque élément est nommé** : 
+Il est Ã©galement possible de **dÃ©finir des vecteurs dont chaque Ã©lÃ©ment est nommÃ©** : 
 ```{r}
-# Création du vecteur numérique c2 nommé
+# CrÃ©ation du vecteur numÃ©rique c2 nommÃ©
 c2 <- c("pierre" = 1, "feuille" = 2, "ciseaux" = 3)
 c2
 ```
 
-Il est alors possible d'**utiliser les noms pour sélectionner un ou plusieurs éléments** :
+Il est alors possible d'**utiliser les noms pour sÃ©lectionner un ou plusieurs Ã©lÃ©ments** :
 ```{r}
-# Sélection de l'élément associé au nom "pierre"
+# SÃ©lection de l'Ã©lÃ©ment associÃ© au nom "pierre"
 c2["pierre"]
 
-# Sélection des éléments associés aux noms "ciseaux" et "feuille"
+# SÃ©lection des Ã©lÃ©ments associÃ©s aux noms "ciseaux" et "feuille"
 c2[c("ciseaux","feuille")]
 ```
 
-Il est possible d'**afficher et de modifier les noms** associés à un vecteur en utilisant la **fonction `names()`**`r .fun("names", bold = TRUE)` : 
+Il est possible d'**afficher et de modifier les noms** associÃ©s Ã  un vecteur en utilisant la **fonction `names()`**`r .fun("names", bold = TRUE)` : 
 
 ```{r}
-# Affichage des noms associés au vecteur c2
+# Affichage des noms associÃ©s au vecteur c2
 names(c2)
 
-# Modification des noms associés au vecteur c2
+# Modification des noms associÃ©s au vecteur c2
 names(c2) <- c("rouge", "jaune", "bleu")
 c2
 ```
@@ -368,17 +366,17 @@ c2
 
 ------------
 
-**Remarque importante** Les éléments d'un vecteur sont extraits **dans l'ordre dans lequel sont renseignés les positions ou les noms**.
+**Remarque importante** Les Ã©lÃ©ments d'un vecteur sont extraits **dans l'ordre dans lequel sont renseignÃ©s les positions ou les noms**.
 
 ```{r}
-# On compare le résultat de c1[c(3, 6)] et de c1[c(6, 3)]
+# On compare le rÃ©sultat de c1[c(3, 6)] et de c1[c(6, 3)]
 c1
 
 c1[c(3, 6)]
 
 c1[c(6, 3)]
 
-# Cela est vrai également quand l'extraction est opérée par les noms
+# Cela est vrai Ã©galement quand l'extraction est opÃ©rÃ©e par les noms
 c2
 
 c2[c("rouge", "jaune")]
@@ -386,7 +384,7 @@ c2[c("rouge", "jaune")]
 c2[c("jaune", "rouge")]
 ```
 
-**En cas de répétition d'une position ou d'un nom, l'élément du vecteur correspondant est répété dans le résultat** :
+**En cas de rÃ©pÃ©tition d'une position ou d'un nom, l'Ã©lÃ©ment du vecteur correspondant est rÃ©pÃ©tÃ© dans le rÃ©sultat** :
 
 ```{r}
 c1[c(3, 3, 6, 6)]
@@ -394,7 +392,7 @@ c1[c(3, 3, 6, 6)]
 c2[c("rouge", "jaune", "jaune", "rouge")]
 ```
 
-Cette propriété est extrêmement importante, dans la mesure où c'est sur elle que repose les **opérations de tri de tables de données** *via* la fonction `order()`(*cf.* *infra* et `r .ref("module 3", "module3.html")`).
+Cette propriÃ©tÃ© est extrÃªmement importante, dans la mesure oÃ¹ c'est sur elle que repose les **opÃ©rations de tri de tables de donnÃ©es** *via* la fonction `order()` (*cf.* *infra* et `r .ref("module 3", "module3.html")`).
 
 -------------------
 
@@ -404,7 +402,7 @@ Cette propriété est extrêmement importante, dans la mesure où c'est sur elle que
 .question("Extraire les valeurs d'un vecteur")
 ```
 
-a. On définit le vecteur numérique `d1` par `d1 <- c(2, 7, 5, 8)`. Sélectionnez l'élément en troisième position, puis les éléments en quatrième et deuxième positions (dans cet ordre). Sélectionnez enfin tous les éléments sauf celui en première position.`r .fun("[")`
+a. On dÃ©finit le vecteur numÃ©rique `d1` par `d1 <- c(2, 7, 5, 8)`. SÃ©lectionnez l'Ã©lÃ©ment en troisiÃ¨me position, puis les Ã©lÃ©ments en quatriÃ¨me et deuxiÃ¨me positions (dans cet ordre). SÃ©lectionnez enfin tous les Ã©lÃ©ments sauf celui en premiÃ¨re position.`r .fun("[")`
     
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -413,22 +411,22 @@ a. On définit le vecteur numérique `d1` par `d1 <- c(2, 7, 5, 8)`. Sélectionnez 
     d1 <- c(2, 7, 5, 8)
     d1
     
-    # Sélection de l'élément en troisième position
+    # SÃ©lection de l'Ã©lÃ©ment en troisiÃ¨me position
     d1[3]
     
-    # Sélection des éléments en quatrième et en deuxième
+    # SÃ©lection des Ã©lÃ©ments en quatriÃ¨me et en deuxiÃ¨me
     # position (dans cet ordre)
     d1[c(4, 2)]
     
-    # Sélection de tous les éléments sauf celui en
-    # première position
+    # SÃ©lection de tous les Ã©lÃ©ments sauf celui en
+    # premiÃ¨re position
     d1[-1]
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-b. On définit le vecteur logique `d2` nommé par `d2 <- c("a" = TRUE, "b" = FALSE, "c" = FALSE, "d" = TRUE, "e" = TRUE)`. Que signifient les lettres `"a"`, `"b"`, `"c"`, `"d"` et `"e"` dans la définition du vecteur ? Proposez deux méthodes pour sélectionner les éléments de `d2` situé en troisième et première position (dans cet ordre).`r .fun("[")`
+b. On dÃ©finit le vecteur logique `d2` nommÃ© par `d2 <- c("a" = TRUE, "b" = FALSE, "c" = FALSE, "d" = TRUE, "e" = TRUE)`. Que signifient les lettres `"a"`, `"b"`, `"c"`, `"d"` et `"e"` dans la dÃ©finition du vecteur ? Proposez deux mÃ©thodes pour sÃ©lectionner les Ã©lÃ©ments de `d2` situÃ© en troisiÃ¨me et premiÃ¨re position (dans cet ordre).`r .fun("[")`
     
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -436,34 +434,34 @@ b. On définit le vecteur logique `d2` nommé par `d2 <- c("a" = TRUE, "b" = FALSE
     ```{r}
     d2 <- c("a" = TRUE, "b" = FALSE, "c" = FALSE, "d" = TRUE, "e" = TRUE)
     d2
-    # Les lettres "a", "b", "c", "d" et "e" correspondent à des noms
-    # associés aux éléments de d2
+    # Les lettres "a", "b", "c", "d" et "e" correspondent Ã  des noms
+    # associÃ©s aux Ã©lÃ©ments de d2
     
-    # Sélection par les positions
+    # SÃ©lection par les positions
     d2[c(3, 1)]
-    # Remarque : on obtient bien un résultat différent de d2[c(1, 3)]
+    # Remarque : on obtient bien un rÃ©sultat diffÃ©rent de d2[c(1, 3)]
     d2[c(1, 3)]
     
-    # Sélection par les noms
+    # SÃ©lection par les noms
     d2[c("c", "a")]
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-c. Affichez le vecteur de noms associé au vecteur `d2` avec la fonction `names()``r .fun("names")`. Quel est le type de ce vecteur ? Modifiez le vecteur de noms associé au vecteur `d2` et remplacez le par `c(2011, 2012, 2013, 2014, 2015)`.
+c. Affichez le vecteur de noms associÃ© au vecteur `d2` avec la fonction `names()``r .fun("names")`. Quel est le type de ce vecteur ? Modifiez le vecteur de noms associÃ© au vecteur `d2` et remplacez le par `c(2011, 2012, 2013, 2014, 2015)`.
     
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Affichage du vecteur de noms et de ses caractéristiques
-    # grâce à la fonction names()
+    # Affichage du vecteur de noms et de ses caractÃ©ristiques
+    # grÃ¢ce Ã  la fonction names()
     names(d2)
     str(names(d2))
-    # Comme attendu, le vecteur de noms est de type caractère
+    # Comme attendu, le vecteur de noms est de type caractÃ¨re
     
-    # Modification du vecteur de noms associés au vecteur
+    # Modification du vecteur de noms associÃ©s au vecteur
     # d2
     names(d2) <- c(2011, 2012, 2013, 2014, 2015)
     d2
@@ -472,10 +470,10 @@ c. Affichez le vecteur de noms associé au vecteur `d2` avec la fonction `names()
     .endsol()
     ```
 
-d. Que se passe-t-il quand vous saisissez `d2[c(2012, 2015)]``r .fun("[")`. Comment le comprenez-vous ? Quel code proposeriez-vous pour sélectionner les éléments dont les noms sont `"2012"` et `"2015"` ?
+d. (Optionnel) Que se passe-t-il quand vous saisissez `d2[c(2012, 2015)]``r .fun("[")`. Comment le comprenez-vous ? Quel code proposeriez-vous pour sÃ©lectionner les Ã©lÃ©ments dont les noms sont `"2012"` et `"2015"` ?
     
     ```{r,results = "asis", echo = FALSE}
-    .indic("**Indication** Quel est le type du vecteur de noms associé à `d2` ?")
+    .indic("**Indication** Quel est le type du vecteur de noms associÃ© Ã  `d2` ?")
     ```
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -486,19 +484,19 @@ d. Que se passe-t-il quand vous saisissez `d2[c(2012, 2015)]``r .fun("[")`. Comm
     # On obtient un vecteur comprenant deux valeurs NA (cf. infra)
     # et non le vecteur c(FALSE, TRUE) attendu.
     
-    # Comme le vecteur c(2012, 2015) est un vecteur numérique, 
-    # le logiciel essaie d'extraire les éléments et 2012ème et 
-    # 2015ème position respectivement, qui n'existent pas.
+    # Comme le vecteur c(2012, 2015) est un vecteur numÃ©rique, 
+    # le logiciel essaie d'extraire les Ã©lÃ©ments et 2012Ã¨me et 
+    # 2015Ã¨me position respectivement, qui n'existent pas.
     
-    # Le vecteur de noms associé à d2 est de type caractère
+    # Le vecteur de noms associÃ© Ã  d2 est de type caractÃ¨re
     str(names(d2))
     
-    # Le vecteur numérique c(2011, 2012, 2013, 2014, 2015) a été 
-    # converti en vecteur caractère au moment de son assignation 
-    # comme vecteur de noms à d2. 
+    # Il semblerait que le vecteur numÃ©rique c(2011, 2012, 2013, 
+    # 2014, 2015) ait Ã©tÃ© converti en vecteur caractÃ¨re au moment 
+    # de son assignation comme vecteur de noms Ã  d2. 
     
-    # Pour utiliser des noms pour extraire des éléments de d2,
-    # il suffit de les saisir comme des chaînes de caractères.
+    # Pour utiliser des noms pour extraire des Ã©lÃ©ments de d2,
+    # il suffit de les saisir comme des chaÃ®nes de caractÃ¨res.
     d2[c("2012", "2015")]
     ```
     ```{r,results = "asis", echo = FALSE}
@@ -506,105 +504,109 @@ d. Que se passe-t-il quand vous saisissez `d2[c(2012, 2015)]``r .fun("[")`. Comm
     ```
 
 ```{r, results = "asis", echo = FALSE}
+.partie("Les vecteurs : types et opÃ©rations")
+```
+
+```{r, results = "asis", echo = FALSE}
 .souspartie("Manipuler des vecteurs logiques")
 ```
 
-Les vecteurs logiques sont particulièrement importants dans la mesure où ils interviennent dans l'évaluation et l'utilisation d'**expresions logiques**. Comme la plupart des langages, R dispose d'opérateurs logiques lui permettant d'évaluer certaines expressions (*cf.* tableau). **Ces opérateurs ne sont rien d'autres que des fonctions dont le résultat est un vecteur logique**. 
+Les vecteurs logiques sont particuliÃ¨rement importants dans la mesure oÃ¹ ils interviennent dans l'Ã©valuation et l'utilisation d'**expressions logiques**. Comme la plupart des langages, R dispose d'opÃ©rateurs logiques lui permettant d'Ã©valuer certaines expressions (*cf.* tableau). **Ces opÃ©rateurs ne sont rien d'autres que des fonctions dont le rÃ©sultat est un vecteur logique**. 
 
-**Code R**     | **Résultat** 
+**Code R**     | **RÃ©sultat** 
 ------------- | ------------- 
 `a == 1``r .fun("==", bold = TRUE)`       | Renvoie `TRUE` si `a` vaut 1
-`a != 1``r .fun("\"!=", bold = TRUE)`       | Renvoie `TRUE` si `a` est différent de 1
-`a < 1``r .fun("<", bold = TRUE)`       | Renvoie `TRUE` si `a` est strictement inférieur à 1
-`a <= 1``r .fun("<=", bold = TRUE)`       | Renvoie `TRUE` si `a` est inférieur ou égal à 1
-`a > 1``r .fun(">", bold = TRUE)`       | Renvoie `TRUE` si `a` est strictement supérieur à 1
-`a >= 1``r .fun(">=", bold = TRUE)`       | Renvoie `TRUE` si `a` est supérieur ou égal à 1
+`a != 1``r .fun("\"!=", bold = TRUE)`       | Renvoie `TRUE` si `a` est diffÃ©rent de 1
+`a < 1``r .fun("<", bold = TRUE)`       | Renvoie `TRUE` si `a` est strictement infÃ©rieur Ã  1
+`a <= 1``r .fun("<=", bold = TRUE)`       | Renvoie `TRUE` si `a` est infÃ©rieur ou Ã©gal Ã  1
+`a > 1``r .fun(">", bold = TRUE)`       | Renvoie `TRUE` si `a` est strictement supÃ©rieur Ã  1
+`a >= 1``r .fun(">=", bold = TRUE)`       | Renvoie `TRUE` si `a` est supÃ©rieur ou Ã©gal Ã  1
 `a & b``r .fun("\\&", bold = TRUE)`     | Renvoie `TRUE` si `a` est `TRUE` **et** `b` est `TRUE`
 `a | b``r .fun("\"|", bold = TRUE)`     | Renvoie `TRUE` si `a` est `TRUE` **ou** `b` est `TRUE`
 `!a``r .fun("\"!", bold = TRUE)`     | Renvoie `TRUE` si `a` est `FALSE`, `FALSE` si `a` est `TRUE`
 `a %in% c(1,2)``r .fun("\\%in\\%", bold = TRUE)`       | Renvoie `TRUE` si `a` vaut 1 ou 2
 
 ```{r}
-# Définition du vecteur e1
-e1 <- c(11, 12, 13, 14, 15)
+# DÃ©finition du vecteur e1
+e1 <- c(1, 2, 3, 4, 5)
 e1
 
 # Evaluation d'expressions logiques
-e1 == 13
+e1 == 3
 
-e1 != 13
+e1 != 3
 
-e1 < 13
+e1 < 3
 
-e1 <= 13
+e1 <= 3
 
-!(e1 <= 13)
+!(e1 <= 3)
 
-e1 >= 11 & e1 < 14
+e1 >= 1 & e1 < 4
 
-e1 < 12 | e1 > 14
+e1 < 2 | e1 > 4
 
-e1 %in% c(11, 13)
+e1 %in% c(1, 3)
 ```
 
 \ 
 
-Les vecteurs logiques peuvent ainsi être utilisés dans de nombreuses situations : 
+Les vecteurs logiques peuvent ainsi Ãªtre utilisÃ©s dans de nombreuses situations : 
 
-- **combinés avec la fonction `sum()`**`r .fun("sum")`, pour déterminer le nombre d'éléments d'un vecteur qui respectent une certaine condition : 
-```{r}
+- **combinÃ©s avec la fonction `sum()`**`r .fun("sum")`, pour dÃ©terminer le nombre d'Ã©lÃ©ments d'un vecteur qui respectent une certaine condition : 
+    ```{r}
 e1
-# Nombre d'éléments de e1 strictement inférieurs à 13
-sum(e1 < 13)
-```
+# Nombre d'Ã©lÃ©ments de e1 strictement infÃ©rieurs Ã  3
+sum(e1 < 3)
+    ```
 
-- **combinés avec la fonction `which()`**`r .fun("which", bold = TRUE)`, pour récupérer la position des éléments d'un vecteur respectant une certaine condition : 
-```{r}
+- **combinÃ©s avec la fonction `which()`**`r .fun("which", bold = TRUE)`, pour rÃ©cupÃ©rer la position des Ã©lÃ©ments d'un vecteur respectant une certaine condition : 
+    ```{r}
 e1
-# Position des éléments de e1 strictement supérieurs à 12
-which(e1 > 12)
-```
+# Position des Ã©lÃ©ments de e1 strictement supÃ©rieurs Ã  2
+which(e1 > 2)
+    ```
 
-- **combinés avec l'opérateur d'extraction `[`**`r .fun("[")`, pour sélectionner ou remplacer les éléments respectant une certaine condition :
-```{r}
+- **combinÃ©s avec l'opÃ©rateur d'extraction `[`**`r .fun("[")`, pour sÃ©lectionner ou remplacer les Ã©lÃ©ments respectant une certaine condition :
+    ```{r}
 e1
-# Sélection des éléments de e1 dont la valeur 
-# est strictement inférieure à 13
-e1[e1 < 13]
+# SÃ©lection des Ã©lÃ©ments de e1 dont la valeur 
+# est strictement infÃ©rieure Ã  3
+e1[e1 < 3]
 
-# Remplacement des éléments de e1 dont la valeur 
-# est strictement inférieure à 13 par 0
-e1[e1 < 13] <- 0
+# Remplacement des Ã©lÃ©ments de e1 dont la valeur 
+# est strictement infÃ©rieure Ã  3 par 0
+e1[e1 < 3] <- 0
 e1
-```
+    ```
 
 \ 
 
 -------------------
 
-**À retenir** Il existe ainsi **trois méthodes pour extraire les éléments d'un vecteur *via* l'opérateur `[`**`r .fun("[")` : 
+**Ã€ retenir** Il existe ainsi **trois mÃ©thodes pour extraire les Ã©lÃ©ments d'un vecteur *via* l'opÃ©rateur `[`**`r .fun("[")` : 
 
 - utiliser un **vecteur de positions**;
-- utiliser un **vecteur de noms** (quand des noms sont définis);
-- utiliser un **vecteur logique de même longueur**.
+- utiliser un **vecteur de noms** (quand des noms sont dÃ©finis);
+- utiliser un **vecteur logique de mÃªme longueur**.
 
 ```{r}
 e2 <- c("a" = 1, "b" = 2, "c" = 3, "d" = 4, "e" = 5)
 e2
-# Objectif : extraire les éléments en 2ème et 5ème position de e2
+# Objectif : extraire les Ã©lÃ©ments en 2Ã¨me et 5Ã¨me position de e2
 
-# Méthode 1 : par les positions
+# MÃ©thode 1 : par les positions
 e2[c(2, 5)]
 
-# Méthode 2 : par les noms
+# MÃ©thode 2 : par les noms
 e2[c("b", "e")]
 
-# Méthode 3 : avec un vecteur logique de longueur 5
+# MÃ©thode 3 : avec un vecteur logique de longueur 5
 # (car e2 est de longueur 5)
 e2[c(FALSE, TRUE, FALSE, FALSE, TRUE)]
 ```
 
-**Les deux premières méthodes permettent de modifier l'ordre des éléments ou de les répéter, mais pas la troisième** : 
+**Les deux premiÃ¨res mÃ©thodes permettent de modifier l'ordre des Ã©lÃ©ments ou de les rÃ©pÃ©ter, mais pas la troisiÃ¨me** : 
 
 ```{r}
 e2
@@ -615,11 +617,11 @@ e2[c("b", "a", "b", "c", "a")]
 
 e2[c(TRUE, TRUE, TRUE, FALSE, FALSE)]
 # Note : il est impossible de changer l'ordre dans lequel apparaissent
-# les éléments extraits (ni de les répéter) quand on utilise un vecteur
+# les Ã©lÃ©ments extraits (ni de les rÃ©pÃ©ter) quand on utilise un vecteur
 # logique pour mener l'extraction.
 ```
 
-L'utilisation de vecteurs logique pour extraire des valeurs est particulièrement importante, dans la mesure où elle intervient dans la plupart des opérations de **sélection d'observations ou de variables** dans une table de données (*cf.* *infra* et `r .ref("module 3", "module3.html")`).
+L'utilisation de vecteurs logique pour extraire des valeurs est particuliÃ¨rement importante, dans la mesure oÃ¹ elle intervient dans la plupart des opÃ©rations de **sÃ©lection d'observations ou de variables** dans une table de donnÃ©es (*cf.* *infra* et `r .ref("module 3", "module3.html")`).
 
 ------------
 \ 
@@ -629,7 +631,7 @@ L'utilisation de vecteurs logique pour extraire des valeurs est particulièrement
 .question("Manipuler des vecteurs logiques")
 ```
 
-a. On définit le vecteur `f1 <- c(5, 2, -4, 8)`. Devinez la valeur que renvoient les expressions logiques suivantes, puis vérifiez-les en créant `f1` et en les évaluant.`r .fun("==")``r .fun("\"!=")``r .fun("<")``r .fun("\"!")``r .fun("\\&")``r .fun("\"|")``r .fun("\\%in\\%")`
+a. On dÃ©finit le vecteur `f1 <- c(5, 2, -4, 8)`. Devinez la valeur que renvoient les expressions logiques suivantes, puis vÃ©rifiez-les en crÃ©ant `f1` et en les Ã©valuant.`r .fun("==")``r .fun("\"!=")``r .fun("<")``r .fun("\"!")``r .fun("\\&")``r .fun("\"|")``r .fun("\\%in\\%")`
     ```{r, eval = FALSE}
 f1 == 2
 f1 != 7
@@ -645,7 +647,7 @@ f1 %in% c(-4, 7)
     .beginsol()
     ```
     ```{r}
-    # Création du vecteur f1
+    # CrÃ©ation du vecteur f1
     f1 <- c(5, 2, -4, 8)
     
     # Evaluation des expressions logiques
@@ -662,26 +664,26 @@ f1 %in% c(-4, 7)
     .endsol()
     ```
 
-b. On définit le vecteur `f2 <- rep(c("a","b","a"), times = 10)``r .fun("rep")`. Déterminez automatiquement le nombre d'éléments de `f2` égaux à `"a"` ainsi que leur position`r .fun("[")``r .fun("which")``r .fun("sum")`. Sélectionnez les éléments égaux à `"b"` et remplacez leur valeur par `"c"`. 
+b. On dÃ©finit le vecteur `f2 <- rep(c("a","b","a"), times = 10)``r .fun("rep")`. DÃ©terminez automatiquement le nombre d'Ã©lÃ©ments de `f2` Ã©gaux Ã  `"a"` ainsi que leur position`r .fun("[")``r .fun("which")``r .fun("sum")`. SÃ©lectionnez les Ã©lÃ©ments Ã©gaux Ã  `"b"` et remplacez leur valeur par `"c"`. 
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Création du vecteur f2
+    # CrÃ©ation du vecteur f2
     f2 <- rep(c("a","b","a"), times = 10)
     f2
     
-    # Nombre d'éléments égaux à "a"
+    # Nombre d'Ã©lÃ©ments Ã©gaux Ã  "a"
     sum(f2 == "a")
     
-    # Position des éléments égaux à "a"
+    # Position des Ã©lÃ©ments Ã©gaux Ã  "a"
     which(f2 == "a")
     
-    # Sélection des éléments égaux à "b"
+    # SÃ©lection des Ã©lÃ©ments Ã©gaux Ã  "b"
     f2[f2 == "b"]
     
-    # Remplacement des élements égaux à "b" par "c"
+    # Remplacement des Ã©lements Ã©gaux Ã  "b" par "c"
     f2[f2 == "b"] <- "c"
     f2
     ```
@@ -690,81 +692,82 @@ b. On définit le vecteur `f2 <- rep(c("a","b","a"), times = 10)``r .fun("rep")`.
     ```
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Manipuler des vecteurs numériques")
+.souspartie("Manipuler des vecteurs numÃ©riques")
 ```
 
-Plusieurs fonctions sont spécifiquement utilisées pour générer des vecteurs de type numérique :
+Plusieurs fonctions sont spÃ©cifiquement utilisÃ©es pour gÃ©nÃ©rer des vecteurs de type numÃ©rique :
 
-- `seq()``r .fun("seq", bold = TRUE)` : **`seq()` produit des séquences de nombres**. Dans les cas courants, elle peut être remplacée par `:``r .fun(":", bold = TRUE)` :
-```{r}
-# Création d'un vecteur avec la fonction seq()
+- `seq()``r .fun("seq", bold = TRUE)` : **`seq()` produit des sÃ©quences de nombres**. Dans les cas courants, elle peut Ãªtre remplacÃ©e par `:``r .fun(":", bold = TRUE)` :
+    ```{r}
+# CrÃ©ation d'un vecteur avec la fonction seq()
 seq(1, 20)
 
 # Remplacement par `:`
 1:20
 
-# Un cas particulier où seq() ne peut pas directement être remplacé
+# Un cas particulier oÃ¹ seq() ne peut pas directement Ãªtre remplacÃ©
 # par `:`
 seq(1, 20, by = 2)
-```
+    ```
 
-- les **fonctions `rXXXX` de tirage dans une variable (pseudo-)aléatoire** : R dispose d'un large famille de fonctions tirant de façon pseudo-aléatoire selon une certaine loi (spécifiée par les lettres `XXXX`). **Les plus fréquemment utilisées sont `runif()` (loi uniforme sur [0;1]) et `rnorm()` (loi normale centrée réduite)**`r .fun("runif", bold = TRUE)``r .fun("rnorm", bold = TRUE)` : 
-```{r}
-# Création d'un vecteur de taille 20 avec la fonction runif()
+- les **fonctions `rXXXX` de tirage dans une variable (pseudo-)alÃ©atoire** : R dispose d'un large famille de fonctions tirant de faÃ§on pseudo-alÃ©atoire selon une certaine loi (spÃ©cifiÃ©e par les lettres `XXXX`). **Les plus frÃ©quemment utilisÃ©es sont `runif()` (loi uniforme sur [0;1]) et `rnorm()` (loi normale centrÃ©e rÃ©duite)**`r .fun("runif", bold = TRUE)``r .fun("rnorm", bold = TRUE)` : 
+    ```{r}
+# CrÃ©ation d'un vecteur de taille 20 avec la fonction runif()
 runif(20)
 
-# Création d'un vecteur de taille 20 avec la fonction rnorm()
+# CrÃ©ation d'un vecteur de taille 20 avec la fonction rnorm()
 rnorm(20)
-```
+    ```
 
 \ 
 
-Les **opérations arithmétiques** sont appliquées termes à termes sur des vecteurs`r .fun("+")``r .fun("-")``r .fun("*")``r .fun("/")` : 
+Les **opÃ©rations arithmÃ©tiques** sont appliquÃ©es termes Ã  termes sur des vecteurs`r .fun("+")``r .fun("-")``r .fun("*")``r .fun("/")` : 
+
 ```{r}
-# Génération de deux vecteurs numériques
+# GÃ©nÃ©ration de deux vecteurs numÃ©riques
 g1 <- rep(2, times = 10)
 g1
 g2 <- 1:10
 g2
 
-# Application d'opérateurs arithmériques
+# Application d'opÃ©rateurs arithmÃ©riques
 g1 + g2
 g1 - g2
 g1 * g2
 g1 / g2
 ```
 
-**Quand les vecteurs ne sont pas de même longueur, les éléments du plus petit des deux sont automatiquement répétés**. Un avertissement apparaît quand la longueur du plus grand vecteur n'est pas un multiple de la longueur du plus petit.
+**Quand les vecteurs ne sont pas de mÃªme longueur, les Ã©lÃ©ments du plus petit des deux sont automatiquement rÃ©pÃ©tÃ©s**. Un avertissement apparaÃ®t quand la longueur du plus grand vecteur n'est pas un multiple de la longueur du plus petit.
 ```{r, warnings = TRUE}
 g1
 
-# Répétition automatique des éléments du vecteur g3
+# RÃ©pÃ©tition automatique des Ã©lÃ©ments du vecteur g3
 g3 <- 1:5
 g3
 g1 + g3
 
-# Répétition automatique des éléments du vecteur g4
+# RÃ©pÃ©tition automatique des Ã©lÃ©ments du vecteur g4
 g4 <- 1:3
 g4
 g1 + g4
 ```
 
-Cette réutilisation des éléments du vecteur permet de très simplement effectuer des **opérations entre un vecteur de taille quelconque et un scalaire** (*i.e.* un vecteur de taille 1).
+Cette rÃ©utilisation des Ã©lÃ©ments du vecteur permet de trÃ¨s simplement effectuer des **opÃ©rations entre un vecteur de taille quelconque et un scalaire** (*i.e.* un vecteur de taille 1).
 ```{r, warnings = TRUE}
-# Opération entre un vecteur et un scalaire
+# OpÃ©ration entre un vecteur et un scalaire
 g2 * 3
-# La valeur unique du vecteur c(3) est réutilisée
+# La valeur unique du vecteur c(3) est rÃ©utilisÃ©e
 # pour atteindre la longueur de g2 (10). 
 ```
 
 \ 
 
-Enfin, de nombreuses fonctions peuvent être appliquées à l'**ensemble d'un vecteur de type numérique** (*cf.* tableau).
+Enfin, de nombreuses fonctions peuvent Ãªtre appliquÃ©es Ã  l'**ensemble d'un vecteur de type numÃ©rique** (*cf.* tableau).
 
-**Code R** | **Résultat**
+**Code R** | **RÃ©sultat**
 ----------|---------
 `sum(v)``r .fun("sum", bold = TRUE)` | Somme du vecteur `v`
-`cumsum(v)``r .fun("cumsum", bold = TRUE)`  | Somme cumulée du vecteur `v`
+`cumsum(v)``r .fun("cumsum", bold = TRUE)`  | Somme cumulÃ©e du vecteur `v`
 `mean(v)``r .fun("mean", bold = TRUE)`  | Moyenne du vecteur `v`
 `quantile(v)``r .fun("quantile", bold = TRUE)` | Quantiles du vecteur `v`
 `summary(v)``r .fun("summary", bold = TRUE)` | Moyenne et quantiles du vecteur `v`
@@ -772,24 +775,24 @@ Enfin, de nombreuses fonctions peuvent être appliquées à l'**ensemble d'un vecte
 `min(v)``r .fun("min", bold = TRUE)`  | Valeur minimum du vecteur `v`
 `which.min(v)``r .fun("which.min", bold = TRUE)`  | Position du minimum du vecteur `v`
 `which.max(v)``r .fun("which.max", bold = TRUE)`  | Position du maximum du vecteur `v`
-`round(v, 2)``r .fun("round", bold = TRUE)` | Arrondi du vecteur `v` à deux décimales
+`round(v, 2)``r .fun("round", bold = TRUE)` | Arrondi du vecteur `v` Ã  deux dÃ©cimales
 
 
 
 ```{r,results = "asis", echo = FALSE}
-.question("Manipuler des vecteurs numériques")
+.question("Manipuler des vecteurs numÃ©riques")
 ```
 
-a. Utilisez la fonction `seq()``r .fun("seq")` pour construire la série de nombres de 0 à 10 de 0.5 en 0.5. Comment pourriez-vous y parvenir en utilisant uniquement l'opérateur `:``r .fun(":")` ?
+a. Utilisez la fonction `seq()``r .fun("seq")` pour construire la sÃ©rie de nombres de 0 Ã  10 de 0.5 en 0.5. Comment pourriez-vous y parvenir en utilisant l'opÃ©rateur `:``r .fun(":")` ?
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Méthode directe : utilisation de l'argument by = de seq()
+    # MÃ©thode directe : utilisation de l'argument by = de seq()
     seq(0, 10, by = 0.5)
     
-    # Méthode "manuelle" : utilisation de `:` et division
+    # MÃ©thode "manuelle" : utilisation de `:` et division
     (0:20) / 2
     
     ```
@@ -797,97 +800,94 @@ a. Utilisez la fonction `seq()``r .fun("seq")` pour construire la série de nombr
     .endsol()
     ```
 
-b. Générez un vecteur `h1` de longueur 20 tiré dans une loi uniforme sur [0;1]`r .fun("runif")`. Sélectionnez les éléments de `h1` dont la position est paire selon deux méthodes, l'une utilisant la fonction `seq()``r .fun("seq")` et l'autre la fonction `rep()``r .fun("rep")`.
+b. GÃ©nÃ©rez un vecteur `h1` de longueur 20 tirÃ© dans une loi uniforme sur [0;1]`r .fun("runif")`. SÃ©lectionnez les Ã©lÃ©ments de `h1` dont la position est paire selon deux mÃ©thodes, l'une utilisant la fonction `seq()``r .fun("seq")` et l'autre la fonction `rep()``r .fun("rep")`.
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Création du vecteur h1 avec runif()
+    # CrÃ©ation du vecteur h1 avec runif()
     h1 <- runif(20)
     h1
-    # Note : la génération de h1 étant aléatoire, il est
-    # normal que vous n'obteniez pas exactement les mêmes
+    # Note : la gÃ©nÃ©ration de h1 Ã©tant alÃ©atoire, il est
+    # normal que vous n'obteniez pas exactement les mÃªmes
     # valeurs. 
     
-    # Méthode avec seq() : 
+    # MÃ©thode avec seq() : 
     # 1) construction du vecteur des positions
     seq(2, 20, by = 2)
-    # 2) utilisation avec l'opérateur `[`
+    # 2) utilisation avec l'opÃ©rateur `[`
     h1[seq(2, 20, by = 2)]
     
-    # Méthode avec rep() 
+    # MÃ©thode avec rep() 
     # 1) construction d'un vecteur logique
     rep(c(FALSE, TRUE), times = 10)
-    # 1) utilisation avec l'opérateur `[`
+    # 2) utilisation avec l'opÃ©rateur `[`
     h1[rep(c(FALSE, TRUE), times = 10)]
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-c. En vous inspirant de la méthode utilisant la fonction `seq()` de la question précédente, construisez la fonction `elementsPairs(x)``r .fun("function")` qui retourne automatiquement les éléments du vecteur `x` dont la position est paire`r .fun("length")`.
+c. En vous inspirant de la mÃ©thode utilisant la fonction `seq()` de la question prÃ©cÃ©dente, construisez la fonction `elementsPairs(x)``r .fun("function")` qui retourne automatiquement les Ã©lÃ©ments du vecteur `x` dont la position est paire`r .fun("length")`.
 
     ```{r,results = "asis", echo = FALSE}
-    .indic("**Indication** Généralisez la réponse à la question précédente en utilisant notamment la fonction `length()`.")
+    .indic("**Indication** GÃ©nÃ©ralisez la rÃ©ponse Ã  la question prÃ©cÃ©dente en utilisant notamment la fonction `length()`.")
     ```
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r, error = TRUE}
-    # Création d'un vecteur de test
-    test <- rnorm(20)
-    test
+    # Reprise de la mÃ©thode avec seq()
+    h1[seq(2, 20, by = 2)]
     
-    # Reprise de la méthode avec seq()
-    test[seq(2, 20, by = 2)]
-    
-    # Difficulté : il faut que la fonction puisse porter
+    # DifficultÃ© : il faut que la fonction puisse porter
     # sur un vecteur de taille quelconque
-    # La taille du vecteur de positions à générer doit
-    # donc dépendre de la longueur du vecteur sur lequel
-    # porte la fonction. Pour ce faire, on utilise la fonction length().
+    # La taille du vecteur de positions Ã  gÃ©nÃ©rer doit
+    # donc dÃ©pendre de la longueur du vecteur sur lequel
+    # porte la fonction. Pour ce faire, on utilise 
+    # la fonction length() :
+    h1[seq(2, length(h1), by = 2)]
     
-    # Définition de la fonction
+    # DÃ©finition de la fonction
     elementsPairs <- function(x){
       resultat <- x[seq(2, length(x), by = 2)]
       return(resultat)
     }
     
     # Appel de la fonction elementsPairs()
-    elementsPairs(test)
     elementsPairs(1:10)
     elementsPairs(1:9)
     
     # Note : Ne fonctionne pas avec des vecteurs de longueur 1
-    elementsPairs(17)
+    elementsPairs(1)
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-d. Créez un vecteur `h2` de longueur 15 et tiré dans une loi normale centrée réduite`r .fun("rnorm")`. Déterminez sa valeur maximale`r .fun("max")``r .fun("which.max")`. En utilisant notamment l'opérateur d'extraction `[`, déterminez alors la deuxième valeur maximale de `h2`.
+d. CrÃ©ez un vecteur `h2` de longueur 15 et tirÃ© dans une loi normale centrÃ©e rÃ©duite`r .fun("rnorm")`. DÃ©terminez sa valeur maximale`r .fun("max")``r .fun("which.max")`. En utilisant notamment l'opÃ©rateur d'extraction `[`, dÃ©terminez alors la deuxiÃ¨me valeur maximale de `h2`.
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Génération du vecteur h2 avec la fonction rnorm()
+    # GÃ©nÃ©ration du vecteur h2 avec la fonction rnorm()
     h2 <- rnorm(15)
     h2
-    # Note : la génération de h2 étant aléatoire, il est
-    # normal que vous n'obteniez pas exactement les mêmes
+    # Note : la gÃ©nÃ©ration de h2 Ã©tant alÃ©atoire, il est
+    # normal que vous n'obteniez pas exactement les mÃªmes
     # valeurs. 
     
     # Utilisation de la fonctions max()
     max(h2)
     
-    # Pour déterminez la deuxième valeur maximale de h2,
+    # Pour dÃ©terminez la deuxiÃ¨me valeur maximale de h2,
     # il suffit d'appliquer la fonction max au vecteur
-    # h2 privé de sa valeur maximale
+    # h2 privÃ© de sa valeur maximale
     
-    # Deux stratégies : 
+    # Deux stratÃ©gies : 
     
     # 1) utiliser la fonction which.max() pour renvoyer 
     # la position de la valeur maximale de h2 et l'exclure avec -
@@ -895,8 +895,8 @@ d. Créez un vecteur `h2` de longueur 15 et tiré dans une loi normale centrée réd
     h2[-which.max(h2)]
     max(h2[-which.max(h2)])
     
-    # 2) utiliser un vecteur logique pour ne sélectionner 
-    # que les valeurs strictement inférieures à la valeur 
+    # 2) utiliser un vecteur logique pour ne sÃ©lectionner 
+    # que les valeurs strictement infÃ©rieures Ã  la valeur 
     # maximale 
     h2 < max(h2)
     h2[h2 < max(h2)]
@@ -907,18 +907,18 @@ d. Créez un vecteur `h2` de longueur 15 et tiré dans une loi normale centrée réd
     ```
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Manipuler des vecteurs caractères")
+.souspartie("Manipuler des vecteurs caractÃ¨res")
 ```
 
-Comme pour les vecteurs de type numérique, il existe dans R des fonctions spécifiquement adaptées pour créer et manipuler des vecteurs de type caractère : 
+Comme pour les vecteurs de type numÃ©rique, il existe dans R des fonctions spÃ©cifiquement adaptÃ©es pour crÃ©er et manipuler des vecteurs de type caractÃ¨re : 
 
-- `nchar()``r .fun("nchar", bold = TRUE)`, `toupper()``r .fun("toupper", bold = TRUE)`, `tolower()``r .fun("tolower", bold = TRUE)` : **`nchar()` renvoie le nombre de caractères** que représente chaque élément d'un vecteur de type caractère, les fonctions **`tolower()` et `toupper()` convertissent un vecteur caractère en minuscules et majuscules** respectivement.
+- `nchar()``r .fun("nchar", bold = TRUE)`, `toupper()``r .fun("toupper", bold = TRUE)`, `tolower()``r .fun("tolower", bold = TRUE)` : **`nchar()` renvoie le nombre de caractÃ¨res** que reprÃ©sente chaque Ã©lÃ©ment d'un vecteur de type caractÃ¨re, les fonctions **`tolower()` et `toupper()` convertissent un vecteur caractÃ¨re en minuscules et majuscules** respectivement.
     ```{r}
-# Création du vecteur i1
+# CrÃ©ation du vecteur i1
 i1 <- c("aa", "B", "cccc", "DDD")
 i1
 
-# Détermination du nombre de caractères avec nchar()
+# DÃ©termination du nombre de caractÃ¨res avec nchar()
 nchar(i1)
 
 # Passage en minuscules ou en majuscules
@@ -928,9 +928,9 @@ toupper(i1)
 
 \ 
 
-- `paste()``r .fun("paste", bold = TRUE)`: **`paste()` et sa variante `paste0()` permettent d'agglutiner un ou plusieurs vecteurs caractères**`r .fun("paste0", bold = TRUE)`.
+- `paste()``r .fun("paste", bold = TRUE)`: **`paste()` et sa variante `paste0()` permettent d'agglutiner un ou plusieurs vecteurs caractÃ¨res**`r .fun("paste0", bold = TRUE)`.
     ```{r}
-# Création des vecteurs i2 et i3
+# CrÃ©ation des vecteurs i2 et i3
 i2 <- c("a", "b")
 i3 <- c("c", "d")
 
@@ -946,10 +946,10 @@ paste(i2, i3, sep = "_", collapse = "*")
 
 \ 
 
-- `formatC``r .fun("formatC", bold = TRUE)`: **`formatC()` convertit un vecteur numérique en vecteur caractère en spécifiant un format**.
+- `formatC``r .fun("formatC", bold = TRUE)`: **`formatC()` convertit un vecteur numÃ©rique en vecteur caractÃ¨re en spÃ©cifiant un format**.
 
     ```{r}
-# Utilisation de formatC() pour ajouter des zéros
+# Utilisation de formatC() pour ajouter des zÃ©ros
 # devant des chiffres 
 formatC(c(1, 2, 56, 789), flag = "0", width = 4)
     ```
@@ -965,13 +965,13 @@ LETTERS
 
 
 ```{r,results = "asis", echo = FALSE}
-.question("Manipuler des vecteurs caractères : Reconstituer un identifiant de fiche-adresse")
+.question("Manipuler des vecteurs caractÃ¨res : Reconstituer un identifiant de fiche-adresse")
 ```
-L'objectif de ce cas pratique est de **reconstituer un identifiant de fiche-adresse** (utilisé dans les enquêtes auprès des ménages de l'Insee) à partir de **trois informations** : 
+L'objectif de ce cas pratique est de **reconstituer un identifiant de fiche-adresse** (utilisÃ© dans les enquÃªtes auprÃ¨s des mÃ©nages de l'Insee) Ã  partir de **trois informations** : 
 
-- le **numéro de la région de gestion** (`rges`) codé sur **deux positions** ;
-- le **numéro de la fiche-adresse** (`numfa`) codé sur **six positions** (avec des 0 devant si nécessaire) ;
-- le **numéro de sous-échantillon** (`ssech`) codé sur **deux positions** (avec un 0 devant si nécessaire).
+- le **numÃ©ro de la rÃ©gion de gestion** (`rges`) codÃ© sur **deux positions** ;
+- le **numÃ©ro de la fiche-adresse** (`numfa`) codÃ© sur **six positions** (avec des 0 devant si nÃ©cessaire) ;
+- le **numÃ©ro de sous-Ã©chantillon** (`ssech`) codÃ© sur **deux positions** (avec un 0 devant si nÃ©cessaire).
 
 ```{r}
 rges <- c(11, 11, 21, 21, 22, 31, 74, 81, 81, 94)
@@ -979,9 +979,9 @@ numfa <- c(1, 102, 32, 1219, 98, 3, 678, 21, 89, 45)
 ssech <- c(1, 11, 1, 1, 1, 2, 2, 2, 12, 11)
 ```
 
-**L'identifiant de fiche-adresse est défini par la concaténation de `rges`, `numfa` et `ssech`: `rges||numfa||ssech`**. Par exemple, si `rges = 11`, `numfa = 1` et `ssech = 1`, l'identifiant de fiche-adresse est `1100000101` (après ajout de `0` intercalaires).
+**L'identifiant de fiche-adresse est dÃ©fini par la concatÃ©nation de `rges`, `numfa` et `ssech`: `rges||numfa||ssech`**. Par exemple, si `rges = 11`, `numfa = 1` et `ssech = 1`, l'identifiant de fiche-adresse est `1100000101` (aprÃ¨s ajout de `0` intercalaires).
 
-a. Utilisez la fonction `paste()``r .fun("paste")` pour agglutiner les vecteurs `rges`, `numfa` et `ssech`. Utilisez l'argument `sep = ` pour supprimer le séparateur. Cela produit-il le résultat souhaité ? 
+a. Utilisez la fonction `paste()``r .fun("paste")` pour agglutiner les vecteurs `rges`, `numfa` et `ssech`. Utilisez l'argument `sep = ` pour supprimer le sÃ©parateur. Cela produit-il le rÃ©sultat souhaitÃ© ? 
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -990,16 +990,16 @@ a. Utilisez la fonction `paste()``r .fun("paste")` pour agglutiner les vecteurs 
     # Utilisation de la fonction paste()
     paste(rges, numfa, ssech)
     
-    # Suppression du séparateur
+    # Suppression du sÃ©parateur
     paste(rges, numfa, ssech, sep = "")
-    # Cela ne correspond pas car il manque les 0 devant le numéro 
-    # de fiche-adresse et le numéro de sous-échantillon
+    # Cela ne correspond pas car il manque les 0 devant le numÃ©ro 
+    # de fiche-adresse et le numÃ©ro de sous-Ã©chantillon
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-b. Utilisez la fonction `formatC()``r .fun("formatC")` pour reformater correctement le vecteur `numfa`.  Combinez les fonctions `formatC()` et `paste()``r .fun("paste")` (ou `paste0()``r .fun("paste0")`) et appliquez-les à `numfa` et à `ssech` pour obtenir le résultat souhaité.
+b. Utilisez la fonction `formatC()``r .fun("formatC")` pour reformater correctement le vecteur `numfa`.  Combinez les fonctions `formatC()` et `paste()``r .fun("paste")` (ou `paste0()``r .fun("paste0")`) et appliquez-les Ã  `numfa` et Ã  `ssech` pour obtenir le rÃ©sultat souhaitÃ©.
 
 
     ```{r,results = "asis", echo = FALSE}
@@ -1015,19 +1015,19 @@ b. Utilisez la fonction `formatC()``r .fun("formatC")` pour reformater correctem
       , formatC(numfa, flag = "0", width = 6)
       , formatC(ssech, flag = "0", width = 2)
     )
-    # Cette fois-ci on obtient bien le résultat souhaité.
+    # Cette fois-ci on obtient bien le rÃ©sultat souhaitÃ©.
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-c. Créez la fonction `creerIdentFA(rges, numfa, ssech)``r .fun("function")` qui produise automatiquement l'identifiant de fiche-adresse. 
+c. CrÃ©ez la fonction `creerIdentFA(rges, numfa, ssech)``r .fun("function")` qui produise automatiquement l'identifiant de fiche-adresse. 
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Création de la fonction creerIdentFA()
+    # CrÃ©ation de la fonction creerIdentFA()
     creerIdentFA <- function(rges, numfa, ssech){
       paste0(
         formatC(rges, flag = "0", width = 2)
@@ -1045,11 +1045,11 @@ c. Créez la fonction `creerIdentFA(rges, numfa, ssech)``r .fun("function")` qui 
 .souspartie("Modifier la structure d'un vecteur")
 ```
 
-Plusieurs fonctions sont susceptibles d'être appliquées à un vecteur pour modifier ses caractéristiques :
+Plusieurs fonctions sont susceptibles d'Ãªtre appliquÃ©es Ã  un vecteur pour modifier ses caractÃ©ristiques :
 
-- les **opérations ensemblistes** : fonctions `intersect()``r .fun("intersect", bold = TRUE)` et `setdiff()``r .fun("setdiff", bold = TRUE)`
+- les **opÃ©rations ensemblistes** : fonctions `intersect()``r .fun("intersect", bold = TRUE)` et `setdiff()``r .fun("setdiff", bold = TRUE)`
     ```{r}
-# Création des vecteurs k1 et k2
+# CrÃ©ation des vecteurs k1 et k2
 k1 <- letters[1:4]
 k2 <- letters[3:6]
 k1
@@ -1058,22 +1058,22 @@ k2
 # Intersection de k1 et k2
 intersect(k1, k2)
 
-# Elements présents dans k1 mais pas dans k2
+# Elements prÃ©sents dans k1 mais pas dans k2
 setdiff(k1, k2)
 
-# Elements présents dans k2 mais pas dans k1
+# Elements prÃ©sents dans k2 mais pas dans k1
 setdiff(k2, k1)
     ```
 
 \ 
 
-- les fonctions de **traitement des doublons** : la fonction `duplicated(x)``r .fun("duplicated", bold = TRUE)` indique si un élément est le doublon d'un élément dont la position est inférieure dans le vecteur `x` (autrement dit qui apparaît précédemment dans le vecteur), la fonction `unique(x)``r .fun("unique", bold = TRUE)` renvoie le vecteur `x` sans doublons. 
+- les fonctions de **traitement des doublons** : la fonction `duplicated(x)``r .fun("duplicated", bold = TRUE)` indique si un Ã©lÃ©ment est le doublon d'un Ã©lÃ©ment dont la position est infÃ©rieure dans le vecteur `x` (autrement dit qui apparaÃ®t prÃ©cÃ©demment dans le vecteur), la fonction `unique(x)``r .fun("unique", bold = TRUE)` renvoie le vecteur `x` sans doublons. 
     ```{r}
-# Création du vecteur k3
+# CrÃ©ation du vecteur k3
 k3 <- c(1, 2, 1, 4, 2, 3)
 k3
   
-# Détection des éléments qui sont des doublons
+# DÃ©tection des Ã©lÃ©ments qui sont des doublons
 duplicated(k3)
 
 # Suppression des doublons
@@ -1082,10 +1082,10 @@ unique(k3)
 
 \ 
 
-- les fonctions de **changement d'ordre** : `rev(x)``r .fun("rev", bold = TRUE)` inverse l'ordre du vecteur `x`, `sort(x)``r .fun("sort", bold = TRUE)` renvoie le vecteur `x` trié et `order(x)``r .fun("order", bold = TRUE)` renvoie la permutation des positions du vecteur `x` nécessaire pour que `x` soit trié
+- les fonctions de **changement d'ordre** : `rev(x)``r .fun("rev", bold = TRUE)` inverse l'ordre du vecteur `x`, `sort(x)``r .fun("sort", bold = TRUE)` renvoie le vecteur `x` triÃ© et `order(x)``r .fun("order", bold = TRUE)` renvoie la permutation des positions du vecteur `x` nÃ©cessaire pour que `x` soit triÃ©
 
     ```{r}
-# Création du vecteur k4
+# CrÃ©ation du vecteur k4
 k4 <- c("a", "d", "b", "c")
 k4
 
@@ -1102,7 +1102,7 @@ k4[order(k4)]
 
     ------------------
 
-    **Remarque** Le tri d'un vecteur avec `order()` est **beaucoup moins intuitif qu'avec `sort()`** et ne présente pas grand intérêt en lui-même. Néanmoins, **seule la méthode avec `order()` est disponible pour trier un tableau de données** (*cf.* `r .ref("module 3", "module3.html")`), aussi autant se familiariser au plus tôt avec sa logique de fonctionnement !
+    **Remarque** Le tri d'un vecteur avec `order()` est **beaucoup moins intuitif qu'avec `sort()`** et ne prÃ©sente pas grand intÃ©rÃªt en lui-mÃªme. NÃ©anmoins, **seule la mÃ©thode avec `order()` est utilisable sur une table de donnÃ©es** (*cf.* `r .ref("module 3", "module3.html")`), aussi autant se familiariser au plus tÃ´t avec sa logique de fonctionnement !
 
     ------------------
 
@@ -1111,20 +1111,20 @@ k4[order(k4)]
 ```{r,results = "asis", echo = FALSE}
 .question("Modifier la structure d'un vecteur : Travailler avec des identifiants")
 ```
-L'objectif de ce cas pratique est d'utiliser les fonctions présentées dans cette sous-partie pour travailler efficacement avec des identifiants dans R. On définit les deux vecteurs suivants : 
+L'objectif de ce cas pratique est d'utiliser les fonctions prÃ©sentÃ©es dans cette sous-partie pour travailler efficacement avec des identifiants dans R. On dÃ©finit les deux vecteurs suivants : 
 ```{r}
-# Départements d'Ile-de-France présents dans une enquête
+# DÃ©partements d'Ile-de-France prÃ©sents dans une enquÃªte
 enq <- c("91", "75", "75", "94", "93", "94", "78", "77", "77")
 
-# Liste des départements de la petite couronne
-pc <- c("75","92","93","94")
+# Liste des dÃ©partements de la petite couronne
+pc <- c("75", "92", "93", "94")
 ```
 
-a. À l'aide d'opérations ensemblistes, déterminez : 
+a. Ã€ l'aide d'opÃ©rations ensemblistes, dÃ©terminez : 
 
-    i. les départements de la petite couronne présents dans l'enquête`r .fun("intersect")` ;
-    ii. les départements de la petite couronne absents de l'enquête`r .fun("setdiff")` ;
-    iii. les départements de l'enquête qui ne sont pas dans la petite couronne.
+    i. les dÃ©partements de la petite couronne prÃ©sents dans l'enquÃªte`r .fun("intersect")` ;
+    ii. les dÃ©partements de la petite couronne absents de l'enquÃªte`r .fun("setdiff")` ;
+    iii. les dÃ©partements de l'enquÃªte qui ne sont pas dans la petite couronne.
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -1135,24 +1135,24 @@ a. À l'aide d'opérations ensemblistes, déterminez :
     
     # i.
     intersect(enq, pc)
-    # Les départements de la petite couronne présents dans
-    # l'enquête sont le 75, le 94 et le 93
+    # Les dÃ©partements de la petite couronne prÃ©sents dans
+    # l'enquÃªte sont le 75, le 94 et le 93
     
     # ii.
     setdiff(pc, enq)
-    # Le 92 est le seul département de la petite couronne absent de l'enquête
+    # Le 92 est le seul dÃ©partement de la petite couronne absent de l'enquÃªte
     
     # iii.
     setdiff(enq, pc)
-    # Les départements 91, 78 et 77 sont présents dans
-    # l'enquête mais ne sont pas de la petite couronne
+    # Les dÃ©partements 91, 78 et 77 sont prÃ©sents dans
+    # l'enquÃªte mais ne sont pas de la petite couronne
     
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-b. Le vecteur `enq` comporte-t-il des valeurs en double ? Répondez en utilisant la fonction `duplicated()``r .fun("duplicated")`. Supprimez les valeurs en double dans `enq` avec `duplicated()` ou `unique()``r .fun("unique")`.
+b. Le vecteur `enq` comporte-t-il des valeurs en double ? RÃ©pondez en utilisant la fonction `duplicated()``r .fun("duplicated")`. Supprimez les valeurs en double dans `enq` avec `duplicated()` ou `unique()``r .fun("unique")`.
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -1162,15 +1162,15 @@ b. Le vecteur `enq` comporte-t-il des valeurs en double ? Répondez en utilisant 
     
     # Que renvoie duplicated(enq) ?
     duplicated(enq)
-    # duplicated(enq) renvoie TRUE si la valeur de l'élément
-    # est déjà apparue dans le vecteur 
+    # duplicated(enq) renvoie TRUE si la valeur de l'Ã©lÃ©ment
+    # est dÃ©jÃ  apparue dans le vecteur 
     
-    # Pour déterminer si enq comporte ou non des valeurs
+    # Pour dÃ©terminer si enq comporte ou non des valeurs
     # en double, il suffit de compter le nombre de valeurs
     # vraies de duplicated(enq)
     sum(duplicated(enq))
 
-    # Deux stratégies pour supprimer les doublons : 
+    # Deux stratÃ©gies pour supprimer les doublons : 
     # 1) prendre les valeurs fausses de duplicated(enq)
     enq[!duplicated(enq)]
     # 2) utiliser la fonction unique()
@@ -1180,7 +1180,7 @@ b. Le vecteur `enq` comporte-t-il des valeurs en double ? Répondez en utilisant 
     .endsol()
     ```
 
-c. Proposez deux méthodes pour trier le vecteur `enq`, une qui utilise `sort()` et une qui utilise `order()``r .fun("sort")``r .fun("order")`. 
+c. Proposez deux mÃ©thodes pour trier le vecteur `enq`, une qui utilise `sort()` et une qui utilise `order()``r .fun("sort")``r .fun("order")`. 
 
 
 ```{r,results = "asis", echo = FALSE}
@@ -1189,17 +1189,20 @@ c. Proposez deux méthodes pour trier le vecteur `enq`, une qui utilise `sort()` 
 ```{r}
 enq
 
-# Méthode directe : Tri avec sort()
+# MÃ©thode directe : Tri avec sort()
 sort(enq)
 
-# Méthode indirecte : Obtention de la permutation avec 
-# order() puis redéfinition du vecteur
+# MÃ©thode indirecte : Obtention de la permutation avec 
+# order() puis redÃ©finition du vecteur
 order(enq)
-# Ces nombres indiquent la position des éléments de dep
-# à utiliser pour obtenir un vecteur trié. 
+# Ces nombres indiquent la position des Ã©lÃ©ments de dep
+# Ã  utiliser pour obtenir un vecteur triÃ©. 
 
-# Il n'y a donc qu'à utiliser order(enq) avec l'opérateur
-# `[` pour obtenir le résultat souhaité
+# Exemple sur les trois premiers Ã©lÃ©ments :
+enq[c(2, 3, 8)]
+
+# Il n'y a donc qu'Ã  utiliser order(enq) avec l'opÃ©rateur
+# `[` pour obtenir le rÃ©sultat souhaitÃ©
 enq[order(enq)]
 ```
 ```{r,results = "asis", echo = FALSE}
@@ -1207,14 +1210,18 @@ enq[order(enq)]
 ```
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Savoir traiter les valeurs spéciales")
+.partie("Les vecteurs : aspects particuliers")
 ```
 
-R dispose de plusieurs **valeurs spéciales** qui interviennent dans des situations très différentes : 
+```{r, results = "asis", echo = FALSE}
+.souspartie("Savoir traiter les valeurs spÃ©ciales")
+```
 
-- `NA` (pour *Not Available*) correspond à des valeurs manquantes. Il est très fréquent en pratique de rencontrer des valeurs `NA` dans des tableaux de données. À noter que les valeurs manquantes sont toujours indiquées par `NA`, quel que soit le type du vecteur. 
+R dispose de plusieurs **valeurs spÃ©ciales** qui interviennent dans des situations trÃ¨s diffÃ©rentes : 
+
+- `NA` (pour *Not Available*) correspond Ã  des valeurs manquantes. Il est trÃ¨s frÃ©quent en pratique de rencontrer des valeurs `NA` dans des tableaux de donnÃ©es. Ã€ noter que les valeurs manquantes sont toujours indiquÃ©es par `NA`, quel que soit le type du vecteur. 
     ```{r}
-# Exemple de vecteurs présentant des valeurs NA
+# Exemple de vecteurs prÃ©sentant des valeurs NA
 l1 <- c(1, 2, 3, NA, 5)
 l1
 l2 <- c("a", "b", NA, "d")
@@ -1225,7 +1232,7 @@ l3
 
 \ 
 
-- `Inf` et `-Inf` correspondent à l'infini en positif et en négatif respectivement. 
+- `Inf` et `-Inf` correspondent Ã  l'infini en positif et en nÃ©gatif respectivement. 
     ```{r}
 # Exemple de situation dans laquelle survient un Inf
 5/0
@@ -1233,7 +1240,7 @@ l3
 
 \ 
 
-- `NaN` (pour `Not a Number`) correspond aux cas dans lesquels un calcul mathématique ne conduit à aucun résultat sensé. 
+- `NaN` (pour `Not a Number`) correspond aux cas dans lesquels un calcul mathÃ©matique ne conduit Ã  aucun rÃ©sultat sensÃ©. 
     ```{r}
 # Exemple de situation dans laquelle survient un NaN
 0/0
@@ -1241,21 +1248,21 @@ l3
 
 \ 
 
-Pour identifier (voire supprimer ou remplacer) ces valeurs spéciales, des fonctions spécifiques existent : `is.na()``r .fun("is.na", bold = TRUE)`, `is.infinite()``r .fun("is.infinite", bold = TRUE)`, `is.nan()``r .fun("is.nan", bold = TRUE)`. 
+Pour identifier (voire supprimer ou remplacer) ces valeurs spÃ©ciales, des fonctions spÃ©cifiques existent : `is.na()``r .fun("is.na", bold = TRUE)`, `is.infinite()``r .fun("is.infinite", bold = TRUE)`, `is.nan()``r .fun("is.nan", bold = TRUE)`. 
 ```{r}
-# Création du vecteur l4
+# CrÃ©ation du vecteur l4
 l4 <- c(1, NA, 3, NaN, 5, Inf)
 l4
 
 is.na(l4)
-# Remarque : la fonction is.na() identifie à la fois les éléments NA
-# et les éléments NaN. 
+# Remarque : la fonction is.na() identifie Ã  la fois les Ã©lÃ©ments NA
+# et les Ã©lÃ©ments NaN. 
 
 is.nan(l4)
-# Remarque : la fonction is.nan() n'identifie que les éléments NaN
-# (pas les éléments NA)
+# Remarque : la fonction is.nan() n'identifie que les Ã©lÃ©ments NaN
+# (pas les Ã©lÃ©ments NA)
 
-# Pour identifier les éléments NA uniquement (et pas les NaN), il suffit
+# Pour identifier les Ã©lÃ©ments NA uniquement (et pas les NaN), il suffit
 # de combiner logiquement is.na() et is.nan()
 is.na(l4) & !is.nan(l4)
 
@@ -1269,8 +1276,8 @@ Ces valeurs **changent le comportement de la plupart des fonctions, notamment le
 ```{r}
 l1
 
-# En présence d'une ou plusieurs valeurs NA, la fonction sum() 
-# renvoie systématiquement NA
+# En prÃ©sence d'une ou plusieurs valeurs NA, la fonction sum() 
+# renvoie systÃ©matiquement NA
 sum(l1)
 
 # Pour modifier ce comportement, il suffit d'utiliser l'argument 
@@ -1278,7 +1285,7 @@ sum(l1)
 # d'informations).
 sum(l1, na.rm = TRUE)
 
-# Par défaut, la fonction table() n'affiche pas les valeurs manquantes
+# Par dÃ©faut, la fonction table() n'affiche pas les valeurs manquantes
 l5 <- c("Femme", NA, "Homme", "Femme", NA, "Femme")
 table(l5)
 
@@ -1290,180 +1297,175 @@ table(l5, useNA = "always")
 
 -------------------
 
-**Remarque importante** En présence d'une valeur `NA`, **l'opérateur `==` renvoie `NA`**`r .fun("==")`. Ce comportement ne correspond pas à celui d'autres logiciels statistiques et peut s'avérer **source d'erreur dans le recodage de variables**. Pour cette raison, on peut lui **préférer systématiquement l'opérateur `%in%`**`r .fun("\\%in\\%")`.
+**Remarque importante** En prÃ©sence d'une valeur `NA`, **l'opÃ©rateur `==` renvoie `NA`**`r .fun("==")`. Ce comportement ne correspond pas Ã  celui d'autres logiciels statistiques et peut s'avÃ©rer **source d'erreur dans le recodage de variables**. Pour cette raison, on peut lui **prÃ©fÃ©rer systÃ©matiquement l'opÃ©rateur `%in%`**`r .fun("\\%in\\%")`.
 
 ```{r}
 l5
 
-# En présence de valeurs NA, == renvoie NA
+# En prÃ©sence de valeurs NA, == renvoie NA
 l5 == "Homme"
 
-# En présence de valeurs NA, %in% renvoie FALSE
+# En prÃ©sence de valeurs NA, %in% renvoie FALSE
 l5 %in% "Homme"
 ```
 
 -------------------
 
 
-```{r,results = "asis", echo = FALSE}
-.question("(Optionnel) Savoir traiter les valeurs spéciales")
-```
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .question("(Optionnel) Savoir traiter les valeurs spÃ©ciales") -->
+<!-- ``` -->
 
-a. On définit le vecteur `m1 <- c(1, 2, NA, NaN, 5, 6, Inf, 8, 9, NA, NA, -Inf, NaN, 14)`. Comptez le nombre de valeurs `NA` ou `NaN` d'une part, le nombre de valeurs infinies d'autre part`r .fun("is.na")`. 
+<!-- a. On dÃ©finit le vecteur `m1 <- c(1, 2, NA, NaN, 5, 6, Inf, 8, 9, NA, NA, -Inf, NaN, 14)`. Comptez le nombre de valeurs `NA` ou `NaN` d'une part, le nombre de valeurs infinies d'autre part`r .fun("is.na")`.  -->
 
-```{r,results = "asis", echo = FALSE}
-.beginsol()
-```
-```{r}
-# Création du vecteur m1
-m1 <- c(1, 2, NA, NaN, 5, 6, Inf, 8, 9, NA, NA, -Inf, NaN, 14)
-m1
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .beginsol() -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- # CrÃ©ation du vecteur m1 -->
+<!-- m1 <- c(1, 2, NA, NaN, 5, 6, Inf, 8, 9, NA, NA, -Inf, NaN, 14) -->
+<!-- m1 -->
 
-# L'idée est la suivante : construire un vecteur
-# logique à l'aide des fonctions is.na(), etc.
-# puis utiliser la fonction sum()
-is.na(m1)
-sum(is.na(m1))
+<!-- # L'idÃ©e est la suivante : construire un vecteur -->
+<!-- # logique Ã  l'aide des fonctions is.na(), etc. -->
+<!-- # puis utiliser la fonction sum() -->
+<!-- is.na(m1) -->
+<!-- sum(is.na(m1)) -->
 
-is.infinite(m1)
-sum(is.infinite(m1))
-```
-```{r,results = "asis", echo = FALSE}
-.endsol()
-```
+<!-- is.infinite(m1) -->
+<!-- sum(is.infinite(m1)) -->
+<!-- ``` -->
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .endsol() -->
+<!-- ``` -->
 
-b. Utilisez les éléments de la question précédente pour supprimer toutes les valeurs spéciales du vecteur `m1``r .fun("is.na")``r .fun("is.infinite")`.
+<!-- b. Utilisez les Ã©lÃ©ments de la question prÃ©cÃ©dente pour supprimer toutes les valeurs spÃ©ciales du vecteur `m1``r .fun("is.na")``r .fun("is.infinite")`. -->
 
-```{r,results = "asis", echo = FALSE}
-.beginsol()
-```
-```{r}
-# On repart des mêmes éléments qu'à la question
-# précédente, mais cette fois-ci les vecteurs 
-# logiques sont utilisés pour extraire des éléments
-# du vecteur x
-!is.na(m1)
-m1[!is.na(m1)]
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .beginsol() -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- # On repart des mÃªmes Ã©lÃ©ments qu'Ã  la question -->
+<!-- # prÃ©cÃ©dente, mais cette fois-ci les vecteurs  -->
+<!-- # logiques sont utilisÃ©s pour extraire des Ã©lÃ©ments -->
+<!-- # du vecteur x -->
+<!-- !is.na(m1) -->
+<!-- m1[!is.na(m1)] -->
 
-!is.infinite(m1)
-m1[!is.infinite(m1)]
+<!-- !is.infinite(m1) -->
+<!-- m1[!is.infinite(m1)] -->
 
-# On n'a qu'à combiner les deux expressions pour 
-# obtenir le résultat souhaité
-m1[!is.na(m1) & !is.infinite(m1) ]
-```
-```{r,results = "asis", echo = FALSE}
-.endsol()
-```
+<!-- # On n'a qu'Ã  combiner les deux expressions pour  -->
+<!-- # obtenir le rÃ©sultat souhaitÃ© -->
+<!-- m1[!is.na(m1) & !is.infinite(m1) ] -->
+<!-- ``` -->
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .endsol() -->
+<!-- ``` -->
 
 ```{r, results = "asis", echo = FALSE}
 .souspartie("Conversion de type et type facteur")
 ```
 
-On a vu que quand c'est nécessaire, R modifie le type d'un vecteur pour s'adapter à de nouvelles données. 
+On a vu que quand c'est nÃ©cessaire, R modifie le type d'un vecteur pour s'adapter Ã  de nouvelles donnÃ©es. 
 ```{r}
-# Création du vecteur logique n1
+# CrÃ©ation du vecteur logique n1
 n1 <- c(FALSE, TRUE, FALSE)
 
-# Conversion en cas de concaténation avec un vecteur 
-# de type numérique
+# Conversion en cas de concatÃ©nation avec un vecteur 
+# de type numÃ©rique
 c(n1, 3)
 
-# Conversion en cas de concaténation avec un vecteur 
-# de type caractère
+# Conversion en cas de concatÃ©nation avec un vecteur 
+# de type caractÃ¨re
 c(n1, "a")
 ```
 
-Mais il est aussi parfois très utile de **convertir explicitement des vecteurs d'un type dans un autre**, grâce aux fonctions `as.numeric()``r .fun("as.numeric", bold = TRUE)`, `as.character()``r .fun("as.character", bold = TRUE)` et `as.logical()``r .fun("as.logical", bold = TRUE)`. 
+Mais il est aussi parfois trÃ¨s utile de **convertir explicitement des vecteurs d'un type dans un autre**, grÃ¢ce aux fonctions `as.numeric()``r .fun("as.numeric", bold = TRUE)`, `as.character()``r .fun("as.character", bold = TRUE)` et `as.logical()``r .fun("as.logical", bold = TRUE)`. 
 ```{r}
-# Âge codé en caractères
+# Ã‚ge codÃ© en caractÃ¨res
 age <- c("56", "14", "78")
 as.numeric(age)
 
-# Indicatrice codée en numérique
+# Indicatrice codÃ©e en numÃ©rique
 indic <- c(1, 0, 0, 1, 0)
 as.logical(indic)
 ```
 
-Ces opérations peuvent néanmoins produire des `NA`, en particulier quand un vecteur caractère est converti en vecteur numérique. 
+Ces opÃ©rations peuvent nÃ©anmoins produire des `NA`, en particulier quand un vecteur caractÃ¨re est converti en vecteur numÃ©rique. 
 ```{r, warning = TRUE}
-# Conversion du département en numérique
+# Conversion du dÃ©partement en numÃ©rique
 dep <- c("75", "92", "93", "13", "2A", "2B")
 as.numeric(dep)
 ```
 
 \ 
 
-Le type "facteur" est un type de vecteur particulier, **à mi-chemin entre le vecteur caractère et le vecteur numérique** : 
+D'autre part, le type "facteur" est un type de vecteur particulier, **Ã  mi-chemin entre le vecteur caractÃ¨re et le vecteur numÃ©rique** : 
 
-- les valeurs stockées par R sont des entiers ;
-- MAIS à chaque entier est associé un "label" permettant d'**afficher une chaîne de caractère à la place du nombre correspondant**. 
+- les valeurs stockÃ©es par R sont des entiers ;
+- MAIS Ã  chaque entier est associÃ© un "label" permettant d'**afficher une chaÃ®ne de caractÃ¨re Ã  la place du nombre correspondant**. 
 
-Les objets de type facteur sont créés le plus souvent avec la **fonction `as.factor()`**`r .fun("as.factor", bold = TRUE)`.
+Les objets de type facteur sont crÃ©Ã©s le plus souvent avec la **fonction `factor()`**`r .fun("factor", bold = TRUE)`.
 ```{r}
-# Création du vecteur de type factor n2
-n2 <- as.factor(c("banane", "pomme", "poire", "banane", "banane"))
+# CrÃ©ation du vecteur de type factor n2
+n2 <- factor(c("banane", "pomme", "poire", "banane", "banane"))
 n2
 
-# Caractéristiques de n2
+# CaractÃ©ristiques de n2
 str(n2)
 ```
 
-La fonction `str()` révèle que les valeurs stockées sont `r as.integer(n2)`, valeurs qui sont "formatées"" par le biais des "labels" (`levels`) `r levels(n2)``r .fun("levels", bold = TRUE)`. 
+La fonction `str()` rÃ©vÃ¨le que les valeurs stockÃ©es sont `r as.integer(n2)`, valeurs qui sont "formatÃ©es"" par le biais des "labels" (`levels`) `r levels(n2)``r .fun("levels", bold = TRUE)`. 
 
 ------------
 
-**Remarque** On retrouve en fait exactement la **même logique que le formatage de variable dans SAS ou l'utilisation de labels de variables dans Stata**. 
+**Remarque** On retrouve en fait exactement la **mÃªme logique que le formatage de variable dans SAS ou l'utilisation de labels de variables dans Stata**. 
 
 ------------
 
-Quand une variable de type caractère comporte un nombre limité de modalités distinctes, le type facteur peut induire d'**importants gains de performance** : il est en effet **plus efficace de stocker et de manipuler des nombres entiers que des chaînes de caractère parfois longues**. 
+Quand une variable de type caractÃ¨re comporte un nombre limitÃ© de modalitÃ©s distinctes, le type facteur peut induire d'**importants gains de performance** : il est en effet **plus efficace de stocker et de manipuler des nombres entiers que des chaÃ®nes de caractÃ¨re parfois longues**. 
 
-R étant un logiciel à l'origine pensé pour la statistique mathématique où les variables proprement caractère sont peu nombreuses, **la plupart des fonctions de base proposent par défaut de convertir les variables de type caractère en variables de type facteur**. C'est notamment le cas des **fonctions d'importation standards** (`read.table()``r .fun("read.table")`, `read.dbf()``r .fun("read.dbf")`) mais aussi de la fonction de construction des objets de type **`data.frame`** (*cf.* `r .ref("module 3", "module3.html")`). 
-
-
-```{r, results = "asis", echo = FALSE}
-.partie("Manipuler les matrices")
-```
-
-**Les matrices peuvent être vues comme le prolongement en deux dimensions des vecteurs** : si ce n'est l'existence de deux jeux de positions au lieu d'un seul et de quelques fonctions spécifiques, leurs principes d'utilisation sont les mêmes.
-
-**Le type d'objet utilisé pour stocker des données statistiques, le `data.frame` (*cf.* `r .ref("module 3", "module3.html")`) présente des points communs avec les matrices (accès aux objets par deux positions, utilisation de fonctions adaptées aux objets en deux dimensions, etc.).** 
+R Ã©tant un logiciel Ã  l'origine pensÃ© pour la statistique mathÃ©matique oÃ¹ les variables proprement caractÃ¨re sont peu nombreuses, **la plupart des fonctions de base proposent par dÃ©faut de convertir les variables de type caractÃ¨re en variables de type facteur**. C'est notamment le cas des **fonctions d'importation standards** (`read.table()``r .fun("read.table")`, `read.dbf()``r .fun("read.dbf")`) mais aussi de la fonction de construction des objets de type **`data.frame`** (*cf.* `r .ref("module 3", "module3.html")`). 
 
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Créer et accéder aux éléments d'une matrice")
+.partie("Les matrices : crÃ©ation et sÃ©lection")
 ```
 
-La **fonction `matrix()`**`r .fun("matrix", bold = TRUE)` est la manière la plus simple de créer des matrices. 
+**Les matrices peuvent Ãªtre vues comme le prolongement en deux dimensions des vecteurs** : si ce n'est l'existence de deux jeux de positions au lieu d'un seul et de quelques fonctions spÃ©cifiques, leurs principes d'utilisation sont les mÃªmes.
+
+**Le type d'objet utilisÃ© pour stocker des donnÃ©es statistiques, le `data.frame` (*cf.* `r .ref("module 3", "module3.html")`) prÃ©sente des points communs avec les matrices (accÃ¨s aux objets par deux positions, utilisation de fonctions adaptÃ©es aux objets en deux dimensions, etc.).** 
+
+La **fonction `matrix()`**`r .fun("matrix", bold = TRUE)` est la maniÃ¨re la plus simple de crÃ©er des matrices. 
 ```{r}
 matrix(1:8, nrow = 2, ncol = 4)
 ```
-R utilise les valeurs du premier argument (un vecteur de données) pour remplir la matrice dont les dimensions sont indiquées par les arguments `nrow` (nombre de lignes) et `ncol` (nombre de colonnes). 
+R utilise les valeurs du premier argument (un vecteur de donnÃ©es) pour remplir la matrice dont les dimensions sont indiquÃ©es par les arguments `nrow` (nombre de lignes) et `ncol` (nombre de colonnes). 
 
-Par défaut, **R remplit la matrice colonne par colonne** : d'abord la première colonne de haut en bas, puis la deuxième de haut en bas, etc. L'argument `byrow` (`FALSE` par défaut) permet de remplir la matrice ligne par ligne. 
+Par dÃ©faut, **R remplit la matrice colonne par colonne** : d'abord la premiÃ¨re colonne de haut en bas, puis la deuxiÃ¨me de haut en bas, etc. L'argument `byrow` (`FALSE` par dÃ©faut) permet de remplir la matrice ligne par ligne. 
 ```{r}
 matrix(1:8, nrow = 2, ncol = 4, byrow = TRUE)
 ```
 
-Comme un vecteur, **une matrice a un type** (fonction `typeof()``r .fun("typeof")`). Sa longueur (fonction `length()``r .fun("length")`) correspond à la longueur de son vecteur de données. Ses dimensions sont accessibles *via* les fonctions `dim()``r .fun("dim", bold = TRUE)`, `nrow()``r .fun("nrow", bold = TRUE)` et `ncol()``r .fun("ncol", bold = TRUE)`. 
+Comme un vecteur, **une matrice a un type** (fonction `mode()``r .fun("mode")`). Sa longueur (fonction `length()``r .fun("length")`) correspond Ã  la longueur de son vecteur de donnÃ©es. Ses dimensions sont accessibles *via* les fonctions `dim()``r .fun("dim", bold = TRUE)`, `nrow()``r .fun("nrow", bold = TRUE)` et `ncol()``r .fun("ncol", bold = TRUE)`. 
 ```{r}
-# Création de la matrice o1
+# CrÃ©ation de la matrice o1
 o1 <- matrix(letters[1:15], nrow = 3, ncol = 5)
 o1
 
-# Caractéristiques de o1
+# CaractÃ©ristiques de o1
 str(o1)
-typeof(o1)
+mode(o1)
 length(o1)
 dim(o1)
 nrow(o1)
 ncol(o1)
 ```
 
-On peut toujours à partir d'une matrice **revenir au vecteur de données** en utilisant les fonctions `c()``r .fun("c")` ou `as.vector()``r .fun("as.vector")`. 
+On peut toujours Ã  partir d'une matrice **revenir au vecteur de donnÃ©es** en utilisant les fonctions `c()``r .fun("c")` ou `as.vector()``r .fun("as.vector")`. 
 ```{r}
-# Reconstitution du vecteur de données de 
+# Reconstitution du vecteur de donnÃ©es de 
 # la matrice o1
 c(o1)
 as.vector(o1)
@@ -1471,48 +1473,48 @@ as.vector(o1)
 
 \ 
 
-Pour sélectionner un élément dans une matrice, il suffit d'**utiliser l'opérateur `[` avec deux nombres correspondant à la position de l'élément séparés par une virgule**`r .fun("[", bold = TRUE)` : 
+Pour sÃ©lectionner un Ã©lÃ©ment dans une matrice, il suffit d'**utiliser l'opÃ©rateur `[` avec deux nombres correspondant Ã  la position de l'Ã©lÃ©ment sÃ©parÃ©s par une virgule**`r .fun("[", bold = TRUE)` : 
 ```{r}
 o1
 
-# Sélection de l'élément en ligne 2 et colonne 3
+# SÃ©lection de l'Ã©lÃ©ment en ligne 2 et colonne 3
 o1[2, 3]
-# Note : Le premier nombre correspond à la ligne,
-# le second à la colonne
+# Note : Le premier nombre correspond Ã  la ligne,
+# le second Ã  la colonne
 ```
 
-Pour sélectionner **une ligne ou une colonne entière**, il suffit de n'indiquer qu'un seul nombre mais bien **toujours la virgule `,`**. 
+Pour sÃ©lectionner **une ligne ou une colonne entiÃ¨re**, il suffit de n'indiquer qu'un seul nombre mais bien **toujours la virgule `,`**. 
 ```{r}
 o1
 
-# Sélection de toute la première ligne
+# SÃ©lection de toute la premiÃ¨re ligne
 o1[1, ]
 
-# Sélection de toute la cinquième colonne
+# SÃ©lection de toute la cinquiÃ¨me colonne
 o1[, 5]
 ```
 
-Il est également possible de **sélectionner les lignes et les colonnes d'une matrice par le biais de vecteurs logiques**.
+Il est Ã©galement possible de **sÃ©lectionner les lignes et les colonnes d'une matrice par le biais de vecteurs logiques**.
 ```{r}
 o1
 
-# Sélection de toute la deuxième ligne
+# SÃ©lection de toute la deuxiÃ¨me ligne
 o1[c(FALSE, TRUE, FALSE), ]
 
-# Sélection des colonnes 2 et 4
+# SÃ©lection des colonnes 2 et 4
 o1[, c(FALSE, TRUE, FALSE, TRUE, FALSE)]
 ```
 
 \ 
 
-Comme pour les vecteurs, il est également **possible d'assigner des noms à une matrice à l'aide des fonctions `rownames()` et `colnames()`**`r .fun("rownames", bold = TRUE)``r .fun("colnames", bold = TRUE)`. Quand une matrice dispose de noms, ils peuvent être **utilisés en lieu et place des positions de ligne et de colonne**.
+Comme pour les vecteurs, il est Ã©galement **possible d'assigner des noms Ã  une matrice Ã  l'aide des fonctions `rownames()` et `colnames()`**`r .fun("rownames", bold = TRUE)``r .fun("colnames", bold = TRUE)`. Quand une matrice dispose de noms, ils peuvent Ãªtre **utilisÃ©s en lieu et place des positions de ligne et de colonne**.
 ```{r}
-# Ajout de noms de lignes à o1
+# Ajout de noms de lignes Ã  o1
 rownames(o1) <- c("pierre", "feuille", "ciseaux")
 colnames(o1) <- c("pouce", "index", "majeur", "annulaire", "auriculaire")
 o1
 
-# Sélection d'éléments par le nom
+# SÃ©lection d'Ã©lÃ©ments par le nom
 o1["pierre", "index"]
 o1["feuille", ]
 o1[, "annulaire"]
@@ -1522,32 +1524,32 @@ o1[, "annulaire"]
 
 -----------------
 
-**À retenir** Comme pour les vecteurs, il existe donc **trois méthodes pour sélectionner des lignes ou des colonnes** dans une matrice *via* l'opérateur `[``r .fun("[")`: 
+**Ã€ retenir** Comme pour les vecteurs, il existe donc **trois mÃ©thodes pour sÃ©lectionner des lignes ou des colonnes** dans une matrice *via* l'opÃ©rateur `[``r .fun("[")`: 
 
 - utiliser un **vecteur de positions**;
-- utiliser un **vecteur de noms** (quand des noms sont définis);
+- utiliser un **vecteur de noms** (quand des noms sont dÃ©finis);
 - utiliser un **vecteur logique**.
 
 ```{r}
 o1
 
-# On cherche à sélectionner la première et de la troisième ligne de o1
+# On cherche Ã  sÃ©lectionner la premiÃ¨re et de la troisiÃ¨me ligne de o1
 
-# Méthode 1 : par les positions
+# MÃ©thode 1 : par les positions
 o1[c(1, 3), ]
 
-# Méthode 2 : par les noms
+# MÃ©thode 2 : par les noms
 o1[c("pierre", "ciseaux"), ]
 
-# Méthode 3 : avec un vecteur logique
+# MÃ©thode 3 : avec un vecteur logique
 o1[c(TRUE, FALSE, TRUE), ]
 
 # Remarque : dans les trois cas, on extrait des lignes sans
-# toucher aux colonnes donc on laisse une position vide après
+# toucher aux colonnes donc on laisse une position vide aprÃ¨s
 # la virgule dans [, ]
 ```
 
-**Les deux premières méthodes permettent de modifier l'ordre des éléments ou de les répéter, mais pas la troisième** : 
+**Les deux premiÃ¨res mÃ©thodes permettent de modifier l'ordre des Ã©lÃ©ments ou de les rÃ©pÃ©ter, mais pas la troisiÃ¨me** : 
 
 ```{r}
 o1
@@ -1559,14 +1561,14 @@ o1[c("ciseaux", "pierre", "pierre", "ciseaux"), ]
 
 o1[c(TRUE, FALSE, TRUE), ]
 # Note : il est impossible de changer l'ordre dans lequel apparaissent
-# les éléments extraits (ni de les répéter) quand on utilise un vecteur
+# les Ã©lÃ©ments extraits (ni de les rÃ©pÃ©ter) quand on utilise un vecteur
 # logique pour mener l'extraction.
 ```
 
-Ces différentes méthodes sont **particulièrement utiles en pratique** (*cf.* `r .ref("module 3", "module3.html")`): 
+Ces diffÃ©rentes mÃ©thodes sont **particuliÃ¨rement utiles en pratique** (*cf.* `r .ref("module 3", "module3.html")`): 
 
-- l'extraction par les positions est à la base des **tris sur une table de données** ;
-- l'extraction avec un vecteur logique est à la base de la **sélection d'observations ou de variables dans une table de données**.
+- l'extraction par les positions est Ã  la base des **tris sur une table de donnÃ©es** ;
+- l'extraction avec un vecteur logique est Ã  la base de la **sÃ©lection d'observations ou de variables dans une table de donnÃ©es**.
 
 ---------
 
@@ -1574,10 +1576,10 @@ Ces différentes méthodes sont **particulièrement utiles en pratique** (*cf.* `r 
 
 
 ```{r,results = "asis", echo = FALSE}
-.question("Créer et accéder aux éléments d'une matrice")
+.question("CrÃ©er et sÃ©lectionner les Ã©lÃ©ments d'une matrice")
 ```
 
-a. Déterminez la valeur, le type et les dimensions des matrices suivantes (sans utiliser le logiciel). Vérifiez ensuite ce qu'il en est.`r .fun("matrix")`
+a. DÃ©terminez la valeur, le type et les dimensions des matrices suivantes (sans utiliser le logiciel). VÃ©rifiez ensuite ce qu'il en est.`r .fun("matrix")`
     ```{r}
 p1 <- matrix(1:10, ncol = 2)
 p2 <- matrix(1:10, nrow = 2, byrow = TRUE)
@@ -1591,28 +1593,28 @@ p4 <- matrix(rep(c(TRUE, 1, "a"), each = 5), nrow = 3)
     ```{r}
     # Matrice p1
     p1
-    typeof(p1)
+    mode(p1)
     dim(p1)
     nrow(p1)
     ncol(p1)
     
     # Matrice p2
     p2
-    typeof(p2)
+    mode(p2)
     dim(p2)
     nrow(p2)
     ncol(p2)
 
     # Matrice p3
     p3
-    typeof(p3)
+    mode(p3)
     dim(p3)
     nrow(p3)
     ncol(p3)
 
     # Matrice p4
     p4
-    typeof(p4)
+    mode(p4)
     dim(p4)
     nrow(p4)
     ncol(p4)
@@ -1623,24 +1625,24 @@ p4 <- matrix(rep(c(TRUE, 1, "a"), each = 5), nrow = 3)
     ```
 
 
-b. On définit la matrice `p5 <- matrix(15:1, nrow = 3)`. Sélectionnez l'élément en position 1, 4, puis toute la troisième ligne et toute la deuxième colonne`r .fun("[")`. Que se passe-t-il quand vous tapez `p5[c(1, 2), c(3, 4)]` ?
+b. On dÃ©finit la matrice `p5 <- matrix(15:1, nrow = 3)`. SÃ©lectionnez l'Ã©lÃ©ment en position 1, 4, puis toute la troisiÃ¨me ligne et toute la deuxiÃ¨me colonne`r .fun("[")`. Que se passe-t-il quand vous tapez `p5[c(1, 2), c(3, 4)]` ?
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Création de p5
+    # CrÃ©ation de p5
     p5 <- matrix(15:1, nrow = 3)
     p5
     
-    # Sélection des éléments demandés
+    # SÃ©lection des Ã©lÃ©ments demandÃ©s
     p5[1, 4]
     p5[3, ]
     p5[, 2]
     
     p5[c(1, 2), c(3, 4)]
-    # Taper p5[c(1, 2), c(3, 4)] permet de sélectionner
-    # une sous-matrice définie par les lignes 1 et 2
+    # Taper p5[c(1, 2), c(3, 4)] permet de sÃ©lectionner
+    # une sous-matrice dÃ©finie par les lignes 1 et 2
     # d'une part et les colonnes 3 et 4 d'autre part.
     ```
     ```{r,results = "asis", echo = FALSE}
@@ -1653,12 +1655,12 @@ c. Assignez les noms `c("Jacques", "Pierre", "Paul")` et `c("orange", "pomme", "
     .beginsol()
     ```
     ```{r}
-    # Création de p5
+    # CrÃ©ation de p5
     rownames(p5) <- c("Jacques", "Pierre", "Paul")
     colnames(p5) <- c("orange", "pomme", "poire", "banane", "abricot")
     p5
     
-    # Sélection des éléments demandés
+    # SÃ©lection des Ã©lÃ©ments demandÃ©s
     p5["Pierre", "pomme"]
     
     ```
@@ -1666,13 +1668,13 @@ c. Assignez les noms `c("Jacques", "Pierre", "Paul")` et `c("orange", "pomme", "
     .endsol()
     ```
 
-d. Utilisez la fonction `order()``r .fun("order")` pour trier la matrice `p5` selon les valeurs de sa première colonne pour obtenir : 
+d. (Difficile) Utilisez la fonction `order()``r .fun("order")` pour trier la matrice `p5` selon les valeurs de sa premiÃ¨re colonne pour obtenir : 
     ```{r, echo = FALSE}
 p5[order(p5[, 1]), ]
     ```
 
     ```{r,results = "asis", echo = FALSE}
-    .indic("**Indication** Que vaut `p5[c(3, 2, 1), ]` ? Comment utiliser la fonction `order()` pour automatiser cette opération ?")
+    .indic("**Indication** Que vaut `p5[c(3, 2, 1), ]` ? Comment utiliser la fonction `order()` pour automatiser cette opÃ©ration ?")
     ```
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
@@ -1680,303 +1682,303 @@ p5[order(p5[, 1]), ]
     ```{r}
     p5
     
-    # L'idée de base est que l'opérateur [ appliqué à une matrice
-    # permet non seulement de sélectionner des lignes ou des colonnes
-    # mais aussi de les réarranger comme on le souhaite.
+    # L'idÃ©e de base est que l'opÃ©rateur [ appliquÃ© Ã  une matrice
+    # permet non seulement de sÃ©lectionner des lignes ou des colonnes
+    # mais aussi de les rÃ©arranger comme on le souhaite.
     
     # Par exemple, en tapant p5[c(2, 1, 3), ] on indique vouloir
     # obtenir une matrice : 
-    # - dont la première ligne est la deuxième ligne de p5
-    # - dont la deuxième ligne est la première ligne de p5
-    # - dont la troisième ligne est la troisième ligne de p5
+    # - dont la premiÃ¨re ligne est la deuxiÃ¨me ligne de p5
+    # - dont la deuxiÃ¨me ligne est la premiÃ¨re ligne de p5
+    # - dont la troisiÃ¨me ligne est la troisiÃ¨me ligne de p5
     p5[c(2, 1, 3), ]
     
     # Qu'en est-il de p5[c(3, 2, 1), ] ? 
     p5[c(3, 2, 1), ]
     
-    # p5[c(3, 2, 1), ] retourne le résultat désiré car la permutation
-    # c(3, 2, 1) est celle qui permet de réordonner la première colonne
+    # p5[c(3, 2, 1), ] retourne le rÃ©sultat dÃ©sirÃ© car la permutation
+    # c(3, 2, 1) est celle qui permet de rÃ©ordonner la premiÃ¨re colonne
     # de p5
     col1 <- p5[, 1]
     col1
     col1[c(3, 2, 1)]
     
-    # Pour totalement automatiser cette opération, il ne reste plus
-    # qu'à déterminer automatiquement la bonne permutation pour 
-    # effectuer le tri souhaité. C'est précisément ce que fait
+    # Pour totalement automatiser cette opÃ©ration, il ne reste plus
+    # qu'Ã  dÃ©terminer automatiquement la bonne permutation pour 
+    # effectuer le tri souhaitÃ©. C'est prÃ©cisÃ©ment ce que fait
     # la fonction order() : 
     order(col1)
     col1[order(col1)]
     
-    # En combinant l'ensemble de ces éléments, on obtient donc
-    # automatiquement le résultat souhaité : 
+    # En combinant l'ensemble de ces Ã©lÃ©ments, on obtient donc
+    # automatiquement le rÃ©sultat souhaitÃ© : 
     p5[order(p5[, 1]), ]
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-```{r, results = "asis", echo = FALSE}
-.souspartie("(Optionnel) Effectuer des opérations sur les matrices")
-```
 
-La plupart des opérations applicables à des vecteurs le sont également à des matrices, en particulier l'ensemble des **opérateurs arithmétiques ou logiques**`r .fun("+")``r .fun("<=")`.
-```{r}
-q1 <- matrix(1:10, nrow = 2)
-q1
-q2 <- matrix(2, nrow = 2, ncol = 5)
-q2
+<!-- ```{r, results = "asis", echo = FALSE} -->
+<!-- .souspartie("(Optionnel) Effectuer des opÃ©rations sur les matrices") -->
+<!-- ``` -->
 
-# Opérations arithmétiques ou logiques
-q1 + q2
-q1 <= 3
-```
+<!-- La plupart des opÃ©rations applicables Ã  des vecteurs le sont Ã©galement Ã  des matrices, en particulier l'ensemble des **opÃ©rateurs arithmÃ©tiques ou logiques**`r .fun("+")``r .fun("<=")`. -->
+<!-- ```{r} -->
+<!-- q1 <- matrix(1:10, nrow = 2) -->
+<!-- q1 -->
+<!-- q2 <- matrix(2, nrow = 2, ncol = 5) -->
+<!-- q2 -->
 
-Certaines opérations sont néanmoins spécifiques aux matrices : 
+<!-- # OpÃ©rations arithmÃ©tiques ou logiques -->
+<!-- q1 + q2 -->
+<!-- q1 <= 3 -->
+<!-- ``` -->
 
-- les fonctions de **concaténation par ligne (`rbind()`) et par colonne (`cbind()`)**`r .fun("rbind", bold = TRUE)``r .fun("cbind", bold = TRUE)`
-    ```{r}
-q3 <- matrix(1:10, nrow = 2)
-q3
-q4 <- matrix(letters[1:10], nrow = 2)
-q4
+<!-- Certaines opÃ©rations sont nÃ©anmoins spÃ©cifiques aux matrices :  -->
 
-# Concaténation par ligne
-rbind(q3, q4)
+<!-- - les fonctions de **concatÃ©nation par ligne (`rbind()`) et par colonne (`cbind()`)**`r .fun("rbind", bold = TRUE)``r .fun("cbind", bold = TRUE)` -->
+<!--     ```{r} -->
+<!-- q3 <- matrix(1:10, nrow = 2) -->
+<!-- q3 -->
+<!-- q4 <- matrix(letters[1:10], nrow = 2) -->
+<!-- q4 -->
 
-# Concaténation par colonne
-cbind(q3, q4)
-    ```
+<!-- # ConcatÃ©nation par ligne -->
+<!-- rbind(q3, q4) -->
 
-- les fonctions liées au **calcul matriciel** : transposition (fonction `t()``r .fun("t", bold = TRUE)`), produit matriciel (opérateur `%*%``r .fun("\\%*\\%", bold = TRUE)`), calcul de déterminant (fonction `det()``r .fun("det", bold = TRUE)`), inversion de matrice (fonction `solve()``r .fun("solve", bold = TRUE)`).
-    ```{r}
-q5 <- matrix(rnorm(6), nrow = 2)
-q5
-q6 <- matrix(rnorm(6), nrow = 2)
-q6
+<!-- # ConcatÃ©nation par colonne -->
+<!-- cbind(q3, q4) -->
+<!--     ``` -->
 
-# Calcul matriciel sur q5 et t(q6)
-t(q6)
-q5 %*% t(q6)
-    ```
+<!-- - les fonctions liÃ©es au **calcul matriciel** : transposition (fonction `t()``r .fun("t", bold = TRUE)`), produit matriciel (opÃ©rateur `%*%``r .fun("\\%*\\%", bold = TRUE)`), calcul de dÃ©terminant (fonction `det()``r .fun("det", bold = TRUE)`), inversion de matrice (fonction `solve()``r .fun("solve", bold = TRUE)`). -->
+<!--     ```{r} -->
+<!-- q5 <- matrix(rnorm(6), nrow = 2) -->
+<!-- q5 -->
+<!-- q6 <- matrix(rnorm(6), nrow = 2) -->
+<!-- q6 -->
 
-
-- certaines **fonctions d'agrégation** adaptées au cadre matriciel : somme et moyenne selon les lignes (`rowSums()``r .fun("rowSums", bold = TRUE)` et `rowMeans()``r .fun("rowMeans", bold = TRUE)`) ou selon les colonnes (`colSums()``r .fun("colSums", bold = TRUE)` et `colMeans()``r .fun("colMeans", bold = TRUE)`).
-    ```{r}
-q7 <- matrix(1:10, nrow = 2)
-q7
-
-# Calcul selon les lignes et les colonnes de q7
-rowSums(q7)
-rowMeans(q7)
-colSums(q7)
-colMeans(q7)
-    ```
-
-- **la fonction `apply()` pour appliquer n'importe quelle fonction selon les lignes ou les colonnes d'une matrice**`r .fun("apply", bold = TRUE)`
-    ```{r}
-q7
-
-# Récupération du maximum de q7 ligne par ligne
-apply(q7, 1, max)
-
-# Récupération du maximum de q7 colonne par colonne
-apply(q7, 2, max)
-
-# Note : le deuxième argument de apply() correspond 
-# à la dimension selon laquelle on applique la fonction : 
-# 1 pour les lignes, 2 pour les colonnes.
-    ```
+<!-- # Calcul matriciel sur q5 et t(q6) -->
+<!-- t(q6) -->
+<!-- q5 %*% t(q6) -->
+<!--     ``` -->
 
 
-```{r,results = "asis", echo = FALSE}
-.question("(Optionnel) Effectuer des opérations sur les matrices")
-```
+<!-- - certaines **fonctions d'agrÃ©gation** adaptÃ©es au cadre matriciel : somme et moyenne selon les lignes (`rowSums()``r .fun("rowSums", bold = TRUE)` et `rowMeans()``r .fun("rowMeans", bold = TRUE)`) ou selon les colonnes (`colSums()``r .fun("colSums", bold = TRUE)` et `colMeans()``r .fun("colMeans", bold = TRUE)`). -->
+<!--     ```{r} -->
+<!-- q7 <- matrix(1:10, nrow = 2) -->
+<!-- q7 -->
 
-a. On définit la matrice `r1 <- matrix((1:15)^2, ncol = 5, byrow = TRUE)`.
+<!-- # Calcul selon les lignes et les colonnes de q7 -->
+<!-- rowSums(q7) -->
+<!-- rowMeans(q7) -->
+<!-- colSums(q7) -->
+<!-- colMeans(q7) -->
+<!--     ``` -->
 
-    i. Déterminez le nombre d'éléments supérieurs ou égaux à 60 dans l'ensemble de la matrice, puis dans chaque ligne et dans chaque colonne.`r .fun("sum")``r .fun("rowSums")``r .fun("colSums")`
-    
-        ```{r,results = "asis", echo = FALSE}
-        .beginsol()
-        ```
-        ```{r}
-        r1 <- matrix((1:15)^2, ncol = 5, byrow = TRUE)
-        r1
-        
-        # Le point de départ est l'évaluation de l'expression
-        r1 >= 60
-        
-        # On obtient ainsi une matrice de type logique susceptible
-        # d'être utilisée dans des fonctions d'agrégation
-        is.logical(r1 >= 60)
-        
-        # Nombre d'éléments supérieurs ou égaux à 60 dans l'ensemble
-        # de la matrice
-        sum(r1 >= 60)
-        
-        # Nombre d'éléments supérieurs ou égaux à 60 par ligne
-        rowSums(r1 >= 60)
-        
-        # Nombre d'éléments supérieurs ou égaux à 60 par colonne
-        colSums(r1 >= 60)
-        ```
-        ```{r,results = "asis", echo = FALSE}
-        .endsol()
-        ```
+<!-- - **la fonction `apply()` pour appliquer n'importe quelle fonction selon les lignes ou les colonnes d'une matrice**`r .fun("apply", bold = TRUE)` -->
+<!--     ```{r} -->
+<!-- q7 -->
 
-    
-    
-    ii. Sélectionnez la sous-matrice des colonnes dont le total est strictement supérieur à 200.`r .fun("colSums")`
+<!-- # RÃ©cupÃ©ration du maximum de q7 ligne par ligne -->
+<!-- apply(q7, 1, max) -->
 
-        ```{r,results = "asis", echo = FALSE}
-        .beginsol()
-        ```
-        ```{r}
-        # Pour construire la sous-matrice des colonnes
-        # dont le total est supérieur à 200, on commence
-        # par calculer le total selon les colonnes
-        colSums(r1)
-        
-        # On peut dès lors évaluer l'expression correspondante
-        colSums(r1) > 200
-        
-        # Il ne reste plus qu'à utiliser l'opérateur [
-        # pour sélectionner les colonnes à l'aide du vecteur
-        # logique ainsi créé
-        r1[, colSums(r1) > 200]
-        ```
-        ```{r,results = "asis", echo = FALSE}
-        .endsol()
-        ```
+<!-- # RÃ©cupÃ©ration du maximum de q7 colonne par colonne -->
+<!-- apply(q7, 2, max) -->
 
-b. On définit les matrices `r2 <- matrix(rep("a", times = 6), ncol = 2)` et `r3 <- matrix(rep("b", times = 6), nrow = 2)`. Tentez de les concaténer par les lignes et les colonnes`r .fun("rbind")``r .fun("cbind")`. Que se passe-t-il ? Tentez alors de concaténer `r2` et la transposée de `r3``r .fun("t")`.
-
-    ```{r,results = "asis", echo = FALSE}
-    .beginsol()
-    ```
-    ```{r, error = TRUE}
-    r2 <- matrix(rep("a", times = 6), ncol = 2)
-    r2
-    r3 <- matrix(rep("b", times = 6), nrow = 2)
-    r3
-    
-    # Tentative de concaténation par les lignes
-    rbind(r2, r3)
-    
-    # Tentative de concaténation par les colonnes
-    cbind(r2, r3)
-    
-    # Le problème vient du fait que les dimensions des 
-    # matrices r2 et r3 ne correspondent pas. 
-    
-    # En revanche, cela devrait mieux fonctionner avec 
-    # la transposée de r3
-    t(r3)
-    rbind(r2, t(r3))
-    cbind(r2, t(r3))
-    ```
-    ```{r,results = "asis", echo = FALSE}
-    .endsol()
-    ```
-
-c. On définit la matrice `r4 <- matrix(rnorm(8), nrow = 2)`. Utilisez la fonction `apply()``r .fun("apply")` pour calculer l'écart-type de `r4` (fonction `sd()``r .fun("sd", bold = TRUE)`) ligne par ligne puis colonne par colonne. 
+<!-- # Note : le deuxiÃ¨me argument de apply() correspond  -->
+<!-- # Ã  la dimension selon laquelle on applique la fonction :  -->
+<!-- # 1 pour les lignes, 2 pour les colonnes. -->
+<!--     ``` -->
 
 
-    ```{r,results = "asis", echo = FALSE}
-    .beginsol()
-    ```
-    ```{r, error = TRUE}
-    r4 <- matrix(rnorm(8), nrow = 2)
-    r4
-    
-    # Le principe de la fonction apply() est d'appliquer
-    # une certaine fonction "le long" d'une dimension d'une matrice
-    # (ligne ou colonne
-    
-    # Appliquer la fonction sd à la matrice r4 ligne par ligne
-    apply(r4, 1, sd)
-    
-    # Appliquer la fonction sd à la matrice r4 colonne par colonne
-    apply(r4, 2, sd)
-    
-    # Note : le deuxième argument de apply() correspond 
-    # à la dimension selon laquelle on applique la fonction : 
-    # 1 pour les lignes, 2 pour les colonnes.
-    ```
-    ```{r,results = "asis", echo = FALSE}
-    .endsol()
-    ```
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .question("(Optionnel) Effectuer des opÃ©rations sur les matrices") -->
+<!-- ``` -->
+
+<!-- a. On dÃ©finit la matrice `r1 <- matrix((1:15)^2, ncol = 5, byrow = TRUE)`. -->
+
+<!--     i. DÃ©terminez le nombre d'Ã©lÃ©ments supÃ©rieurs ou Ã©gaux Ã  60 dans l'ensemble de la matrice, puis dans chaque ligne et dans chaque colonne.`r .fun("sum")``r .fun("rowSums")``r .fun("colSums")` -->
+
+<!--         ```{r,results = "asis", echo = FALSE} -->
+<!--         .beginsol() -->
+<!--         ``` -->
+<!--         ```{r} -->
+<!--         r1 <- matrix((1:15)^2, ncol = 5, byrow = TRUE) -->
+<!--         r1 -->
+
+<!--         # Le point de dÃ©part est l'Ã©valuation de l'expression -->
+<!--         r1 >= 60 -->
+
+<!--         # On obtient ainsi une matrice de type logique susceptible -->
+<!--         # d'Ãªtre utilisÃ©e dans des fonctions d'agrÃ©gation -->
+<!--         is.logical(r1 >= 60) -->
+
+<!--         # Nombre d'Ã©lÃ©ments supÃ©rieurs ou Ã©gaux Ã  60 dans l'ensemble -->
+<!--         # de la matrice -->
+<!--         sum(r1 >= 60) -->
+
+<!--         # Nombre d'Ã©lÃ©ments supÃ©rieurs ou Ã©gaux Ã  60 par ligne -->
+<!--         rowSums(r1 >= 60) -->
+
+<!--         # Nombre d'Ã©lÃ©ments supÃ©rieurs ou Ã©gaux Ã  60 par colonne -->
+<!--         colSums(r1 >= 60) -->
+<!--         ``` -->
+<!--         ```{r,results = "asis", echo = FALSE} -->
+<!--         .endsol() -->
+<!--         ``` -->
 
 
-d. (Optionnel) On définit la matrice `r5 <- matrix(c("aaaa", "bb", "ccc", "d", "eee", "f"), ncol = 2)`. Utilisez la fonction `apply``r .fun("apply")`  pour calculer le nombre maximum de caractère de `r5` ligne par ligne puis colonne par colonne`r .fun("nchar")``r .fun("max")`. 
 
-    ```{r,results = "asis", echo = FALSE}
-    .indic("**Indication** Créez la fonction `maxnchar()` qui renvoie, pour un vecteur caractère donné, la longueur en nombre de caractères de son élément le plus long. Utilisez ensuite cette fonction avec `apply()` pour obtenir le résultat attendu.")
-    ```
+<!--     ii. SÃ©lectionnez la sous-matrice des colonnes dont le total est strictement supÃ©rieur Ã  200.`r .fun("colSums")` -->
 
-    
-    ```{r,results = "asis", echo = FALSE}
-    .beginsol()
-    ```
-    ```{r, error = TRUE}
-    r5 <- matrix(c("aaaa", "bb", "ccc", "d", "eee", "f"), ncol = 2)
-    r5
-    
-    # On est exactement dans le même cas que précédemment, 
-    # sinon qu'il n'existe aucune fonction qui calcule 
-    # directement le nombre maximal de caracères d'un vecteur
-    # de type caractère. 
-    
-    # Ce n'est pas réellement une difficulté, dans la mesure
-    # où il est très facile dans R de créer ses propres fonctions.
-    # Ici la fonction maxnchar(x) est créée pour renvoyer
-    # automatiquement le nombre maximal de caractères d'un
-    # vecteur de type caractère.
-    maxnchar <- function(x) max(nchar(x))
-    maxnchar(c("a", "bb", "ccc", "dddd"))
-    
-    # On peut manuellement appliquer maxnchar() à la première
-    # ligne ou à la première colonne de r5
-    maxnchar(r5[1, ])
-    maxnchar(r5[, 1])
-    
-    # Pour l'appliquer automatiquement ligne par ligne ou colonne
-    # par colonne, il ne reste plus qu'à l'utiliser dans apply()
-    apply(r5, 1, maxnchar)
-    apply(r5, 2, maxnchar)
-    
-    # Remarque 1 : en fait il n'est pas absolument indispensable
-    # de donner un nom à la fonction maxnchar(). 
-    # On peut également la définir à la volée puis l'utiliser 
-    # immédiatement dans le apply() : 
-    apply(r5, 2, function(x) max(nchar(x)))
-    
-    # Remarque 2 : une méthode (plus simple) consisterait également à 
-    # appliquer la fonction max() à une transformation de la table r5
-    apply(nchar(r5), 1, max)
-    apply(nchar(r5), 2, max)
-    ```
-    ```{r,results = "asis", echo = FALSE}
-    .endsol()
-    ```
+<!--         ```{r,results = "asis", echo = FALSE} -->
+<!--         .beginsol() -->
+<!--         ``` -->
+<!--         ```{r} -->
+<!--         # Pour construire la sous-matrice des colonnes -->
+<!--         # dont le total est supÃ©rieur Ã  200, on commence -->
+<!--         # par calculer le total selon les colonnes -->
+<!--         colSums(r1) -->
 
-```{r, results = "asis", echo = FALSE}
-.partie("Manipuler les listes")
-```
+<!--         # On peut dÃ¨s lors Ã©valuer l'expression correspondante -->
+<!--         colSums(r1) > 200 -->
 
-Du point de vue de la statistique appliquée, la principale limitation des matrices est qu'elles ne peuvent, comme les vecteurs, contenir qu'un seul type de données. **Il est impossible de construire une matrice dont certaines variables sont de type numérique** (par exemple l'âge des personnes enquêtées) **et d'autres de type caractère** (par exemple leur secteur d'activité). Les matrices ne constituent donc pas un type d'objet susceptible de stocker l'information statistique habituellement mobilisée dans les enquêtes sociales. 
+<!--         # Il ne reste plus qu'Ã  utiliser l'opÃ©rateur [ -->
+<!--         # pour sÃ©lectionner les colonnes Ã  l'aide du vecteur -->
+<!--         # logique ainsi crÃ©Ã© -->
+<!--         r1[, colSums(r1) > 200] -->
+<!--         ``` -->
+<!--         ```{r,results = "asis", echo = FALSE} -->
+<!--         .endsol() -->
+<!--         ``` -->
 
-Les **listes** constituent en revanche un type d'objet beaucoup plus riche qui permet précisément de rassembler des types d'objets très différents : **une liste peut contenir tous les types d'objet (vecteurs numériques, caractères, logiques, matrices, etc.), y compris d'autres listes**. Cette très grande souplesse fait de la liste l'objet de prédilection pour **stocker une information complexe et structurée**, en particulier les **résultats de procédures statistiques complexes** (régression, classification, etc.).
+<!-- b. On dÃ©finit les matrices `r2 <- matrix(rep("a", times = 6), ncol = 2)` et `r3 <- matrix(rep("b", times = 6), nrow = 2)`. Tentez de les concatÃ©ner par les lignes et les colonnes`r .fun("rbind")``r .fun("cbind")`. Que se passe-t-il ? Tentez alors de concatÃ©ner `r2` et la transposÃ©e de `r3``r .fun("t")`. -->
 
-Plus encore, le type d'objet utilisé pour stocker des données statistiques, le `data.frame` (*cf.* `r .ref("module 3", "module3.html")`), est un **cas particulier de liste**. La connaissance et la compréhension du fonctionnement des listes dans R **facilite ainsi considérablement le travail sur des données statistiques**.
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .beginsol() -->
+<!--     ``` -->
+<!--     ```{r, error = TRUE} -->
+<!--     r2 <- matrix(rep("a", times = 6), ncol = 2) -->
+<!--     r2 -->
+<!--     r3 <- matrix(rep("b", times = 6), nrow = 2) -->
+<!--     r3 -->
+
+<!--     # Tentative de concatÃ©nation par les lignes -->
+<!--     rbind(r2, r3) -->
+
+<!--     # Tentative de concatÃ©nation par les colonnes -->
+<!--     cbind(r2, r3) -->
+
+<!--     # Le problÃ¨me vient du fait que les dimensions des  -->
+<!--     # matrices r2 et r3 ne correspondent pas.  -->
+
+<!--     # En revanche, cela devrait mieux fonctionner avec  -->
+<!--     # la transposÃ©e de r3 -->
+<!--     t(r3) -->
+<!--     rbind(r2, t(r3)) -->
+<!--     cbind(r2, t(r3)) -->
+<!--     ``` -->
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .endsol() -->
+<!--     ``` -->
+
+<!-- c. On dÃ©finit la matrice `r4 <- matrix(rnorm(8), nrow = 2)`. Utilisez la fonction `apply()``r .fun("apply")` pour calculer l'Ã©cart-type de `r4` (fonction `sd()``r .fun("sd", bold = TRUE)`) ligne par ligne puis colonne par colonne.  -->
+
+
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .beginsol() -->
+<!--     ``` -->
+<!--     ```{r, error = TRUE} -->
+<!--     r4 <- matrix(rnorm(8), nrow = 2) -->
+<!--     r4 -->
+
+<!--     # Le principe de la fonction apply() est d'appliquer -->
+<!--     # une certaine fonction "le long" d'une dimension d'une matrice -->
+<!--     # (ligne ou colonne -->
+
+<!--     # Appliquer la fonction sd Ã  la matrice r4 ligne par ligne -->
+<!--     apply(r4, 1, sd) -->
+
+<!--     # Appliquer la fonction sd Ã  la matrice r4 colonne par colonne -->
+<!--     apply(r4, 2, sd) -->
+
+<!--     # Note : le deuxiÃ¨me argument de apply() correspond  -->
+<!--     # Ã  la dimension selon laquelle on applique la fonction :  -->
+<!--     # 1 pour les lignes, 2 pour les colonnes. -->
+<!--     ``` -->
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .endsol() -->
+<!--     ``` -->
+
+
+<!-- d. (Optionnel) On dÃ©finit la matrice `r5 <- matrix(c("aaaa", "bb", "ccc", "d", "eee", "f"), ncol = 2)`. Utilisez la fonction `apply``r .fun("apply")`  pour calculer le nombre maximum de caractÃ¨re de `r5` ligne par ligne puis colonne par colonne`r .fun("nchar")``r .fun("max")`.  -->
+
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .indic("**Indication** CrÃ©ez la fonction `maxnchar()` qui renvoie, pour un vecteur caractÃ¨re donnÃ©, la longueur en nombre de caractÃ¨res de son Ã©lÃ©ment le plus long. Utilisez ensuite cette fonction avec `apply()` pour obtenir le rÃ©sultat attendu.") -->
+<!--     ``` -->
+
+
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .beginsol() -->
+<!--     ``` -->
+<!--     ```{r, error = TRUE} -->
+<!--     r5 <- matrix(c("aaaa", "bb", "ccc", "d", "eee", "f"), ncol = 2) -->
+<!--     r5 -->
+
+<!--     # On est exactement dans le mÃªme cas que prÃ©cÃ©demment,  -->
+<!--     # sinon qu'il n'existe aucune fonction qui calcule  -->
+<!--     # directement le nombre maximal de caracÃ¨res d'un vecteur -->
+<!--     # de type caractÃ¨re.  -->
+
+<!--     # Ce n'est pas rÃ©ellement une difficultÃ©, dans la mesure -->
+<!--     # oÃ¹ il est trÃ¨s facile dans R de crÃ©er ses propres fonctions. -->
+<!--     # Ici la fonction maxnchar(x) est crÃ©Ã©e pour renvoyer -->
+<!--     # automatiquement le nombre maximal de caractÃ¨res d'un -->
+<!--     # vecteur de type caractÃ¨re. -->
+<!--     maxnchar <- function(x) max(nchar(x)) -->
+<!--     maxnchar(c("a", "bb", "ccc", "dddd")) -->
+
+<!--     # On peut manuellement appliquer maxnchar() Ã  la premiÃ¨re -->
+<!--     # ligne ou Ã  la premiÃ¨re colonne de r5 -->
+<!--     maxnchar(r5[1, ]) -->
+<!--     maxnchar(r5[, 1]) -->
+
+<!--     # Pour l'appliquer automatiquement ligne par ligne ou colonne -->
+<!--     # par colonne, il ne reste plus qu'Ã  l'utiliser dans apply() -->
+<!--     apply(r5, 1, maxnchar) -->
+<!--     apply(r5, 2, maxnchar) -->
+
+<!--     # Remarque 1 : en fait il n'est pas absolument indispensable -->
+<!--     # de donner un nom Ã  la fonction maxnchar().  -->
+<!--     # On peut Ã©galement la dÃ©finir Ã  la volÃ©e puis l'utiliser  -->
+<!--     # immÃ©diatement dans le apply() :  -->
+<!--     apply(r5, 2, function(x) max(nchar(x))) -->
+
+<!--     # Remarque 2 : une mÃ©thode (plus simple) consisterait Ã©galement Ã   -->
+<!--     # appliquer la fonction max() Ã  une transformation de la table r5 -->
+<!--     apply(nchar(r5), 1, max) -->
+<!--     apply(nchar(r5), 2, max) -->
+<!--     ``` -->
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .endsol() -->
+<!--     ``` -->
+
 
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Créer et accéder aux éléments d'une liste")
+.partie("Les listes : crÃ©ation et sÃ©lection")
 ```
 
-La **fonction `list()`**`r .fun("list", bold = TRUE)` crée une nouvelle liste.
+Du point de vue de la statistique appliquÃ©e, la principale limitation des matrices est qu'elles ne peuvent, comme les vecteurs, contenir qu'un seul type de donnÃ©es. **Il est impossible de construire une matrice dont certaines variables sont de type numÃ©rique** (par exemple l'Ã¢ge des personnes enquÃªtÃ©es) **et d'autres de type caractÃ¨re** (par exemple leur secteur d'activitÃ©). Les matrices ne constituent donc pas un type d'objet susceptible de stocker l'information statistique habituellement mobilisÃ©e dans les enquÃªtes sociales. 
+
+Les **listes** constituent en revanche un type d'objet beaucoup plus riche qui permet prÃ©cisÃ©ment de rassembler des types d'objets trÃ¨s diffÃ©rents : **une liste peut contenir tous les types d'objet (vecteurs numÃ©riques, caractÃ¨res, logiques, matrices, etc.), y compris d'autres listes**. Cette trÃ¨s grande souplesse fait de la liste l'objet de prÃ©dilection pour **stocker une information complexe et structurÃ©e**, en particulier les **rÃ©sultats de procÃ©dures statistiques complexes** (rÃ©gression, classification, etc.).
+
+Plus encore, le type d'objet utilisÃ© pour stocker des donnÃ©es statistiques, le `data.frame` (*cf.* `r .ref("module 3", "module3.html")`), est un **cas particulier de liste**. La connaissance et la comprÃ©hension du fonctionnement des listes dans R **facilite ainsi considÃ©rablement le travail sur des donnÃ©es statistiques**.
+
+\ 
+
+La **fonction `list()`**`r .fun("list", bold = TRUE)` crÃ©e une nouvelle liste.
 ```{r}
 s1 <- list(
   1:4
@@ -1987,28 +1989,28 @@ s1 <- list(
 s1
 ```
 
-**L'affichage d'une liste diffère sensiblement de celui d'une matrice ou d'un vecteur** : on distingue **deux niveaux de positions**, d'abord celles indiquées entre double-crochets `[[` puis celle indiquées entre crochets simples `[`. 
+**L'affichage d'une liste diffÃ¨re sensiblement de celui d'une matrice ou d'un vecteur** : on distingue **deux niveaux de positions**, d'abord celles indiquÃ©es entre double-crochets `[[` puis celle indiquÃ©es entre crochets simples `[`. 
 
-Comme un vecteur, **une liste a une longueur qui correspond à son nombre d'éléments** au sens du nombre d'éléments intervenant dans la fonction `list()` (positions en double-crochets `[[`). Quand on affiche sa structure, R affiche également celle des éléments qui composent la liste. 
+Comme un vecteur, **une liste a une longueur qui correspond Ã  son nombre d'Ã©lÃ©ments** au sens du nombre d'Ã©lÃ©ments intervenant dans la fonction `list()` (positions en double-crochets `[[`). Quand on affiche sa structure, R affiche Ã©galement celle des Ã©lÃ©ments qui composent la liste. 
 ```{r}
-# Caractéristiques de s1
+# CaractÃ©ristiques de s1
 length(s1)
 str(s1)
 ```
 
-On constate ici que **la liste `s1` comporte des éléments de type très différents**\ : un vecteur de nombres entiers, un vecteur caractère, un vecteur logique et même une matrice numérique. 
+On constate ici que **la liste `s1` comporte des Ã©lÃ©ments de type trÃ¨s diffÃ©rents**\ : un vecteur de nombres entiers, un vecteur caractÃ¨re, un vecteur logique et mÃªme une matrice numÃ©rique. 
 
-Comme pour les vecteurs, il est possible de **nommer les éléments d'une liste**, soit lors de sa création soit en utilisant la fonction `names()``r .fun("names")`. 
+Comme pour les vecteurs, il est possible de **nommer les Ã©lÃ©ments d'une liste**, soit lors de sa crÃ©ation soit en utilisant la fonction `names()``r .fun("names")`. 
 ```{r}
  # Affichage des noms de s1
 names(s1)
 
-# Ajout de noms à s1
+# Ajout de noms Ã  s1
 names(s1) <- c("chat", "chien", "lapin", "poisson rouge")
 s1
 str(s1)
 
-# Définition directe d'une liste nommée
+# DÃ©finition directe d'une liste nommÃ©e
 s2 <- list(
   "pierre" = 1:3
   , "feuille" = FALSE
@@ -2019,9 +2021,9 @@ s2
 
 \ 
 
-Plusieurs opérateurs permettent d'**accéder aux éléments d'une liste** : 
+Plusieurs opÃ©rateurs permettent d'**accÃ©der aux Ã©lÃ©ments d'une liste** : 
 
-- **`[` renvoie la *sous-liste* correspondant aux indices, noms ou positions logiques demandés**`r .fun("[", bold = TRUE)` ;
+- **`[` renvoie la *sous-liste* correspondant aux indices, noms ou positions logiques demandÃ©s**`r .fun("[", bold = TRUE)` ;
     ```{r}
 str(s1)
     
@@ -2039,7 +2041,7 @@ s1[c("lapin", "chien")]
 s1[c(TRUE, FALSE, FALSE, TRUE)]
     ```
 
-- **`[[` renvoie l'*élément* correspondant à l'indice ou au nom demandé** (un seul indice ou un seul nom autorisé dans ce cas)`r .fun("[[", bold = TRUE)` ;
+- **`[[` renvoie l'*Ã©lÃ©ment* correspondant Ã  l'indice ou au nom demandÃ©** (un seul indice ou un seul nom autorisÃ© dans ce cas)`r .fun("[[", bold = TRUE)` ;
     ```{r, error = TRUE}
 str(s1)
     
@@ -2048,14 +2050,19 @@ s1[[1]]
 
 str(s1[[1]])
 
+# Remarque : bien noter la diffÃ©rence avec s1[1]
+str(s1[1])
+# s1[1] renvoie une sous-liste, quand s1[[1]] renvoie
+# l'Ã©lÃ©ment lui-mÃªme (ici un vecteur d'entiers)
+
 s1[[c(2, 4)]]
-# Note : [[ ne permet de sélectionner qu'un seul élément
-# à la fois.
+# Note : [[ ne permet de sÃ©lectionner qu'un seul Ã©lÃ©ment
+# Ã  la fois.
 
 s1[["lapin"]]
     ```
 
-- **`$` renvoie l'élément correspondant au nom demandé** (ne fonctionne qu'avec des listes nommées)`r .fun("\\$", bold = TRUE)`.
+- **`$` renvoie l'Ã©lÃ©ment correspondant au nom demandÃ©** (ne fonctionne qu'avec des listes nommÃ©es)`r .fun("\\$", bold = TRUE)`.
     ```{r}
 str(s1)
     
@@ -2065,11 +2072,11 @@ s1$chat
 str(s1$chat)
     ```
 
-**Pour effectuer des opérations sur un élément d'une liste, il suffit de le sélectionner avec `[[` ou `$`**. 
+**Pour effectuer des opÃ©rations sur un Ã©lÃ©ment d'une liste, il suffit de le sÃ©lectionner avec `[[` ou `$`**. 
 ```{r}
 str(s1)
 
-# Opérations sur le premier élément de s1
+# OpÃ©rations sur le premier Ã©lÃ©ment de s1
 s1[[1]]
 sum(s1[[1]])
 mean(s1$chat)
@@ -2077,10 +2084,10 @@ mean(s1$chat)
 
 
 ```{r,results = "asis", echo = FALSE}
-.question("Créer et accéder aux éléments d'une liste")
+.question("CrÃ©er et sÃ©lectionner les Ã©lÃ©ments d'une liste")
 ```
 
-a. Devinez les valeurs, la longueur et la structure des trois listes suivantes, puis vérifiez-les dans le logiciel.`r .fun("list")`
+a. Devinez les valeurs, la longueur et la structure des trois listes suivantes, puis vÃ©rifiez-les dans le logiciel.`r .fun("list")`
     ```{r}
 t1 <- list("a", "b", 3, "d")
 t2 <- list(c("a", "b", 3, "d"))
@@ -2093,30 +2100,30 @@ t3 <- list(list("a", "b"), 3, "d")
     ```{r}
     # t1 est une liste de longueur 4
     str(t1)
-    # Chaque élément de t1 est un vecteur de longueur 1
+    # Chaque Ã©lÃ©ment de t1 est un vecteur de longueur 1
     
     # t2 est une liste de longueur 1
     str(t2)
-    # L'élément de t2 est un vecteur caractère de longueur 4
+    # L'Ã©lÃ©ment de t2 est un vecteur caractÃ¨re de longueur 4
     
     # t3 est une liste de longueur 3
     str(t3)
-    # Le premier élément de t3 est une liste (comptant
-    # elle-même deux éléments, deux vecteurs caractères)
-    # le deuxième est un vecteur numérique et le troisième
-    # un vecteur caractère.
+    # Le premier Ã©lÃ©ment de t3 est une liste (comptant
+    # elle-mÃªme deux Ã©lÃ©ments, deux vecteurs caractÃ¨res)
+    # le deuxiÃ¨me est un vecteur numÃ©rique et le troisiÃ¨me
+    # un vecteur caractÃ¨re.
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-b. On définit les objets suivants `t4 <- rep(1:3, each = 4)`, `t5 <- letters[c(5, 2, 3)]` et `t6 <- c(TRUE, FALSE, FALSE)`. Créez la liste `t7` à partir de ces trois objets (dans l'ordre) et affectez à chaque élément de `t7` le nom de son objet d'origine. Proposez trois méthodes pour accéder au deuxième élément de `t7`.`r .fun("rep")``r .fun("[")``r .fun("[[")``r .fun("\\$")`
+b. On dÃ©finit les objets suivants `t4 <- rep(1:3, each = 4)`, `t5 <- letters[c(5, 2, 3)]` et `t6 <- c(TRUE, FALSE, FALSE)`. CrÃ©ez la liste `t7` Ã  partir de ces trois objets (dans l'ordre) et affectez lui les noms `"Athos"`, `"Porthos"` et `"Aramis"`. Proposez trois mÃ©thodes pour accÃ©der au deuxiÃ¨me Ã©lÃ©ment de `t7`.`r .fun("rep")``r .fun("[")``r .fun("[[")``r .fun("\\$")`
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r, error=TRUE}
-    # Création des objets t4, t5 et t6
+    # CrÃ©ation des objets t4, t5 et t6
     t4 <- rep(1:3, each = 4)
     t4
     t5 <- letters[c(5, 2, 3)]
@@ -2124,104 +2131,105 @@ b. On définit les objets suivants `t4 <- rep(1:3, each = 4)`, `t5 <- letters[c(5
     t6 <- c(TRUE, FALSE, FALSE)
     t6
     
-    # Création de la liste t4 nommée
-    t7 <- list("t4" = t4, "t5" = t5, "t6" = t6)
+    # CrÃ©ation de la liste t4 nommÃ©e
+    t7 <- list("Athos" = t4, "Porthos" = t5, "Aramis" = t6)
     t7
     
-    # Accéder à l'élément en deuxième position
-    # - Méthode 1 : [[ avec la position
+    # AccÃ©der Ã  l'Ã©lÃ©ment en deuxiÃ¨me position
+    # - MÃ©thode 1 : [[ avec la position
     t7[[2]]
-    # - Méthode 2 : [[ avec le nom
-    t7[["t5"]]
-    # - Méthode 3 : $ avec le nom
+    # - MÃ©thode 2 : [[ avec le nom
+    t7[["Porhos"]]
+    # - MÃ©thode 3 : $ avec le nom
     t7$t5
     
     # Remarque : on ne peut pas utiliser de vecteur logique
     # avec [[ ou $
     t7[[c(FALSE, TRUE, FALSE)]]
-    # C'est possible en revanche avec [, mais l'objet retourné 
-    # n'est pas exactement le même : 
+    # C'est possible en revanche avec [, mais l'objet retournÃ© 
+    # n'est pas exactement le mÃªme : 
     t7[c(FALSE, TRUE, FALSE)]
     
     str(t7[c(FALSE, TRUE, FALSE)])
-    str(t7[["t5"]])
-    # Avec [ l'objet retourné est toujours une liste (la sous-liste
+    str(t7[["Porhos"]])
+    # Avec [ l'objet retournÃ© est toujours une liste (la sous-liste
     # correspondant aux positions, noms ou valeurs TRUE du vecteur
-    # logique utilisés) alors qu'avec [[ il s'agit de l'élément lui-même
-    # (ici un vecteur de type caractère).
+    # logique utilisÃ©s) alors qu'avec [[ il s'agit de l'Ã©lÃ©ment lui-mÃªme
+    # (ici un vecteur de type caractÃ¨re).
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-c. On définit la liste `t8 <- list(matrix(1:6, nrow = 2), matrix(letters[1:6], ncol = 2))`. Quelles sont les dimensions de chaque élément de la liste`r .fun("dim")` ? Combien le premier élément de la liste comporte-t-il de valeurs strictement supérieures à 1,8 en tout`r .fun("sum")` ? ligne par ligne`r .fun("rowSums")` ?
+c. On dÃ©finit la liste `t8 <- list(matrix(1:6, nrow = 2), matrix(letters[1:6], ncol = 2))`. Quelles sont les dimensions de chaque Ã©lÃ©ment de la liste`r .fun("dim")` ? Combien le premier Ã©lÃ©ment de la liste comporte-t-il de valeurs strictement supÃ©rieures Ã  1,8`r .fun("sum")` ?
 
     ```{r,results = "asis", echo = FALSE}
     .beginsol()
     ```
     ```{r}
-    # Définition de la liste t8
+    # DÃ©finition de la liste t8
     t8 <- list(matrix(1:6, nrow = 2), matrix(letters[1:6], ncol = 2))
     t8
     str(t8)
     
-    # Dimensions des éléments de t8
+    # Dimensions des Ã©lÃ©ments de t8
     dim(t8[[1]])
     dim(t8[[2]])
     
-    # Evaluation d'une clause logique et agrégation
-    # sur le premier élément de la liste t8
+    # Evaluation d'une clause logique et agrÃ©gation
+    # sur le premier Ã©lÃ©ment de la liste t8
     t8[[1]]
     t8[[1]] > 1.8
     sum(t8[[1]] > 1.8)
-    rowSums(t8[[1]] > 1.8)
     ```
     ```{r,results = "asis", echo = FALSE}
     .endsol()
     ```
 
-d. On définit la liste `t9 <- list(t7, t8)`. Quelle est la nature des éléments de la liste `t9` ? Accédez dans `t9` au premier élément de la liste correspondant à `t7``r .fun("[[")`, puis au premier élément de la liste correspondant à `t8`.
 
-    ```{r,results = "asis", echo = FALSE}
-    .beginsol()
-    ```
-    ```{r}
-    # Définition de la liste t9
-    t9 <- list(t7, t8)
-    str(t9)
-    # Note : t9 est une liste emboîtée. t9 contient deux listes, 
-    # qui elles-mêmes contiennent d'autres éléments (trois 
-    # vecteurs pour la première, deux matrices pour la seconde).
-    str(t9[[1]])
-    str(t9[[2]])
-    
-    # Accès au premier élément de la liste correspondant à t7 dans t9
-    t9[[1]]$t4
-    t9[[1]][[1]]
-    
-    # Accès au premier élément de la liste correspondant à t8 dans t9
-    t9[[2]][[1]]
-    ```
-    ```{r,results = "asis", echo = FALSE}
-    .endsol()
-    ```
+<!-- d. On dÃ©finit la liste `t9 <- list(t7, t8)`. Quelle est la nature des Ã©lÃ©ments de la liste `t9` ? Combien d'Ã©lÃ©ments le premier Ã©lÃ©ment de `t9` comporte-t-il ? Comment accÃ©driez-vous au premier Ã©lÃ©ment du deuxiÃ¨me Ã©lÃ©ment de `t9` ? -->
+
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .beginsol() -->
+<!--     ``` -->
+<!--     ```{r} -->
+<!--     # DÃ©finition de la liste t9 -->
+<!--     t9 <- list(t7, t8) -->
+<!--     t9 -->
+<!--     str(t9) -->
+<!--     # Note : t9 est une liste emboÃ®tÃ©e. t9 contient deux listes,  -->
+<!--     # qui elles-mÃªmes contiennent d'autres Ã©lÃ©ments (trois  -->
+<!--     # vecteurs pour la premiÃ¨re, deux matrices pour la seconde). -->
+<!--     str(t9[[1]]) -->
+<!--     str(t9[[2]]) -->
+
+<!--     # Nombre d'Ã©lÃ©ment du premier Ã©lÃ©ment de t9 -->
+<!--     length(t9[[1]]) -->
+
+<!--     # AccÃ¨s au premier Ã©lÃ©ment du deuxiÃ¨me Ã©lÃ©ment de t9 -->
+<!--     t9[[2]][[1]] -->
+<!--     ``` -->
+<!--     ```{r,results = "asis", echo = FALSE} -->
+<!--     .endsol() -->
+<!--     ``` -->
+
 
 ```{r, results = "asis", echo = FALSE}
-.souspartie("Effectuer des opérations sur les listes")
+.partie("Les listes : opÃ©rations")
 ```
 
-Comme pour les vecteurs, il est possible de manipuler des listes en utilisant la fonction `c()``r .fun("c")` et les **opérations ensemblistes** (fonctions `intersect()``r .fun("intersect")` et `setdiff()``r .fun("setdiff")`).
+Comme pour les vecteurs, il est possible de manipuler des listes en utilisant la fonction `c()``r .fun("c")` et les **opÃ©rations ensemblistes** (fonctions `intersect()``r .fun("intersect")` et `setdiff()``r .fun("setdiff")`).
 ```{r}
-# Création de u1 et u2
+# CrÃ©ation de u1 et u2
 u1 <- list(1:5, c("a", "b", "c"))
 u1
 u2 <- list(1:5, c(FALSE, TRUE, FALSE))
 u2
 
-# Concaténation de listes avec c()
+# ConcatÃ©nation de listes avec c()
 c(u1, u2)
 
-# Opérations ensemblistes sur des listes
+# OpÃ©rations ensemblistes sur des listes
 intersect(u1, u2)
 setdiff(u1, u2)
 setdiff(u2, u1)
@@ -2229,35 +2237,39 @@ setdiff(u2, u1)
 
 \ 
 
-De façon analogue à la fonction `apply()` pour les matrices, **la fonction `lapply()` permet d'appliquer la même fonction à chaque élément d'une liste**`r .fun("lapply", bold = TRUE)`. 
+D'autre part, la **fonction `lapply()`** permet d'**appliquer la mÃªme fonction Ã  chaque Ã©lÃ©ment d'une liste**`r .fun("lapply", bold = TRUE)`. 
 ```{r}
-# Création de la liste u3
+# CrÃ©ation de la liste u3
 u3 <- list(1:5, 6:10, 11:15)
 u3
 
-# Somme de chaque élément de la liste
+# Somme de chaque Ã©lÃ©ment de la liste
 lapply(u3, sum)
 # Note : le premier argument de lapply() la liste
-# sur les éléments de laquelle on souhaite appliquer
+# sur les Ã©lÃ©ments de laquelle on souhaite appliquer
 # une fonction et le second la fonction en question.
 
-# Extraction du second élément de chaque élément
+# Extraction du second Ã©lÃ©ment de chaque Ã©lÃ©ment
 # de la liste
 lapply(u3, function(x) x[2])
 ```
 
-Quand la chose est possible, **la fonction `sapply()` simplifie le résultat de la fonction `lapply()` pour obtenir en sortie une matrice ou un vecteur et non une liste**`r .fun("sapply", bold = TRUE)`. 
+Quand la chose est possible, **la fonction `sapply()` simplifie le rÃ©sultat de la fonction `lapply()` pour obtenir en sortie une matrice ou un vecteur et non une liste**`r .fun("sapply", bold = TRUE)`. 
 
 ```{r}
 u3
 
-# Maximum de chaque élément de la liste
-sapply(u3, max)
-# Note : la syntaxe de sapply() est identique à celle
-# de lapply().
+# Maximum de chaque Ã©lÃ©ment de la liste avec lapply()
+lapply(u3, max)
 
-# Extraction des premier et troisième éléments 
-# de chaque élément de la liste
+# Maximum de chaque Ã©lÃ©ment de la liste avec sapply()
+sapply(u3, max)
+# Note : la syntaxe de sapply() est identique Ã  celle
+# de lapply(), la seule diffÃ©rence est dans le type
+# de rÃ©sultat renvoyÃ©.
+
+# Extraction des premier et troisiÃ¨me Ã©lÃ©ments 
+# de chaque Ã©lÃ©ment de la liste
 sapply(u3, function(x) x[c(1, 3)])
 # Note : quand sapply() ne peut pas renvoyer un vecteur, 
 # il renvoie une matrice : quand sapply() ne peut pas renvoyer
@@ -2266,38 +2278,38 @@ sapply(u3, function(x) x[c(1, 3)])
 
 \ 
 
-**La fonction `do.call()` permet enfin d'appliquer une fonction à l'ensemble des éléments d'une liste**`r .fun("do.call", bold = TRUE)` sans avoir à les indiquer explicitement. Elle est particulièrement utile pour **concaténer tous les éléments d'une liste avec `cbind()` ou `rbind()`**`r .fun("rbind")``r .fun("cbind")`. 
-```{r}
-# Création de la liste u4
-u4 <- list(
-  matrix(1:10, nrow = 2)
-  , matrix(11:20, nrow = 2)
-  , matrix(21:30, nrow = 2)
-)
-u4
+<!-- **La fonction `do.call()` permet enfin d'appliquer une fonction Ã  l'ensemble des Ã©lÃ©ments d'une liste**`r .fun("do.call", bold = TRUE)` sans avoir Ã  les indiquer explicitement. Elle est particuliÃ¨rement utile pour **concatÃ©ner tous les Ã©lÃ©ments matriciels d'une liste avec `cbind()` ou `rbind()`**`r .fun("rbind", bold = TRUE)``r .fun("cbind", bold = TRUE)`. -->
+<!-- ```{r} -->
+<!-- # CrÃ©ation de la liste u4 -->
+<!-- u4 <- list( -->
+<!--   matrix(1:10, nrow = 2) -->
+<!--   , matrix(11:20, nrow = 2) -->
+<!--   , matrix(21:30, nrow = 2) -->
+<!-- ) -->
+<!-- u4 -->
 
-# Concaténation "manuelle" des éléments de u4
-rbind(u4[[1]], u4[[2]], u4[[3]])
+<!-- # ConcatÃ©nation "manuelle" des Ã©lÃ©ments de u4 -->
+<!-- rbind(u4[[1]], u4[[2]], u4[[3]]) -->
 
-# Concaténation automatique avec do.call()
-do.call(rbind, u4)
-# Note : le premier argument de do.call() est le nom
-# de la fonction à appliquer et le second la liste
-# sur laquelle l'appliquer. 
-```
+<!-- # ConcatÃ©nation automatique avec do.call() -->
+<!-- do.call(rbind, u4) -->
+<!-- # Note : le premier argument de do.call() est le nom -->
+<!-- # de la fonction Ã  appliquer et le second la liste -->
+<!-- # sur laquelle l'appliquer.  -->
+<!-- ``` -->
 
 
 ```{r,results = "asis", echo = FALSE}
-.question("Effectuer des opérations sur les listes")
+.question("Effectuer des opÃ©rations sur les listes")
 ```
 
-a. On définit les listes `v1 <- list(c(1, 2), c("a", "b", "c"), c(FALSE))` et `v2 <- list(c("k", "j"))`. Comparez `list(v1, v2)` et `c(v1, v2)`. D'où provient selon vous la différence ?`r .fun("c")`
+a. On dÃ©finit les listes `v1 <- list(c(1, 2), c("a", "b", "c"), c(FALSE))` et `v2 <- list(c("k", "j"))`. Comparez `list(v1, v2)` et `c(v1, v2)`. D'oÃ¹ provient selon vous la diffÃ©rence ?`r .fun("c")`
 
 ```{r,results = "asis", echo = FALSE}
 .beginsol()
 ```
 ```{r}
-# Création de v1 et v2
+# CrÃ©ation de v1 et v2
 v1 <- list(c(1, 2), c("a", "b", "c"), FALSE)
 str(v1)
 v2 <- list(c("k", "j"))
@@ -2307,50 +2319,50 @@ str(v2)
 str(list(v1, v2))
 str(c(v1, v2))
 
-# list(v1, v2) est une liste imbriquée : elle 
-# comporte deux éléments qui sont eux-mêmes des 
+# list(v1, v2) est une liste imbriquÃ©e : elle 
+# comporte deux Ã©lÃ©ments qui sont eux-mÃªmes des 
 # listes (comptant l'une trois vecteurs et l'autre 
 # un vecteur)
 
-# c(v1, v2) est une liste de quatre éléments contenant
-# directement les quatre mêmes vecteurs que list(v1, v2).
-# Il n'y a pas de liste imbriquée dans c(v1, v2). 
+# c(v1, v2) est une liste de quatre Ã©lÃ©ments contenant
+# directement les quatre mÃªmes vecteurs que list(v1, v2).
+# Il n'y a pas de liste imbriquÃ©e dans c(v1, v2). 
 ```
 ```{r,results = "asis", echo = FALSE}
 .endsol()
 ```
 
-b. On définit `v3 <- c(v1, v2)`. Utilisez la fonction `lapply()` avec `typeof()` pour déterminer le type de chaque élément de la liste `v3`. Comparez le résultat obtenu avec celui produit par `sapply()`.`r .fun("lapply")``r .fun("sapply")``r .fun("typeof")`
+b. On dÃ©finit `v3 <- c(v1, v2)`. Utilisez la fonction `lapply()` avec `mode()` pour dÃ©terminer le type de chaque Ã©lÃ©ment de la liste `v3`. Comparez le rÃ©sultat obtenu avec celui produit par `sapply()`.`r .fun("lapply")``r .fun("sapply")``r .fun("mode")`
 
 ```{r,results = "asis", echo = FALSE}
 .beginsol()
 ```
 ```{r}
-# Création de v3
+# CrÃ©ation de v3
 v3 <- c(v1, v2)
 
-# Pour connaître le type d'un objet, on utilise
-# la fonction typeof(). 
-typeof(v3[[2]])
-# Le lapply() va juste servir à appliquer systématiquement
-# la fonction typeof() à chaque élément de v3
-lapply(v3, typeof)
+# Pour connaÃ®tre le type d'un objet, on utilise
+# la fonction mode(). 
+mode(v3[[2]])
+# Le lapply() va juste servir Ã  appliquer systÃ©matiquement
+# la fonction mode() Ã  chaque Ã©lÃ©ment de v3
+lapply(v3, mode)
 
 # lapply() retourne toujours une liste en sortie
-str(lapply(v3, typeof))
+str(lapply(v3, mode))
 
-# Quand c'est possible, sapply() simplifie le résultat
+# Quand c'est possible, sapply() simplifie le rÃ©sultat
 # de lapply() sous la forme d'un vecteur ou d'une matrice
-sapply(v3, typeof)
+sapply(v3, mode)
 
-# Ici sapply() renvoie un vecteur de type caractère
-str(sapply(v3, typeof))
+# Ici sapply() renvoie un vecteur de type caractÃ¨re
+str(sapply(v3, mode))
 ```
 ```{r,results = "asis", echo = FALSE}
 .endsol()
 ```
 
-c. (Optionnel) En vous inspirant de la question précédente, extrayez automatiquement de `v3` la sous-liste des objets de type caractère.`r .fun("sapply")``r .fun("is.character")`
+c. En vous inspirant de la question prÃ©cÃ©dente, extrayez automatiquement de `v3` la sous-liste des objets de type caractÃ¨re.`r .fun("sapply")``r .fun("is.character")`
 
 ```{r,results = "asis", echo = FALSE}
 .beginsol()
@@ -2358,19 +2370,19 @@ c. (Optionnel) En vous inspirant de la question précédente, extrayez automatique
 ```{r}
 v3
 
-# Pour sélectionner une sous-liste à partir d'une
-# liste, il suffit d'utiliser l'opérateur [
+# Pour sÃ©lectionner une sous-liste Ã  partir d'une
+# liste, il suffit d'utiliser l'opÃ©rateur [
 v3[c(TRUE, TRUE, FALSE, FALSE)]
 
 # L'objectif est alors de produire un vecteur logique 
-# permettant d'identifier les éléments de type caractère 
+# permettant d'identifier les Ã©lÃ©ments de type caractÃ¨re 
 # de v3. 
 
-# Méthode 1 : avec typeof()
-sapply(v3, typeof) == "character"
-v3[sapply(v3, typeof) == "character"]
+# MÃ©thode 1 : avec mode()
+sapply(v3, mode) == "character"
+v3[sapply(v3, mode) == "character"]
 
-# Méthode 2 : avec is.character()
+# MÃ©thode 2 : avec is.character()
 sapply(v3, is.character)
 v3[sapply(v3, is.character)]
 
@@ -2379,36 +2391,36 @@ v3[sapply(v3, is.character)]
 .endsol()
 ```
 
-d. (Optionnel) Que renvoie `unlist(v3)``r .fun("unlist", bold = TRUE)` ? Que fait la fonction `unlist()` à votre avis (pensez à utiliser l'aide avec `?`) ? En utilisant la fonction `do.call()``r .fun("do.call")`, reproduisez le comportement de `unlist()` (au moins dans le cas simple de `v3`). 
+<!-- d. (Optionnel) Que renvoie `unlist(v3)``r .fun("unlist", bold = TRUE)` ? Que fait la fonction `unlist()` Ã  votre avis (pensez Ã  utiliser l'aide avec `?`) ? En utilisant la fonction `do.call()``r .fun("do.call")`, reproduisez le comportement de `unlist()` (au moins dans le cas simple de `v3`).  -->
 
-```{r,results = "asis", echo = FALSE}
-.beginsol()
-```
-```{r}
-str(v3)
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .beginsol() -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- str(v3) -->
 
-# Test de unlist(v3)
-unlist(v3)
-# Il est clair que unlist() (comme son nom l'indique)
-# va chercher à transformer une liste en un objet plus
-# simple, en l'occurrence un vecteur. 
+<!-- # Test de unlist(v3) -->
+<!-- unlist(v3) -->
+<!-- # Il est clair que unlist() (comme son nom l'indique) -->
+<!-- # va chercher Ã  transformer une liste en un objet plus -->
+<!-- # simple, en l'occurrence un vecteur.  -->
 
-# On a vu que quand on dispose de deux vecteurs, 
-# il suffit d'utiliser la fonction c() pour les
-# concaténer
-c(1:2, rep(3, times = 5))
+<!-- # On a vu que quand on dispose de deux vecteurs,  -->
+<!-- # il suffit d'utiliser la fonction c() pour les -->
+<!-- # concatÃ©ner -->
+<!-- c(1:2, rep(3, times = 5)) -->
 
-# On peut ainsi obtenir le même résultat que unlist()
-# en appliquant la fonction c() à tous les éléments de v3
-c(v3[[1]], v3[[2]], v3[[3]], v3[[4]])
+<!-- # On peut ainsi obtenir le mÃªme rÃ©sultat que unlist() -->
+<!-- # en appliquant la fonction c() Ã  tous les Ã©lÃ©ments de v3 -->
+<!-- c(v3[[1]], v3[[2]], v3[[3]], v3[[4]]) -->
 
-# Pour appliquer automatiquement la fonction c()) v3, 
-# on peut utiliser la fonction do.call()
-do.call(c, v3)
-# Note : le premier argument de do.call() est le nom
-# de la fonction à appliquer (ici la fonction c()) et 
-# le second la liste sur laquelle l'appliquer (ici v3).
-```
-```{r,results = "asis", echo = FALSE}
-.endsol()
-```
+<!-- # Pour appliquer automatiquement la fonction c()) v3,  -->
+<!-- # on peut utiliser la fonction do.call() -->
+<!-- do.call(c, v3) -->
+<!-- # Note : le premier argument de do.call() est le nom -->
+<!-- # de la fonction Ã  appliquer (ici la fonction c()) et  -->
+<!-- # le second la liste sur laquelle l'appliquer (ici v3). -->
+<!-- ``` -->
+<!-- ```{r,results = "asis", echo = FALSE} -->
+<!-- .endsol() -->
+<!-- ``` -->
