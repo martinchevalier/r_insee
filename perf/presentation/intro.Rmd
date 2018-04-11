@@ -44,7 +44,7 @@ En pratique, les deux **vont de pair** : en découvrant de nouvelles fonctions, 
 
 \pause 
 
-**Remarque** Pour afficher l'aide sur une fonction d'un *package*, il faut que celui-ci soit au préalable chargé (avec `library()` ou `require()`).
+\intertitre{Remarque} Pour afficher l'aide sur une fonction d'un *package*, il faut que celui-ci soit au préalable chargé (avec `library()` ou `require()`).
 
 \pause La fonction `help.search()` ou la commande `??` permettent d'effectuer une recherche approximative:
 
@@ -116,7 +116,7 @@ Une des principales forces de R est d'être un langage hautement modulaire compt
 
 \pause Toutes les informations sur un *package* sont accessibles sur sa page du *Comprehensive R Archive Network* (CRAN). 
 
-**Exemple** https://CRAN.R-project.org/package=haven
+\intertitre{Exemple} https://CRAN.R-project.org/package=haven
 
 \pause \bigskip On trouve en particulier sur cette page:
 
@@ -133,13 +133,13 @@ Les données nécessaires sont téléchargées depuis un des dépôts du CRAN (*
 
 C'est la **méthode à privilégier**:  les dépendances nécessaires au bon fonctionnement du *package* sont détectées et automatiquement installées.
 
-\pause 
+<!-- \pause  -->
 
-**Remarque** Cette méthode fonctionne à l'Insee:
+<!-- \intertitre{Remarque} Cette méthode fonctionne à l'Insee: -->
 
-- pour les installations locales de R sur les postes de travail;
-- sur AUS, *via* un dépôt local spécifique;
-- mais PAS sur les sessions des postes de formation.
+<!-- - pour les installations locales de R sur les postes de travail; -->
+<!-- - sur AUS, *via* un dépôt local spécifique; -->
+<!-- - mais PAS sur les sessions des postes de formation. -->
 
 ### Installer un *package* manuellement
 
@@ -169,7 +169,7 @@ En règle générale, le développement de *packages* s'appuie sur des plate-for
 - des informations sur son développement; 
 - une zone pour rapporter d'éventuels *bugs* (*bug reports*).
 
-**Exemple** https://github.com/tidyverse/haven 
+\intertitre{Exemple} https://github.com/tidyverse/haven 
 
 \pause La fonction `install_github()` du *package* `devtools` permet d'installer un *package* directement depuis GitHub.
 

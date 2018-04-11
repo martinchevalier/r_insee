@@ -8,15 +8,15 @@
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
 \else % if luatex or xelatex
-\ifxetex
-\usepackage{mathspec}
-\else
-\usepackage{fontspec}
-\fi
-\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -26,6 +26,11 @@
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \newif\ifbibliography
+\hypersetup{
+            pdftitle={Formation R Perfectionnement},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -33,37 +38,37 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
 \newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
-\newcommand{\DataTypeTok}[1]{{#1}}
-\newcommand{\DecValTok}[1]{{#1}}
-\newcommand{\BaseNTok}[1]{{#1}}
-\newcommand{\FloatTok}[1]{{#1}}
-\newcommand{\ConstantTok}[1]{{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
-\newcommand{\FunctionTok}[1]{{#1}}
-\newcommand{\VariableTok}[1]{{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{{#1}}}
-\newcommand{\OperatorTok}[1]{{#1}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{{#1}}}
-\newcommand{\AttributeTok}[1]{{#1}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{{#1}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\DataTypeTok}[1]{#1}
+\newcommand{\DecValTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{#1}
+\newcommand{\FloatTok}[1]{#1}
+\newcommand{\ConstantTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.00,0.50,0.50}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{#1}
+\newcommand{\VariableTok}[1]{#1}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\OperatorTok}[1]{#1}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.25,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{#1}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
 \usepackage{caption}
 % These lines are needed to make table captions work with longtable:
@@ -85,29 +90,29 @@
 \raggedbottom
 
 \AtBeginPart{
-\let\insertpartnumber\relax
-\let\partname\relax
-\frame{\partpage}
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
 }
 \AtBeginSection{
-\ifbibliography
-\else
-\let\insertsectionnumber\relax
-\let\sectionname\relax
-\frame{\sectionpage}
-\fi
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
 }
 \AtBeginSubsection{
-\let\insertsubsectionnumber\relax
-\let\subsectionname\relax
-\frame{\subsectionpage}
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
 }
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
-\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{0}
 
 \usepackage[french]{babel}
@@ -123,6 +128,8 @@
 \usepackage{colortbl}
 \usepackage{epstopdf}
 \usepackage{framed}
+
+
 
 \definecolor{shadecolor}{RGB}{248,248,248}
 \definecolor{grayInsee}{HTML}{5a5758}
@@ -182,7 +189,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{21-22 juin 2017}
+\author{Drees -- 16-17 avril 2018}
 
 \date{}
 
@@ -191,6 +198,8 @@
 \newcommand{\aparte}[2]{
 	{\small\textsf{\textbf{#1} #2}}
 }
+
+\newcommand{\intertitre}[1]{\textcolor{redInsee}{\textbf{#1}}}
 
 %\usepackage{enumitem}
 %\setlist{nolistsep}
@@ -235,10 +244,8 @@ R}\label{generer-automatiquement-des-documents-depuis-r}
   réutilisation future : statistiques pour une étude, traitements
   réalisés lors d'une réunion de travail, etc.
 
-  \vspace{0.2cm}
-
-  \small  \textbf{Remarque} Utilisation analogue à celle permise par les
-  instructions \textcolor{blue}{\texttt{ODS RTF}} ou
+  \vspace{0.2cm} \small  \textbf{Remarque} Utilisation analogue à celle
+  permise par les instructions \textcolor{blue}{\texttt{ODS RTF}} ou
   \textcolor{blue}{\texttt{ODS PDF}} de SAS.
 \end{itemize}
 
@@ -324,9 +331,9 @@ documents}
 \end{tikzpicture}
 
 \raggedright
-\pause[9] \textbf{Note} \texttt{rmarkdown} et \texttt{knitr} sont des
-\emph{packages} R (avec plusieurs dépendances); pandoc et LaTeX sont des
-programmes autonomes.
+\pause[9] \intertitre{Note} \texttt{rmarkdown} et \texttt{knitr} sont
+des \emph{packages} R (avec plusieurs dépendances); pandoc et LaTeX sont
+des programmes autonomes.
 
 \end{frame}
 
@@ -418,7 +425,7 @@ document :
 
 \pause 
 
-\textbf{Note} Pour une présentation synthétique de R Markdown, se
+\intertitre{Note} Pour une présentation synthétique de R Markdown, se
 référer à
 l'\href{https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf}{\underline{aide-mémoire}}
 (\emph{cheat sheet}) sur le site de RStudio.
@@ -440,7 +447,7 @@ que ses résultats sont affichés} dans le document en sortie :
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DecValTok{2} \NormalTok{+}\StringTok{ }\DecValTok{2}
+\DecValTok{2} \OperatorTok{+}\StringTok{ }\DecValTok{2}
 \end{Highlighting}
 \end{Shaded}
 
@@ -479,8 +486,8 @@ Les \textbf{options} saisies en début de bloc permettent de préciser à
 
 \pause 
 
-\textbf{Note} Toutes les options de \texttt{knitr} relatives aux blocs
-de code (\emph{chunk options}) sont présentées sur la
+\intertitre{Note} Toutes les options de \texttt{knitr} relatives aux
+blocs de code (\emph{chunk options}) sont présentées sur la
 \href{http://yihui.name/knitr/options/}{\underline{page}} du créateur du
 \emph{package}, Yihui Xie.
 
@@ -497,14 +504,14 @@ le corps d'un paragraphe avec la syntaxe :
 
 \pause 
 
-\textbf{Exemple} Pour intégrer dans le texte la date de compilation du
-document, utiliser
+\intertitre{Exemple} Pour intégrer dans le texte la date de compilation
+du document, utiliser
 
 \begin{verbatim}
 Document compilé le `r Sys.Date()`.
 \end{verbatim}
 
-\pause Document compilé le 2017-06-21.
+\pause Document compilé le 2018-04-10.
 
 \end{frame}
 
@@ -686,8 +693,8 @@ output:
 
 \pause \normalsize
 
-\textbf{Pour en savoir plus} Le site de RStudio documente le paramétrage
-de l'en-tête YAML selon les formats de sortie souhaités
+\intertitre{Pour en savoir plus} Le site de RStudio documente le
+paramétrage de l'en-tête YAML selon les formats de sortie souhaités
 (\href{http://rmarkdown.rstudio.com/html_document_format.html}{\underline{\texttt{html}}},
 \href{http://rmarkdown.rstudio.com/pdf_document_format.html}{\underline{\texttt{pdf}}}).
 

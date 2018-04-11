@@ -79,7 +79,7 @@ La création de graphiques avec le *package* de base `graphics` s'appuie sur la 
 
 \pause 
 
-**Pour en savoir plus** Le site [\underline{statmethods.net}](http://www.statmethods.net/graphs/) recense et illustre la plupart des fonctions du *package* `graphics`.
+\intertitre{Pour en savoir plus} Le site [\underline{statmethods.net}](http://www.statmethods.net/graphs/) recense et illustre la plupart des fonctions du *package* `graphics`.
 
 ### Histogrammes et densités
 
@@ -99,7 +99,7 @@ Les fonctions `histogram()` et `density()` calculent les statistiques ensuite ut
 
 \pause
 
-**Remarque** L'argument `plot` de la fonction `hist()` (`TRUE` par défaut) affiche automatiquement un graphique, sans avoir à appeler explicitement la fonction `plot()`.
+\intertitre{Remarque} L'argument `plot` de la fonction `hist()` (`TRUE` par défaut) affiche automatiquement un graphique, sans avoir à appeler explicitement la fonction `plot()`.
 
 ### Histogrammes et densités
 
@@ -152,7 +152,7 @@ La fonction `table()` permet de calculer les statistiques utilisées ensuite par
 
 \pause
 
-**Remarque** Quand `barplot()` est appliqué à un tri croisé, la couleur des barres varie et les paramètres deviennent utiles : 
+\intertitre{Remarque} Quand `barplot()` est appliqué à un tri croisé, la couleur des barres varie et les paramètres deviennent utiles : 
 \vspace{-3mm}
 
 - `beside` : position des barres;
@@ -210,7 +210,7 @@ Pour certaines formes (`pch` entre 21 et 25), il est également possible de modi
 
 ### Couleur, forme et taille des objets
 
-**Remarque** : la palette de couleurs accessibles en utilisant des entiers est réduite. Il est possible de l'étendre considérablement *via* la fonction `colors()`. 
+\intertitre{Remarque} : la palette de couleurs accessibles en utilisant des entiers est réduite. Il est possible de l'étendre considérablement *via* la fonction `colors()`. 
 
 \small
 ```{r}
@@ -260,7 +260,7 @@ Les titres sont paramétrés à l'aide des fonctions suivantes :
 
 \pause 
 
-**Remarque** Pour produire un graphique sans axe et les rajouter après, utiliser l'option `axes = FALSE` de la fonction `plot()`. 
+\intertitre{Remarque} Pour produire un graphique sans axe et les rajouter après, utiliser l'option `axes = FALSE` de la fonction `plot()`. 
 
 ### Combinaison de plusieurs graphiques
 
@@ -275,7 +275,7 @@ Par défaut l'utilisation de la fonction `plot()` produit un nouveau graphique.
 
 \pause 
 
-**Exemple** Ajout d'une droite de régression au graphique de `hwy` par `displ`. 
+\intertitre{Exemple} Ajout d'une droite de régression au graphique de `hwy` par `displ`. 
 
 ### Combinaison de plusieurs graphiques
 
@@ -335,7 +335,7 @@ dev.off()
 
 \pause 
 
-**Remarque** Les graphiques peuvent également facilement être exportés depuis RStudio en utilisant les menus prévus à cet effet. 
+\intertitre{Remarque} Les graphiques peuvent également facilement être exportés depuis RStudio en utilisant les menus prévus à cet effet. 
 
 ## Réaliser des graphiques avec \protect\texttt{ggplot2}
 
@@ -352,7 +352,7 @@ Comme les éléments du langage, les **composants élémentaires** d'un graphiqu
 
 \pause 
 
-**Pour aller plus loin** \textsc{Wilkinson L.} (2005) \textit{The Grammar of Graphics}, Springer,  [\underline{ggplot2: elegant graphics for data analysis}](https://github.com/hadley/ggplot2-book)
+\intertitre{Pour aller plus loin} \textsc{Wilkinson L.} (2005) \textit{The Grammar of Graphics}, Springer,  [\underline{ggplot2: elegant graphics for data analysis}](https://github.com/hadley/ggplot2-book)
 
 ### \large Les trois composants essentiels d'un graphique
 
@@ -364,7 +364,7 @@ La construction d'un graphique avec `ggplot2` fait intervenir trois composants e
 
 \pause 
 
-**Exemple** *Miles per gallon* sur l'autoroute en fonction de la cylindrée.
+\intertitre{Exemple} *Miles per gallon* sur l'autoroute en fonction de la cylindrée.
 
 \center \small 
 ```{r, eval = FALSE}
@@ -654,6 +654,7 @@ ggplot(data = mpg, mapping = aes(displ, hwy)) +
 ggplot(data = mpg, mapping = aes(displ, hwy)) + 
   geom_point() + stat_smooth(method = "lm", se = FALSE)
 ```
+
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
 À chaque fonction `geom_*()` est assocée un paramètre `stat` par défaut, et à chaque fonction `stat_*()` un `geom` par défaut.
@@ -699,7 +700,7 @@ ggplot(mpg, aes(hwy)) + geom_histogram()
 
 \pause \raggedright \small \vspace{-0.3cm}
 
-**Remarque** Le positionnement des classes des histogrammes semble perturbé dans les dernières versions de `ggplot2` : le paramètre `boundary` permet de corriger ce problème (*cf.* [\underline{cette discussion}](http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins)).
+\intertitre{Remarque} Le positionnement des classes des histogrammes semble perturbé dans les dernières versions de `ggplot2` : le paramètre `boundary` permet de corriger ce problème (*cf.* [\underline{cette discussion}](http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins)).
 
 ### Histogrammes et densités
 
@@ -780,7 +781,7 @@ g + coord_polar(theta = "y") + theme_minimal() +
 
 \pause \raggedright \small
 
-**Pour aller plus loin** Une page du site [\underline{sthda.com}](http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) explique (en français) comment produire un diagramme circulaire complet avec `ggplot2`.
+\intertitre{Pour aller plus loin} Une page du site [\underline{sthda.com}](http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) explique (en français) comment produire un diagramme circulaire complet avec `ggplot2`.
 
 ### Diagrammes en bâtons et circulaires
 

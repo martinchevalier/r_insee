@@ -189,7 +189,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{15-16 janvier 2018}
+\author{Drees -- 16-17 avril 2018}
 
 \date{}
 
@@ -198,6 +198,8 @@
 \newcommand{\aparte}[2]{
 	{\small\textsf{\textbf{#1} #2}}
 }
+
+\newcommand{\intertitre}[1]{\textcolor{redInsee}{\textbf{#1}}}
 
 %\usepackage{enumitem}
 %\setlist{nolistsep}
@@ -249,70 +251,47 @@ largement utilisés.
 Prendre du recul sur le logiciel, comprendre certains modes de
 fonctionnement complexes.
 
-\end{frame}
-
-\begin{frame}[fragile]{~}
-
-\large 
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Travailler sur des données dans R :
-
-  \begin{itemize}
-  \tightlist
-  \item
-    travailler efficacement (+++);
-  \item
-    améliorer les performances (+++);
-  \item
-    programmer avec R (++);
-  \item
-    interroger des bases de données (+).
-  \end{itemize}
-\item
-  \pause Présenter des résultats avec R :
-
-  \begin{itemize}
-  \tightlist
-  \item
-    faire des graphiques avec base R et \texttt{ggplot2} (++);
-  \item
-    faire du reporting (+).
-  \end{itemize}
-\end{enumerate}
-
-\normalsize \pause
-
-\textbf{Pédagogie} : équilibre entre présentations et cas pratiques.
-
-\textbf{Horaires (proposition !)} : 9h30-12h20, 13h40-16h30
+\bigskip \pause \(\Rightarrow\) Mettre en place des
+\intertitre{fondations solides} pour permettre votre progression dans
+l'utilisation du logiciel R.
 
 \end{frame}
 
 \begin{frame}[fragile]{~}
 
-\large
+\intertitre{Pédagogie} : équilibre entre présentations et cas pratiques
+(disponibles sur la page \href{http://t.slmc.fr/perf}{t.slmc.fr/perf}).
 
-Lundi 15 janvier
+\pause 
+
+\intertitre{Horaires (proposition !)} : 9h30-12h30 (pause vers 11h),
+13h45-17h00 (pause vers 15h15)
+
+\pause \bigskip 
+
+\intertitre{Lundi 16 avril}
 
 \begin{itemize}
 \tightlist
 \item
-  Introduction + Travailler sur des données 1 (2h)
+  \vspace{-0.2cm} Introduction + Travailler sur des données avec R 1
+  (généralités, \texttt{*apply()}, etc.) (2h)
 \item
   Cas pratiques (2h)
 \item
-  Faire des graphiques avec \texttt{ggplot2} (2h)
+  Faire des graphiques avec \texttt{ggplot2} et des rapports avec R
+  Markdown (2h)
 \end{itemize}
 
-\pause Mardi 16 janvier
+\pause 
+
+\intertitre{Mardi 17 avril}
 
 \begin{itemize}
 \tightlist
 \item
-  Travailler sur des données 2 + R Markdown (2h)
+  \vspace{-0.2cm} Travailler sur des données 2 avec R (optimisations
+  avec base R, dplyr, data.table) (2h)
 \item
   Cas pratiques (au choix, 4h)
 \end{itemize}
@@ -372,7 +351,7 @@ l'aide}\label{chercher-et-trouver-de-laide}
 
 \pause 
 
-\textbf{Remarque} Pour afficher l'aide sur une fonction d'un
+\intertitre{Remarque} Pour afficher l'aide sur une fonction d'un
 \emph{package}, il faut que celui-ci soit au préalable chargé (avec
 \texttt{library()} ou \texttt{require()}).
 
@@ -427,7 +406,7 @@ comprendre d'où vient le problème.
 \NormalTok{  ##     fill = TRUE, comment.char = "", ...) }
 \NormalTok{  ## read.table(file = file, header = header, sep = sep, quote = quote, }
 \NormalTok{  ##     dec = dec, fill = fill, comment.char = comment.char, ...)}
-\NormalTok{  ## <bytecode: 0x873b900>}
+\NormalTok{  ## <bytecode: 0x8883a98>}
 \NormalTok{  ## <environment: namespace:utils>}
 \end{Highlighting}
 \end{Shaded}
@@ -468,6 +447,7 @@ des thèmes variés:
 \href{https://cran.r-project.org/web/views/MachineLearning.html}{MachineLearning},
 \href{https://cran.r-project.org/web/views/MedicalImaging.html}{MedicalImaging},
 \href{https://cran.r-project.org/web/views/MetaAnalysis.html}{MetaAnalysis},
+\href{https://cran.r-project.org/web/views/ModelDeployment.html}{ModelDeployment},
 \href{https://cran.r-project.org/web/views/Multivariate.html}{Multivariate},
 \href{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html}{NaturalLanguageProcessing},
 \href{https://cran.r-project.org/web/views/NumericalMathematics.html}{NumericalMathematics},
@@ -528,12 +508,12 @@ l'enseignement des fonctionnalités de R, comme par exemple :
 
 Une des principales forces de R est d'être un langage hautement
 modulaire comptant \textbf{plusieurs milliers de \emph{packages}} (12
-094 au 26/01/2018).
+416 au 10/04/2018).
 
 \pause Toutes les informations sur un \emph{package} sont accessibles
 sur sa page du \emph{Comprehensive R Archive Network} (CRAN).
 
-\textbf{Exemple} \url{https://CRAN.R-project.org/package=haven}
+\intertitre{Exemple} \url{https://CRAN.R-project.org/package=haven}
 
 \pause \bigskip On trouve en particulier sur cette page:
 
@@ -564,20 +544,6 @@ Les données nécessaires sont téléchargées depuis un des dépôts du CRAN
 C'est la \textbf{méthode à privilégier}: les dépendances nécessaires au
 bon fonctionnement du \emph{package} sont détectées et automatiquement
 installées.
-
-\pause 
-
-\textbf{Remarque} Cette méthode fonctionne à l'Insee:
-
-\begin{itemize}
-\tightlist
-\item
-  pour les installations locales de R sur les postes de travail;
-\item
-  sur AUS, \emph{via} un dépôt local spécifique;
-\item
-  mais PAS sur les sessions des postes de formation.
-\end{itemize}
 
 \end{frame}
 
@@ -626,7 +592,7 @@ plusieurs informations préciseuses :
   une zone pour rapporter d'éventuels \emph{bugs} (\emph{bug reports}).
 \end{itemize}
 
-\textbf{Exemple} \url{https://github.com/tidyverse/haven}
+\intertitre{Exemple} \url{https://github.com/tidyverse/haven}
 
 \pause La fonction \texttt{install\_github()} du \emph{package}
 \texttt{devtools} permet d'installer un \emph{package} directement
@@ -694,9 +660,9 @@ deux significations distinctes :
 efficace algorithmiquement, plus la programmation risque d'être longue
 et difficile.
 
-\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de
-temps à (ré)inventer une méthode peu efficace quand une beaucoup plus
-simple et rapide existe déjà.
+\pause \intertitre{Ce n'est pas toujours vrai} : on perd souvent
+beaucoup de temps à (ré)inventer une méthode peu efficace quand une
+beaucoup plus simple et rapide existe déjà.
 
 \pause \small
 
@@ -717,7 +683,7 @@ traitement.
 \begin{Highlighting}[]
 \KeywordTok{system.time}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
 \NormalTok{  ## utilisateur     système      écoulé }
-\NormalTok{  ##        0.07        0.00        0.07}
+\NormalTok{  ##       0.072       0.000       0.072}
 \end{Highlighting}
 \end{Shaded}
 
@@ -733,10 +699,10 @@ package \texttt{microbenchmark}.
 \KeywordTok{library}\NormalTok{(microbenchmark)}
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}\NormalTok{, }\KeywordTok{rnorm}\NormalTok{(}\FloatTok{1e6}\NormalTok{))}
 \NormalTok{  ## Unit: milliseconds}
-\NormalTok{  ##          expr      min       lq     mean   median}
-\NormalTok{  ##  rnorm(1e+06) 70.50072 75.59383 83.88297 85.28535}
+\NormalTok{  ##          expr      min       lq    mean median}
+\NormalTok{  ##  rnorm(1e+06) 68.16277 68.84521 69.0792 68.892}
 \NormalTok{  ##        uq      max neval}
-\NormalTok{  ##  90.59321 95.62014    10}
+\NormalTok{  ##  69.05627 70.45888    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -891,7 +857,7 @@ Des valeurs par défaut peuvent être renseignées pour les paramètres.
 \end{Highlighting}
 \end{Shaded}
 
-\pause \textbf{Remarque} Ceci est la conséquence de la \emph{lazy
+\pause \intertitre{Remarque} Ceci est la conséquence de la \emph{lazy
 evaluation} des arguments dans R (\emph{cf.}
 \href{http://adv-r.had.co.nz/Functions.html\#function-arguments}{\underline{\textit{Advanced R}}}).
 
@@ -967,9 +933,9 @@ créé.
 \begin{Highlighting}[]
 \NormalTok{maFun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() }\KeywordTok{environment}\NormalTok{()}
 \KeywordTok{maFun}\NormalTok{()}
-\NormalTok{  ## <environment: 0xae9f8a8>}
+\NormalTok{  ## <environment: 0xb82b160>}
 \KeywordTok{maFun}\NormalTok{()}
-\NormalTok{  ## <environment: 0xae552b0>}
+\NormalTok{  ## <environment: 0xb667210>}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1017,7 +983,7 @@ Ceci est dû au fait que les environnements dans lequel R recherche des
 objets sont \textbf{emboîtés les uns dans les autres} (\textit{cf.} la
 fonction \texttt{search()}).
 
-\textbf{Pour en savoir plus}
+\intertitre{Pour en savoir plus}
 \href{http://adv-r.had.co.nz/Environments.html\#function-envs}{\underline{\textit{Advanced R}}},
 \href{http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/}{\underline{obeautifulcode.com}}
 
@@ -1117,7 +1083,7 @@ fonctionnelle}
 
 \vfill
 
-\pause \textbf{Pour en savoir plus}
+\pause \intertitre{Pour en savoir plus}
 \href{https://en.wikipedia.org/wiki/FP_(programming_language)}{\underline{Wikipedia}},
 \href{https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming}{\underline{maryrosecook.com}}.
 
@@ -1188,7 +1154,7 @@ au \textbf{vecteur} ou à la \textbf{liste} \texttt{X}.
 
 \pause \small \vspace{-0.2cm}
 
-\textbf{Exemple d'utilisation} Appliquer une fonction à toutes les
+\intertitre{Exemple d'utilisation} Appliquer une fonction à toutes les
 variables d'une table.
 
 \end{frame}
@@ -1217,8 +1183,8 @@ ajoutés à la suite dans toutes les fonctions \texttt{*apply()}.
 \end{Highlighting}
 \end{Shaded}
 
-\pause \textbf{Exemple d'utilisation} Calcul de statistiques sur toutes
-les variables d'une table.
+\pause \intertitre{Exemple d'utilisation} Calcul de statistiques sur
+toutes les variables d'une table.
 
 \end{frame}
 
@@ -1281,7 +1247,7 @@ La fonction \texttt{tapply(X,\ INDEX,\ FUN)} applique la fonction
 
 \normalsize \pause \vspace{-0.2cm}
 
-\textbf{Exemple d'utilisation} Calcul de statistiques agrégées par
+\intertitre{Exemple d'utilisation} Calcul de statistiques agrégées par
 catégories.
 
 \end{frame}
@@ -1310,7 +1276,7 @@ appliqueraient \texttt{what()} à \textbf{chaque} élément de
 
 \pause \normalsize
 
-\textbf{Exemple d'utilisation} Concaténer de nombreuses tables avec
+\intertitre{Exemple d'utilisation} Concaténer de nombreuses tables avec
 \texttt{rbind()} ou \texttt{cbind()}.
 
 \end{frame}
@@ -1339,7 +1305,7 @@ La fonction \texttt{Reduce(f,\ x)} permet d'appliquer la fonction
 
 \pause \normalsize
 
-\textbf{Exemple d'utilisation} Fusionner de nombreuses tables avec
+\intertitre{Exemple d'utilisation} Fusionner de nombreuses tables avec
 \texttt{merge()} (sur les mêmes identifiants).
 
 \end{frame}
@@ -1370,8 +1336,8 @@ pour retomber au plus vite sur des fonctions pré-compilées.
 
 \pause \vfill
 
-\textbf{Remarque} Il est très facile en pratique d'utiliser R comme une
-interface vers des langages de plus bas niveau, \emph{cf.~infra} à
+\intertitre{Remarque} Il est très facile en pratique d'utiliser R comme
+une interface vers des langages de plus bas niveau, \emph{cf.~infra} à
 propos de \texttt{Rcpp}.
 
 \end{frame}
@@ -1437,9 +1403,9 @@ que les boucles en R :
 \NormalTok{  , }\DataTypeTok{cumsum =} \KeywordTok{cumsum}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)}
 \NormalTok{))[, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
 \NormalTok{  ##     expr       min        lq       mean}
-\NormalTok{  ## 1 boucle 18686.838 20569.758 21284.5156}
-\NormalTok{  ## 2 Reduce  6402.722  6963.981  8102.1192}
-\NormalTok{  ## 3 cumsum    37.218    38.982    46.4275}
+\NormalTok{  ## 1 boucle 15751.411 16676.220 17342.6323}
+\NormalTok{  ## 2 Reduce  5828.524  5945.065  6662.3951}
+\NormalTok{  ## 3 cumsum    37.019    39.746    47.2646}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1474,11 +1440,11 @@ néanmoins de \textbf{compiler} des fonctions R avant utilisation.
 \KeywordTok{microbenchmark}\NormalTok{(}\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{), }\KeywordTok{boucle_compil}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{))}
 \NormalTok{  ## Unit: milliseconds}
 \NormalTok{  ##                    expr       min        lq      mean}
-\NormalTok{  ##         boucle(1:10000) 18.256964 22.946919 28.623216}
-\NormalTok{  ##  boucle_compil(1:10000)  1.673866  1.907869  2.841323}
+\NormalTok{  ##         boucle(1:10000) 15.805389 17.005351 17.874497}
+\NormalTok{  ##  boucle_compil(1:10000)  1.588799  1.722751  1.750571}
 \NormalTok{  ##     median        uq       max neval}
-\NormalTok{  ##  28.101686 32.983239 49.743687   100}
-\NormalTok{  ##   2.591686  3.598628  6.182954   100}
+\NormalTok{  ##  17.697739 18.263382 21.722003   100}
+\NormalTok{  ##   1.738325  1.765799  2.212019   100}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1504,12 +1470,12 @@ la fonction \texttt{compiler::enableJIT()} en spécifiant le
 \NormalTok{  ## [1] 0}
 \KeywordTok{summary}\NormalTok{(}\KeywordTok{microbenchmark}\NormalTok{(}\KeywordTok{boucle}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{), }\KeywordTok{boucle_compil}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\FloatTok{1e4}\NormalTok{)))[, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{]}
 \NormalTok{  ##                     expr      min       lq     mean}
-\NormalTok{  ## 1        boucle(1:10000) 1.683376 1.806746 2.656830}
-\NormalTok{  ## 2 boucle_compil(1:10000) 1.678782 1.907039 2.755148}
+\NormalTok{  ## 1        boucle(1:10000) 1.582040 1.603213 1.729375}
+\NormalTok{  ## 2 boucle_compil(1:10000) 1.585057 1.609157 1.657959}
 \end{Highlighting}
 \end{Shaded}
 
-\pause \small \textbf{Remarque} Depuis R 3.4.0, \texttt{enableJIT()}
+\pause \small \intertitre{Remarque} Depuis R 3.4.0, \texttt{enableJIT()}
 vaut 3 par défaut.
 
 \end{frame}
@@ -1546,12 +1512,12 @@ Il est néanmoins beaucoup plus efficace d'utiliser l'opérateur
 \NormalTok{  \} }
 \NormalTok{)}
 \NormalTok{  ## Unit: milliseconds}
-\NormalTok{  ##    expr       min       lq      mean    median}
-\NormalTok{  ##  ifelse 36.374660 46.54510 70.446984 51.274090}
-\NormalTok{  ##       [  1.636993  1.95378  2.749823  2.353574}
-\NormalTok{  ##         uq        max neval}
-\NormalTok{  ##  54.188208 262.560529    10}
-\NormalTok{  ##   3.586164   5.333204    10}
+\NormalTok{  ##    expr      min        lq     mean    median}
+\NormalTok{  ##  ifelse 26.25032 26.321084 26.71476 26.460366}
+\NormalTok{  ##       [  1.39027  1.431458  1.51165  1.470771}
+\NormalTok{  ##         uq       max neval}
+\NormalTok{  ##  26.714720 28.400851    10}
+\NormalTok{  ##   1.567792  1.750101    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1598,7 +1564,7 @@ Utiliser des noms est une méthode souvent \textbf{très rapide} pour
 
 \pause 
 
-\textbf{Exemple} On cherche à extraire les observations d'une table
+\intertitre{Exemple} On cherche à extraire les observations d'une table
 \emph{via} leur identifiant \texttt{id}. On compare l'utilisation des
 noms à une fusion réalisée avec \texttt{merge()}.
 
@@ -1633,12 +1599,12 @@ noms à une fusion réalisée avec \texttt{merge()}.
 \NormalTok{  , }\DataTypeTok{names =}\NormalTok{ df[extract, ]}
 \NormalTok{)}
 \NormalTok{  ## Unit: milliseconds}
-\NormalTok{  ##   expr       min        lq      mean    median}
-\NormalTok{  ##  merge 16.127307 17.827670 20.804243 20.165223}
-\NormalTok{  ##  names  3.395627  3.473018  3.678273  3.575197}
+\NormalTok{  ##   expr       min        lq     mean    median}
+\NormalTok{  ##  merge 14.794181 15.264378 15.40527 15.437613}
+\NormalTok{  ##  names  2.611688  2.655904  2.81817  2.736901}
 \NormalTok{  ##         uq       max neval}
-\NormalTok{  ##  24.251721 26.346721    10}
-\NormalTok{  ##   3.658939  4.807671    10}
+\NormalTok{  ##  15.636058 15.901694    10}
+\NormalTok{  ##   3.019022  3.074043    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1701,12 +1667,12 @@ des \texttt{data.frame}) est souvent source d'efficacité :
 \CommentTok{# Gain de performances pour la fonction colSums()}
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{dense =} \KeywordTok{colSums}\NormalTok{(m), }\DataTypeTok{sparse =} \KeywordTok{colSums}\NormalTok{(M))}
 \NormalTok{  ## Unit: microseconds}
-\NormalTok{  ##    expr      min        lq       mean   median}
-\NormalTok{  ##   dense 1255.196 1282.6595 1360.35790 1335.667}
-\NormalTok{  ##  sparse   57.559   74.1685   89.06236   89.084}
+\NormalTok{  ##    expr      min       lq       mean    median}
+\NormalTok{  ##   dense 1260.470 1281.146 1313.86973 1310.1305}
+\NormalTok{  ##  sparse   56.086   70.537   82.59214   83.2135}
 \NormalTok{  ##         uq      max neval}
-\NormalTok{  ##  1404.4910 1967.851   100}
-\NormalTok{  ##    96.5855  151.089   100}
+\NormalTok{  ##  1333.8945 1444.225   100}
+\NormalTok{  ##    92.3815  148.062   100}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1743,8 +1709,8 @@ statistiques :
 
 \pause
 
-\textbf{Pour en savoir plus} De nombreuses vignettes très pédagogiques
-sont disponibles sur la
+\intertitre{Pour en savoir plus} De nombreuses vignettes très
+pédagogiques sont disponibles sur la
 \href{https://cran.r-project.org/package=dplyr}{\underline{page du \textit{package}}}.
 Un
 \href{https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf}{\underline{aide-mémoire}}
@@ -1858,7 +1824,7 @@ statistiques sur des données.
 
 \pause 
 
-\textbf{Remarque} Comme toutes les fonctions de \texttt{dplyr},
+\intertitre{Remarque} Comme toutes les fonctions de \texttt{dplyr},
 \texttt{summarise()} prend un \texttt{data.frame} en entrée et produit
 un \texttt{data.frame} en sortie.
 
@@ -1944,7 +1910,7 @@ fortement de SQL} :
   \texttt{a} et \texttt{b} en conservant toutes les observations.
 \end{itemize}
 
-\textbf{Pour en savoir plus} Une
+\intertitre{Pour en savoir plus} Une
 \href{https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html}{\underline{vignette}}
 est consacrée à la présentation des fonctions de \texttt{dplyr} portant
 sur deux tables.
@@ -1957,7 +1923,7 @@ sur deux tables.
 données par groupe. On compare donc l'utilisation de \texttt{tapply()}
 de base R avec \texttt{group\_by()} de \texttt{dplyr}.
 
-\footnotesize
+\footnotesize \pause 
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1972,11 +1938,11 @@ de base R avec \texttt{group\_by()} de \texttt{dplyr}.
 \NormalTok{)}
 \NormalTok{  ## Unit: milliseconds}
 \NormalTok{  ##   expr      min       lq     mean   median       uq}
-\NormalTok{  ##   base 37.92114 46.84232 56.65085 50.55141 70.85616}
-\NormalTok{  ##  dplyr 48.34361 50.91462 64.66221 55.71249 73.45178}
-\NormalTok{  ##        max neval}
-\NormalTok{  ##   85.66136    10}
-\NormalTok{  ##  101.98539    10}
+\NormalTok{  ##   base 36.33509 42.80433 42.41404 43.29193 44.16897}
+\NormalTok{  ##  dplyr 53.33831 53.45452 56.14469 55.14207 56.00287}
+\NormalTok{  ##       max neval}
+\NormalTok{  ##  45.50056    10}
+\NormalTok{  ##  65.04266    10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1990,11 +1956,11 @@ optimisé}\label{data.table-un-data.frame-optimise}
 Contrairement à \texttt{dplyr}, \texttt{data.table} ne cherche pas à se
 substituer à base R mais à le compléter.
 
-Il introduit un nouveau type d'objet, le \texttt{data.table}, qui
+\pause Il introduit un nouveau type d'objet, le \texttt{data.table}, qui
 \textbf{hérite} du \texttt{data.frame} (tout \texttt{data.table} est un
 \texttt{data.frame}).
 
-Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
+\pause Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
 \textbf{enrichi et optimisé}.
 
 \begin{Shaded}
@@ -2004,8 +1970,10 @@ Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Pour en savoir plus} Là encore des vignettes très pédagogiques
-sont disponibles sur la
+\pause 
+
+\intertitre{Pour en savoir plus} Là encore des vignettes très
+pédagogiques sont disponibles sur la
 \href{https://cran.r-project.org/package=data.table}{\underline{page du \textit{package}}}.
 
 \end{frame}
@@ -2016,7 +1984,7 @@ sont disponibles sur la
 La syntaxe de l'opérateur \texttt{{[}} appliqué à un \texttt{data.table}
 est la suivante (\texttt{DT} représente le \texttt{data.table}):
 
-\centering \large
+\pause \centering \large
 
 \texttt{DT{[}i,\ j,\ by{]}}
 
@@ -2034,9 +2002,9 @@ est la suivante (\texttt{DT} représente le \texttt{data.table}):
   plusieurs variables.
 \end{itemize}
 
-\bigskip 
+\pause \bigskip 
 
-\textbf{Exemple} Retard quotidien maximal au mois de janvier.
+\pause \intertitre{Exemple} Retard quotidien maximal au mois de janvier.
 
 \small
 
@@ -2058,11 +2026,11 @@ dans un \texttt{data.table} que dans un \texttt{data.frame}:
 
 \begin{itemize}
 \item
-  il n'y a pas à répéter le nom du \texttt{data.frame} dans
+  \pause il n'y a pas à répéter le nom du \texttt{data.frame} dans
   \texttt{{[}};
 \item
-  il est possible d'indexer un \texttt{data.table} par une ou plusieurs
-  \og clés \fg{} permettant une recherche souvent plus rapide.
+  \pause il est possible d'indexer un \texttt{data.table} par une ou
+  plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
 \end{itemize}
 
 \footnotesize
@@ -2077,13 +2045,13 @@ dans un \texttt{data.table} que dans un \texttt{data.frame}:
 \NormalTok{)}
 \NormalTok{  ## Unit: milliseconds}
 \NormalTok{  ##  expr      min       lq     mean   median       uq}
-\NormalTok{  ##  base 41.98297 47.92040 55.90588 50.78441 58.67894}
-\NormalTok{  ##   dt1 11.15860 11.49826 17.72419 12.97871 19.45241}
-\NormalTok{  ##   dt2 10.57523 11.04820 15.11194 12.74932 17.22756}
+\NormalTok{  ##  base 41.71417 43.65880 54.29650 49.23702 50.10314}
+\NormalTok{  ##   dt1 10.80914 11.26147 12.90479 11.45061 11.97763}
+\NormalTok{  ##   dt2 10.46219 10.81319 13.99015 11.03693 11.68497}
 \NormalTok{  ##        max neval}
-\NormalTok{  ##  201.05644   100}
-\NormalTok{  ##  227.58992   100}
-\NormalTok{  ##   39.50966   100}
+\NormalTok{  ##  218.69998   100}
+\NormalTok{  ##   21.21712   100}
+\NormalTok{  ##  179.24473   100}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2093,7 +2061,7 @@ dans un \texttt{data.table} que dans un \texttt{data.frame}:
 
 L'argument \texttt{j} permet de calculer des statistiques agrégées.
 
-\small
+\pause \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2106,12 +2074,12 @@ L'argument \texttt{j} permet de calculer des statistiques agrégées.
 \end{Highlighting}
 \end{Shaded}
 
-\normalsize 
+\pause \normalsize 
 
 Utilisé avec \texttt{:=} il permet de les refusionner automatiquement
 avec les données d'origine.
 
-\small
+\pause \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2131,6 +2099,8 @@ L'argument \texttt{by} de \texttt{{[}} ventile tous les traitements
 renseignés dans \texttt{j} selon les modalités d'une ou plusieurs
 variables.
 
+\pause 
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{flights_DT[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
@@ -2144,10 +2114,10 @@ variables.
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Remarque} Par défaut, \texttt{by} ordonne les résultats dans
-l'ordre des groupes dans le \texttt{data.table}. \texttt{keyby} trie les
-données selon la variable d'agrégation (comme \texttt{group\_by} de
-\texttt{dplyr}).
+\pause \intertitre{Remarque} Par défaut, \texttt{by} ordonne les
+résultats dans l'ordre des groupes dans le \texttt{data.table}.
+\texttt{keyby} trie les données selon la variable d'agrégation (comme
+\texttt{group\_by} de \texttt{dplyr}).
 
 \end{frame}
 
@@ -2156,6 +2126,8 @@ données selon la variable d'agrégation (comme \texttt{group\_by} de
 
 Il est très facile de chaîner les opérations sur un \texttt{data.table}
 en enchaînant les \texttt{{[}}.
+
+\pause 
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2169,7 +2141,7 @@ en enchaînant les \texttt{{[}}.
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Remarque} Ces chaînages sont possibles avec un
+\pause \intertitre{Remarque} Ces chaînages sont possibles avec un
 \texttt{data.table} mais pas avec un \texttt{data.frame}.
 
 \end{frame}
@@ -2192,21 +2164,53 @@ en enchaînant les \texttt{{[}}.
 \end{Highlighting}
 \end{Shaded}
 
-\vspace{-5mm}
+\pause \vspace{-5mm}
 
 \begin{verbatim}
   ##         expr       lq     mean       uq
-  ## 1       base 38.32042 47.52636 48.74153
-  ## 2      dplyr 49.53867 62.07801 74.74132
-  ## 3 data.table 21.10773 38.63131 25.69521
+  ## 1       base 37.32276 42.05503 45.62500
+  ## 2      dplyr 53.90310 55.07001 56.11389
+  ## 3 data.table 20.57499 21.56300 20.91101
 \end{verbatim}
 
-\normalsize
+\pause \normalsize
 
-\textbf{Pour en savoir plus} Cette discussion sur
+\intertitre{Pour en savoir plus} Cette discussion sur
 \href{http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly}{\underline{stackoverflow.com}}
 (notamment entre les auteurs des \emph{packages}) aborde les avantages
 et les inconvénients de \texttt{dplyr} et \texttt{data.table}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Parenthèse : lire et écrire rapidement des
+fichiers plats avec data.table}
+
+Le \emph{package} data.table fournit par ailleurs deux fonctions
+extrêmement utiles en pratique pour \intertitre{lire et écrire} des
+fichiers plats (\texttt{.csv}, \texttt{.txt}, \texttt{.dlm}):
+
+\begin{itemize}
+\tightlist
+\item
+  \pause \texttt{fread()} : beaucoup plus rapide et plus ergonomique que
+  \texttt{read.table()} et ses alias (\texttt{read.csv()},
+  \texttt{read.delim()}), produit directement un \texttt{data.table} ;
+\item
+  \pause \texttt{fwrite()} : beaucoup plus rapide que
+  \texttt{write.table()}.
+\end{itemize}
+
+\footnotesize \pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Lecture avec fread()}
+\NormalTok{mon_fichier <-}\StringTok{ }\KeywordTok{fread}\NormalTok{(}\DataTypeTok{file =} \StringTok{"mon_fichier.csv"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{","}\NormalTok{)}
+
+\CommentTok{# Ecriture avec fwrite()}
+\KeywordTok{fwrite}\NormalTok{(mon_fichier, }\DataTypeTok{file =} \StringTok{"mon_fichier.txt"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \end{frame}
 
@@ -2220,7 +2224,7 @@ Les outils présentés jusqu'à présent correspondent à une utilisation
 
 ~
 
-Il arrive néanmoins que certains traitements soient rendus
+\pause Il arrive néanmoins que certains traitements soient rendus
 \textbf{difficiles par les caractéristiques du logiciel} :
 
 \begin{itemize}
@@ -2233,8 +2237,8 @@ Il arrive néanmoins que certains traitements soient rendus
 
 ~
 
-Dans ce genre de situations, la solution consiste en général à utiliser
-R comme une \textbf{interface} vers des techniques ou langages
+\pause Dans ce genre de situations, la solution consiste en général à
+utiliser R comme une \textbf{interface} vers des techniques ou langages
 susceptibles de répondre au problème posé.
 
 \end{frame}
@@ -2245,7 +2249,7 @@ Une autre solution pour exploiter de grands volumes de données dans R
 est de l'utiliser pour \textbf{interroger des bases de données},
 \emph{via} par exemple le \emph{package} \texttt{RPostgreSQL}.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2265,8 +2269,9 @@ est de l'utiliser pour \textbf{interroger des bases de données},
 
 \normalsize
 
-\textbf{Remarque} Différents \emph{packages} permettent de se connecter
-à différents types de base de données : \texttt{RMySQl} pour MySQL, etc.
+\pause \intertitre{Remarque} Différents \emph{packages} permettent de se
+connecter à différents types de base de données : \texttt{RMySQl} pour
+MySQL, etc.
 
 \end{frame}
 
@@ -2276,7 +2281,7 @@ est de l'utiliser pour \textbf{interroger des bases de données},
 \texttt{dplyr} a la particularité de pouvoir fonctionner de façon
 totalement transparente sur des bases de données de différents types.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2305,24 +2310,25 @@ La plupart des ordinateurs possèdent aujourd'hui plusieurs c\oe urs
 (\emph{core}) susceptibles de mener des traitements \textbf{en
 parallèle} (8 sur chaque serveur d'AUS par exemple).
 
-Par défaut, R n'expoite qu'un seul c\oe ur : le \emph{package}
+\pause Par défaut, R n'expoite qu'un seul c\oe ur : le \emph{package}
 \texttt{parallel} (mais aussi les \emph{packages} \texttt{snow} ou
 \texttt{foreach} par exemple) permettent de \textbf{paralléliser des
 structures du type \texttt{*apply}}.
 
-Ce type d'opérations est composé de plusieurs étapes :
+\pause Ce type d'opérations est composé de plusieurs étapes :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à
-  utiliser (chargement des fonctions et \emph{packages} nécessaires sur
-  chaque c\oe ur);
+  \pause Création et paramétrage du \og \textit{cluster} \fg{} de
+  c\oe urs à utiliser (chargement des fonctions et \emph{packages}
+  nécessaires sur chaque c\oe ur);
 \item
-  Lancement du traitement parallélisé avec \texttt{parLapply()};
+  \pause Lancement du traitement parallélisé avec \texttt{parLapply()};
 \item
-  Arrêt des processus du \emph{cluster} avec \texttt{stopCluster()}.
+  \pause Arrêt des processus du \emph{cluster} avec
+  \texttt{stopCluster()}.
 \end{enumerate}
 
 \end{frame}
@@ -2333,7 +2339,7 @@ Ce type d'opérations est composé de plusieurs étapes :
 Dans cet exemple, on cherche à appliquer la fonction \texttt{f} à chaque
 matrice de la liste \texttt{l}.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2360,6 +2366,8 @@ matrice de la liste \texttt{l}.
 \begin{frame}[fragile]{\large Paralléliser des traitements avec
 \texttt{parallel} (3)}
 
+\pause 
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
@@ -2368,13 +2376,15 @@ matrice de la liste \texttt{l}.
 \NormalTok{)}
 \NormalTok{  ## Unit: milliseconds}
 \NormalTok{  ##                 expr      min       lq     mean}
-\NormalTok{  ##         lapply(l, f) 636.0039 641.6147 663.0252}
-\NormalTok{  ##  parLapply(cl, l, f) 341.5059 383.9122 412.6761}
+\NormalTok{  ##         lapply(l, f) 640.6186 641.2107 645.5821}
+\NormalTok{  ##  parLapply(cl, l, f) 336.0838 383.6429 400.1393}
 \NormalTok{  ##    median       uq      max neval}
-\NormalTok{  ##  650.1038 658.3229 782.8332    10}
-\NormalTok{  ##  405.4428 437.5670 480.6239    10}
+\NormalTok{  ##  641.8607 651.6407 659.1777    10}
+\NormalTok{  ##  403.8412 424.5455 431.9449    10}
 \end{Highlighting}
 \end{Shaded}
+
+\pause 
 
 \end{frame}
 
@@ -2384,7 +2394,7 @@ matrice de la liste \texttt{l}.
 Le \emph{package} \texttt{Rcpp} permet d'intégrer facilement des
 fonctions codées en C++ dans un programme R.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2399,13 +2409,13 @@ fonctions codées en C++ dans un programme R.
 \end{Highlighting}
 \end{Shaded}
 
-\normalsize
+\pause \normalsize
 
-\textbf{Remarque} Il est également possible de soumettre un fichier
+\intertitre{Remarque} Il est également possible de soumettre un fichier
 contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction
 \texttt{sourceCpp()}.
 
-\textbf{Pour en savoir plus}
+\pause  \intertitre{Pour en savoir plus}
 \href{http://adv-r.had.co.nz/Rcpp.html}{\underline{\textit{Advanced R}}}
 
 \end{frame}
@@ -2416,7 +2426,7 @@ contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction
 Contrairement à R, C++ est un langage de bas niveau : les boucles y sont
 en particulier extrêmement rapides.
 
-\textbf{Exemple} Somme cumulée par colonne
+\pause \intertitre{Exemple} Somme cumulée par colonne
 
 \footnotesize
 
@@ -2463,8 +2473,8 @@ en particulier extrêmement rapides.
 \NormalTok{  , }\KeywordTok{cumColSumsC}\NormalTok{(x)}
 \NormalTok{))[, }\KeywordTok{c}\NormalTok{(}\StringTok{"expr"}\NormalTok{, }\StringTok{"lq"}\NormalTok{, }\StringTok{"mean"}\NormalTok{, }\StringTok{"uq"}\NormalTok{)]}
 \NormalTok{  ##             expr        lq      mean        uq}
-\NormalTok{  ## 1 cumColSumsR(x) 17.589140 21.515209 25.846904}
-\NormalTok{  ## 2 cumColSumsC(x)  4.759599  6.959464  9.219795}
+\NormalTok{  ## 1 cumColSumsR(x) 19.506836 38.770332 25.321596}
+\NormalTok{  ## 2 cumColSumsC(x)  4.416819  5.062526  5.752609}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2598,7 +2608,7 @@ communs}.
 
 \pause 
 
-\textbf{Pour en savoir plus} Le site
+\intertitre{Pour en savoir plus} Le site
 \href{http://www.statmethods.net/graphs/}{\underline{statmethods.net}}
 recense et illustre la plupart des fonctions du \emph{package}
 \texttt{graphics}.
@@ -2634,7 +2644,7 @@ construire les graphiques.
 
 \pause
 
-\textbf{Remarque} L'argument \texttt{plot} de la fonction
+\intertitre{Remarque} L'argument \texttt{plot} de la fonction
 \texttt{hist()} (\texttt{TRUE} par défaut) affiche automatiquement un
 graphique, sans avoir à appeler explicitement la fonction
 \texttt{plot()}.
@@ -2652,7 +2662,7 @@ graphique, sans avoir à appeler explicitement la fonction
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-83-1}
+\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-84-1}
 
 \end{frame}
 
@@ -2666,7 +2676,7 @@ graphique, sans avoir à appeler explicitement la fonction
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-84-1}
+\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-85-1}
 
 \end{frame}
 
@@ -2682,7 +2692,7 @@ graphique, sans avoir à appeler explicitement la fonction
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-85-1}
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-86-1}
 
 \end{frame}
 
@@ -2696,7 +2706,7 @@ graphique, sans avoir à appeler explicitement la fonction
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-86-1}
+\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-87-1}
 
 \end{frame}
 
@@ -2730,9 +2740,9 @@ construire les graphiques.
 
 \pause
 
-\textbf{Remarque} Quand \texttt{barplot()} est appliqué à un tri croisé,
-la couleur des barres varie et les paramètres deviennent utiles :
-\vspace{-3mm}
+\intertitre{Remarque} Quand \texttt{barplot()} est appliqué à un tri
+croisé, la couleur des barres varie et les paramètres deviennent utiles
+: \vspace{-3mm}
 
 \begin{itemize}
 \tightlist
@@ -2756,7 +2766,7 @@ la couleur des barres varie et les paramètres deviennent utiles :
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-87-1}
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-88-1}
 
 \end{frame}
 
@@ -2771,7 +2781,7 @@ la couleur des barres varie et les paramètres deviennent utiles :
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-88-1}
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-89-1}
 
 \end{frame}
 
@@ -2786,7 +2796,7 @@ la couleur des barres varie et les paramètres deviennent utiles :
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-89-1}
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-90-1}
 
 \end{frame}
 
@@ -2802,7 +2812,7 @@ taille des éléments qui composent un graphique:
   des points à représenter.
 \end{itemize}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-90-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-91-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -2812,7 +2822,7 @@ taille des éléments qui composent un graphique:
   ou un code RGB hexadécimal (du type \texttt{"\#FF1111"}). \small  
 \end{itemize}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-91-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-92-1.pdf}
 
 Pour certaines formes (\texttt{pch} entre 21 et 25), il est également
 possible de modifier la couleur de remplissage avec \texttt{bg}.
@@ -2821,8 +2831,8 @@ possible de modifier la couleur de remplissage avec \texttt{bg}.
 
 \begin{frame}[fragile]{Couleur, forme et taille des objets}
 
-\textbf{Remarque} : la palette de couleurs accessibles en utilisant des
-entiers est réduite. Il est possible de l'étendre considérablement
+\intertitre{Remarque} : la palette de couleurs accessibles en utilisant
+des entiers est réduite. Il est possible de l'étendre considérablement
 \emph{via} la fonction \texttt{colors()}.
 
 \small
@@ -2842,7 +2852,7 @@ entiers est réduite. Il est possible de l'étendre considérablement
 - \texttt{cex} : utilisé dans une fonction \texttt{plot()}, \texttt{cex}
 permet d'ajuster la taille des points qui le composent.
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-93-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-94-1.pdf}
 
 \end{frame}
 
@@ -2863,7 +2873,7 @@ La fonction \texttt{legend()} permet d'ajouter une légende.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-94-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-95-1.pdf}
 
 \end{frame}
 
@@ -2900,8 +2910,8 @@ possible de paramétrer les axes :
 
 \pause 
 
-\textbf{Remarque} Pour produire un graphique sans axe et les rajouter
-après, utiliser l'option \texttt{axes\ =\ FALSE} de la fonction
+\intertitre{Remarque} Pour produire un graphique sans axe et les
+rajouter après, utiliser l'option \texttt{axes\ =\ FALSE} de la fonction
 \texttt{plot()}.
 
 \end{frame}
@@ -2928,7 +2938,7 @@ commencer par une instruction \texttt{plot()} puis de la compléter :
 
 \pause 
 
-\textbf{Exemple} Ajout d'une droite de régression au graphique de
+\intertitre{Exemple} Ajout d'une droite de régression au graphique de
 \texttt{hwy} par \texttt{displ}.
 
 \end{frame}
@@ -2945,7 +2955,7 @@ commencer par une instruction \texttt{plot()} puis de la compléter :
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-95-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-96-1.pdf}
 
 \end{frame}
 
@@ -2992,7 +3002,7 @@ d'aide} de la fonction \texttt{par()} détaille toutes ces options.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-97-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-98-1.pdf}
 
 \end{frame}
 
@@ -3020,7 +3030,7 @@ produits par R.
 
 \pause 
 
-\textbf{Remarque} Les graphiques peuvent également facilement être
+\intertitre{Remarque} Les graphiques peuvent également facilement être
 exportés depuis RStudio en utilisant les menus prévus à cet effet.
 
 \end{frame}
@@ -3052,7 +3062,7 @@ graphique doivent pouvoir être \textbf{réassemblés} pour produire de
 
 \pause 
 
-\textbf{Pour aller plus loin} \textsc{Wilkinson L.} (2005)
+\intertitre{Pour aller plus loin} \textsc{Wilkinson L.} (2005)
 \textit{The Grammar of Graphics}, Springer,
 \href{https://github.com/hadley/ggplot2-book}{\underline{ggplot2: elegant graphics for data analysis}}
 
@@ -3079,8 +3089,8 @@ trois composants essentiels (d'après Wickham, \emph{ibid.}, 2.3) :
 
 \pause 
 
-\textbf{Exemple} \emph{Miles per gallon} sur l'autoroute en fonction de
-la cylindrée.
+\intertitre{Exemple} \emph{Miles per gallon} sur l'autoroute en fonction
+de la cylindrée.
 
 \center \small 
 
@@ -3105,7 +3115,7 @@ graphique}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-101-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-102-1}
 
 \end{frame}
 
@@ -3119,7 +3129,7 @@ graphique}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-102-1}
+\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-103-1}
 
 \end{frame}
 
@@ -3149,7 +3159,7 @@ dans la fonction \texttt{aes()}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-103-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-104-1}
 
 \end{frame}
 
@@ -3181,7 +3191,7 @@ esthétiques, \textbf{les échelles sont continues ou discrètes}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-104-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-105-1}
 
 \end{frame}
 
@@ -3215,7 +3225,7 @@ esthétiques,
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-105-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-106-1}
 
 \end{frame}
 
@@ -3249,7 +3259,7 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-106-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-107-1}
 
 \end{frame}
 
@@ -3265,7 +3275,7 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-107-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-108-1}
 
 \end{frame}
 
@@ -3280,7 +3290,7 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-108-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-109-1}
 
 \end{frame}
 
@@ -3295,7 +3305,7 @@ Au-delà des correspondances esthétiques dans la fonction \texttt{aes()},
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-109-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-110-1}
 
 \end{frame}
 
@@ -3348,7 +3358,7 @@ pré-paramétrées de \texttt{layer()}}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-110-1}
+\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-111-1}
 
 \end{frame}
 
@@ -3385,7 +3395,7 @@ pré-paramétrées de \texttt{layer()}}.
 
 \centering
 
-\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-112-1}
+\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-113-1}
 
 \end{frame}
 
@@ -3448,7 +3458,7 @@ pré-paramétrées de \texttt{layer()}}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-116-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-117-1}
 
 \end{frame}
 
@@ -3465,7 +3475,7 @@ pré-paramétrées de \texttt{layer()}}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-117-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-118-1}
 
 \end{frame}
 
@@ -3482,7 +3492,7 @@ pré-paramétrées de \texttt{layer()}}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-118-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-119-1}
 
 \end{frame}
 
@@ -3498,13 +3508,13 @@ pré-paramétrées de \texttt{layer()}}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-119-1}
+\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-120-1}
 
 \pause \raggedright \small \vspace{-0.3cm}
 
-\textbf{Remarque} Le positionnement des classes des histogrammes semble
-perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
-\texttt{boundary} permet de corriger ce problème (\emph{cf.}
+\intertitre{Remarque} Le positionnement des classes des histogrammes
+semble perturbé dans les dernières versions de \texttt{ggplot2} : le
+paramètre \texttt{boundary} permet de corriger ce problème (\emph{cf.}
 \href{http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins}{\underline{cette discussion}}).
 
 \end{frame}
@@ -3520,7 +3530,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-120-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-121-1}
 
 \end{frame}
 
@@ -3534,7 +3544,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-121-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-122-1}
 
 \end{frame}
 
@@ -3549,7 +3559,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-122-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-123-1}
 
 \end{frame}
 
@@ -3564,7 +3574,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-123-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-124-1}
 
 \end{frame}
 
@@ -3579,7 +3589,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-124-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-125-1}
 
 \end{frame}
 
@@ -3597,7 +3607,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.7\linewidth]{presentation_files/figure-beamer/unnamed-chunk-125-1}
+\includegraphics[width=0.7\linewidth]{presentation_files/figure-beamer/unnamed-chunk-126-1}
 
 \end{frame}
 
@@ -3613,7 +3623,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.75\linewidth]{presentation_files/figure-beamer/unnamed-chunk-126-1}
+\includegraphics[width=0.75\linewidth]{presentation_files/figure-beamer/unnamed-chunk-127-1}
 
 \end{frame}
 
@@ -3628,11 +3638,11 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.5\linewidth]{presentation_files/figure-beamer/unnamed-chunk-127-1}
+\includegraphics[width=0.5\linewidth]{presentation_files/figure-beamer/unnamed-chunk-128-1}
 
 \pause \raggedright \small
 
-\textbf{Pour aller plus loin} Une page du site
+\intertitre{Pour aller plus loin} Une page du site
 \href{http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees}{\underline{sthda.com}}
 explique (en français) comment produire un diagramme circulaire complet
 avec \texttt{ggplot2}.
@@ -3650,7 +3660,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-128-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-129-1}
 
 \end{frame}
 
@@ -3665,7 +3675,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-129-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-130-1}
 
 \end{frame}
 
@@ -3681,7 +3691,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-130-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-131-1}
 
 \end{frame}
 
@@ -3696,7 +3706,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-131-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-132-1}
 
 \end{frame}
 
@@ -3711,7 +3721,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-132-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-133-1}
 
 \end{frame}
 
@@ -3726,7 +3736,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-133-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-134-1}
 
 \end{frame}
 
@@ -3743,7 +3753,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-134-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-135-1}
 
 \end{frame}
 
@@ -3759,7 +3769,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-135-1}
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-136-1}
 
 \end{frame}
 
@@ -3775,7 +3785,7 @@ avec \texttt{ggplot2}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-136-1}
+\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-137-1}
 
 \end{frame}
 
@@ -3905,9 +3915,9 @@ documents}
 \end{tikzpicture}
 
 \raggedright
-\pause[9] \textbf{Note} \texttt{rmarkdown} et \texttt{knitr} sont des
-\emph{packages} R (avec plusieurs dépendances); pandoc et LaTeX sont des
-programmes autonomes.
+\pause[9] \intertitre{Note} \texttt{rmarkdown} et \texttt{knitr} sont
+des \emph{packages} R (avec plusieurs dépendances); pandoc et LaTeX sont
+des programmes autonomes.
 
 \end{frame}
 
@@ -3999,7 +4009,7 @@ document :
 
 \pause 
 
-\textbf{Note} Pour une présentation synthétique de R Markdown, se
+\intertitre{Note} Pour une présentation synthétique de R Markdown, se
 référer à
 l'\href{https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf}{\underline{aide-mémoire}}
 (\emph{cheat sheet}) sur le site de RStudio.
@@ -4060,8 +4070,8 @@ Les \textbf{options} saisies en début de bloc permettent de préciser à
 
 \pause 
 
-\textbf{Note} Toutes les options de \texttt{knitr} relatives aux blocs
-de code (\emph{chunk options}) sont présentées sur la
+\intertitre{Note} Toutes les options de \texttt{knitr} relatives aux
+blocs de code (\emph{chunk options}) sont présentées sur la
 \href{http://yihui.name/knitr/options/}{\underline{page}} du créateur du
 \emph{package}, Yihui Xie.
 
@@ -4078,14 +4088,14 @@ le corps d'un paragraphe avec la syntaxe :
 
 \pause 
 
-\textbf{Exemple} Pour intégrer dans le texte la date de compilation du
-document, utiliser
+\intertitre{Exemple} Pour intégrer dans le texte la date de compilation
+du document, utiliser
 
 \begin{verbatim}
 Document compilé le `r Sys.Date()`.
 \end{verbatim}
 
-\pause Document compilé le 2018-01-26.
+\pause Document compilé le 2018-04-10.
 
 \end{frame}
 
@@ -4128,7 +4138,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 \end{verbatim}
 
-\includegraphics{presentation_files/figure-beamer/unnamed-chunk-147-1.pdf}
+\includegraphics{presentation_files/figure-beamer/unnamed-chunk-148-1.pdf}
 
 \end{frame}
 
@@ -4142,7 +4152,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 \end{verbatim}
 
-\includegraphics[width=4in]{presentation_files/figure-beamer/unnamed-chunk-149-1}
+\includegraphics[width=4in]{presentation_files/figure-beamer/unnamed-chunk-150-1}
 
 \end{frame}
 
@@ -4267,8 +4277,8 @@ output:
 
 \pause \normalsize
 
-\textbf{Pour en savoir plus} Le site de RStudio documente le paramétrage
-de l'en-tête YAML selon les formats de sortie souhaités
+\intertitre{Pour en savoir plus} Le site de RStudio documente le
+paramétrage de l'en-tête YAML selon les formats de sortie souhaités
 (\href{http://rmarkdown.rstudio.com/html_document_format.html}{\underline{\texttt{html}}},
 \href{http://rmarkdown.rstudio.com/pdf_document_format.html}{\underline{\texttt{pdf}}}).
 

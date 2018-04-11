@@ -5,7 +5,7 @@ fontsize: 12pt
 
 ```{r, include=FALSE}
 if(!exists(".initOK")) source("fonctions.R")
-knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(cache=FALSE)
 ```
 
 # \LARGE Objectifs et organisation
@@ -25,43 +25,45 @@ Effectuer un panorama structuré et hiérarchisé de méthodes et outils largeme
 
 Prendre du recul sur le logiciel, comprendre certains modes de fonctionnement complexes.  
 
-### \ 
-
-\large 
-
-1. Travailler sur des données dans R : 
-
-    - travailler efficacement (+++);
-    - améliorer les performances (+++);
-    - programmer avec R (++);
-    - interroger des bases de données (+).
-    
-2. \pause Présenter des résultats avec R : 
-
-    - faire des graphiques avec base R et `ggplot2` (++);
-    - faire du reporting (+).
-
-\normalsize \pause
-
-**Pédagogie** : équilibre entre présentations et cas pratiques.
-
-**Horaires (proposition !)** : 9h30-12h20, 13h40-16h30
+\bigskip \pause $\Rightarrow$ Mettre en place des \intertitre{fondations solides} pour permettre votre progression dans l'utilisation du logiciel R.
 
 ### \ 
 
-\large
+\intertitre{Pédagogie} : équilibre entre présentations et cas pratiques (disponibles sur la page [t.slmc.fr/perf](http://t.slmc.fr/perf)).
 
-Lundi 15 janvier
+\pause 
 
-- Introduction + Travailler sur des données 1 (2h)
+\intertitre{Horaires (proposition !)} : 9h30-12h30 (pause vers 11h), 13h45-17h00 (pause vers 15h15)
+
+\pause \bigskip 
+
+\intertitre{Lundi 16 avril}
+
+- \vspace{-0.2cm} Introduction + Travailler sur des données avec R 1 (généralités, `*apply()`, etc.) (2h)
 - Cas pratiques (2h)
-- Faire des graphiques avec `ggplot2` (2h)
+- Faire des graphiques avec `ggplot2` et des rapports avec R Markdown (2h)
 
-\pause Mardi 16 janvier
+\pause 
 
-- Travailler sur des données 2 + R Markdown (2h)
+\intertitre{Mardi 17 avril}
+
+- \vspace{-0.2cm} Travailler sur des données 2 avec R (optimisations avec base R, dplyr, data.table)  (2h)
 - Cas pratiques (au choix, 4h)
 
+
+<!-- \large  -->
+
+<!-- 1. Travailler sur des données dans R :  -->
+
+<!--     - travailler efficacement (+++); -->
+<!--     - améliorer les performances (+++); -->
+<!--     - programmer avec R (++); -->
+<!--     - interroger des bases de données (+). -->
+
+<!-- 2. \pause Présenter des résultats avec R :  -->
+
+<!--     - faire des graphiques avec base R et `ggplot2` (++); -->
+<!--     - faire du reporting (+). -->
 
 
 <!-- setwd("/home/mc/oc/cours/Insee R/perf/#output/") -->

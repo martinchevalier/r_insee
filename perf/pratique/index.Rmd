@@ -72,7 +72,7 @@ knitr::opts_chunk$set(collapse = TRUE, cache=TRUE)
 
 ```
 
-Cette page comporte l'ensemble des cas pratiques de la formation R perfectionnement des 15 et 16 janvier 2018 accompagnés de leur correction. 
+Cette page comporte l'ensemble des cas pratiques de la formation R perfectionnement donnée à la Drees les 16 et 17 avril 2018 accompagnés de leur correction. 
 
 - [Support de présentation](presentation_handout.pdf)
 - [Données utilisées dans les cas pratiques](donnees.zip)

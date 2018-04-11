@@ -73,7 +73,7 @@ La génération automatique de documents complets repose sur deux éléments :
 \end{tikzpicture}
 
 \raggedright
-\pause[9] **Note** `rmarkdown` et `knitr` sont des *packages* R (avec plusieurs dépendances); pandoc et LaTeX sont des programmes autonomes.
+\pause[9] \intertitre{Note} `rmarkdown` et `knitr` sont des *packages* R (avec plusieurs dépendances); pandoc et LaTeX sont des programmes autonomes.
 
 ### Préparer et tester l'environnement de travail
 
@@ -107,7 +107,7 @@ Pour écrire du texte dans un document R Markdown, il suffit de le **taper dans 
 
 \pause 
 
-**Note** Pour une présentation synthétique de R Markdown, se référer à l'[\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) (*cheat sheet*) sur le site de RStudio.
+\intertitre{Note} Pour une présentation synthétique de R Markdown, se référer à l'[\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) (*cheat sheet*) sur le site de RStudio.
 
 
 ### Ecrire du code dans R Markdown
@@ -140,7 +140,7 @@ cat("```{r, echo=FALSE}\n2 + 2\n```")
 
 \pause 
 
-**Note** Toutes les options de `knitr` relatives aux blocs de code (*chunk options*) sont présentées sur la [\underline{page}](http://yihui.name/knitr/options/) du créateur du *package*, Yihui Xie.
+\intertitre{Note} Toutes les options de `knitr` relatives aux blocs de code (*chunk options*) sont présentées sur la [\underline{page}](http://yihui.name/knitr/options/) du créateur du *package*, Yihui Xie.
 
 ### Ecrire du code dans R Markdown
 
@@ -152,7 +152,7 @@ cat("\`r   \`")
 
 \pause 
 
-**Exemple** Pour intégrer dans le texte la date de compilation du document, utiliser 
+\intertitre{Exemple} Pour intégrer dans le texte la date de compilation du document, utiliser 
 
 ```{r comment=NA, echo = FALSE}
 cat("Document compilé le `r Sys.Date()`.")
@@ -273,5 +273,5 @@ cat("---\ntitle: \"Formation R Perfectionnement\"\nauthor: \"Martin Chevalier (I
 
 \pause \normalsize
 
-**Pour en savoir plus** Le site de RStudio documente le paramétrage de l'en-tête YAML selon les formats de sortie souhaités ([\underline{\texttt{html}}](http://rmarkdown.rstudio.com/html_document_format.html), [\underline{\texttt{pdf}}](http://rmarkdown.rstudio.com/pdf_document_format.html)).
+\intertitre{Pour en savoir plus} Le site de RStudio documente le paramétrage de l'en-tête YAML selon les formats de sortie souhaités ([\underline{\texttt{html}}](http://rmarkdown.rstudio.com/html_document_format.html), [\underline{\texttt{pdf}}](http://rmarkdown.rstudio.com/pdf_document_format.html)).
 

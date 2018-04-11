@@ -23,43 +23,45 @@ Effectuer un panorama structuré et hiérarchisé de méthodes et outils largeme
 
 Prendre du recul sur le logiciel, comprendre certains modes de fonctionnement complexes.  
 
-### \ 
-
-\large 
-
-1. Travailler sur des données dans R : 
-
-    - travailler efficacement (+++);
-    - améliorer les performances (+++);
-    - programmer avec R (++);
-    - interroger des bases de données (+).
-    
-2. \pause Présenter des résultats avec R : 
-
-    - faire des graphiques avec base R et `ggplot2` (++);
-    - faire du reporting (+).
-
-\normalsize \pause
-
-**Pédagogie** : équilibre entre présentations et cas pratiques.
-
-**Horaires (proposition !)** : 9h30-12h20, 13h40-16h30
+\bigskip \pause $\Rightarrow$ Mettre en place des \intertitre{fondations solides} pour permettre votre progression dans l'utilisation du logiciel R.
 
 ### \ 
 
-\large
+\intertitre{Pédagogie} : équilibre entre présentations et cas pratiques (disponibles sur la page [t.slmc.fr/perf](http://t.slmc.fr/perf)).
 
-Lundi 15 janvier
+\pause 
 
-- Introduction + Travailler sur des données 1 (2h)
+\intertitre{Horaires (proposition !)} : 9h30-12h30 (pause vers 11h), 13h45-17h00 (pause vers 15h15)
+
+\pause \bigskip 
+
+\intertitre{Lundi 16 avril}
+
+- \vspace{-0.2cm} Introduction + Travailler sur des données avec R 1 (généralités, `*apply()`, etc.) (2h)
 - Cas pratiques (2h)
-- Faire des graphiques avec `ggplot2` (2h)
+- Faire des graphiques avec `ggplot2` et des rapports avec R Markdown (2h)
 
-\pause Mardi 16 janvier
+\pause 
 
-- Travailler sur des données 2 + R Markdown (2h)
+\intertitre{Mardi 17 avril}
+
+- \vspace{-0.2cm} Travailler sur des données 2 avec R (optimisations avec base R, dplyr, data.table)  (2h)
 - Cas pratiques (au choix, 4h)
 
+
+<!-- \large  -->
+
+<!-- 1. Travailler sur des données dans R :  -->
+
+<!--     - travailler efficacement (+++); -->
+<!--     - améliorer les performances (+++); -->
+<!--     - programmer avec R (++); -->
+<!--     - interroger des bases de données (+). -->
+
+<!-- 2. \pause Présenter des résultats avec R :  -->
+
+<!--     - faire des graphiques avec base R et `ggplot2` (++); -->
+<!--     - faire du reporting (+). -->
 
 
 <!-- setwd("/home/mc/oc/cours/Insee R/perf/#output/") -->
@@ -121,7 +123,7 @@ En pratique, les deux **vont de pair** : en découvrant de nouvelles fonctions, 
 
 \pause 
 
-**Remarque** Pour afficher l'aide sur une fonction d'un *package*, il faut que celui-ci soit au préalable chargé (avec `library()` ou `require()`).
+\intertitre{Remarque} Pour afficher l'aide sur une fonction d'un *package*, il faut que celui-ci soit au préalable chargé (avec `library()` ou `require()`).
 
 \pause La fonction `help.search()` ou la commande `??` permettent d'effectuer une recherche approximative:
 
@@ -159,7 +161,7 @@ read.csv
   ##     fill = TRUE, comment.char = "", ...) 
   ## read.table(file = file, header = header, sep = sep, quote = quote, 
   ##     dec = dec, fill = fill, comment.char = comment.char, ...)
-  ## <bytecode: 0x873b900>
+  ## <bytecode: 0x8883a98>
   ## <environment: namespace:utils>
 ```
 
@@ -174,7 +176,7 @@ Les CRAN *Task Views* recensent les fonctions et *packages* de façon thématiqu
 
 \pause
 
-\footnotesize \href{https://cran.r-project.org/web/views/Bayesian.html}{Bayesian}, \href{https://cran.r-project.org/web/views/ChemPhys.html}{ChemPhys}, \href{https://cran.r-project.org/web/views/ClinicalTrials.html}{ClinicalTrials}, \href{https://cran.r-project.org/web/views/Cluster.html}{Cluster}, \href{https://cran.r-project.org/web/views/DifferentialEquations.html}{DifferentialEquations}, \href{https://cran.r-project.org/web/views/Distributions.html}{Distributions}, \href{https://cran.r-project.org/web/views/Econometrics.html}{Econometrics}, \href{https://cran.r-project.org/web/views/Environmetrics.html}{Environmetrics}, \href{https://cran.r-project.org/web/views/ExperimentalDesign.html}{ExperimentalDesign}, \href{https://cran.r-project.org/web/views/ExtremeValue.html}{ExtremeValue}, \href{https://cran.r-project.org/web/views/Finance.html}{Finance}, \href{https://cran.r-project.org/web/views/FunctionalData.html}{FunctionalData}, \href{https://cran.r-project.org/web/views/Genetics.html}{Genetics}, \href{https://cran.r-project.org/web/views/Graphics.html}{Graphics}, \href{https://cran.r-project.org/web/views/HighPerformanceComputing.html}{HighPerformanceComputing}, \href{https://cran.r-project.org/web/views/MachineLearning.html}{MachineLearning}, \href{https://cran.r-project.org/web/views/MedicalImaging.html}{MedicalImaging}, \href{https://cran.r-project.org/web/views/MetaAnalysis.html}{MetaAnalysis}, \href{https://cran.r-project.org/web/views/Multivariate.html}{Multivariate}, \href{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html}{NaturalLanguageProcessing}, \href{https://cran.r-project.org/web/views/NumericalMathematics.html}{NumericalMathematics}, \href{https://cran.r-project.org/web/views/OfficialStatistics.html}{OfficialStatistics}, \href{https://cran.r-project.org/web/views/Optimization.html}{Optimization}, \href{https://cran.r-project.org/web/views/Pharmacokinetics.html}{Pharmacokinetics}, \href{https://cran.r-project.org/web/views/Phylogenetics.html}{Phylogenetics}, \href{https://cran.r-project.org/web/views/Psychometrics.html}{Psychometrics}, \href{https://cran.r-project.org/web/views/ReproducibleResearch.html}{ReproducibleResearch}, \href{https://cran.r-project.org/web/views/Robust.html}{Robust}, \href{https://cran.r-project.org/web/views/SocialSciences.html}{SocialSciences}, \href{https://cran.r-project.org/web/views/Spatial.html}{Spatial}, \href{https://cran.r-project.org/web/views/SpatioTemporal.html}{SpatioTemporal}, \href{https://cran.r-project.org/web/views/Survival.html}{Survival}, \href{https://cran.r-project.org/web/views/TimeSeries.html}{TimeSeries}, \href{https://cran.r-project.org/web/views/WebTechnologies.html}{WebTechnologies}, \href{https://cran.r-project.org/web/views/gR.html}{gR}
+\footnotesize \href{https://cran.r-project.org/web/views/Bayesian.html}{Bayesian}, \href{https://cran.r-project.org/web/views/ChemPhys.html}{ChemPhys}, \href{https://cran.r-project.org/web/views/ClinicalTrials.html}{ClinicalTrials}, \href{https://cran.r-project.org/web/views/Cluster.html}{Cluster}, \href{https://cran.r-project.org/web/views/DifferentialEquations.html}{DifferentialEquations}, \href{https://cran.r-project.org/web/views/Distributions.html}{Distributions}, \href{https://cran.r-project.org/web/views/Econometrics.html}{Econometrics}, \href{https://cran.r-project.org/web/views/Environmetrics.html}{Environmetrics}, \href{https://cran.r-project.org/web/views/ExperimentalDesign.html}{ExperimentalDesign}, \href{https://cran.r-project.org/web/views/ExtremeValue.html}{ExtremeValue}, \href{https://cran.r-project.org/web/views/Finance.html}{Finance}, \href{https://cran.r-project.org/web/views/FunctionalData.html}{FunctionalData}, \href{https://cran.r-project.org/web/views/Genetics.html}{Genetics}, \href{https://cran.r-project.org/web/views/Graphics.html}{Graphics}, \href{https://cran.r-project.org/web/views/HighPerformanceComputing.html}{HighPerformanceComputing}, \href{https://cran.r-project.org/web/views/MachineLearning.html}{MachineLearning}, \href{https://cran.r-project.org/web/views/MedicalImaging.html}{MedicalImaging}, \href{https://cran.r-project.org/web/views/MetaAnalysis.html}{MetaAnalysis}, \href{https://cran.r-project.org/web/views/ModelDeployment.html}{ModelDeployment}, \href{https://cran.r-project.org/web/views/Multivariate.html}{Multivariate}, \href{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html}{NaturalLanguageProcessing}, \href{https://cran.r-project.org/web/views/NumericalMathematics.html}{NumericalMathematics}, \href{https://cran.r-project.org/web/views/OfficialStatistics.html}{OfficialStatistics}, \href{https://cran.r-project.org/web/views/Optimization.html}{Optimization}, \href{https://cran.r-project.org/web/views/Pharmacokinetics.html}{Pharmacokinetics}, \href{https://cran.r-project.org/web/views/Phylogenetics.html}{Phylogenetics}, \href{https://cran.r-project.org/web/views/Psychometrics.html}{Psychometrics}, \href{https://cran.r-project.org/web/views/ReproducibleResearch.html}{ReproducibleResearch}, \href{https://cran.r-project.org/web/views/Robust.html}{Robust}, \href{https://cran.r-project.org/web/views/SocialSciences.html}{SocialSciences}, \href{https://cran.r-project.org/web/views/Spatial.html}{Spatial}, \href{https://cran.r-project.org/web/views/SpatioTemporal.html}{SpatioTemporal}, \href{https://cran.r-project.org/web/views/Survival.html}{Survival}, \href{https://cran.r-project.org/web/views/TimeSeries.html}{TimeSeries}, \href{https://cran.r-project.org/web/views/WebTechnologies.html}{WebTechnologies}, \href{https://cran.r-project.org/web/views/gR.html}{gR}
 
 \pause \bigskip \normalsize
 La liste de toutes les *Task Views* est accessible à la page : [\underline{https://cran.r-project.org/web/views}](https://cran.r-project.org/web/views).
@@ -195,11 +197,11 @@ De plus en plus de supports sont consacrés à la présentation et à l'enseigne
 
 ### Accéder à la documentation d'un *package*
 
-Une des principales forces de R est d'être un langage hautement modulaire comptant **plusieurs milliers de *packages*** (12 094 au 26/01/2018).
+Une des principales forces de R est d'être un langage hautement modulaire comptant **plusieurs milliers de *packages*** (12 416 au 10/04/2018).
 
 \pause Toutes les informations sur un *package* sont accessibles sur sa page du *Comprehensive R Archive Network* (CRAN). 
 
-**Exemple** https://CRAN.R-project.org/package=haven
+\intertitre{Exemple} https://CRAN.R-project.org/package=haven
 
 \pause \bigskip On trouve en particulier sur cette page:
 
@@ -216,13 +218,13 @@ Les données nécessaires sont téléchargées depuis un des dépôts du CRAN (*
 
 C'est la **méthode à privilégier**:  les dépendances nécessaires au bon fonctionnement du *package* sont détectées et automatiquement installées.
 
-\pause 
+<!-- \pause  -->
 
-**Remarque** Cette méthode fonctionne à l'Insee:
+<!-- \intertitre{Remarque} Cette méthode fonctionne à l'Insee: -->
 
-- pour les installations locales de R sur les postes de travail;
-- sur AUS, *via* un dépôt local spécifique;
-- mais PAS sur les sessions des postes de formation.
+<!-- - pour les installations locales de R sur les postes de travail; -->
+<!-- - sur AUS, *via* un dépôt local spécifique; -->
+<!-- - mais PAS sur les sessions des postes de formation. -->
 
 ### Installer un *package* manuellement
 
@@ -253,7 +255,7 @@ En règle générale, le développement de *packages* s'appuie sur des plate-for
 - des informations sur son développement; 
 - une zone pour rapporter d'éventuels *bugs* (*bug reports*).
 
-**Exemple** https://github.com/tidyverse/haven 
+\intertitre{Exemple} https://github.com/tidyverse/haven 
 
 \pause La fonction `install_github()` du *package* `devtools` permet d'installer un *package* directement depuis GitHub.
 
@@ -300,7 +302,7 @@ Appliqué au travail sur des données, l'efficacité peut avoir au moins deux si
 
 \pause En règle générale, on peut avoir l'idée que plus on souhaite être efficace algorithmiquement, plus la programmation risque d'être longue et difficile. 
 
-\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de temps à (ré)inventer une méthode peu efficace quand une beaucoup plus simple et rapide existe déjà.
+\pause \intertitre{Ce n'est pas toujours vrai} : on perd souvent beaucoup de temps à (ré)inventer une méthode peu efficace quand une beaucoup plus simple et rapide existe déjà.
 
 \pause \small
 
@@ -316,7 +318,7 @@ La fonction `system.time()` permet de mesurer la durée d'un traitement.
 ```r
 system.time(rnorm(1e6))
   ## utilisateur     système      écoulé 
-  ##        0.07        0.00        0.07
+  ##       0.072       0.000       0.072
 ```
 
 \pause \normalsize
@@ -328,10 +330,10 @@ Néanmoins, elle est inadaptée aux traitements de très courte durée. Dans ces
 library(microbenchmark)
 microbenchmark(times = 10, rnorm(1e6))
   ## Unit: milliseconds
-  ##          expr      min       lq     mean   median
-  ##  rnorm(1e+06) 70.50072 75.59383 83.88297 85.28535
+  ##          expr      min       lq    mean median
+  ##  rnorm(1e+06) 68.16277 68.84521 69.0792 68.892
   ##        uq      max neval
-  ##  90.59321 95.62014    10
+  ##  69.05627 70.45888    10
 ```
 
 ### Mesurer la taille d'un objet en mémoire
@@ -453,7 +455,7 @@ monCalcul(2)
   ## [1] 24
 ```
 
-\pause \textbf{Remarque} Ceci est la conséquence de la *lazy evaluation* des arguments dans R (*cf.* [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Functions.html#function-arguments)).
+\pause \intertitre{Remarque} Ceci est la conséquence de la *lazy evaluation* des arguments dans R (*cf.* [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Functions.html#function-arguments)).
 
 ### Contrôle de la valeur des paramètres
 
@@ -513,9 +515,9 @@ base::sum(2, 3)
 ```r
 maFun <- function() environment()
 maFun()
-  ## <environment: 0xae9f8a8>
+  ## <environment: 0xb82b160>
 maFun()
-  ## <environment: 0xae552b0>
+  ## <environment: 0xb667210>
 ```
 
 \pause \small
@@ -551,7 +553,7 @@ maFonction4()
 \pause \normalsize
 Ceci est dû au fait que les environnements dans lequel R recherche des objets sont **emboîtés les uns dans les autres** (\textit{cf.} la fonction `search()`).
 
-**Pour en savoir plus** [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Environments.html#function-envs), [\underline{obeautifulcode.com}](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/)
+\intertitre{Pour en savoir plus} [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Environments.html#function-envs), [\underline{obeautifulcode.com}](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/)
 
 
 ### Valeur de retour d'une fonction
@@ -610,7 +612,7 @@ monCalcul(2, 3) + 5
 
 \vfill
 
-\pause \textbf{Pour en savoir plus} [\underline{Wikipedia}](https://en.wikipedia.org/wiki/FP_(programming_language)), [\underline{maryrosecook.com}](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming).
+\pause \intertitre{Pour en savoir plus} [\underline{Wikipedia}](https://en.wikipedia.org/wiki/FP_(programming_language)), [\underline{maryrosecook.com}](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming).
 
 \vfill
 
@@ -665,7 +667,7 @@ lapply(l, sum)
 
 \pause \small \vspace{-0.2cm}
 
-**Exemple d'utilisation** Appliquer une fonction à toutes les variables d'une table.
+\intertitre{Exemple d'utilisation} Appliquer une fonction à toutes les variables d'une table.
 
 ### \large Appliquer sur chaque indépendamment : `sapply()`
 
@@ -685,7 +687,7 @@ sapply(l, sum, na.rm = TRUE)
   ## [1] 15 30
 ```
 
-\pause \textbf{Exemple d'utilisation} Calcul de statistiques sur toutes les variables d'une table.
+\pause \intertitre{Exemple d'utilisation} Calcul de statistiques sur toutes les variables d'une table.
 
 ### \large Définir une fonction à la volée dans `*apply()`
 
@@ -734,7 +736,7 @@ sapply(split(age, sexe), mean)
 
 \normalsize \pause \vspace{-0.2cm}
 
-**Exemple d'utilisation** Calcul de statistiques agrégées par catégories.
+\intertitre{Exemple d'utilisation} Calcul de statistiques agrégées par catégories.
 
 ### \large Appliquer sur tous : `do.call()`
 
@@ -754,7 +756,7 @@ base::c(l[[1]], l[[2]])
 
 \pause \normalsize
 
-**Exemple d'utilisation** Concaténer de nombreuses tables avec `rbind()` ou `cbind()`.
+\intertitre{Exemple d'utilisation} Concaténer de nombreuses tables avec `rbind()` ou `cbind()`.
 
 ### \large Appliquer sur tous successivement : `Reduce()`
 
@@ -774,7 +776,7 @@ Reduce(`/`, 1:4)
 
 \pause \normalsize
 
-**Exemple d'utilisation** Fusionner de nombreuses tables avec `merge()` (sur les mêmes identifiants).
+\intertitre{Exemple d'utilisation} Fusionner de nombreuses tables avec `merge()` (sur les mêmes identifiants).
 
 
 ## Coder efficacement en base R
@@ -797,7 +799,7 @@ D'où le principe : **limiter au maximum la surcharge liée à R** pour retomber
 
 \pause \vfill
 
-**Remarque** Il est très facile en pratique d'utiliser R comme une interface vers des langages de plus bas niveau, *cf. infra* à propos de `Rcpp`. 
+\intertitre{Remarque} Il est très facile en pratique d'utiliser R comme une interface vers des langages de plus bas niveau, *cf. infra* à propos de `Rcpp`. 
 
 
 
@@ -843,9 +845,9 @@ summary(microbenchmark(times = 10L
   , cumsum = cumsum(1:1e4)
 ))[, 1:4]
   ##     expr       min        lq       mean
-  ## 1 boucle 18686.838 20569.758 21284.5156
-  ## 2 Reduce  6402.722  6963.981  8102.1192
-  ## 3 cumsum    37.218    38.982    46.4275
+  ## 1 boucle 15751.411 16676.220 17342.6323
+  ## 2 Reduce  5828.524  5945.065  6662.3951
+  ## 3 cumsum    37.019    39.746    47.2646
 ```
 
 ### Tirer le meilleur parti de la compilation (1)
@@ -865,11 +867,11 @@ boucle_compil <- compiler::cmpfun(boucle)
 microbenchmark(boucle(1:1e4), boucle_compil(1:1e4))
   ## Unit: milliseconds
   ##                    expr       min        lq      mean
-  ##         boucle(1:10000) 18.256964 22.946919 28.623216
-  ##  boucle_compil(1:10000)  1.673866  1.907869  2.841323
+  ##         boucle(1:10000) 15.805389 17.005351 17.874497
+  ##  boucle_compil(1:10000)  1.588799  1.722751  1.750571
   ##     median        uq       max neval
-  ##  28.101686 32.983239 49.743687   100
-  ##   2.591686  3.598628  6.182954   100
+  ##  17.697739 18.263382 21.722003   100
+  ##   1.738325  1.765799  2.212019   100
 ```
 
 ### Tirer le meilleur parti de la compilation (2)
@@ -886,11 +888,11 @@ compiler::enableJIT(3)
   ## [1] 0
 summary(microbenchmark(boucle(1:1e4), boucle_compil(1:1e4)))[, 1:4]
   ##                     expr      min       lq     mean
-  ## 1        boucle(1:10000) 1.683376 1.806746 2.656830
-  ## 2 boucle_compil(1:10000) 1.678782 1.907039 2.755148
+  ## 1        boucle(1:10000) 1.582040 1.603213 1.729375
+  ## 2 boucle_compil(1:10000) 1.585057 1.609157 1.657959
 ```
 
-\pause \small \textbf{Remarque} Depuis R 3.4.0, `enableJIT()` vaut 3 par défaut. 
+\pause \small \intertitre{Remarque} Depuis R 3.4.0, `enableJIT()` vaut 3 par défaut. 
 
 ### Utiliser l'opérateur `[` au lieu de `ifelse()`
 
@@ -918,12 +920,12 @@ microbenchmark(times = 10L
   } 
 )
   ## Unit: milliseconds
-  ##    expr       min       lq      mean    median
-  ##  ifelse 36.374660 46.54510 70.446984 51.274090
-  ##       [  1.636993  1.95378  2.749823  2.353574
-  ##         uq        max neval
-  ##  54.188208 262.560529    10
-  ##   3.586164   5.333204    10
+  ##    expr      min        lq     mean    median
+  ##  ifelse 26.25032 26.321084 26.71476 26.460366
+  ##       [  1.39027  1.431458  1.51165  1.470771
+  ##         uq       max neval
+  ##  26.714720 28.400851    10
+  ##   1.567792  1.750101    10
 ```
 
 ### Simplifier les données :  le type `factor`
@@ -959,7 +961,7 @@ Utiliser des noms est une méthode souvent **très rapide** pour **accéder aux 
 
 \pause 
 
-**Exemple** On cherche à extraire les observations d'une table *via* leur identifiant `id`. On compare l'utilisation des noms à une fusion réalisée avec `merge()`.
+\intertitre{Exemple} On cherche à extraire les observations d'une table *via* leur identifiant `id`. On compare l'utilisation des noms à une fusion réalisée avec `merge()`.
 
 \small 
 
@@ -989,12 +991,12 @@ microbenchmark(times = 10L
   , names = df[extract, ]
 )
   ## Unit: milliseconds
-  ##   expr       min        lq      mean    median
-  ##  merge 16.127307 17.827670 20.804243 20.165223
-  ##  names  3.395627  3.473018  3.678273  3.575197
+  ##   expr       min        lq     mean    median
+  ##  merge 14.794181 15.264378 15.40527 15.437613
+  ##  names  2.611688  2.655904  2.81817  2.736901
   ##         uq       max neval
-  ##  24.251721 26.346721    10
-  ##   3.658939  4.807671    10
+  ##  15.636058 15.901694    10
+  ##   3.019022  3.074043    10
 ```
 
 
@@ -1035,12 +1037,12 @@ c(object_size(m), object_size(M))
 # Gain de performances pour la fonction colSums()
 microbenchmark(dense = colSums(m), sparse = colSums(M))
   ## Unit: microseconds
-  ##    expr      min        lq       mean   median
-  ##   dense 1255.196 1282.6595 1360.35790 1335.667
-  ##  sparse   57.559   74.1685   89.06236   89.084
+  ##    expr      min       lq       mean    median
+  ##   dense 1260.470 1281.146 1313.86973 1310.1305
+  ##  sparse   56.086   70.537   82.59214   83.2135
   ##         uq      max neval
-  ##  1404.4910 1967.851   100
-  ##    96.5855  151.089   100
+  ##  1333.8945 1444.225   100
+  ##    92.3815  148.062   100
 ```
 
 ## dplyr : une grammaire du traitement des données
@@ -1060,7 +1062,7 @@ library(dplyr)
 
 \pause
 
-**Pour en savoir plus** De nombreuses vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=dplyr). Un [\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf) est également disponible sur le site de RStudio.
+\intertitre{Pour en savoir plus} De nombreuses vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=dplyr). Un [\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf) est également disponible sur le site de RStudio.
 
 ### \large Données d'exemple : table `flights` de `nycflights13`
 
@@ -1147,7 +1149,7 @@ summarise(flights
 
 \pause 
 
-**Remarque** Comme toutes les fonctions de `dplyr`, `summarise()` prend un `data.frame` en entrée et produit un `data.frame` en sortie. 
+\intertitre{Remarque} Comme toutes les fonctions de `dplyr`, `summarise()` prend un `data.frame` en entrée et produit un `data.frame` en sortie. 
 
 
 ### Ventiler des traitements avec `group_by()`
@@ -1203,13 +1205,13 @@ flights %>%
 - `a %>% inner_join(b, by = "id")` : fusionne `a` et `b` en ne conservant que les observations dans `a` et `b`;
 - `a %>% full_join(b, by = "id")` : fusionne `a` et `b` en conservant toutes les observations.
 
-**Pour en savoir plus** Une [\underline{vignette}](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html) est consacrée à la présentation des fonctions de `dplyr` portant sur deux tables.
+\intertitre{Pour en savoir plus} Une [\underline{vignette}](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html) est consacrée à la présentation des fonctions de `dplyr` portant sur deux tables.
 
 ### Comparaison de base R et de `dplyr`
 
 `dplyr` est particulièrement intéressant pour travailler sur des données par groupe. On compare donc l'utilisation de `tapply()` de base R avec `group_by()` de `dplyr`.
 
-\footnotesize
+\footnotesize \pause 
 
 
 ```r
@@ -1224,11 +1226,11 @@ microbenchmark(times = 10L
 )
   ## Unit: milliseconds
   ##   expr      min       lq     mean   median       uq
-  ##   base 37.92114 46.84232 56.65085 50.55141 70.85616
-  ##  dplyr 48.34361 50.91462 64.66221 55.71249 73.45178
-  ##        max neval
-  ##   85.66136    10
-  ##  101.98539    10
+  ##   base 36.33509 42.80433 42.41404 43.29193 44.16897
+  ##  dplyr 53.33831 53.45452 56.14469 55.14207 56.00287
+  ##       max neval
+  ##  45.50056    10
+  ##  65.04266    10
 ```
 
 <!-- ## Une petite parenthèse {.unnumbered} -->
@@ -1277,9 +1279,9 @@ microbenchmark(times = 10L
 
 Contrairement à `dplyr`, `data.table` ne cherche pas à se substituer à base R mais à le compléter. 
 
-Il introduit un nouveau type d'objet, le `data.table`, qui **hérite** du `data.frame` (tout `data.table` est un `data.frame`).
+\pause Il introduit un nouveau type d'objet, le `data.table`, qui **hérite** du `data.frame` (tout `data.table` est un `data.frame`).
 
-Appliqué à un `data.table`, l'opérateur `[` est **enrichi et optimisé**.
+\pause Appliqué à un `data.table`, l'opérateur `[` est **enrichi et optimisé**.
 
 
 ```r
@@ -1287,13 +1289,15 @@ library(data.table)
 flights_DT <- data.table(flights)
 ```
 
-**Pour en savoir plus** Là encore des vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=data.table).
+\pause 
+
+\intertitre{Pour en savoir plus} Là encore des vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=data.table).
 
 ### L'opérateur `[` du `data.table` : `i`, `j` et `by`
 
 La syntaxe de l'opérateur `[` appliqué à un `data.table` est la suivante (`DT` représente le `data.table`): 
 
-\centering \large
+\pause \centering \large
 
 `DT[i, j, by]`
 
@@ -1303,9 +1307,9 @@ La syntaxe de l'opérateur `[` appliqué à un `data.table` est la suivante (`DT
 - `j` : sélectionner ou **créer** une ou plusieurs variables;
 - `by` : ventiler les traitements selon les modalités d'une ou plusieurs variables.
 
-\bigskip 
+\pause \bigskip 
 
-**Exemple** Retard quotidien maximal au mois de janvier.
+\pause \intertitre{Exemple} Retard quotidien maximal au mois de janvier.
 
 \small
 
@@ -1320,9 +1324,9 @@ flights_DT[
 \small
 Il est beaucoup plus simple et efficace de sélectionner des observations dans un `data.table` que dans un `data.frame`:
 
-- il n'y a pas à répéter le nom du `data.frame` dans `[`;
+- \pause il n'y a pas à répéter le nom du `data.frame` dans `[`;
 
-- il est possible d'indexer un `data.table` par une ou plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
+- \pause il est possible d'indexer un `data.table` par une ou plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
 
 \footnotesize
 
@@ -1336,13 +1340,13 @@ microbenchmark(times = 100L
 )
   ## Unit: milliseconds
   ##  expr      min       lq     mean   median       uq
-  ##  base 41.98297 47.92040 55.90588 50.78441 58.67894
-  ##   dt1 11.15860 11.49826 17.72419 12.97871 19.45241
-  ##   dt2 10.57523 11.04820 15.11194 12.74932 17.22756
+  ##  base 41.71417 43.65880 54.29650 49.23702 50.10314
+  ##   dt1 10.80914 11.26147 12.90479 11.45061 11.97763
+  ##   dt2 10.46219 10.81319 13.99015 11.03693 11.68497
   ##        max neval
-  ##  201.05644   100
-  ##  227.58992   100
-  ##   39.50966   100
+  ##  218.69998   100
+  ##   21.21712   100
+  ##  179.24473   100
 ```
 
 <!-- summary(microbenchmark(times = 10L -->
@@ -1356,7 +1360,7 @@ microbenchmark(times = 100L
 
 L'argument `j` permet de calculer des statistiques agrégées. 
 
-\small
+\pause \small
 
 
 ```r
@@ -1368,11 +1372,11 @@ flights_DT[, j = list(
   ## 1:         1039.913       1272
 ```
 
-\normalsize 
+\pause \normalsize 
 
 Utilisé avec `:=` il permet de les refusionner automatiquement avec les données d'origine. 
 
-\small
+\pause \small
 
 
 ```r
@@ -1386,6 +1390,7 @@ flights_DT <- flights_DT[, j := list(
 
 L'argument `by` de `[` ventile tous les traitements renseignés dans `j` selon les modalités d'une ou plusieurs variables.
 
+\pause 
 
 ```r
 flights_DT[, j = list(
@@ -1398,12 +1403,13 @@ flights_DT[, j = list(
   ## 3:    11         1050.305        796
 ```
 
-**Remarque** Par défaut, `by` ordonne les résultats dans l'ordre des groupes dans le `data.table`. `keyby` trie les données selon la variable d'agrégation (comme `group_by` de `dplyr`).
+\pause \intertitre{Remarque} Par défaut, `by` ordonne les résultats dans l'ordre des groupes dans le `data.table`. `keyby` trie les données selon la variable d'agrégation (comme `group_by` de `dplyr`).
 
 ### Chaîner les opérations dans un `data.table`
 
 Il est très facile de chaîner les opérations sur un `data.table` en enchaînant les `[`. 
 
+\pause 
 
 ```r
 flights_DT[
@@ -1415,7 +1421,7 @@ flights_DT[
 ][retard_arrivee > 30 | retard_depart > 30]
 ```
 
-**Remarque** Ces chaînages sont possibles avec  un `data.table` mais pas avec un `data.frame`. 
+\pause \intertitre{Remarque} Ces chaînages sont possibles avec  un `data.table` mais pas avec un `data.frame`. 
 
   
 ### Comparaison de base R, `dplyr` et `data.table`
@@ -1434,21 +1440,36 @@ microbenchmark(times = 10L
 )
 ```
 
-\vspace{-5mm}
+\pause \vspace{-5mm}
 
 
 ```
   ##         expr       lq     mean       uq
-  ## 1       base 38.32042 47.52636 48.74153
-  ## 2      dplyr 49.53867 62.07801 74.74132
-  ## 3 data.table 21.10773 38.63131 25.69521
+  ## 1       base 37.32276 42.05503 45.62500
+  ## 2      dplyr 53.90310 55.07001 56.11389
+  ## 3 data.table 20.57499 21.56300 20.91101
 ```
 
-\normalsize
+\pause \normalsize
 
-**Pour en savoir plus** Cette discussion sur [\underline{stackoverflow.com}](http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) (notamment entre les auteurs des *packages*) aborde les avantages et les inconvénients de `dplyr` et `data.table`. 
+\intertitre{Pour en savoir plus} Cette discussion sur [\underline{stackoverflow.com}](http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) (notamment entre les auteurs des *packages*) aborde les avantages et les inconvénients de `dplyr` et `data.table`. 
 
+### Parenthèse : lire et écrire rapidement des fichiers plats avec data.table
 
+Le *package* data.table fournit par ailleurs deux fonctions extrêmement utiles en pratique pour \intertitre{lire et écrire} des fichiers plats (`.csv`, `.txt`, `.dlm`): 
+
+- \pause `fread()` : beaucoup plus rapide et plus ergonomique que `read.table()` et ses alias (`read.csv()`, `read.delim()`), produit directement un `data.table` ;
+- \pause `fwrite()` : beaucoup plus rapide que `write.table()`.
+
+\footnotesize \pause
+
+```r
+# Lecture avec fread()
+mon_fichier <- fread(file = "mon_fichier.csv", sep = ",")
+
+# Ecriture avec fwrite()
+fwrite(mon_fichier, file = "mon_fichier.txt", sep = "\t")
+```
 
 ## Aller plus loin avec R
 
@@ -1458,14 +1479,14 @@ Les outils présentés jusqu'à présent correspondent à une utilisation \og cl
 
 \ 
 
-Il arrive néanmoins que certains traitements soient rendus **difficiles par les caractéristiques du logiciel** :
+\pause Il arrive néanmoins que certains traitements soient rendus **difficiles par les caractéristiques du logiciel** :
 
 - travail sur des volumes de données impossibles à loger en mémoire;
 - temps de calcul trop longs et impossibles à réduire.
 
 \ 
 
-Dans ce genre de situations, la solution consiste en général à utiliser R comme une **interface** vers des techniques ou langages susceptibles de répondre au problème posé. 
+\pause Dans ce genre de situations, la solution consiste en général à utiliser R comme une **interface** vers des techniques ou langages susceptibles de répondre au problème posé. 
 
 
 <!-- ### \large Travailler sur des données *out-of-memory* -->
@@ -1489,13 +1510,13 @@ Dans ce genre de situations, la solution consiste en général à utiliser R com
 
 <!-- \normalsize -->
 
-<!-- **Remarque** Ces *packages* n'ont pas connu d'évolutions depuis plusieurs années. -->
+<!-- \intertitre{Remarque} Ces *packages* n'ont pas connu d'évolutions depuis plusieurs années. -->
 
 ### \large Se connecter à des bases de données 
 
 Une autre solution pour exploiter de grands volumes de données dans R est de l'utiliser pour **interroger des bases de données**, *via* par exemple le *package* `RPostgreSQL`. 
 
-\footnotesize
+\pause \footnotesize
 
 ```r
 library(RPostgreSQL)
@@ -1513,13 +1534,13 @@ dbGetQuery(con, "SELECT COUNT(*) FROM maTable")
 
 \normalsize
 
-**Remarque** Différents *packages* permettent de se connecter à différents types de base de données : `RMySQl` pour MySQL, etc.
+\pause \intertitre{Remarque} Différents *packages* permettent de se connecter à différents types de base de données : `RMySQl` pour MySQL, etc.
 
 ### \large Se connecter à des bases de données avec `dplyr`
 
 `dplyr` a la particularité de pouvoir fonctionner de façon totalement transparente sur des bases de données de différents types. 
 
-\footnotesize
+\pause \footnotesize
 
 ```r
 library(dplyr)
@@ -1551,19 +1572,19 @@ tbl(con) %>% summarise(n())
 
 La plupart des ordinateurs possèdent aujourd'hui plusieurs c\oe urs (*core*) susceptibles de mener des traitements **en parallèle** (8 sur chaque serveur d'AUS par exemple). 
 
-Par défaut, R n'expoite qu'un seul c\oe ur : le *package* `parallel` (mais aussi les *packages* `snow` ou `foreach` par exemple) permettent de **paralléliser des structures du type `*apply`**.
+\pause Par défaut, R n'expoite qu'un seul c\oe ur : le *package* `parallel` (mais aussi les *packages* `snow` ou `foreach` par exemple) permettent de **paralléliser des structures du type `*apply`**.
 
-Ce type d'opérations est composé de plusieurs étapes : 
+\pause Ce type d'opérations est composé de plusieurs étapes : 
 
-1. Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à utiliser (chargement des fonctions et *packages* nécessaires sur chaque c\oe ur);
-2. Lancement du traitement parallélisé avec `parLapply()`;
-3. Arrêt des processus du *cluster* avec `stopCluster()`.
+1. \pause Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à utiliser (chargement des fonctions et *packages* nécessaires sur chaque c\oe ur);
+2. \pause Lancement du traitement parallélisé avec `parLapply()`;
+3. \pause Arrêt des processus du *cluster* avec `stopCluster()`.
 
 ### \large Paralléliser des traitements avec `parallel` (2)
 
 Dans cet exemple, on cherche à appliquer la fonction `f` à chaque matrice de la liste `l`. 
 
-\footnotesize
+\pause \footnotesize
 
 ```r
 library(MASS)
@@ -1587,6 +1608,8 @@ stopCluster(cl)
 
 
 
+\pause 
+
 
 ```r
 microbenchmark(times = 10
@@ -1595,12 +1618,14 @@ microbenchmark(times = 10
 )
   ## Unit: milliseconds
   ##                 expr      min       lq     mean
-  ##         lapply(l, f) 636.0039 641.6147 663.0252
-  ##  parLapply(cl, l, f) 341.5059 383.9122 412.6761
+  ##         lapply(l, f) 640.6186 641.2107 645.5821
+  ##  parLapply(cl, l, f) 336.0838 383.6429 400.1393
   ##    median       uq      max neval
-  ##  650.1038 658.3229 782.8332    10
-  ##  405.4428 437.5670 480.6239    10
+  ##  641.8607 651.6407 659.1777    10
+  ##  403.8412 424.5455 431.9449    10
 ```
+
+\pause 
 
 
 
@@ -1608,7 +1633,7 @@ microbenchmark(times = 10
 
 Le *package* `Rcpp` permet d'intégrer facilement des fonctions codées en C++ dans un programme R. 
 
-\footnotesize
+\pause \footnotesize
 
 
 ```r
@@ -1622,17 +1647,18 @@ add(1, 2)
   ## [1] 3
 ```
 
-\normalsize
+\pause \normalsize
 
-**Remarque** Il est également possible de soumettre un fichier contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction `sourceCpp()`. 
+\intertitre{Remarque} Il est également possible de soumettre un fichier contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction `sourceCpp()`. 
 
-**Pour en savoir plus** [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Rcpp.html)
+\pause 
+\intertitre{Pour en savoir plus} [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Rcpp.html)
 
 ### `Rcpp` : un package R pour utiliser C++ (2)
 
 Contrairement à R, C++ est un langage de bas niveau : les boucles y sont en particulier extrêmement rapides. 
 
-**Exemple** Somme cumulée par colonne 
+\pause \intertitre{Exemple} Somme cumulée par colonne 
 
 \footnotesize
 
@@ -1675,8 +1701,8 @@ summary(microbenchmark(times = 10
   , cumColSumsC(x)
 ))[, c("expr", "lq", "mean", "uq")]
   ##             expr        lq      mean        uq
-  ## 1 cumColSumsR(x) 17.589140 21.515209 25.846904
-  ## 2 cumColSumsC(x)  4.759599  6.959464  9.219795
+  ## 1 cumColSumsR(x) 19.506836 38.770332 25.321596
+  ## 2 cumColSumsC(x)  4.416819  5.062526  5.752609
 ```
 
 
@@ -1761,7 +1787,7 @@ La création de graphiques avec le *package* de base `graphics` s'appuie sur la 
 
 \pause 
 
-**Pour en savoir plus** Le site [\underline{statmethods.net}](http://www.statmethods.net/graphs/) recense et illustre la plupart des fonctions du *package* `graphics`.
+\intertitre{Pour en savoir plus} Le site [\underline{statmethods.net}](http://www.statmethods.net/graphs/) recense et illustre la plupart des fonctions du *package* `graphics`.
 
 ### Histogrammes et densités
 
@@ -1781,7 +1807,7 @@ Les fonctions `histogram()` et `density()` calculent les statistiques ensuite ut
 
 \pause
 
-**Remarque** L'argument `plot` de la fonction `hist()` (`TRUE` par défaut) affiche automatiquement un graphique, sans avoir à appeler explicitement la fonction `plot()`.
+\intertitre{Remarque} L'argument `plot` de la fonction `hist()` (`TRUE` par défaut) affiche automatiquement un graphique, sans avoir à appeler explicitement la fonction `plot()`.
 
 ### Histogrammes et densités
 
@@ -1793,7 +1819,7 @@ hist(mpg$hwy, breaks = seq(10, 44, by = 2),
 ```
 
 
-\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-83-1} 
+\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-84-1} 
 
 ### Histogrammes et densités
 
@@ -1804,7 +1830,7 @@ plot(density(mpg$hwy, bw = 0.5, kernel = "gaussian"))
 ```
 
 
-\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-84-1} 
+\includegraphics[height=7cm]{presentation_files/figure-beamer/unnamed-chunk-85-1} 
 
 ### Séries chronologiques avec `plot(ts)`
 
@@ -1818,7 +1844,7 @@ plot(AirPassengers)
 ```
 
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-85-1} 
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-86-1} 
 
 ### Nuages de points avec `plot(x, y)`
 
@@ -1830,7 +1856,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 
 
-\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-86-1} 
+\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-87-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -1851,7 +1877,7 @@ La fonction `table()` permet de calculer les statistiques utilisées ensuite par
 
 \pause
 
-**Remarque** Quand `barplot()` est appliqué à un tri croisé, la couleur des barres varie et les paramètres deviennent utiles : 
+\intertitre{Remarque} Quand `barplot()` est appliqué à un tri croisé, la couleur des barres varie et les paramètres deviennent utiles : 
 \vspace{-3mm}
 
 - `beside` : position des barres;
@@ -1870,7 +1896,7 @@ barplot(uni, names.arg = lab)
 ```
 
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-87-1} 
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-88-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -1883,7 +1909,7 @@ pie(uni, labels = paste0(lab, "\n", uni)
 ```
 
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-88-1} 
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-89-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -1896,7 +1922,7 @@ barplot(bi, horiz = TRUE, beside = TRUE, legend.text = lab)
 ```
 
 
-\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-89-1} 
+\includegraphics[height=6cm]{presentation_files/figure-beamer/unnamed-chunk-90-1} 
 
 ### Couleur, forme et taille des objets
 
@@ -1904,18 +1930,18 @@ Plusieurs paramètres permettent de modifier la couleur, la forme ou la taille d
 
 - \pause `pch` : entier ou caractère spécial indiquant la forme des points à représenter. 
 
-![](presentation_files/figure-beamer/unnamed-chunk-90-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-91-1.pdf)<!-- --> 
 
 - \pause `col` : valeur indiquant la couleur du contour des formes utilisées. Peut être un entier (recyclé au-delà de 8), un nom ou un code RGB hexadécimal (du type `"#FF1111"`).
 \small  
 
-![](presentation_files/figure-beamer/unnamed-chunk-91-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-92-1.pdf)<!-- --> 
 
 Pour certaines formes (`pch` entre 21 et 25), il est également possible de modifier la couleur de remplissage avec `bg`. 
 
 ### Couleur, forme et taille des objets
 
-**Remarque** : la palette de couleurs accessibles en utilisant des entiers est réduite. Il est possible de l'étendre considérablement *via* la fonction `colors()`. 
+\intertitre{Remarque} : la palette de couleurs accessibles en utilisant des entiers est réduite. Il est possible de l'étendre considérablement *via* la fonction `colors()`. 
 
 \small
 
@@ -1931,7 +1957,7 @@ grep("blue", colors(), value = TRUE)[1:3]
 \pause \normalsize
 - `cex` : utilisé dans une fonction `plot()`, `cex` permet d'ajuster la taille des points qui le composent. 
 
-![](presentation_files/figure-beamer/unnamed-chunk-93-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-94-1.pdf)<!-- --> 
 
 ### Couleur, forme et taille des objets
 
@@ -1948,7 +1974,7 @@ legend("topright", legend = unique(t), pch = 21
   , col = unique(t), pt.bg = unique(t))
 ```
 
-![](presentation_files/figure-beamer/unnamed-chunk-94-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-95-1.pdf)<!-- --> 
 
 ### Titres, texte et axes
 
@@ -1969,7 +1995,7 @@ Les titres sont paramétrés à l'aide des fonctions suivantes :
 
 \pause 
 
-**Remarque** Pour produire un graphique sans axe et les rajouter après, utiliser l'option `axes = FALSE` de la fonction `plot()`. 
+\intertitre{Remarque} Pour produire un graphique sans axe et les rajouter après, utiliser l'option `axes = FALSE` de la fonction `plot()`. 
 
 ### Combinaison de plusieurs graphiques
 
@@ -1984,7 +2010,7 @@ Par défaut l'utilisation de la fonction `plot()` produit un nouveau graphique.
 
 \pause 
 
-**Exemple** Ajout d'une droite de régression au graphique de `hwy` par `displ`. 
+\intertitre{Exemple} Ajout d'une droite de régression au graphique de `hwy` par `displ`. 
 
 ### Combinaison de plusieurs graphiques
 
@@ -1997,7 +2023,7 @@ plot(mpg$displ, mpg$hwy)
 abline(a = reg$coefficients[1], b = reg$coefficients[2])
 ```
 
-![](presentation_files/figure-beamer/unnamed-chunk-95-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-96-1.pdf)<!-- --> 
 
 
 ### Paramètres généraux et disposition (1)
@@ -2029,7 +2055,7 @@ plot(mpg$displ, mpg$hwy)
 plot(AirPassengers)
 ```
 
-![](presentation_files/figure-beamer/unnamed-chunk-97-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-98-1.pdf)<!-- --> 
 
 
 
@@ -2050,7 +2076,7 @@ dev.off()
 
 \pause 
 
-**Remarque** Les graphiques peuvent également facilement être exportés depuis RStudio en utilisant les menus prévus à cet effet. 
+\intertitre{Remarque} Les graphiques peuvent également facilement être exportés depuis RStudio en utilisant les menus prévus à cet effet. 
 
 ## Réaliser des graphiques avec \protect\texttt{ggplot2}
 
@@ -2067,7 +2093,7 @@ Comme les éléments du langage, les **composants élémentaires** d'un graphiqu
 
 \pause 
 
-**Pour aller plus loin** \textsc{Wilkinson L.} (2005) \textit{The Grammar of Graphics}, Springer,  [\underline{ggplot2: elegant graphics for data analysis}](https://github.com/hadley/ggplot2-book)
+\intertitre{Pour aller plus loin} \textsc{Wilkinson L.} (2005) \textit{The Grammar of Graphics}, Springer,  [\underline{ggplot2: elegant graphics for data analysis}](https://github.com/hadley/ggplot2-book)
 
 ### \large Les trois composants essentiels d'un graphique
 
@@ -2079,7 +2105,7 @@ La construction d'un graphique avec `ggplot2` fait intervenir trois composants e
 
 \pause 
 
-**Exemple** *Miles per gallon* sur l'autoroute en fonction de la cylindrée.
+\intertitre{Exemple} *Miles per gallon* sur l'autoroute en fonction de la cylindrée.
 
 \center \small 
 
@@ -2098,7 +2124,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-101-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-102-1} 
 
 ### \large Rappel : le même graphique avec base R
 
@@ -2110,7 +2136,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 
 
-\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-102-1} 
+\includegraphics[height=6.5cm]{presentation_files/figure-beamer/unnamed-chunk-103-1} 
 
 
 ### Couleur, forme et taille des objets
@@ -2135,7 +2161,7 @@ ggplot(mpg, aes(displ, hwy, colour = cyl, shape = drv)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-103-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-104-1} 
 
 ### Couleur, forme et taille des objets
 
@@ -2159,7 +2185,7 @@ ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl)
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-104-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-105-1} 
 
 ### Couleur, forme et taille des objets
 
@@ -2183,7 +2209,7 @@ ggplot(mpg, aes(displ, hwy, colour = as.factor(cyl)
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-105-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-106-1} 
 
 
 ### Couleur, forme et taille des objets
@@ -2207,7 +2233,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-106-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-107-1} 
 
 <!-- ### Couleur, forme et taille des objets -->
 
@@ -2230,7 +2256,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-107-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-108-1} 
 
 ### Combinaison de plusieurs graphiques
 
@@ -2243,7 +2269,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-108-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-109-1} 
 
 ### Combinaison de plusieurs graphiques
 
@@ -2256,7 +2282,7 @@ ggplot(mpg, aes(displ, hwy, colour = drv)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-109-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-110-1} 
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
@@ -2306,7 +2332,7 @@ ggplot() + layer(
 ```
 
 
-\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-110-1} 
+\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-111-1} 
 
 
 <!-- ### \large Le fonctionnement en \og couches \fg{} de `ggplot2` -->
@@ -2371,7 +2397,7 @@ ggplot() + layer(
 \centering
 
 
-\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-112-1} 
+\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-113-1} 
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
@@ -2407,6 +2433,7 @@ ggplot(data = mpg, mapping = aes(displ, hwy)) +
 ggplot(data = mpg, mapping = aes(displ, hwy)) + 
   geom_point() + stat_smooth(method = "lm", se = FALSE)
 ```
+
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
 À chaque fonction `geom_*()` est assocée un paramètre `stat` par défaut, et à chaque fonction `stat_*()` un `geom` par défaut.
@@ -2422,7 +2449,7 @@ ggplot(data = mpg, mapping = aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-116-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-117-1} 
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
@@ -2436,7 +2463,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-117-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-118-1} 
 
 ### \large Le fonctionnement en \og couches \fg{} de `ggplot2`
 
@@ -2450,7 +2477,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-118-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-119-1} 
 
 
 ### Histogrammes et densités
@@ -2464,11 +2491,11 @@ ggplot(mpg, aes(hwy)) + geom_histogram()
 ```
 
 
-\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-119-1} 
+\includegraphics[width=0.8\linewidth]{presentation_files/figure-beamer/unnamed-chunk-120-1} 
 
 \pause \raggedright \small \vspace{-0.3cm}
 
-**Remarque** Le positionnement des classes des histogrammes semble perturbé dans les dernières versions de `ggplot2` : le paramètre `boundary` permet de corriger ce problème (*cf.* [\underline{cette discussion}](http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins)).
+\intertitre{Remarque} Le positionnement des classes des histogrammes semble perturbé dans les dernières versions de `ggplot2` : le paramètre `boundary` permet de corriger ce problème (*cf.* [\underline{cette discussion}](http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins)).
 
 ### Histogrammes et densités
 
@@ -2481,7 +2508,7 @@ ggplot(mpg, aes(hwy, colour = drv, fill = drv)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-120-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-121-1} 
 
 ### Histogrammes et densités
 
@@ -2493,7 +2520,7 @@ ggplot(mpg, aes(hwy)) + geom_density(bw = 0.5)
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-121-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-122-1} 
 
 ### Histogrammes et densités
 
@@ -2506,7 +2533,7 @@ ggplot(mpg, aes(hwy, colour = drv, fill = drv)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-122-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-123-1} 
 
 ### Séries temporelles
 
@@ -2519,7 +2546,7 @@ ggplot(economics, aes(date, unemploy / pop)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-123-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-124-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -2532,7 +2559,7 @@ ggplot(mpg, aes(drv, colour = drv, fill = drv)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-124-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-125-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -2548,7 +2575,7 @@ ggplot(mpg, aes(drv, fill = drv)) +
 ```
 
 
-\includegraphics[width=0.7\linewidth]{presentation_files/figure-beamer/unnamed-chunk-125-1} 
+\includegraphics[width=0.7\linewidth]{presentation_files/figure-beamer/unnamed-chunk-126-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -2562,7 +2589,7 @@ g
 ```
 
 
-\includegraphics[width=0.75\linewidth]{presentation_files/figure-beamer/unnamed-chunk-126-1} 
+\includegraphics[width=0.75\linewidth]{presentation_files/figure-beamer/unnamed-chunk-127-1} 
 
 
 ### Diagrammes en bâtons et circulaires
@@ -2576,12 +2603,12 @@ g + coord_polar(theta = "y") + theme_minimal() +
 ```
 
 
-\includegraphics[width=0.5\linewidth]{presentation_files/figure-beamer/unnamed-chunk-127-1} 
+\includegraphics[width=0.5\linewidth]{presentation_files/figure-beamer/unnamed-chunk-128-1} 
 
 
 \pause \raggedright \small
 
-**Pour aller plus loin** Une page du site [\underline{sthda.com}](http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) explique (en français) comment produire un diagramme circulaire complet avec `ggplot2`.
+\intertitre{Pour aller plus loin} Une page du site [\underline{sthda.com}](http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) explique (en français) comment produire un diagramme circulaire complet avec `ggplot2`.
 
 ### Diagrammes en bâtons et circulaires
 
@@ -2594,7 +2621,7 @@ ggplot(mpg, aes(drv, fill = as.factor(year))) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-128-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-129-1} 
 
 
 ### Diagrammes en bâtons et circulaires
@@ -2608,7 +2635,7 @@ ggplot(mpg, aes(drv, fill = as.factor(year))) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-129-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-130-1} 
 
 ### Diagrammes en bâtons et circulaires
 
@@ -2622,7 +2649,7 @@ ggplot(mpg, aes(as.factor(year), fill = drv)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-130-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-131-1} 
 
 
 ### Boîtes à moustaches et assimilés
@@ -2636,7 +2663,7 @@ ggplot(mpg, aes(x = drv, y = hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-131-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-132-1} 
 
 ### Boîtes à moustaches et assimilés
 
@@ -2649,7 +2676,7 @@ ggplot(mpg, aes(x = drv, y = hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-132-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-133-1} 
 
 ### Boîtes à moustaches et assimilés
 
@@ -2662,7 +2689,7 @@ ggplot(mpg, aes(x = drv, y = hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-133-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-134-1} 
 
 ### Titres et axes
 
@@ -2677,7 +2704,7 @@ ggplot(mpg, aes(displ, hwy)) + geom_point() +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-134-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-135-1} 
 
 
 
@@ -2693,7 +2720,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-135-1} 
+\includegraphics[width=0.9\linewidth]{presentation_files/figure-beamer/unnamed-chunk-136-1} 
 
 ### Disposition : le *facetting*
 
@@ -2707,7 +2734,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ```
 
 
-\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-136-1} 
+\includegraphics[width=1\linewidth]{presentation_files/figure-beamer/unnamed-chunk-137-1} 
 
 ### Sauvegarde et exportation
 
@@ -2832,7 +2859,7 @@ La génération automatique de documents complets repose sur deux éléments :
 \end{tikzpicture}
 
 \raggedright
-\pause[9] **Note** `rmarkdown` et `knitr` sont des *packages* R (avec plusieurs dépendances); pandoc et LaTeX sont des programmes autonomes.
+\pause[9] \intertitre{Note} `rmarkdown` et `knitr` sont des *packages* R (avec plusieurs dépendances); pandoc et LaTeX sont des programmes autonomes.
 
 ### Préparer et tester l'environnement de travail
 
@@ -2866,7 +2893,7 @@ Pour écrire du texte dans un document R Markdown, il suffit de le **taper dans 
 
 \pause 
 
-**Note** Pour une présentation synthétique de R Markdown, se référer à l'[\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) (*cheat sheet*) sur le site de RStudio.
+\intertitre{Note} Pour une présentation synthétique de R Markdown, se référer à l'[\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) (*cheat sheet*) sur le site de RStudio.
 
 
 ### Ecrire du code dans R Markdown
@@ -2911,7 +2938,7 @@ Les **options** saisies en début de bloc permettent de préciser à `knitr` la 
 
 \pause 
 
-**Note** Toutes les options de `knitr` relatives aux blocs de code (*chunk options*) sont présentées sur la [\underline{page}](http://yihui.name/knitr/options/) du créateur du *package*, Yihui Xie.
+\intertitre{Note} Toutes les options de `knitr` relatives aux blocs de code (*chunk options*) sont présentées sur la [\underline{page}](http://yihui.name/knitr/options/) du créateur du *package*, Yihui Xie.
 
 ### Ecrire du code dans R Markdown
 
@@ -2924,14 +2951,14 @@ Il est également possible d'intégrer le résultat d'un traitement R dans le co
 
 \pause 
 
-**Exemple** Pour intégrer dans le texte la date de compilation du document, utiliser 
+\intertitre{Exemple} Pour intégrer dans le texte la date de compilation du document, utiliser 
 
 
 ```
 Document compilé le `r Sys.Date()`.
 ```
 
-\pause Document compilé le 2018-01-26.
+\pause Document compilé le 2018-04-10.
 
 ### Intégrer des graphiques dans R Markdown
 
@@ -2958,7 +2985,7 @@ plot(mpg$displ, mpg$hwy)
 ```
 ````
 
-![](presentation_files/figure-beamer/unnamed-chunk-147-1.pdf)<!-- --> 
+![](presentation_files/figure-beamer/unnamed-chunk-148-1.pdf)<!-- --> 
 
 ### Intégrer des graphiques dans R Markdown
 
@@ -2972,7 +2999,7 @@ plot(mpg$displ, mpg$hwy)
 ````
 
 
-\includegraphics[width=4in]{presentation_files/figure-beamer/unnamed-chunk-149-1} 
+\includegraphics[width=4in]{presentation_files/figure-beamer/unnamed-chunk-150-1} 
 
 ### Intégrer des tableaux dans R Markdown
 
@@ -3083,5 +3110,5 @@ output:
 
 \pause \normalsize
 
-**Pour en savoir plus** Le site de RStudio documente le paramétrage de l'en-tête YAML selon les formats de sortie souhaités ([\underline{\texttt{html}}](http://rmarkdown.rstudio.com/html_document_format.html), [\underline{\texttt{pdf}}](http://rmarkdown.rstudio.com/pdf_document_format.html)).
+\intertitre{Pour en savoir plus} Le site de RStudio documente le paramétrage de l'en-tête YAML selon les formats de sortie souhaités ([\underline{\texttt{html}}](http://rmarkdown.rstudio.com/html_document_format.html), [\underline{\texttt{pdf}}](http://rmarkdown.rstudio.com/pdf_document_format.html)).
 

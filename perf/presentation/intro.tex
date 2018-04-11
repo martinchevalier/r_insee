@@ -174,7 +174,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{15-16 janvier 2018}
+\author{Drees -- 16-17 avril 2018}
 
 \date{}
 
@@ -183,6 +183,8 @@
 \newcommand{\aparte}[2]{
 	{\small\textsf{\textbf{#1} #2}}
 }
+
+\newcommand{\intertitre}[1]{\textcolor{redInsee}{\textbf{#1}}}
 
 %\usepackage{enumitem}
 %\setlist{nolistsep}
@@ -267,7 +269,7 @@ l'aide}\label{chercher-et-trouver-de-laide}
 
 \pause 
 
-\textbf{Remarque} Pour afficher l'aide sur une fonction d'un
+\intertitre{Remarque} Pour afficher l'aide sur une fonction d'un
 \emph{package}, il faut que celui-ci soit au préalable chargé (avec
 \texttt{library()} ou \texttt{require()}).
 
@@ -322,7 +324,7 @@ comprendre d'où vient le problème.
 \NormalTok{  ##     fill = TRUE, comment.char = "", ...) }
 \NormalTok{  ## read.table(file = file, header = header, sep = sep, quote = quote, }
 \NormalTok{  ##     dec = dec, fill = fill, comment.char = comment.char, ...)}
-\NormalTok{  ## <bytecode: 0x55c2acf180c8>}
+\NormalTok{  ## <bytecode: 0x560efbd27340>}
 \NormalTok{  ## <environment: namespace:utils>}
 \end{Highlighting}
 \end{Shaded}
@@ -363,6 +365,7 @@ des thèmes variés:
 \href{https://cran.r-project.org/web/views/MachineLearning.html}{MachineLearning},
 \href{https://cran.r-project.org/web/views/MedicalImaging.html}{MedicalImaging},
 \href{https://cran.r-project.org/web/views/MetaAnalysis.html}{MetaAnalysis},
+\href{https://cran.r-project.org/web/views/ModelDeployment.html}{ModelDeployment},
 \href{https://cran.r-project.org/web/views/Multivariate.html}{Multivariate},
 \href{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html}{NaturalLanguageProcessing},
 \href{https://cran.r-project.org/web/views/NumericalMathematics.html}{NumericalMathematics},
@@ -423,12 +426,12 @@ l'enseignement des fonctionnalités de R, comme par exemple :
 
 Une des principales forces de R est d'être un langage hautement
 modulaire comptant \textbf{plusieurs milliers de \emph{packages}} (12
-047 au 10/01/2018).
+416 au 10/04/2018).
 
 \pause Toutes les informations sur un \emph{package} sont accessibles
 sur sa page du \emph{Comprehensive R Archive Network} (CRAN).
 
-\textbf{Exemple} \url{https://CRAN.R-project.org/package=haven}
+\intertitre{Exemple} \url{https://CRAN.R-project.org/package=haven}
 
 \pause \bigskip On trouve en particulier sur cette page:
 
@@ -459,20 +462,6 @@ Les données nécessaires sont téléchargées depuis un des dépôts du CRAN
 C'est la \textbf{méthode à privilégier}: les dépendances nécessaires au
 bon fonctionnement du \emph{package} sont détectées et automatiquement
 installées.
-
-\pause 
-
-\textbf{Remarque} Cette méthode fonctionne à l'Insee:
-
-\begin{itemize}
-\tightlist
-\item
-  pour les installations locales de R sur les postes de travail;
-\item
-  sur AUS, \emph{via} un dépôt local spécifique;
-\item
-  mais PAS sur les sessions des postes de formation.
-\end{itemize}
 
 \end{frame}
 
@@ -521,7 +510,7 @@ plusieurs informations préciseuses :
   une zone pour rapporter d'éventuels \emph{bugs} (\emph{bug reports}).
 \end{itemize}
 
-\textbf{Exemple} \url{https://github.com/tidyverse/haven}
+\intertitre{Exemple} \url{https://github.com/tidyverse/haven}
 
 \pause La fonction \texttt{install\_github()} du \emph{package}
 \texttt{devtools} permet d'installer un \emph{package} directement

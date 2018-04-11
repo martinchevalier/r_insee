@@ -5,7 +5,7 @@ fontsize: 12pt
 
 ```{r, include=FALSE}
 if(!exists(".initOK")) source("fonctions.R")
-knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(cache=FALSE)
 ```
 
 # Travailler\ efficacement\ sur\ des\ données\ avec\ R
@@ -21,7 +21,7 @@ Appliqué au travail sur des données, l'efficacité peut avoir au moins deux si
 
 \pause En règle générale, on peut avoir l'idée que plus on souhaite être efficace algorithmiquement, plus la programmation risque d'être longue et difficile. 
 
-\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de temps à (ré)inventer une méthode peu efficace quand une beaucoup plus simple et rapide existe déjà.
+\pause \intertitre{Ce n'est pas toujours vrai} : on perd souvent beaucoup de temps à (ré)inventer une méthode peu efficace quand une beaucoup plus simple et rapide existe déjà.
 
 \pause \small
 
@@ -148,7 +148,7 @@ monCalcul <- function(a, b = a * 2) 10 * a + b
 monCalcul(2)
 ```
 
-\pause \textbf{Remarque} Ceci est la conséquence de la *lazy evaluation* des arguments dans R (*cf.* [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Functions.html#function-arguments)).
+\pause \intertitre{Remarque} Ceci est la conséquence de la *lazy evaluation* des arguments dans R (*cf.* [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Functions.html#function-arguments)).
 
 ### Contrôle de la valeur des paramètres
 
@@ -232,7 +232,7 @@ maFonction4()
 \pause \normalsize
 Ceci est dû au fait que les environnements dans lequel R recherche des objets sont **emboîtés les uns dans les autres** (\textit{cf.} la fonction `search()`).
 
-**Pour en savoir plus** [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Environments.html#function-envs), [\underline{obeautifulcode.com}](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/)
+\intertitre{Pour en savoir plus} [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Environments.html#function-envs), [\underline{obeautifulcode.com}](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/)
 
 
 ### Valeur de retour d'une fonction
@@ -282,7 +282,7 @@ monCalcul(2, 3) + 5
 
 \vfill
 
-\pause \textbf{Pour en savoir plus} [\underline{Wikipedia}](https://en.wikipedia.org/wiki/FP_(programming_language)), [\underline{maryrosecook.com}](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming).
+\pause \intertitre{Pour en savoir plus} [\underline{Wikipedia}](https://en.wikipedia.org/wiki/FP_(programming_language)), [\underline{maryrosecook.com}](https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming).
 
 \vfill
 
@@ -320,7 +320,7 @@ lapply(l, sum)
 
 \pause \small \vspace{-0.2cm}
 
-**Exemple d'utilisation** Appliquer une fonction à toutes les variables d'une table.
+\intertitre{Exemple d'utilisation} Appliquer une fonction à toutes les variables d'une table.
 
 ### \large Appliquer sur chaque indépendamment : `sapply()`
 
@@ -336,7 +336,7 @@ sapply(l, sum)
 sapply(l, sum, na.rm = TRUE)
 ```
 
-\pause \textbf{Exemple d'utilisation} Calcul de statistiques sur toutes les variables d'une table.
+\pause \intertitre{Exemple d'utilisation} Calcul de statistiques sur toutes les variables d'une table.
 
 ### \large Définir une fonction à la volée dans `*apply()`
 
@@ -373,7 +373,7 @@ sapply(split(age, sexe), mean)
 
 \normalsize \pause \vspace{-0.2cm}
 
-**Exemple d'utilisation** Calcul de statistiques agrégées par catégories.
+\intertitre{Exemple d'utilisation} Calcul de statistiques agrégées par catégories.
 
 ### \large Appliquer sur tous : `do.call()`
 
@@ -390,7 +390,7 @@ base::c(l[[1]], l[[2]])
 
 \pause \normalsize
 
-**Exemple d'utilisation** Concaténer de nombreuses tables avec `rbind()` ou `cbind()`.
+\intertitre{Exemple d'utilisation} Concaténer de nombreuses tables avec `rbind()` ou `cbind()`.
 
 ### \large Appliquer sur tous successivement : `Reduce()`
 
@@ -407,7 +407,7 @@ Reduce(`/`, 1:4)
 
 \pause \normalsize
 
-**Exemple d'utilisation** Fusionner de nombreuses tables avec `merge()` (sur les mêmes identifiants).
+\intertitre{Exemple d'utilisation} Fusionner de nombreuses tables avec `merge()` (sur les mêmes identifiants).
 
 
 ## Coder efficacement en base R
@@ -430,7 +430,7 @@ D'où le principe : **limiter au maximum la surcharge liée à R** pour retomber
 
 \pause \vfill
 
-**Remarque** Il est très facile en pratique d'utiliser R comme une interface vers des langages de plus bas niveau, *cf. infra* à propos de `Rcpp`. 
+\intertitre{Remarque} Il est très facile en pratique d'utiliser R comme une interface vers des langages de plus bas niveau, *cf. infra* à propos de `Rcpp`. 
 
 
 
@@ -503,7 +503,7 @@ compiler::enableJIT(3)
 summary(microbenchmark(boucle(1:1e4), boucle_compil(1:1e4)))[, 1:4]
 ```
 
-\pause \small \textbf{Remarque} Depuis R 3.4.0, `enableJIT()` vaut 3 par défaut. 
+\pause \small \intertitre{Remarque} Depuis R 3.4.0, `enableJIT()` vaut 3 par défaut. 
 
 ### Utiliser l'opérateur `[` au lieu de `ifelse()`
 
@@ -559,7 +559,7 @@ Utiliser des noms est une méthode souvent **très rapide** pour **accéder aux 
 
 \pause 
 
-**Exemple** On cherche à extraire les observations d'une table *via* leur identifiant `id`. On compare l'utilisation des noms à une fusion réalisée avec `merge()`.
+\intertitre{Exemple} On cherche à extraire les observations d'une table *via* leur identifiant `id`. On compare l'utilisation des noms à une fusion réalisée avec `merge()`.
 
 \small 
 
@@ -641,7 +641,7 @@ library(dplyr)
 
 \pause
 
-**Pour en savoir plus** De nombreuses vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=dplyr). Un [\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf) est également disponible sur le site de RStudio.
+\intertitre{Pour en savoir plus} De nombreuses vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=dplyr). Un [\underline{aide-mémoire}](https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf) est également disponible sur le site de RStudio.
 
 ### \large Données d'exemple : table `flights` de `nycflights13`
 
@@ -718,7 +718,7 @@ print.data.frame(summarise(flights
 
 \pause 
 
-**Remarque** Comme toutes les fonctions de `dplyr`, `summarise()` prend un `data.frame` en entrée et produit un `data.frame` en sortie. 
+\intertitre{Remarque} Comme toutes les fonctions de `dplyr`, `summarise()` prend un `data.frame` en entrée et produit un `data.frame` en sortie. 
 
 
 ### Ventiler des traitements avec `group_by()`
@@ -772,13 +772,13 @@ flights %>%
 - `a %>% inner_join(b, by = "id")` : fusionne `a` et `b` en ne conservant que les observations dans `a` et `b`;
 - `a %>% full_join(b, by = "id")` : fusionne `a` et `b` en conservant toutes les observations.
 
-**Pour en savoir plus** Une [\underline{vignette}](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html) est consacrée à la présentation des fonctions de `dplyr` portant sur deux tables.
+\intertitre{Pour en savoir plus} Une [\underline{vignette}](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html) est consacrée à la présentation des fonctions de `dplyr` portant sur deux tables.
 
 ### Comparaison de base R et de `dplyr`
 
 `dplyr` est particulièrement intéressant pour travailler sur des données par groupe. On compare donc l'utilisation de `tapply()` de base R avec `group_by()` de `dplyr`.
 
-\footnotesize
+\footnotesize \pause 
 
 ```{r}
 df <- data.frame(
@@ -838,22 +838,24 @@ microbenchmark(times = 10L
 
 Contrairement à `dplyr`, `data.table` ne cherche pas à se substituer à base R mais à le compléter. 
 
-Il introduit un nouveau type d'objet, le `data.table`, qui **hérite** du `data.frame` (tout `data.table` est un `data.frame`).
+\pause Il introduit un nouveau type d'objet, le `data.table`, qui **hérite** du `data.frame` (tout `data.table` est un `data.frame`).
 
-Appliqué à un `data.table`, l'opérateur `[` est **enrichi et optimisé**.
+\pause Appliqué à un `data.table`, l'opérateur `[` est **enrichi et optimisé**.
 
 ```{r}
 library(data.table)
 flights_DT <- data.table(flights)
 ```
 
-**Pour en savoir plus** Là encore des vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=data.table).
+\pause 
+
+\intertitre{Pour en savoir plus} Là encore des vignettes très pédagogiques sont disponibles sur la [\underline{page du \textit{package}}](https://cran.r-project.org/package=data.table).
 
 ### L'opérateur `[` du `data.table` : `i`, `j` et `by`
 
 La syntaxe de l'opérateur `[` appliqué à un `data.table` est la suivante (`DT` représente le `data.table`): 
 
-\centering \large
+\pause \centering \large
 
 `DT[i, j, by]`
 
@@ -863,9 +865,9 @@ La syntaxe de l'opérateur `[` appliqué à un `data.table` est la suivante (`DT
 - `j` : sélectionner ou **créer** une ou plusieurs variables;
 - `by` : ventiler les traitements selon les modalités d'une ou plusieurs variables.
 
-\bigskip 
+\pause \bigskip 
 
-**Exemple** Retard quotidien maximal au mois de janvier.
+\pause \intertitre{Exemple} Retard quotidien maximal au mois de janvier.
 
 \small
 
@@ -879,9 +881,9 @@ flights_DT[
 \small
 Il est beaucoup plus simple et efficace de sélectionner des observations dans un `data.table` que dans un `data.frame`:
 
-- il n'y a pas à répéter le nom du `data.frame` dans `[`;
+- \pause il n'y a pas à répéter le nom du `data.frame` dans `[`;
 
-- il est possible d'indexer un `data.table` par une ou plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
+- \pause il est possible d'indexer un `data.table` par une ou plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
 
 \footnotesize
 
@@ -905,7 +907,7 @@ microbenchmark(times = 100L
 
 L'argument `j` permet de calculer des statistiques agrégées. 
 
-\small
+\pause \small
 
 ```{r}
 flights_DT[, j = list(
@@ -914,11 +916,11 @@ flights_DT[, j = list(
 )]
 ```
 
-\normalsize 
+\pause \normalsize 
 
 Utilisé avec `:=` il permet de les refusionner automatiquement avec les données d'origine. 
 
-\small
+\pause \small
 
 ```{r}
 flights_DT <- flights_DT[, j := list(
@@ -932,6 +934,7 @@ flights_DT <- flights_DT[, j := list(
 
 L'argument `by` de `[` ventile tous les traitements renseignés dans `j` selon les modalités d'une ou plusieurs variables.
 
+\pause 
 ```{r}
 flights_DT[, j = list(
   distance_moyenne = mean(distance)
@@ -939,12 +942,13 @@ flights_DT[, j = list(
 ), by = month][1:3,]
 ```
 
-**Remarque** Par défaut, `by` ordonne les résultats dans l'ordre des groupes dans le `data.table`. `keyby` trie les données selon la variable d'agrégation (comme `group_by` de `dplyr`).
+\pause \intertitre{Remarque} Par défaut, `by` ordonne les résultats dans l'ordre des groupes dans le `data.table`. `keyby` trie les données selon la variable d'agrégation (comme `group_by` de `dplyr`).
 
 ### Chaîner les opérations dans un `data.table`
 
 Il est très facile de chaîner les opérations sur un `data.table` en enchaînant les `[`. 
 
+\pause 
 ```{r, eval = FALSE}
 flights_DT[
   , j = list(
@@ -955,7 +959,7 @@ flights_DT[
 ][retard_arrivee > 30 | retard_depart > 30]
 ```
 
-**Remarque** Ces chaînages sont possibles avec  un `data.table` mais pas avec un `data.frame`. 
+\pause \intertitre{Remarque} Ces chaînages sont possibles avec  un `data.table` mais pas avec un `data.frame`. 
 
   
 ### Comparaison de base R, `dplyr` et `data.table`
@@ -973,7 +977,7 @@ microbenchmark(times = 10L
 )
 ```
 
-\vspace{-5mm}
+\pause \vspace{-5mm}
 
 ```{r, echo = FALSE}
 dt <- data.table(df)
@@ -985,11 +989,25 @@ summary(microbenchmark(times = 10L
 ))[, c("expr", "lq", "mean", "uq")]
 ```
 
-\normalsize
+\pause \normalsize
 
-**Pour en savoir plus** Cette discussion sur [\underline{stackoverflow.com}](http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) (notamment entre les auteurs des *packages*) aborde les avantages et les inconvénients de `dplyr` et `data.table`. 
+\intertitre{Pour en savoir plus} Cette discussion sur [\underline{stackoverflow.com}](http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) (notamment entre les auteurs des *packages*) aborde les avantages et les inconvénients de `dplyr` et `data.table`. 
 
+### Parenthèse : lire et écrire rapidement des fichiers plats avec data.table
 
+Le *package* data.table fournit par ailleurs deux fonctions extrêmement utiles en pratique pour \intertitre{lire et écrire} des fichiers plats (`.csv`, `.txt`, `.dlm`): 
+
+- \pause `fread()` : beaucoup plus rapide et plus ergonomique que `read.table()` et ses alias (`read.csv()`, `read.delim()`), produit directement un `data.table` ;
+- \pause `fwrite()` : beaucoup plus rapide que `write.table()`.
+
+\footnotesize \pause
+```{r, eval=FALSE}
+# Lecture avec fread()
+mon_fichier <- fread(file = "mon_fichier.csv", sep = ",")
+
+# Ecriture avec fwrite()
+fwrite(mon_fichier, file = "mon_fichier.txt", sep = "\t")
+```
 
 ## Aller plus loin avec R
 
@@ -999,14 +1017,14 @@ Les outils présentés jusqu'à présent correspondent à une utilisation \og cl
 
 \ 
 
-Il arrive néanmoins que certains traitements soient rendus **difficiles par les caractéristiques du logiciel** :
+\pause Il arrive néanmoins que certains traitements soient rendus **difficiles par les caractéristiques du logiciel** :
 
 - travail sur des volumes de données impossibles à loger en mémoire;
 - temps de calcul trop longs et impossibles à réduire.
 
 \ 
 
-Dans ce genre de situations, la solution consiste en général à utiliser R comme une **interface** vers des techniques ou langages susceptibles de répondre au problème posé. 
+\pause Dans ce genre de situations, la solution consiste en général à utiliser R comme une **interface** vers des techniques ou langages susceptibles de répondre au problème posé. 
 
 
 <!-- ### \large Travailler sur des données *out-of-memory* -->
@@ -1030,13 +1048,13 @@ Dans ce genre de situations, la solution consiste en général à utiliser R com
 
 <!-- \normalsize -->
 
-<!-- **Remarque** Ces *packages* n'ont pas connu d'évolutions depuis plusieurs années. -->
+<!-- \intertitre{Remarque} Ces *packages* n'ont pas connu d'évolutions depuis plusieurs années. -->
 
 ### \large Se connecter à des bases de données 
 
 Une autre solution pour exploiter de grands volumes de données dans R est de l'utiliser pour **interroger des bases de données**, *via* par exemple le *package* `RPostgreSQL`. 
 
-\footnotesize
+\pause \footnotesize
 ```{r, eval = FALSE}
 library(RPostgreSQL)
 
@@ -1053,13 +1071,13 @@ dbGetQuery(con, "SELECT COUNT(*) FROM maTable")
 
 \normalsize
 
-**Remarque** Différents *packages* permettent de se connecter à différents types de base de données : `RMySQl` pour MySQL, etc.
+\pause \intertitre{Remarque} Différents *packages* permettent de se connecter à différents types de base de données : `RMySQl` pour MySQL, etc.
 
 ### \large Se connecter à des bases de données avec `dplyr`
 
 `dplyr` a la particularité de pouvoir fonctionner de façon totalement transparente sur des bases de données de différents types. 
 
-\footnotesize
+\pause \footnotesize
 ```{r, eval = FALSE}
 library(dplyr)
 
@@ -1090,19 +1108,19 @@ tbl(con) %>% summarise(n())
 
 La plupart des ordinateurs possèdent aujourd'hui plusieurs c\oe urs (*core*) susceptibles de mener des traitements **en parallèle** (8 sur chaque serveur d'AUS par exemple). 
 
-Par défaut, R n'expoite qu'un seul c\oe ur : le *package* `parallel` (mais aussi les *packages* `snow` ou `foreach` par exemple) permettent de **paralléliser des structures du type `*apply`**.
+\pause Par défaut, R n'expoite qu'un seul c\oe ur : le *package* `parallel` (mais aussi les *packages* `snow` ou `foreach` par exemple) permettent de **paralléliser des structures du type `*apply`**.
 
-Ce type d'opérations est composé de plusieurs étapes : 
+\pause Ce type d'opérations est composé de plusieurs étapes : 
 
-1. Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à utiliser (chargement des fonctions et *packages* nécessaires sur chaque c\oe ur);
-2. Lancement du traitement parallélisé avec `parLapply()`;
-3. Arrêt des processus du *cluster* avec `stopCluster()`.
+1. \pause Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à utiliser (chargement des fonctions et *packages* nécessaires sur chaque c\oe ur);
+2. \pause Lancement du traitement parallélisé avec `parLapply()`;
+3. \pause Arrêt des processus du *cluster* avec `stopCluster()`.
 
 ### \large Paralléliser des traitements avec `parallel` (2)
 
 Dans cet exemple, on cherche à appliquer la fonction `f` à chaque matrice de la liste `l`. 
 
-\footnotesize
+\pause \footnotesize
 ```{r, eval = FALSE}
 library(MASS)
 f <- function(x) rowSums(ginv(x))
@@ -1135,12 +1153,16 @@ invisible(clusterEvalQ(cl, library(MASS)))
 clusterExport(cl, "f")
 ```
 
+\pause 
+
 ```{r, eval = TRUE}
 microbenchmark(times = 10
   , lapply(l, f)
   , parLapply(cl, l, f)
 )
 ```
+
+\pause 
 
 ```{r, echo = FALSE}
 stopCluster(cl)
@@ -1150,7 +1172,7 @@ stopCluster(cl)
 
 Le *package* `Rcpp` permet d'intégrer facilement des fonctions codées en C++ dans un programme R. 
 
-\footnotesize
+\pause \footnotesize
 
 ```{r}
 library(Rcpp)
@@ -1162,17 +1184,18 @@ cppFunction('int add(int x, int y) {
 add(1, 2)
 ```
 
-\normalsize
+\pause \normalsize
 
-**Remarque** Il est également possible de soumettre un fichier contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction `sourceCpp()`. 
+\intertitre{Remarque} Il est également possible de soumettre un fichier contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction `sourceCpp()`. 
 
-**Pour en savoir plus** [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Rcpp.html)
+\pause 
+\intertitre{Pour en savoir plus} [\underline{\textit{Advanced R}}](http://adv-r.had.co.nz/Rcpp.html)
 
 ### `Rcpp` : un package R pour utiliser C++ (2)
 
 Contrairement à R, C++ est un langage de bas niveau : les boucles y sont en particulier extrêmement rapides. 
 
-**Exemple** Somme cumulée par colonne 
+\pause \intertitre{Exemple} Somme cumulée par colonne 
 
 \footnotesize
 

@@ -174,7 +174,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{15-16 janvier 2018}
+\author{Drees -- 16-17 avril 2018}
 
 \date{}
 
@@ -183,6 +183,8 @@
 \newcommand{\aparte}[2]{
 	{\small\textsf{\textbf{#1} #2}}
 }
+
+\newcommand{\intertitre}[1]{\textcolor{redInsee}{\textbf{#1}}}
 
 %\usepackage{enumitem}
 %\setlist{nolistsep}
@@ -238,9 +240,9 @@ deux significations distinctes :
 efficace algorithmiquement, plus la programmation risque d'être longue
 et difficile.
 
-\pause \textbf{Ce n'est pas toujours vrai} : on perd souvent beaucoup de
-temps à (ré)inventer une méthode peu efficace quand une beaucoup plus
-simple et rapide existe déjà.
+\pause \intertitre{Ce n'est pas toujours vrai} : on perd souvent
+beaucoup de temps à (ré)inventer une méthode peu efficace quand une
+beaucoup plus simple et rapide existe déjà.
 
 \pause \small
 
@@ -435,7 +437,7 @@ Des valeurs par défaut peuvent être renseignées pour les paramètres.
 \end{Highlighting}
 \end{Shaded}
 
-\pause \textbf{Remarque} Ceci est la conséquence de la \emph{lazy
+\pause \intertitre{Remarque} Ceci est la conséquence de la \emph{lazy
 evaluation} des arguments dans R (\emph{cf.}
 \href{http://adv-r.had.co.nz/Functions.html\#function-arguments}{\underline{\textit{Advanced R}}}).
 
@@ -561,7 +563,7 @@ Ceci est dû au fait que les environnements dans lequel R recherche des
 objets sont \textbf{emboîtés les uns dans les autres} (\textit{cf.} la
 fonction \texttt{search()}).
 
-\textbf{Pour en savoir plus}
+\intertitre{Pour en savoir plus}
 \href{http://adv-r.had.co.nz/Environments.html\#function-envs}{\underline{\textit{Advanced R}}},
 \href{http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/}{\underline{obeautifulcode.com}}
 
@@ -661,7 +663,7 @@ fonctionnelle}
 
 \vfill
 
-\pause \textbf{Pour en savoir plus}
+\pause \intertitre{Pour en savoir plus}
 \href{https://en.wikipedia.org/wiki/FP_(programming_language)}{\underline{Wikipedia}},
 \href{https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming}{\underline{maryrosecook.com}}.
 
@@ -914,8 +916,8 @@ pour retomber au plus vite sur des fonctions pré-compilées.
 
 \pause \vfill
 
-\textbf{Remarque} Il est très facile en pratique d'utiliser R comme une
-interface vers des langages de plus bas niveau, \emph{cf.~infra} à
+\intertitre{Remarque} Il est très facile en pratique d'utiliser R comme
+une interface vers des langages de plus bas niveau, \emph{cf.~infra} à
 propos de \texttt{Rcpp}.
 
 \end{frame}
@@ -1053,7 +1055,7 @@ la fonction \texttt{compiler::enableJIT()} en spécifiant le
 \end{Highlighting}
 \end{Shaded}
 
-\pause \small \textbf{Remarque} Depuis R 3.4.0, \texttt{enableJIT()}
+\pause \small \intertitre{Remarque} Depuis R 3.4.0, \texttt{enableJIT()}
 vaut 3 par défaut.
 
 \end{frame}
@@ -1142,7 +1144,7 @@ Utiliser des noms est une méthode souvent \textbf{très rapide} pour
 
 \pause 
 
-\textbf{Exemple} On cherche à extraire les observations d'une table
+\intertitre{Exemple} On cherche à extraire les observations d'une table
 \emph{via} leur identifiant \texttt{id}. On compare l'utilisation des
 noms à une fusion réalisée avec \texttt{merge()}.
 
@@ -1287,8 +1289,8 @@ statistiques :
 
 \pause
 
-\textbf{Pour en savoir plus} De nombreuses vignettes très pédagogiques
-sont disponibles sur la
+\intertitre{Pour en savoir plus} De nombreuses vignettes très
+pédagogiques sont disponibles sur la
 \href{https://cran.r-project.org/package=dplyr}{\underline{page du \textit{package}}}.
 Un
 \href{https://www.rstudio.com/wp-content/uploads/2016/01/data-wrangling-french.pdf}{\underline{aide-mémoire}}
@@ -1402,7 +1404,7 @@ statistiques sur des données.
 
 \pause 
 
-\textbf{Remarque} Comme toutes les fonctions de \texttt{dplyr},
+\intertitre{Remarque} Comme toutes les fonctions de \texttt{dplyr},
 \texttt{summarise()} prend un \texttt{data.frame} en entrée et produit
 un \texttt{data.frame} en sortie.
 
@@ -1488,7 +1490,7 @@ fortement de SQL} :
   \texttt{a} et \texttt{b} en conservant toutes les observations.
 \end{itemize}
 
-\textbf{Pour en savoir plus} Une
+\intertitre{Pour en savoir plus} Une
 \href{https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html}{\underline{vignette}}
 est consacrée à la présentation des fonctions de \texttt{dplyr} portant
 sur deux tables.
@@ -1501,7 +1503,7 @@ sur deux tables.
 données par groupe. On compare donc l'utilisation de \texttt{tapply()}
 de base R avec \texttt{group\_by()} de \texttt{dplyr}.
 
-\footnotesize
+\footnotesize \pause 
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1534,11 +1536,11 @@ optimisé}\label{data.table-un-data.frame-optimise}
 Contrairement à \texttt{dplyr}, \texttt{data.table} ne cherche pas à se
 substituer à base R mais à le compléter.
 
-Il introduit un nouveau type d'objet, le \texttt{data.table}, qui
+\pause Il introduit un nouveau type d'objet, le \texttt{data.table}, qui
 \textbf{hérite} du \texttt{data.frame} (tout \texttt{data.table} est un
 \texttt{data.frame}).
 
-Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
+\pause Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
 \textbf{enrichi et optimisé}.
 
 \begin{Shaded}
@@ -1548,8 +1550,10 @@ Appliqué à un \texttt{data.table}, l'opérateur \texttt{{[}} est
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Pour en savoir plus} Là encore des vignettes très pédagogiques
-sont disponibles sur la
+\pause 
+
+\intertitre{Pour en savoir plus} Là encore des vignettes très
+pédagogiques sont disponibles sur la
 \href{https://cran.r-project.org/package=data.table}{\underline{page du \textit{package}}}.
 
 \end{frame}
@@ -1560,7 +1564,7 @@ sont disponibles sur la
 La syntaxe de l'opérateur \texttt{{[}} appliqué à un \texttt{data.table}
 est la suivante (\texttt{DT} représente le \texttt{data.table}):
 
-\centering \large
+\pause \centering \large
 
 \texttt{DT{[}i,\ j,\ by{]}}
 
@@ -1578,9 +1582,9 @@ est la suivante (\texttt{DT} représente le \texttt{data.table}):
   plusieurs variables.
 \end{itemize}
 
-\bigskip 
+\pause \bigskip 
 
-\textbf{Exemple} Retard quotidien maximal au mois de janvier.
+\pause \intertitre{Exemple} Retard quotidien maximal au mois de janvier.
 
 \small
 
@@ -1602,11 +1606,11 @@ dans un \texttt{data.table} que dans un \texttt{data.frame}:
 
 \begin{itemize}
 \item
-  il n'y a pas à répéter le nom du \texttt{data.frame} dans
+  \pause il n'y a pas à répéter le nom du \texttt{data.frame} dans
   \texttt{{[}};
 \item
-  il est possible d'indexer un \texttt{data.table} par une ou plusieurs
-  \og clés \fg{} permettant une recherche souvent plus rapide.
+  \pause il est possible d'indexer un \texttt{data.table} par une ou
+  plusieurs \og clés \fg{} permettant une recherche souvent plus rapide.
 \end{itemize}
 
 \footnotesize
@@ -1637,7 +1641,7 @@ dans un \texttt{data.table} que dans un \texttt{data.frame}:
 
 L'argument \texttt{j} permet de calculer des statistiques agrégées.
 
-\small
+\pause \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1650,12 +1654,12 @@ L'argument \texttt{j} permet de calculer des statistiques agrégées.
 \end{Highlighting}
 \end{Shaded}
 
-\normalsize 
+\pause \normalsize 
 
 Utilisé avec \texttt{:=} il permet de les refusionner automatiquement
 avec les données d'origine.
 
-\small
+\pause \small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1675,6 +1679,8 @@ L'argument \texttt{by} de \texttt{{[}} ventile tous les traitements
 renseignés dans \texttt{j} selon les modalités d'une ou plusieurs
 variables.
 
+\pause 
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{flights_DT[, j =}\StringTok{ }\KeywordTok{list}\NormalTok{(}
@@ -1688,10 +1694,10 @@ variables.
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Remarque} Par défaut, \texttt{by} ordonne les résultats dans
-l'ordre des groupes dans le \texttt{data.table}. \texttt{keyby} trie les
-données selon la variable d'agrégation (comme \texttt{group\_by} de
-\texttt{dplyr}).
+\pause \intertitre{Remarque} Par défaut, \texttt{by} ordonne les
+résultats dans l'ordre des groupes dans le \texttt{data.table}.
+\texttt{keyby} trie les données selon la variable d'agrégation (comme
+\texttt{group\_by} de \texttt{dplyr}).
 
 \end{frame}
 
@@ -1700,6 +1706,8 @@ données selon la variable d'agrégation (comme \texttt{group\_by} de
 
 Il est très facile de chaîner les opérations sur un \texttt{data.table}
 en enchaînant les \texttt{{[}}.
+
+\pause 
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1713,7 +1721,7 @@ en enchaînant les \texttt{{[}}.
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Remarque} Ces chaînages sont possibles avec un
+\pause \intertitre{Remarque} Ces chaînages sont possibles avec un
 \texttt{data.table} mais pas avec un \texttt{data.frame}.
 
 \end{frame}
@@ -1736,7 +1744,7 @@ en enchaînant les \texttt{{[}}.
 \end{Highlighting}
 \end{Shaded}
 
-\vspace{-5mm}
+\pause \vspace{-5mm}
 
 \begin{verbatim}
   ##         expr       lq     mean       uq
@@ -1745,12 +1753,44 @@ en enchaînant les \texttt{{[}}.
   ## 3 data.table 22.53888 27.79945 30.58824
 \end{verbatim}
 
-\normalsize
+\pause \normalsize
 
-\textbf{Pour en savoir plus} Cette discussion sur
+\intertitre{Pour en savoir plus} Cette discussion sur
 \href{http://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly}{\underline{stackoverflow.com}}
 (notamment entre les auteurs des \emph{packages}) aborde les avantages
 et les inconvénients de \texttt{dplyr} et \texttt{data.table}.
+
+\end{frame}
+
+\begin{frame}[fragile]{Parenthèse : lire et écrire rapidement des
+fichiers plats avec data.table}
+
+Le \emph{package} data.table fournit par ailleurs deux fonctions
+extrêmement utiles en pratique pour \intertitre{lire et écrire} des
+fichiers plats (\texttt{.csv}, \texttt{.txt}, \texttt{.dlm}):
+
+\begin{itemize}
+\tightlist
+\item
+  \pause \texttt{fread()} : beaucoup plus rapide et plus ergonomique que
+  \texttt{read.table()} et ses alias (\texttt{read.csv()},
+  \texttt{read.delim()}), produit directement un \texttt{data.table} ;
+\item
+  \pause \texttt{fwrite()} : beaucoup plus rapide que
+  \texttt{write.table()}.
+\end{itemize}
+
+\footnotesize \pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Lecture avec fread()}
+\NormalTok{mon_fichier <-}\StringTok{ }\KeywordTok{fread}\NormalTok{(}\DataTypeTok{file =} \StringTok{"mon_fichier.csv"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{","}\NormalTok{)}
+
+\CommentTok{# Ecriture avec fwrite()}
+\KeywordTok{fwrite}\NormalTok{(mon_fichier, }\DataTypeTok{file =} \StringTok{"mon_fichier.txt"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \end{frame}
 
@@ -1764,7 +1804,7 @@ Les outils présentés jusqu'à présent correspondent à une utilisation
 
 ~
 
-Il arrive néanmoins que certains traitements soient rendus
+\pause Il arrive néanmoins que certains traitements soient rendus
 \textbf{difficiles par les caractéristiques du logiciel} :
 
 \begin{itemize}
@@ -1777,8 +1817,8 @@ Il arrive néanmoins que certains traitements soient rendus
 
 ~
 
-Dans ce genre de situations, la solution consiste en général à utiliser
-R comme une \textbf{interface} vers des techniques ou langages
+\pause Dans ce genre de situations, la solution consiste en général à
+utiliser R comme une \textbf{interface} vers des techniques ou langages
 susceptibles de répondre au problème posé.
 
 \end{frame}
@@ -1789,7 +1829,7 @@ Une autre solution pour exploiter de grands volumes de données dans R
 est de l'utiliser pour \textbf{interroger des bases de données},
 \emph{via} par exemple le \emph{package} \texttt{RPostgreSQL}.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1809,8 +1849,9 @@ est de l'utiliser pour \textbf{interroger des bases de données},
 
 \normalsize
 
-\textbf{Remarque} Différents \emph{packages} permettent de se connecter
-à différents types de base de données : \texttt{RMySQl} pour MySQL, etc.
+\pause \intertitre{Remarque} Différents \emph{packages} permettent de se
+connecter à différents types de base de données : \texttt{RMySQl} pour
+MySQL, etc.
 
 \end{frame}
 
@@ -1820,7 +1861,7 @@ est de l'utiliser pour \textbf{interroger des bases de données},
 \texttt{dplyr} a la particularité de pouvoir fonctionner de façon
 totalement transparente sur des bases de données de différents types.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1849,24 +1890,25 @@ La plupart des ordinateurs possèdent aujourd'hui plusieurs c\oe urs
 (\emph{core}) susceptibles de mener des traitements \textbf{en
 parallèle} (8 sur chaque serveur d'AUS par exemple).
 
-Par défaut, R n'expoite qu'un seul c\oe ur : le \emph{package}
+\pause Par défaut, R n'expoite qu'un seul c\oe ur : le \emph{package}
 \texttt{parallel} (mais aussi les \emph{packages} \texttt{snow} ou
 \texttt{foreach} par exemple) permettent de \textbf{paralléliser des
 structures du type \texttt{*apply}}.
 
-Ce type d'opérations est composé de plusieurs étapes :
+\pause Ce type d'opérations est composé de plusieurs étapes :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Création et paramétrage du \og \textit{cluster} \fg{} de c\oe urs à
-  utiliser (chargement des fonctions et \emph{packages} nécessaires sur
-  chaque c\oe ur);
+  \pause Création et paramétrage du \og \textit{cluster} \fg{} de
+  c\oe urs à utiliser (chargement des fonctions et \emph{packages}
+  nécessaires sur chaque c\oe ur);
 \item
-  Lancement du traitement parallélisé avec \texttt{parLapply()};
+  \pause Lancement du traitement parallélisé avec \texttt{parLapply()};
 \item
-  Arrêt des processus du \emph{cluster} avec \texttt{stopCluster()}.
+  \pause Arrêt des processus du \emph{cluster} avec
+  \texttt{stopCluster()}.
 \end{enumerate}
 
 \end{frame}
@@ -1877,7 +1919,7 @@ Ce type d'opérations est composé de plusieurs étapes :
 Dans cet exemple, on cherche à appliquer la fonction \texttt{f} à chaque
 matrice de la liste \texttt{l}.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1904,6 +1946,8 @@ matrice de la liste \texttt{l}.
 \begin{frame}[fragile]{\large Paralléliser des traitements avec
 \texttt{parallel} (3)}
 
+\pause 
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{microbenchmark}\NormalTok{(}\DataTypeTok{times =} \DecValTok{10}
@@ -1912,13 +1956,15 @@ matrice de la liste \texttt{l}.
 \NormalTok{)}
 \NormalTok{  ## Unit: milliseconds}
 \NormalTok{  ##                 expr      min       lq     mean}
-\NormalTok{  ##         lapply(l, f) 685.5965 689.0597 711.2954}
-\NormalTok{  ##  parLapply(cl, l, f) 394.6888 426.4845 461.8367}
+\NormalTok{  ##         lapply(l, f) 691.2223 712.1167 741.1390}
+\NormalTok{  ##  parLapply(cl, l, f) 387.1860 396.5018 441.9891}
 \NormalTok{  ##    median       uq      max neval}
-\NormalTok{  ##  697.1698 721.4244 792.8151    10}
-\NormalTok{  ##  445.0535 498.3799 591.0796    10}
+\NormalTok{  ##  728.1976 753.0799 817.2865    10}
+\NormalTok{  ##  434.4910 453.9198 588.1766    10}
 \end{Highlighting}
 \end{Shaded}
+
+\pause 
 
 \end{frame}
 
@@ -1928,7 +1974,7 @@ matrice de la liste \texttt{l}.
 Le \emph{package} \texttt{Rcpp} permet d'intégrer facilement des
 fonctions codées en C++ dans un programme R.
 
-\footnotesize
+\pause \footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1943,13 +1989,13 @@ fonctions codées en C++ dans un programme R.
 \end{Highlighting}
 \end{Shaded}
 
-\normalsize
+\pause \normalsize
 
-\textbf{Remarque} Il est également possible de soumettre un fichier
+\intertitre{Remarque} Il est également possible de soumettre un fichier
 contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction
 \texttt{sourceCpp()}.
 
-\textbf{Pour en savoir plus}
+\pause  \intertitre{Pour en savoir plus}
 \href{http://adv-r.had.co.nz/Rcpp.html}{\underline{\textit{Advanced R}}}
 
 \end{frame}
@@ -1960,7 +2006,7 @@ contenant des fonctions C++ écrit par ailleurs à l'aide de la fonction
 Contrairement à R, C++ est un langage de bas niveau : les boucles y sont
 en particulier extrêmement rapides.
 
-\textbf{Exemple} Somme cumulée par colonne
+\pause \intertitre{Exemple} Somme cumulée par colonne
 
 \footnotesize
 
@@ -2006,9 +2052,9 @@ en particulier extrêmement rapides.
 \NormalTok{  , }\KeywordTok{cumColSumsR}\NormalTok{(x)}
 \NormalTok{  , }\KeywordTok{cumColSumsC}\NormalTok{(x)}
 \NormalTok{))[, }\KeywordTok{c}\NormalTok{(}\StringTok{"expr"}\NormalTok{, }\StringTok{"lq"}\NormalTok{, }\StringTok{"mean"}\NormalTok{, }\StringTok{"uq"}\NormalTok{)]}
-\NormalTok{  ##             expr        lq      mean       uq}
-\NormalTok{  ## 1 cumColSumsR(x) 27.054698 45.593325 31.76764}
-\NormalTok{  ## 2 cumColSumsC(x)  5.344443  7.852879  9.91970}
+\NormalTok{  ##             expr        lq      mean        uq}
+\NormalTok{  ## 1 cumColSumsR(x) 21.813124 23.426077 27.035564}
+\NormalTok{  ## 2 cumColSumsC(x)  4.350533  5.553506  6.393656}
 \end{Highlighting}
 \end{Shaded}
 

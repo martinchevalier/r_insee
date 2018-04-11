@@ -183,7 +183,7 @@
 
 \institute{ \includegraphics[height = 2.5cm]{../figures/Logo_Insee.png}\\ ~ \\ \normalsize Martin \textsc{Chevalier} (Insee)}
 
-\author{15-16 janvier 2018}
+\author{Drees -- 16-17 avril 2018}
 
 \date{}
 
@@ -192,6 +192,8 @@
 \newcommand{\aparte}[2]{
 	{\small\textsf{\textbf{#1} #2}}
 }
+
+\newcommand{\intertitre}[1]{\textcolor{redInsee}{\textbf{#1}}}
 
 %\usepackage{enumitem}
 %\setlist{nolistsep}
@@ -351,7 +353,7 @@ communs}.
 
 \pause 
 
-\textbf{Pour en savoir plus} Le site
+\intertitre{Pour en savoir plus} Le site
 \href{http://www.statmethods.net/graphs/}{\underline{statmethods.net}}
 recense et illustre la plupart des fonctions du \emph{package}
 \texttt{graphics}.
@@ -387,7 +389,7 @@ construire les graphiques.
 
 \pause
 
-\textbf{Remarque} L'argument \texttt{plot} de la fonction
+\intertitre{Remarque} L'argument \texttt{plot} de la fonction
 \texttt{hist()} (\texttt{TRUE} par défaut) affiche automatiquement un
 graphique, sans avoir à appeler explicitement la fonction
 \texttt{plot()}.
@@ -483,9 +485,9 @@ construire les graphiques.
 
 \pause
 
-\textbf{Remarque} Quand \texttt{barplot()} est appliqué à un tri croisé,
-la couleur des barres varie et les paramètres deviennent utiles :
-\vspace{-3mm}
+\intertitre{Remarque} Quand \texttt{barplot()} est appliqué à un tri
+croisé, la couleur des barres varie et les paramètres deviennent utiles
+: \vspace{-3mm}
 
 \begin{itemize}
 \tightlist
@@ -574,8 +576,8 @@ possible de modifier la couleur de remplissage avec \texttt{bg}.
 
 \begin{frame}[fragile]{Couleur, forme et taille des objets}
 
-\textbf{Remarque} : la palette de couleurs accessibles en utilisant des
-entiers est réduite. Il est possible de l'étendre considérablement
+\intertitre{Remarque} : la palette de couleurs accessibles en utilisant
+des entiers est réduite. Il est possible de l'étendre considérablement
 \emph{via} la fonction \texttt{colors()}.
 
 \small
@@ -624,23 +626,37 @@ La fonction \texttt{legend()} permet d'ajouter une légende.
 
 Les titres sont paramétrés à l'aide des fonctions suivantes :
 
-\vspace{-0.3cm} - \texttt{main} pour ajouter le titre principal; -
-\texttt{xlab} et \texttt{ylab} pour ajouter des titres aux axes.
+\vspace{-0.3cm}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{main} pour ajouter le titre principal;
+\item
+  \texttt{xlab} et \texttt{ylab} pour ajouter des titres aux axes.
+\end{itemize}
 
 \pause La fonction \texttt{text()} permet d'ajouter du texte sur le
 graphique en le positionnant par ses coordonnées, éventuellement avec un
-décalage (pour nommer des points par exemple).
+décalage (pour nommer des points par exemple). \pause Il est également
+possible de paramétrer les axes :
 
-\pause Il est également possible de paramétrer les axes :
+\vspace{-0.3cm}
 
-\vspace{-0.3cm} - \texttt{xlim} et \texttt{ylim} spécifient les valeurs
-minimales et maximales de chaque axe; - \texttt{axis()} est une fonction
-qui permet d'ajouter un axe personnalisé.
+\begin{itemize}
+\tightlist
+\item
+  \texttt{xlim} et \texttt{ylim} spécifient les valeurs minimales et
+  maximales de chaque axe;
+\item
+  \texttt{axis()} est une fonction qui permet d'ajouter un axe
+  personnalisé.
+\end{itemize}
 
 \pause 
 
-\textbf{Remarque} Pour produire un graphique sans axe et les rajouter
-après, utiliser l'option \texttt{axes\ =\ FALSE} de la fonction
+\intertitre{Remarque} Pour produire un graphique sans axe et les
+rajouter après, utiliser l'option \texttt{axes\ =\ FALSE} de la fonction
 \texttt{plot()}.
 
 \end{frame}
@@ -667,7 +683,7 @@ commencer par une instruction \texttt{plot()} puis de la compléter :
 
 \pause 
 
-\textbf{Exemple} Ajout d'une droite de régression au graphique de
+\intertitre{Exemple} Ajout d'une droite de régression au graphique de
 \texttt{hwy} par \texttt{displ}.
 
 \end{frame}
@@ -738,7 +754,7 @@ d'aide} de la fonction \texttt{par()} détaille toutes ces options.
 \begin{frame}[fragile]{Exportation}
 
 Pour exporter des graphiques depuis R, la démarche consiste à rediriger
-le flux de production du graphiques vers un fichier à l'aide d'une
+le flux de production du graphique vers un fichier à l'aide d'une
 fonction du \emph{package} \texttt{grDevices}. Par exemple :
 
 \pause 
@@ -755,13 +771,12 @@ fonction du \emph{package} \texttt{grDevices}. Par exemple :
 \pause Dans ce contexte, les fonctions les plus utiles sont :
 \texttt{png()}, \texttt{jpeg()} et \texttt{pdf()}. En particulier,
 \texttt{pdf()} permet de conserver le caractère vectoriel des graphiques
-dans R.
+produits par R.
 
 \pause 
 
-\textbf{Remarque} Les graphiques peuvent également facilement être
-exportés depuis RStudio en utilisant les menus spécialement conçus à cet
-effet.
+\intertitre{Remarque} Les graphiques peuvent également facilement être
+exportés depuis RStudio en utilisant les menus prévus à cet effet.
 
 \end{frame}
 
@@ -784,7 +799,7 @@ quantité de graphiques mais présente deux limites importantes :
 \end{itemize}
 
 \pause Ce sont ces limites que tente de dépasser le \emph{package}
-\texttt{ggplot2} en implémentant une \textbf{grammaire des graphiques}
+\texttt{ggplot2} en implémentant une \textbf{grammaire des graphiques}.
 
 Comme les éléments du langage, les \textbf{composants élémentaires} d'un
 graphique doivent pouvoir être \textbf{réassemblés} pour produire de
@@ -792,7 +807,7 @@ graphique doivent pouvoir être \textbf{réassemblés} pour produire de
 
 \pause 
 
-\textbf{Pour aller plus loin} \textsc{Wilkinson L.} (2005)
+\intertitre{Pour aller plus loin} \textsc{Wilkinson L.} (2005)
 \textit{The Grammar of Graphics}, Springer,
 \href{https://github.com/hadley/ggplot2-book}{\underline{ggplot2: elegant graphics for data analysis}}
 
@@ -819,8 +834,8 @@ trois composants essentiels (d'après Wickham, \emph{ibid.}, 2.3) :
 
 \pause 
 
-\textbf{Exemple} \emph{Miles per gallon} sur l'autoroute en fonction de
-la cylindrée.
+\intertitre{Exemple} \emph{Miles per gallon} sur l'autoroute en fonction
+de la cylindrée.
 
 \center \small 
 
@@ -830,20 +845,6 @@ la cylindrée.
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
-
-\end{frame}
-
-\begin{frame}[fragile]{\large Rappel : le même graphique avec base R}
-
-\centering \footnotesize
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[height=6.5cm]{partie2_files/figure-beamer/unnamed-chunk-21-1}
 
 \end{frame}
 
@@ -859,7 +860,21 @@ graphique}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-22-1}
+\includegraphics[width=0.9\linewidth]{partie2_files/figure-beamer/unnamed-chunk-21-1}
+
+\end{frame}
+
+\begin{frame}[fragile]{\large Rappel : le même graphique avec base R}
+
+\centering \footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(mpg}\OperatorTok{$}\NormalTok{displ, mpg}\OperatorTok{$}\NormalTok{hwy)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=6.5cm]{partie2_files/figure-beamer/unnamed-chunk-22-1}
 
 \end{frame}
 
@@ -1242,9 +1257,9 @@ pré-paramétrées de \texttt{layer()}}.
 
 \pause \raggedright \small \vspace{-0.3cm}
 
-\textbf{Remarque} Le positionnement des classes des histogrammes semble
-perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
-\texttt{boundary} permet de corriger ce problème (\emph{cf.}
+\intertitre{Remarque} Le positionnement des classes des histogrammes
+semble perturbé dans les dernières versions de \texttt{ggplot2} : le
+paramètre \texttt{boundary} permet de corriger ce problème (\emph{cf.}
 \href{http://stackoverflow.com/questions/37876096/geom-histogram-wrong-bins}{\underline{cette discussion}}).
 
 \end{frame}
@@ -1372,7 +1387,7 @@ perturbé dans les dernières versions de \texttt{ggplot2} : le paramètre
 
 \pause \raggedright \small
 
-\textbf{Pour aller plus loin} Une page du site
+\intertitre{Pour aller plus loin} Une page du site
 \href{http://www.sthda.com/french/wiki/ggplot2-graphique-en-camembert-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees}{\underline{sthda.com}}
 explique (en français) comment produire un diagramme circulaire complet
 avec \texttt{ggplot2}.
