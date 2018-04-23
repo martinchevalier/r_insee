@@ -1,4 +1,4 @@
-# Ignore everything in repository root 
+# Ignore everything in repository root
 /*
 \#old/
 \#archives/
@@ -8,12 +8,11 @@
 unnamed-chunk*
 .Rhistory
 .Rproj.user
-
 # Files to not ignore
 !/.gitignore
 !/donnees
 !/initiation
 !/perf
+!/dev
 !/LICENSE
 !/README.md
-
