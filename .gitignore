@@ -10,9 +10,4 @@ unnamed-chunk*
 .Rproj.user
 # Files to not ignore
 !/.gitignore
-!/donnees
-!/initiation
-!/perf
-!/dev
-!/LICENSE
 !/README.md
